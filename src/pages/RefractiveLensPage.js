@@ -12,7 +12,6 @@ export default function RefractiveLensPage() {
     if (popupBrand === brand) {
       setPopupBrand(null); // 닫기
     } else if (popupBrand) {
-      // 다른 팝업이 열려있으면 먼저 닫고 일정 시간 뒤에 전환
       setPopupBrand(null);
       setNextBrand(brand);
     } else {
@@ -25,7 +24,7 @@ export default function RefractiveLensPage() {
       const timer = setTimeout(() => {
         setPopupBrand(nextBrand);
         setNextBrand(null);
-      }, 300); // fade-out 예상 시간
+      }, 300);
       return () => clearTimeout(timer);
     }
   }, [popupBrand, nextBrand]);
@@ -41,59 +40,74 @@ export default function RefractiveLensPage() {
   };
 
   return (
-    <div className="bg-slate-900 text-white min-h-screen p-6 relative">
-      <div className="flex justify-between items-center mb-4">
-        <h1 className="text-xl font-bold">이노티안경 이천증포점</h1>
-        <div className="flex gap-2">
-          <button className="text-sm underline" onClick={() => navigate(-1)}>← 뒤로</button>
-          <button className="text-sm underline" onClick={() => navigate("/")}>🏠 홈</button>
-        </div>
+    <div className="bg-gray-50 text-gray-900 min-h-screen p-4">
+      <div className="mb-6">
+        <h1 className="text-xl font-bold mb-2">이노티안경 이천증포점</h1>
+        <p className="bg-white rounded-xl p-3 text-gray-600 shadow text-sm">
+          고객님의 눈을 보호하고, 시력을 교정하는 안경렌즈는 의료기기 1등급 입니다
+        </p>
       </div>
-      <h2 className="text-xl font-semibold mb-4">굴절이상교정렌즈 가격 비교</h2>
 
-      <table className="w-full text-center border-collapse border border-gray-500">
-        <thead className="bg-slate-700">
+      <div className="grid grid-cols-2 gap-4 mb-8">
+        <button
+          onClick={() => handleBrandClick("stock")}
+          className="rounded-xl bg-blue-100 p-4 shadow hover:shadow-md transition text-center font-semibold text-blue-800"
+        >
+          여벌렌즈
+        </button>
+        <button
+          onClick={() => handleBrandClick("order")}
+          className="rounded-xl bg-emerald-100 p-4 shadow hover:shadow-md transition text-center font-semibold text-emerald-800"
+        >
+          주문렌즈
+        </button>
+      </div>
+
+      <table className="w-full text-center border-collapse bg-white rounded-xl overflow-hidden shadow-md">
+        <thead className="bg-gray-200">
           <tr>
-            <th className="border p-2">굴절률</th>
-            <th className="border p-2 cursor-pointer" onClick={() => handleBrandClick("chemi2")}>케미 2세대 👍<div className="text-sm">가성비 추천</div></th>
-            <th className="border p-2 cursor-pointer" onClick={() => handleBrandClick("chemi3")}>케미 3세대 IR ⭐<div className="text-sm">고기능 추천</div></th>
-            <th className="border p-2 cursor-pointer text-yellow-300 font-bold" onClick={() => handleBrandClick("hoya")}>호야 뉴럭스 🌟<div className="text-sm">베스트 추천</div></th>
+            <th className="p-3">굴절률</th>
+            <th className="p-3">케미 2세대 👍<div className="text-xs">가성비 추천</div></th>
+            <th className="p-3">케미 3세대 IR ⭐<div className="text-xs">고기능 추천</div></th>
+            <th className="p-3 text-yellow-500 font-bold">호야 뉴럭스 🌟<div className="text-xs">베스트 추천</div></th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-  <td className="border p-2 cursor-pointer" onClick={() => handleRowSelect("1.56")}>1.56</td>
-  <td className={`border p-2 ${selectedRows.includes("1.56") ? 'bg-yellow-400 text-black font-bold shadow-md' : selectedRows.length > 0 ? 'opacity-30' : ''}`}>3만원</td>
-  <td className={`border p-2 ${selectedRows.includes("1.56") ? 'bg-yellow-400 text-black font-bold shadow-md' : selectedRows.length > 0 ? 'opacity-30' : ''}`}>5만원</td>
-  <td className={`border p-2 ${selectedRows.includes("1.56") ? 'bg-yellow-400 text-black font-bold shadow-md' : selectedRows.length > 0 ? 'opacity-30' : ''}`}>7만원</td>
-</tr>
-          <tr>
-  <td className="border p-2 cursor-pointer" onClick={() => handleRowSelect("1.60")}>1.60</td>
-  <td className={`border p-2 ${selectedRows.includes("1.60") ? 'bg-yellow-400 text-black font-bold shadow-md' : selectedRows.length > 0 ? 'opacity-30' : ''}`}>5만원</td>
-  <td className={`border p-2 ${selectedRows.includes("1.60") ? 'bg-yellow-400 text-black font-bold shadow-md' : selectedRows.length > 0 ? 'opacity-30' : ''}`}>8만원</td>
-  <td className={`border p-2 ${selectedRows.includes("1.60") ? 'bg-yellow-400 text-black font-bold shadow-md' : selectedRows.length > 0 ? 'opacity-30' : ''}`}>9만원</td>
-</tr>
-          <tr>
-  <td className="border p-2 cursor-pointer" onClick={() => handleRowSelect("1.67")}>1.67</td>
-  <td className={`border p-2 ${selectedRows.includes("1.67") ? 'bg-yellow-400 text-black font-bold shadow-md' : selectedRows.length > 0 ? 'opacity-30' : ''}`}>8만원</td>
-  <td className={`border p-2 ${selectedRows.includes("1.67") ? 'bg-yellow-400 text-black font-bold shadow-md' : selectedRows.length > 0 ? 'opacity-30' : ''}`}>10만원</td>
-  <td className={`border p-2 ${selectedRows.includes("1.67") ? 'bg-yellow-400 text-black font-bold shadow-md' : selectedRows.length > 0 ? 'opacity-30' : ''}`}>12만원</td>
-</tr>
-          <tr>
-  <td className="border p-2 cursor-pointer" onClick={() => handleRowSelect("1.74")}>1.74</td>
-  <td className={`border p-2 ${selectedRows.includes("1.74") ? 'bg-yellow-400 text-black font-bold shadow-md' : selectedRows.length > 0 ? 'opacity-30' : ''}`}>10만원</td>
-  <td className={`border p-2 ${selectedRows.includes("1.74") ? 'bg-yellow-400 text-black font-bold shadow-md' : selectedRows.length > 0 ? 'opacity-30' : ''}`}>15만원</td>
-  <td className={`border p-2 ${selectedRows.includes("1.74") ? 'bg-yellow-400 text-black font-bold shadow-md' : selectedRows.length > 0 ? 'opacity-30' : ''}`}>19만원</td>
-</tr>
+          {["1.56", "1.60", "1.67", "1.74"].map((row) => (
+            <tr key={row}>
+              <td
+                className="p-3 cursor-pointer text-sm font-medium text-blue-600"
+                onClick={() => handleRowSelect(row)}
+              >
+                {row}
+              </td>
+              {["케미2", "케미3", "호야"].map((_, colIdx) => (
+                <td
+                  key={colIdx}
+                  className={`p-3 text-sm transition-all duration-300 ${selectedRows.includes(row)
+                    ? "bg-yellow-200 text-black font-bold shadow"
+                    : selectedRows.length > 0 ? "opacity-30" : ""}`}
+                >
+                  {row === "1.56" ? ["3만원", "5만원", "7만원"][colIdx]
+                    : row === "1.60" ? ["5만원", "8만원", "9만원"][colIdx]
+                    : row === "1.67" ? ["8만원", "10만원", "12만원"][colIdx]
+                    : ["10만원", "15만원", "19만원"][colIdx]}
+                </td>
+              ))}
+            </tr>
+          ))}
         </tbody>
       </table>
 
-      {popupBrand && (
+      {popupBrand && popupBrand !== "stock" && popupBrand !== "order" && (
         <>
-          <div className="fixed top-4 w-full z-50 text-center">{["hoya", "chemi3"].includes(popupBrand) && (
-            <p className="text-2xl text-center text-yellow-400 font-semibold animate-pulse mt-2 mb-1">
-              🌟 고객 선택률 상위 렌즈
-            </p>)}</div>}
+          <div className="fixed top-4 w-full z-50 text-center">
+            {["hoya", "chemi3"].includes(popupBrand) && (
+              <p className="text-2xl text-yellow-500 font-semibold animate-pulse mt-2 mb-1">
+                🌟 고객 선택률 상위 렌즈
+              </p>
+            )}
+          </div>
           <LensPopup brand={popupBrand} onClose={handleClosePopup} />
         </>
       )}
