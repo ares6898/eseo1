@@ -4,24 +4,28 @@ import { useNavigate } from "react-router-dom";
 export default function HomePage() {
   const navigate = useNavigate();
   return (
-    <div className="bg-slate-900 text-white min-h-screen p-8 flex flex-col items-center justify-center">
-      <h1 className="text-4xl font-bold mb-6">이노티안경 이천증포점</h1>
-      <div className="flex gap-6 mb-6">
+    <div className="bg-gray-50 text-gray-900 min-h-screen p-6">
+      <h1 className="text-2xl font-bold text-center mb-6">이노티안경 이천증포점</h1>
+
+      <div className="grid grid-cols-2 gap-4 mb-8 px-4">
         <button
-          className="px-10 py-6 rounded-full bg-blue-500 text-white text-xl shadow-md hover:bg-blue-600"
+          className="rounded-xl bg-blue-100 p-6 shadow-md hover:shadow-lg text-center font-semibold text-blue-800 text-lg"
           onClick={() => navigate("/stock-lens")}
         >
           STOCK LENS<br /><span className="text-sm">여벌렌즈</span>
         </button>
         <button
-          className="px-10 py-6 rounded-full bg-green-500 text-white text-xl shadow-md hover:bg-green-600"
+          className="rounded-xl bg-emerald-100 p-6 shadow-md hover:shadow-lg text-center font-semibold text-emerald-800 text-lg"
         >
           RX LENS<br /><span className="text-sm">주문렌즈</span>
         </button>
       </div>
-      <p className="text-lg font-semibold text-center text-yellow-300">
-        고객님의 눈을 보호하고, 시력을 교정하는 안경렌즈는 의료기기 1등급 입니다
-      </p>
+
+      <div className="mx-auto max-w-xl px-4">
+        <p className="rounded-xl bg-white p-4 text-gray-600 text-center shadow text-sm">
+          고객님의 눈을 보호하고, 시력을 교정하는 안경렌즈는 의료기기 1등급 입니다
+        </p>
+      </div>
     </div>
   );
 }
