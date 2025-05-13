@@ -15,7 +15,7 @@ export default function HomePage() {
           STOCK LENS<br /><span className="text-sm">여벌렌즈</span>
         </button>
         <button
-          className="rounded-xl bg-emerald-100 px-10 py-6 shadow-md hover:shadow-lg text-center font-semibold text-emerald-800 text-lg"
+          className="rounded-xl bg-emerald-100 px-16 py-8 shadow-md hover:shadow-lg text-center font-semibold text-emerald-800 text-lg"
         >
           RX LENS<br /><span className="text-sm">주문렌즈</span>
         </button>
