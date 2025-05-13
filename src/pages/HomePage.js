@@ -7,7 +7,7 @@ export default function HomePage() {
     <div className="bg-gray-50 text-gray-900 min-h-screen p-6">
       <h1 className="text-2xl font-bold text-center mb-6">이노티안경 이천증포점</h1>
 
-      <div className="grid grid-cols-2 gap-4 mb-8 px-4 justify-center">
+      <div className="flex justify-center gap-6 mb-8">
         <button
           className="rounded-xl bg-blue-100 aspect-square max-w-36 shadow-md hover:shadow-lg text-center font-semibold text-blue-800 text-lg flex items-center justify-center flex-col"
           onClick={() => navigate("/stock-lens")}
