@@ -5,28 +5,28 @@ export default function HomePage() {
   const navigate = useNavigate();
   return (
     <div className="bg-gray-50 text-gray-900 min-h-screen p-6">
-	      <div className="bg-white rounded-xl shadow p-4 w-fit mx-auto mb-6">
+      <div className="bg-white rounded-xl shadow p-4 w-fit mx-auto mb-6">
   <img src="/images/이노티로고.jpg" alt="이노티안경 로고" className="h-16" />
 </div>
-      <h1 className="text-2xl font-bold text-center mb-6">이노티안경 이천증포점</h1>
+<h1 className="text-2xl font-bold text-center mb-6">이노티안경 이천증포점</h1>
 
-      <div className="flex justify-center gap-6 mb-8">
+      <div className="flex justify-center gap-8 mb-8">
         <button
-          className="rounded-xl bg-blue-100 px-10 py-6 shadow-md hover:shadow-lg text-center font-semibold text-blue-800 text-lg"
+          className="rounded-xl bg-blue-100 px-10 py-10 shadow-md hover:shadow-lg text-center font-semibold text-blue-800 text-lg"
           onClick={() => navigate("/stock-lens")}
         >
-          STOCK LENS<br /><span className="text-sm">여벌렌즈</span>
+          STOCK LENS<br />
         </button>
         <button
-          className="rounded-xl bg-emerald-100 px-16 py-8 shadow-md hover:shadow-lg text-center font-semibold text-emerald-800 text-lg"
+          className="rounded-xl bg-emerald-100 px-14 py-10 shadow-md hover:shadow-lg text-center font-semibold text-emerald-800 text-lg"
         >
-          RX LENS<br /><span className="text-sm">주문렌즈</span>
+          RX LENS<br />
         </button>
       </div>
 
       <div className="mx-auto max-w-xl px-4">
-        <p className="rounded-xl bg-white p-4 text-gray-600 text-center shadow text-sm">
-          고객님의 눈을 보호하고, 시력을 교정하는 안경렌즈는 의료기기 1등급 입니다
+        <p className="rounded-xl bg-blue-500 p-4 text-white text-center shadow text-base font-semibold">
+          고객님의 눈을 보호하고, 시력을 교정하는 안경렌즈는 <br /> [ 의료기기 1등급 ] 입니다️
         </p>
       </div>
     </div>
