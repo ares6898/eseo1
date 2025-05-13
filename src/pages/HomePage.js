@@ -5,6 +5,9 @@ export default function HomePage() {
   const navigate = useNavigate();
   return (
     <div className="bg-gray-50 text-gray-900 min-h-screen p-6">
+	      <div className="bg-white rounded-xl shadow p-4 w-fit mx-auto mb-6">
+  <img src="/images/이노티로고.jpg" alt="이노티안경 로고" className="h-16" />
+</div>
       <h1 className="text-2xl font-bold text-center mb-6">이노티안경 이천증포점</h1>
 
       <div className="flex justify-center gap-6 mb-8">
