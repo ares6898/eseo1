@@ -9,13 +9,13 @@ export default function HomePage() {
 
       <div className="flex justify-center gap-6 mb-8">
         <button
-          className="rounded-xl bg-blue-100 aspect-square max-w-36 shadow-md hover:shadow-lg text-center font-semibold text-blue-800 text-lg flex items-center justify-center flex-col"
+          className="rounded-xl bg-blue-100 px-10 py-6 shadow-md hover:shadow-lg text-center font-semibold text-blue-800 text-lg"
           onClick={() => navigate("/stock-lens")}
         >
           STOCK LENS<br /><span className="text-sm">여벌렌즈</span>
         </button>
         <button
-          className="rounded-xl bg-emerald-100 aspect-square max-w-36 shadow-md hover:shadow-lg text-center font-semibold text-emerald-800 text-lg flex items-center justify-center flex-col"
+          className="rounded-xl bg-emerald-100 px-10 py-6 shadow-md hover:shadow-lg text-center font-semibold text-emerald-800 text-lg"
         >
           RX LENS<br /><span className="text-sm">주문렌즈</span>
         </button>
