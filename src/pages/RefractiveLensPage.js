@@ -47,7 +47,7 @@ export default function RefractiveLensPage() {
 </div>
 <div className="flex justify-between items-center text-center mb-4">
 
-        <h1 className="text-xl font-bold">이노티안경 이천증포점</h1>
+        
         <div className="grid grid-cols-3 gap-2 text-xs text-center text-gray-500 mb-1">
   
 </div>
@@ -66,16 +66,35 @@ export default function RefractiveLensPage() {
 </div>
       </div>
       <h2 className="text-xl font-semibold text-center mb-4">Refractive lens</h2>
+	  <div className="bg-white rounded-xl shadow p-4 mb-6 text-sm text-center text-gray-700 leading-relaxed font-semibold">
+  💡 렌즈 가격은 기능, 두께와 무게, 차단 성능, 브랜드에 따라 달라집니다. 💡
+</div>
 
       <div className="grid gap-4">
 	  <div className="bg-blue-100 rounded-xl shadow p-4 mb-2">
   <div className="grid grid-cols-[1fr_3fr] items-center gap-4">
     <div className="font-bold text-gray-600 text-sm">굴절률∖제품명</div>
     <div className="grid grid-cols-3 gap-2">
-      <div className="text-sm font-bold text-gray-600 text-center">케미 2세대</div>
-      <div className="text-sm font-bold text-gray-600 text-center">케미 3세대 IR</div>
-      <div className="text-sm font-bold text-gray-600 text-center">호야 뉴럭스 FC</div>
-    </div>
+  <div className="text-sm font-bold text-gray-600 text-center flex items-center justify-center gap-1">
+    <span className="bg-green-100 text-green-800 px-2 py-0.5 rounded-full text-xs font-semibold">
+      👍 가성비
+    </span>
+    케미 2세대
+  </div>
+  <div className="text-sm font-bold text-gray-600 text-center flex items-center justify-center gap-1">
+    <span className="bg-purple-100 text-purple-800 px-2 py-0.5 rounded-full text-xs font-semibold">
+      ⭐ 고기능
+    </span>
+    케미 3세대 IR
+  </div>
+  <div className="text-sm font-bold text-gray-600 text-center flex items-center justify-center gap-1">
+    <span className="bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full text-xs font-semibold">
+      🌟 베스트
+    </span>
+    호야 뉴럭스 FC
+  </div>
+</div>
+
   </div>
 </div>
 
@@ -86,7 +105,7 @@ export default function RefractiveLensPage() {
         <div className="font-semibold text-blue-800 cursor-pointer text-left" onClick={() => handleRowSelect(row)}>
            {row}
         </div>
-        <div className="grid grid-cols-3 gap-2">
+        <div className="grid grid-cols-3 gap-2 ">
           {[
             { brand: "케미 2세대", value: { "1.56": "3만원", "1.60": "5만원", "1.67": "8만원", "1.74": "10만원" }[row], label: "케미 2세대", brand: "chemi2" },
             { brand: "케미 3세대 IR", value: { "1.56": "5만원", "1.60": "8만원", "1.67": "10만원", "1.74": "15만원" }[row], label: "케미 3세대 IR", brand: "chemi3" },
@@ -112,7 +131,7 @@ export default function RefractiveLensPage() {
 
       {popupBrand && (
         <>
-          <div className="fixed top-4 w-full z-50 text-center">
+          <div className="fixed top-2 w-full z-50 text-center">
             {["hoya", "chemi3"].includes(popupBrand) && (
               <p className="text-2xl text-center text-yellow-400 font-semibold animate-pulse mt-2 mb-1">
                 🌟 고객 선택률 상위 렌즈
