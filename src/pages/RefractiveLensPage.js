@@ -113,10 +113,10 @@ export default function RefractiveLensPage() {
           ].map((cell, idx) => (
             <div
               key={idx}
-              className={`w-full text-center py-2 px-3 rounded cursor-pointer transition text-base ${
-        selectedRows.includes(row)
-          ? 'bg-yellow-200 text-black font-bold shadow'
-          : 'opacity-50'
+              className={`w-full text-center py-2 px-3 rounded cursor-pointer transition text-base border border-gray-300 ${
+    selectedRows.includes(row)
+      ? 'bg-yellow-200 text-black font-bold shadow'
+      : 'opacity-50'
       }`}
               onClick={() => handleBrandClick(idx === 0 ? "chemi2" : idx === 1 ? "chemi3" : "hoya")}
             >
