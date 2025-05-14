@@ -7,6 +7,7 @@ export default function RefractiveLensPage() {
   const [popupBrand, setPopupBrand] = useState(null);
   const [selectedRows, setSelectedRows] = useState([]);
   const [nextBrand, setNextBrand] = useState(null);
+  const [activeBrandLabel, setActiveBrandLabel] = useState(null);
 
   const handleBrandClick = (brand) => {
     if (popupBrand === brand) {
@@ -19,6 +20,12 @@ export default function RefractiveLensPage() {
       setPopupBrand(brand);
     }
   };
+  
+  const handleBrandLabelClick = (brandCode) => {
+  setPopupBrand(brandCode);
+  setActiveBrandLabel(brandCode);
+};
+
 
   useEffect(() => {
     if (!popupBrand && nextBrand) {
@@ -32,6 +39,7 @@ export default function RefractiveLensPage() {
 
   const handleClosePopup = () => {
     setPopupBrand(null);
+	setActiveBrandLabel(null); // 팝업 닫힐 때 반짝임도 종료
   };
 
   const handleRowSelect = (row) => {
@@ -75,22 +83,31 @@ export default function RefractiveLensPage() {
   <div className="grid grid-cols-[1fr_3fr] items-center gap-4">
     <div className="font-bold text-gray-600 text-sm">굴절률∖제품명</div>
     <div className="grid grid-cols-3 gap-2">
-  <div className="text-sm font-bold text-gray-600 text-center flex items-center justify-center gap-1">
-    <span className="bg-green-100 text-green-800 px-2 py-0.5 rounded-full text-xs font-semibold">
-      👍 가성비
-    </span>
+ <div
+    className={`text-sm font-bold text-center flex items-center justify-center gap-1 cursor-pointer rounded px-2 py-1 transition ${
+      activeBrandLabel === "chemi2" ? "bg-green-100 animate-pulse" : "text-gray-600"
+    }`}
+    onClick={() => handleBrandLabelClick("chemi2")}
+  >
+    <span className="text-green-800 text-xs font-semibold">👍 가성비</span>
     케미 2세대
   </div>
-  <div className="text-sm font-bold text-gray-600 text-center flex items-center justify-center gap-1">
-    <span className="bg-purple-100 text-purple-800 px-2 py-0.5 rounded-full text-xs font-semibold">
-      ⭐ 고기능
-    </span>
+  <div
+    className={`text-sm font-bold text-center flex items-center justify-center gap-1 cursor-pointer rounded px-2 py-1 transition ${
+      activeBrandLabel === "chemi3" ? "bg-purple-100 animate-pulse" : "text-gray-600"
+    }`}
+    onClick={() => handleBrandLabelClick("chemi3")}
+  >
+    <span className="text-purple-800 text-xs font-semibold">⭐ 고기능</span>
     케미 3세대 IR
   </div>
-  <div className="text-sm font-bold text-gray-600 text-center flex items-center justify-center gap-1">
-    <span className="bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full text-xs font-semibold">
-      🌟 베스트
-    </span>
+  <div
+    className={`text-sm font-bold text-center flex items-center justify-center gap-1 cursor-pointer rounded px-2 py-1 transition ${
+      activeBrandLabel === "hoya" ? "bg-yellow-100 animate-pulse" : "text-gray-600"
+    }`}
+    onClick={() => handleBrandLabelClick("hoya")}
+  >
+    <span className="text-yellow-800 text-xs font-semibold">🌟 베스트</span>
     호야 뉴럭스 FC
   </div>
 </div>
