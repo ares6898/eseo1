@@ -41,59 +41,84 @@ export default function RefractiveLensPage() {
   };
 
   return (
-    <div className="bg-slate-900 text-white min-h-screen p-6 relative">
-      <div className="flex justify-between items-center mb-4">
+    <div className="bg-gray-50 text-gray-900 min-h-screen p-6">
+      <div className="bg-white rounded-xl shadow p-4 w-fit mx-auto mb-6">
+  <img src="/images/이노티로고.jpg" alt="이노티안경 로고" className="h-16 cursor-pointer" onClick={() => navigate("/")} />
+</div>
+<div className="flex justify-between items-center text-center mb-4">
+
         <h1 className="text-xl font-bold">이노티안경 이천증포점</h1>
-        <div className="flex gap-2">
-          <button className="text-sm underline" onClick={() => navigate(-1)}>← 뒤로</button>
-          <button className="text-sm underline" onClick={() => navigate("/")}>🏠 홈</button>
+        <div className="grid grid-cols-3 gap-2 text-xs text-center text-gray-500 mb-1">
+  
+</div>
+<div className="grid grid-cols-3 gap-2">
+  {[
+    
+    
+  ].map((cell, idx) => (
+    <div
+      key={`label-${idx}`}
+      className="text-xs text-center w-full text-gray-500"
+    >
+      {cell.label}
+    </div>
+  ))}
+</div>
+      </div>
+      <h2 className="text-xl font-semibold text-center mb-4">Refractive lens</h2>
+
+      <div className="grid gap-4">
+	  <div className="bg-blue-100 rounded-xl shadow p-4 mb-2">
+  <div className="grid grid-cols-[1fr_3fr] items-center gap-4">
+    <div className="font-bold text-gray-600 text-sm">굴절률∖제품명</div>
+    <div className="grid grid-cols-3 gap-2">
+      <div className="text-sm font-bold text-gray-600 text-center">케미 2세대</div>
+      <div className="text-sm font-bold text-gray-600 text-center">케미 3세대 IR</div>
+      <div className="text-sm font-bold text-gray-600 text-center">호야 뉴럭스 FC</div>
+    </div>
+  </div>
+</div>
+
+  {["1.56", "1.60", "1.67", "1.74"].map((row) => (
+  
+    <div key={row} className="bg-white rounded-xl shadow p-4">
+      <div className="grid grid-cols-[1fr_3fr] items-center gap-4 mb-2">
+        <div className="font-semibold text-blue-800 cursor-pointer text-left" onClick={() => handleRowSelect(row)}>
+           {row}
+        </div>
+        <div className="grid grid-cols-3 gap-2">
+          {[
+            { brand: "케미 2세대", value: { "1.56": "3만원", "1.60": "5만원", "1.67": "8만원", "1.74": "10만원" }[row], label: "케미 2세대", brand: "chemi2" },
+            { brand: "케미 3세대 IR", value: { "1.56": "5만원", "1.60": "8만원", "1.67": "10만원", "1.74": "15만원" }[row], label: "케미 3세대 IR", brand: "chemi3" },
+            { brand: "호야 뉴럭스", value: { "1.56": "7만원", "1.60": "9만원", "1.67": "12만원", "1.74": "19만원" }[row], label: "호야 뉴럭스", brand: "hoya" }
+          ].map((cell, idx) => (
+            <div
+              key={idx}
+              className={`w-full text-center py-2 px-3 rounded cursor-pointer transition text-base ${
+        selectedRows.includes(row)
+          ? 'bg-yellow-200 text-black font-bold shadow'
+          : 'opacity-50'
+      }`}
+              onClick={() => handleBrandClick(idx === 0 ? "chemi2" : idx === 1 ? "chemi3" : "hoya")}
+            >
+              {cell.value}
+            </div>
+          ))}
         </div>
       </div>
-      <h2 className="text-xl font-semibold mb-4">굴절이상교정렌즈 가격 비교</h2>
-
-      <table className="w-full text-center border-collapse border border-gray-500">
-        <thead className="bg-slate-700">
-          <tr>
-            <th className="border p-2">굴절률</th>
-            <th className="border p-2 cursor-pointer" onClick={() => handleBrandClick("chemi2")}>케미 2세대 👍<div className="text-sm">가성비 추천</div></th>
-            <th className="border p-2 cursor-pointer" onClick={() => handleBrandClick("chemi3")}>케미 3세대 IR ⭐<div className="text-sm">고기능 추천</div></th>
-            <th className="border p-2 cursor-pointer text-yellow-300 font-bold" onClick={() => handleBrandClick("hoya")}>호야 뉴럭스 🌟<div className="text-sm">베스트 추천</div></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-  <td className="border p-2 cursor-pointer" onClick={() => handleRowSelect("1.56")}>1.56</td>
-  <td className={`border p-2 ${selectedRows.includes("1.56") ? 'bg-yellow-400 text-black font-bold shadow-md' : selectedRows.length > 0 ? 'opacity-30' : ''}`}>3만원</td>
-  <td className={`border p-2 ${selectedRows.includes("1.56") ? 'bg-yellow-400 text-black font-bold shadow-md' : selectedRows.length > 0 ? 'opacity-30' : ''}`}>5만원</td>
-  <td className={`border p-2 ${selectedRows.includes("1.56") ? 'bg-yellow-400 text-black font-bold shadow-md' : selectedRows.length > 0 ? 'opacity-30' : ''}`}>7만원</td>
-</tr>
-          <tr>
-  <td className="border p-2 cursor-pointer" onClick={() => handleRowSelect("1.60")}>1.60</td>
-  <td className={`border p-2 ${selectedRows.includes("1.60") ? 'bg-yellow-400 text-black font-bold shadow-md' : selectedRows.length > 0 ? 'opacity-30' : ''}`}>5만원</td>
-  <td className={`border p-2 ${selectedRows.includes("1.60") ? 'bg-yellow-400 text-black font-bold shadow-md' : selectedRows.length > 0 ? 'opacity-30' : ''}`}>8만원</td>
-  <td className={`border p-2 ${selectedRows.includes("1.60") ? 'bg-yellow-400 text-black font-bold shadow-md' : selectedRows.length > 0 ? 'opacity-30' : ''}`}>9만원</td>
-</tr>
-          <tr>
-  <td className="border p-2 cursor-pointer" onClick={() => handleRowSelect("1.67")}>1.67</td>
-  <td className={`border p-2 ${selectedRows.includes("1.67") ? 'bg-yellow-400 text-black font-bold shadow-md' : selectedRows.length > 0 ? 'opacity-30' : ''}`}>8만원</td>
-  <td className={`border p-2 ${selectedRows.includes("1.67") ? 'bg-yellow-400 text-black font-bold shadow-md' : selectedRows.length > 0 ? 'opacity-30' : ''}`}>10만원</td>
-  <td className={`border p-2 ${selectedRows.includes("1.67") ? 'bg-yellow-400 text-black font-bold shadow-md' : selectedRows.length > 0 ? 'opacity-30' : ''}`}>12만원</td>
-</tr>
-          <tr>
-  <td className="border p-2 cursor-pointer" onClick={() => handleRowSelect("1.74")}>1.74</td>
-  <td className={`border p-2 ${selectedRows.includes("1.74") ? 'bg-yellow-400 text-black font-bold shadow-md' : selectedRows.length > 0 ? 'opacity-30' : ''}`}>10만원</td>
-  <td className={`border p-2 ${selectedRows.includes("1.74") ? 'bg-yellow-400 text-black font-bold shadow-md' : selectedRows.length > 0 ? 'opacity-30' : ''}`}>15만원</td>
-  <td className={`border p-2 ${selectedRows.includes("1.74") ? 'bg-yellow-400 text-black font-bold shadow-md' : selectedRows.length > 0 ? 'opacity-30' : ''}`}>19만원</td>
-</tr>
-        </tbody>
-      </table>
+    </div>
+  ))}
+</div>
 
       {popupBrand && (
         <>
-          <div className="fixed top-4 w-full z-50 text-center">{["hoya", "chemi3"].includes(popupBrand) && (
-            <p className="text-2xl text-center text-yellow-400 font-semibold animate-pulse mt-2 mb-1">
-              🌟 고객 선택률 상위 렌즈
-            </p>)}</div>}
+          <div className="fixed top-4 w-full z-50 text-center">
+            {["hoya", "chemi3"].includes(popupBrand) && (
+              <p className="text-2xl text-center text-yellow-400 font-semibold animate-pulse mt-2 mb-1">
+                🌟 고객 선택률 상위 렌즈
+              </p>
+            )}
+          </div>
           <LensPopup brand={popupBrand} onClose={handleClosePopup} />
         </>
       )}
