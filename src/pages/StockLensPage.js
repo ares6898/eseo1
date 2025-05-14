@@ -1,1 +1,45 @@
-import { useNavigate } from 'react-router-dom'; export default function StockLensPage() { const n = useNavigate(); return <div className='text-white p-6'><h1 className='text-xl mb-4'>STOCK LENS 카테고리</h1><div className='grid grid-cols-2 gap-4'><button className='bg-blue-500 p-4 rounded-lg' onClick={() => n('/stock-lens/refractive')}>굴절이상교정렌즈</button><button className='bg-blue-500 p-4 rounded-lg'>변색렌즈</button><button className='bg-blue-500 p-4 rounded-lg'>여벌착색렌즈</button><button className='bg-blue-500 p-4 rounded-lg'>운전용렌즈</button></div></div>; }
+import React from "react";
+import { useNavigate } from "react-router-dom";
+
+export default function StockLensPage() {
+  const navigate = useNavigate();
+
+  return (
+    <div className="bg-gray-50 text-gray-900 min-h-screen p-6">
+      <div className="bg-white rounded-xl shadow p-4 w-fit mx-auto mb-6">
+        <img src="/images/이노티로고.jpg" alt="이노티안경 로고" className="h-16" />
+      </div>
+      <h1 className="text-2xl font-bold text-center mb-6">STOCK LENS 카테고리</h1>
+
+      <div className="flex flex-wrap justify-center gap-6 px-4">
+        <button
+          className="rounded-xl bg-white aspect-square w-40 h-40 shadow-md hover:shadow-lg text-center font-semibold text-blue-800 text-lg flex items-center justify-center text-wrap p-4"
+          onClick={() => navigate("/stock-lens/refractive")}
+        >
+          굴절이상교정렌즈
+        </button>
+
+        <button
+          className="rounded-xl bg-white aspect-square w-40 h-40 shadow-md hover:shadow-lg text-center font-semibold text-blue-800 text-lg flex items-center justify-center text-wrap p-4"
+          onClick={() => navigate("/stock-lens/photochromic")}
+        >
+          소아&청소년
+        </button>
+
+        <button
+          className="rounded-xl bg-white aspect-square w-40 h-40 shadow-md hover:shadow-lg text-center font-semibold text-blue-800 text-lg flex items-center justify-center text-wrap p-4"
+          onClick={() => navigate("/stock-lens/tinted")}
+        >
+          변색렌즈 
+        </button>
+
+        <button
+          className="rounded-xl bg-white aspect-square w-40 h-40 shadow-md hover:shadow-lg text-center font-semibold text-blue-800 text-lg flex items-center justify-center text-wrap p-4"
+          onClick={() => navigate("/stock-lens/driving")}
+        >
+          착색렌즈
+        </button>
+      </div>
+    </div>
+  );
+}
