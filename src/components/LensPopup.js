@@ -97,25 +97,25 @@ const LensPopup = ({ brand, onClose }) => {
           📌 {data.recommendation}
         </div>
 
-        <div className={`mb-6 ${currentBrand === "hoya" ? "flex justify-center gap-4 items-center" : "flex justify-center"}`}>
-          {imageList.map((src, idx) => (
-            <img
-              key={idx}
-              src={src}
-              alt={`설명 이미지 ${idx + 1}`}
-              className={`rounded-xl object-contain transition-transform duration-500 ease-in-out ${currentBrand === "hoya" ? "h-56 w-auto scale-100 animate-fade-in-slow" : "h-48 w-auto scale-100"}`}
-            />
-          ))}
-        </div>
-
-        
-        <ul className="text-base leading-relaxed text-gray-700 text-left px-6 max-w-xl mx-auto">
-          {data.description.map((line, idx) => (
-            <li key={idx} className="mb-3 font-medium flex items-start">
-              {line.icon}<span>{line.text}</span>
-            </li>
-          ))}
-        </ul>
+        <div className="flex flex-col md:flex-row gap-6 items-center justify-center px-4 mb-6">
+  <div className="flex-shrink-0">
+    {imageList.map((src, idx) => (
+      <img
+        key={idx}
+        src={src}
+        alt={`설명 이미지 ${idx + 1}`}
+        className={`rounded-xl object-contain transition-transform duration-500 ease-in-out ${currentBrand === "hoya" ? "h-56 w-auto animate-fade-in-slow" : "h-48 w-auto"}`}
+      />
+    ))}
+  </div>
+  <ul className="text-base leading-relaxed text-gray-700 text-left max-w-md">
+    {data.description.map((line, idx) => (
+      <li key={idx} className="mb-3 font-medium flex items-start">
+        {line.icon}<span>{line.text}</span>
+      </li>
+    ))}
+  </ul>
+</div>
 <div className="text-center text-sm italic text-gray-500 mb-6 px-4 animate-fade-in-slow">
   <div className="text-xs text-blue-600 font-semibold mb-1">💬 실제 고객 리뷰</div>
   {data.review}
