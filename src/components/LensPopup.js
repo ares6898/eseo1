@@ -98,16 +98,16 @@ const LensPopup = ({ brand, onClose }) => {
         </div>
 
         <div className="flex flex-col md:flex-row gap-6 items-center justify-center px-4 mb-6">
-  <div className="flex-shrink-0">
-    {imageList.map((src, idx) => (
-      <img
-        key={idx}
-        src={src}
-        alt={`설명 이미지 ${idx + 1}`}
-        className={`rounded-xl object-contain transition-transform duration-500 ease-in-out ${currentBrand === "hoya" ? "h-56 w-auto animate-fade-in-slow" : "h-48 w-auto"}`}
-      />
-    ))}
-  </div>
+  <div className="flex-shrink-0 flex gap-4">
+  {imageList.map((src, idx) => (
+    <img
+      key={idx}
+      src={src}
+      alt={`설명 이미지 ${idx + 1}`}
+      className={`rounded-xl object-contain transition-transform duration-500 ease-in-out ${currentBrand === "hoya" ? "h-56 w-auto animate-fade-in-slow" : "h-48 w-auto"}`}
+    />
+  ))}
+</div>
   <ul className="text-base leading-relaxed text-gray-700 text-left max-w-md">
     {data.description.map((line, idx) => (
       <li key={idx} className="mb-3 font-medium flex items-start">
