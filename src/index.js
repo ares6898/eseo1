@@ -6,6 +6,10 @@ import StockLensPage from "./pages/StockLensPage";
 import RefractiveLensPage from "./pages/RefractiveLensPage";
 import "./index.css";
 
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+
+
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Router>
@@ -16,3 +20,5 @@ root.render(
     </Routes>
   </Router>
 );
+
+serviceWorkerRegistration.register();
