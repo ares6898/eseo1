@@ -50,10 +50,10 @@ export default function RefractiveLensPage() {
     {
       brand: "케미 2세대",
       value: {
-        "1.56": { regular: "5만원", discount: "3만원" },
-        "1.60": { regular: "6만원", discount: "5만원" },
-        "1.67": { regular: "10만원", discount: "8만원" },
-        "1.74": { regular: "12만원", discount: "10만원" }
+        "1.56": { regular: "6만원", discount: "3만원" },
+        "1.60": { regular: "10만원", discount: "5만원" },
+        "1.67": { regular: "16만원", discount: "8만원" },
+        "1.74": { regular: "20만원", discount: "10만원" }
       },
       label: "케미 2세대",
       brandCode: "chemi2",
@@ -63,10 +63,10 @@ export default function RefractiveLensPage() {
     {
       brand: "케미 3세대 IR",
       value: {
-        "1.56": { regular: "6만원", discount: "5만원" },
-        "1.60": { regular: "10만원", discount: "8만원" },
-        "1.67": { regular: "12만원", discount: "10만원" },
-        "1.74": { regular: "18만원", discount: "15만원" }
+        "1.56": { regular: "9만원", discount: "5만원" },
+        "1.60": { regular: "14만원", discount: "8만원" },
+        "1.67": { regular: "19만원", discount: "10만원" },
+        "1.74": { regular: "24만원", discount: "15만원" }
       },
       label: "케미 3세대 IR",
       brandCode: "chemi3",
@@ -76,10 +76,10 @@ export default function RefractiveLensPage() {
     {
       brand: "호야 뉴럭스 FC",
       value: {
-        "1.56": { regular: "9만원", discount: "7만원" },
-        "1.60": { regular: "11만원", discount: "9만원" },
-        "1.67": { regular: "14만원", discount: "12만원" },
-        "1.74": { regular: "22만원", discount: "19만원" }
+        "1.56": { regular: "11만원", discount: "7만원" },
+        "1.60": { regular: "16만원", discount: "9만원" },
+        "1.67": { regular: "23만원", discount: "12만원" },
+        "1.74": { regular: "43만원", discount: "19만원" }
       },
       label: "호야 뉴럭스 FC",
       brandCode: "hoya",
