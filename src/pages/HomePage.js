@@ -6,9 +6,9 @@ export default function HomePage() {
   return (
     <div className="bg-gray-50 text-gray-900 min-h-screen p-6">
       <div className="bg-white rounded-xl shadow p-4 w-fit mx-auto mb-6">
-  <img src="/images/이노티로고.jpg" alt="이노티안경 로고" className="h-16" />
-</div>
-<h1 className="text-2xl font-bold text-center mb-6">이노티안경 이천증포점</h1>
+        <img src="/images/이노티로고.jpg" alt="이노티안경 로고" className="h-16" />
+      </div>
+      <h1 className="text-2xl font-bold text-center mb-6">이노티안경 이천증포점</h1>
 
       <div className="flex justify-center gap-8 mb-8">
         <button
@@ -19,6 +19,7 @@ export default function HomePage() {
         </button>
         <button
           className="rounded-xl bg-emerald-100 px-14 py-10 shadow-md hover:shadow-lg text-center font-semibold text-emerald-800 text-lg"
+          onClick={() => navigate("/rx-lens")}
         >
           RX LENS<br />
         </button>
