@@ -58,7 +58,8 @@ export default function RefractiveLensPage() {
       label: "케미 2세대",
       brandCode: "chemi2",
       icon: "👍 가성비",
-      color: "green"
+      color: "green",
+      tagline: "가성비 최고, 자외선 차단"
     },
     {
       brand: "케미 3세대 IR",
@@ -71,7 +72,8 @@ export default function RefractiveLensPage() {
       label: "케미 3세대 IR",
       brandCode: "chemi3",
       icon: "⭐ 고기능",
-      color: "purple"
+      color: "purple",
+      tagline: "근적외선까지 차단, 스마트폰 사용자 추천"
     },
     {
       brand: "호야 뉴럭스 FC",
@@ -84,9 +86,31 @@ export default function RefractiveLensPage() {
       label: "호야 뉴럭스 FC",
       brandCode: "hoya",
       icon: "🌟 베스트",
-      color: "yellow"
+      color: "yellow",
+      tagline: "고급 내구성, 자외선·청색광·오염방지 올인원"
     }
   ];
+
+  const colorMap = {
+    green: {
+      bg: (active) => active ? "bg-green-300" : "bg-green-100",
+      text: "text-green-900",
+      badgeBg: "bg-green-500",
+      badgeText: "text-white"
+    },
+    purple: {
+      bg: (active) => active ? "bg-purple-300" : "bg-purple-100",
+      text: "text-purple-900",
+      badgeBg: "bg-purple-500",
+      badgeText: "text-white"
+    },
+    yellow: {
+      bg: (active) => active ? "bg-yellow-300" : "bg-yellow-100",
+      text: "text-yellow-900",
+      badgeBg: "bg-yellow-500",
+      badgeText: "text-white"
+    }
+  };
 
   return (
     <div className="bg-gray-50 text-gray-900 min-h-screen p-6">
@@ -94,30 +118,44 @@ export default function RefractiveLensPage() {
         <img src="/images/이노티로고.jpg" alt="이노티안경 로고" className="h-16 cursor-pointer" onClick={() => navigate("/")} />
       </div>
 
-      <h2 className="text-xl font-semibold text-center mb-4">Refractive lens</h2>
+      <h2 className="text-xl font-semibold text-center mb-2">Refractive lens</h2>
+
+      <div className="text-center text-sm text-blue-800 font-bold mb-4">
+        어떤 렌즈가 좋을지 모르시겠다면 👉
+        <span className="underline cursor-pointer hover:text-blue-500 ml-1">
+          전문안경사 추천 보기
+        </span>
+      </div>
 
       <div className="bg-white rounded-xl shadow p-4 mb-6 text-sm text-center text-gray-700 leading-relaxed font-semibold">
         💡 렌즈 가격은 기능, 두께와 무게, 차단 성능, 브랜드에 따라 달라집니다. 💡
       </div>
 
       <div className="bg-blue-100 rounded-xl shadow p-4 mb-2">
-        <div className="grid grid-cols-[1fr_3fr] items-center gap-4">
-          <div className="font-bold text-gray-600 text-sm">굴절률∖제품명</div>
+        <div className="grid grid-cols-[1fr_3fr] items-start gap-4">
+          <div className="font-bold text-gray-600 text-sm pt-2">굴절률</div>
           <div className="grid grid-cols-3 gap-2">
-            {priceData.map((item, idx) => (
-              <div
-                key={idx}
-                className={`text-sm font-bold text-center flex items-center justify-center gap-1 cursor-pointer rounded px-2 py-1 transition ${
-                  activeBrandLabel === item.brandCode ? `animate-pulse bg-${item.color}-50` : "text-gray-600"
-                }`}
-                onClick={() => handleBrandLabelClick(item.brandCode)}
-              >
-                <span className={`bg-${item.color}-100 text-${item.color}-800 px-2 py-0.5 rounded-full text-xs font-semibold`}>
-                  {item.icon}
-                </span>
-                {item.label}
-              </div>
-            ))}
+            {priceData.map((item, idx) => {
+              const isActive = activeBrandLabel === item.brandCode;
+              const color = colorMap[item.color];
+
+              return (
+                <div
+                  key={idx}
+                  className={`flex flex-col items-center text-center bg-white rounded-xl shadow p-4 transition cursor-pointer w-full hover:shadow-lg ${isActive ? 'ring-2 ring-offset-1 ring-' + item.color + '-400' : ''}`}
+                >
+                  <div className={`text-sm font-bold flex items-center justify-center gap-1 cursor-pointer rounded px-2 py-1 transition ${color.bg(isActive)} ${color.text} ${isActive ? 'shadow-md scale-105 animate-pulse' : ''}`} onClick={() => handleBrandClick(item.brandCode)}
+                    
+                  >
+                    <span className={`${color.badgeBg} ${color.badgeText} px-2 py-0.5 rounded-full text-xs font-semibold`}>
+                      {item.icon}
+                    </span>
+                    {item.label}
+                  </div>
+                  <div className='text-xs mt-1 text-gray-600'>{item.tagline}</div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -130,20 +168,29 @@ export default function RefractiveLensPage() {
                 {row}
               </div>
               <div className="grid grid-cols-3 gap-2">
-                {priceData.map((cell, idx) => (
-                  <div
-                    key={idx}
-                    className={`w-full text-center py-2 px-3 rounded cursor-pointer transition text-base border border-gray-300 ${
-                      selectedRows.includes(row) ? "bg-yellow-200 text-black font-bold shadow" : "opacity-50"
-                    }`}
-                    onClick={() => handleBrandClick(cell.brandCode)}
-                  >
-                    <div className="flex flex-col items-center">
-                      <div className="text-xs text-gray-400 line-through">{cell.value[row].regular}</div>
-                      <div className="text-base font-bold text-blue-800">{cell.value[row].discount}</div>
+                {priceData.map((cell, idx) => {
+                  return (
+                    <div
+                      key={idx}
+                      className={`w-full text-center py-2 px-3 rounded cursor-pointer transition border border-gray-300 ${
+                        selectedRows.includes(row) ? "bg-yellow-200 text-black font-bold shadow" : "opacity-50"
+                      }`}
+                      onClick={() => handleBrandClick(cell.brandCode)}
+                    >
+                      <div className="flex flex-col items-center">
+                        <div className="text-sm text-gray-400 line-through mb-0.5">{cell.value[row].regular}</div>
+                        <div className="text-xl font-extrabold text-blue-900 flex items-center">
+                          {cell.value[row].discount}
+                          {cell.brandCode === "hoya" && (
+                            <span className="ml-2 text-red-600 text-xs bg-red-100 px-2 py-0.5 rounded-full font-semibold animate-bounce">
+                              전국최저가
+                            </span>
+                          )}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </div>
