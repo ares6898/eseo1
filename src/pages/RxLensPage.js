@@ -44,7 +44,7 @@ export default function RxLensPage() {
 
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 px-4">
-          <div className="relative w-full max-w-6xl bg-white rounded-xl shadow-2xl p-4">
+          <div className="relative w-full max-w-[95vw] bg-white rounded-xl shadow-2xl p-2 overflow-hidden">
             <button
               className="absolute top-4 right-4 bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold shadow"
               onClick={() => setShowModal(false)}
@@ -56,7 +56,7 @@ export default function RxLensPage() {
               <img
                 src={images[currentIndex]}
                 alt="Progressive lens info"
-                className="max-h-[80vh] max-w-full object-contain mx-auto"
+                className="h-[95vh] w-full object-contain px-2"
               />
               <button onClick={nextSlide} className="text-gray-700 text-3xl px-4">›</button>
             </div>
