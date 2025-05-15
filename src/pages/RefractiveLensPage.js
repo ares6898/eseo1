@@ -5,6 +5,7 @@ import LensPopup from "../components/LensPopup";
 export default function RefractiveLensPage() {
   const navigate = useNavigate();
   const [popupBrand, setPopupBrand] = useState(null);
+  const [showRecommendation, setShowRecommendation] = useState(false);
   const [selectedRows, setSelectedRows] = useState([]);
   const [nextBrand, setNextBrand] = useState(null);
   const [activeBrandLabel, setActiveBrandLabel] = useState(null);
@@ -122,8 +123,8 @@ export default function RefractiveLensPage() {
 
       <div className="text-center text-sm text-blue-800 font-bold mb-4">
         어떤 렌즈가 좋을지 모르시겠다면 👉
-        <span className="underline cursor-pointer hover:text-blue-500 ml-1">
-          전문안경사 추천 보기
+        <span className="underline cursor-pointer hover:text-blue-500 ml-1" onClick={() => setShowRecommendation(true)}>
+          전문 안경사의 굴절률 추천 보기
         </span>
       </div>
 
@@ -133,7 +134,7 @@ export default function RefractiveLensPage() {
 
       <div className="bg-blue-100 rounded-xl shadow p-4 mb-2">
         <div className="grid grid-cols-[1fr_3fr] items-start gap-4">
-          <div className="font-bold text-gray-600 text-sm pt-2">굴절률</div>
+          <div className="font-bold text-gray-600 text-sm pt-2">굴절률∖제품명</div>
           <div className="grid grid-cols-3 gap-2">
             {priceData.map((item, idx) => {
               const isActive = activeBrandLabel === item.brandCode;
@@ -144,9 +145,7 @@ export default function RefractiveLensPage() {
                   key={idx}
                   className={`flex flex-col items-center text-center bg-white rounded-xl shadow p-4 transition cursor-pointer w-full hover:shadow-lg ${isActive ? 'ring-2 ring-offset-1 ring-' + item.color + '-400' : ''}`}
                 >
-                  <div className={`text-sm font-bold flex items-center justify-center gap-1 cursor-pointer rounded px-2 py-1 transition ${color.bg(isActive)} ${color.text} ${isActive ? 'shadow-md scale-105 animate-pulse' : ''}`} onClick={() => handleBrandClick(item.brandCode)}
-                    
-                  >
+                  <div className={`text-sm font-bold flex items-center justify-center gap-1 cursor-pointer rounded px-2 py-1 transition ${color.bg(isActive)} ${color.text} ${isActive ? 'shadow-md scale-105 animate-pulse' : ''}`} onClick={() => handleBrandClick(item.brandCode)}>
                     <span className={`${color.badgeBg} ${color.badgeText} px-2 py-0.5 rounded-full text-xs font-semibold`}>
                       {item.icon}
                     </span>
@@ -196,6 +195,26 @@ export default function RefractiveLensPage() {
           </div>
         ))}
       </div>
+
+      {showRecommendation && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl shadow-xl p-6 w-[90%] max-w-md text-center space-y-4">
+            <h3 className="text-xl font-bold text-blue-800">전문안경사의 굴절률 추천</h3>
+            <p className="text-base text-gray-700 leading-relaxed font-medium whitespace-pre-line">
+  안경테 사이즈와 PD (동공간거리)에 따라
+  추천되는 굴절률이 상이할 수 있으니
+  반드시 안경사와 상의하세요.
+</p>
+            <div className="grid grid-cols-2 gap-2">
+  <button className="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded hover:bg-blue-200 font-semibold" onClick={() => { setSelectedRows(["1.56", "1.60"]); setShowRecommendation(false); }}>2디옵터 이하</button>
+  <button className="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded hover:bg-blue-200 font-semibold" onClick={() => { setSelectedRows(["1.60", "1.67"]); setShowRecommendation(false); }}>4디옵터 이하</button>
+  <button className="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded hover:bg-blue-200 font-semibold" onClick={() => { setSelectedRows(["1.67", "1.74"]); setShowRecommendation(false); }}>6디옵터 이하</button>
+  <button className="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded hover:bg-blue-200 font-semibold" onClick={() => { setSelectedRows(["1.74"]); setShowRecommendation(false); }}>6디옵터 초과</button>
+</div>
+            <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" onClick={() => setShowRecommendation(false)}>닫기</button>
+          </div>
+        </div>
+      )}
 
       {popupBrand && (
         <>
