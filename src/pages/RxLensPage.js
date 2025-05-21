@@ -88,27 +88,27 @@ export default function RxLensPage() {
                 <img
                   src={images[currentIndex].src}
                   alt={images[currentIndex].label}
-                  className="h-[95vh] w-full object-contain px-2 select-none"
+                  className="h-[70vh] w-full object-contain px-2 select-none"
                   draggable={false}
                 />
+                {/* 점프버튼 영역 (이미지 하단에 딱 붙게) */}
+                <div className="flex justify-center gap-4 mt-2 mb-2">
+                  {images.map((img, idx) => (
+                    <button
+                      key={img.label}
+                      onClick={() => jumpTo(idx)}
+                      className={`px-4 py-2 rounded-full font-bold text-base transition border-2 ${
+                        idx === currentIndex
+                          ? "bg-blue-500 text-white border-blue-700 shadow-lg scale-110"
+                          : "bg-gray-200 text-gray-700 border-gray-300 hover:bg-blue-100"
+                      }`}
+                    >
+                      {img.label}
+                    </button>
+                  ))}
+                </div>
               </div>
               <button onClick={() => changeSlide("left")} className="text-gray-700 text-3xl px-4">›</button>
-            </div>
-            {/* 하단 점프 버튼 영역 */}
-            <div className="flex justify-center gap-4 mt-4">
-              {images.map((img, idx) => (
-                <button
-                  key={img.label}
-                  onClick={() => jumpTo(idx)}
-                  className={`px-4 py-2 rounded-full font-bold text-base transition border-2 ${
-                    idx === currentIndex
-                      ? "bg-blue-500 text-white border-blue-700 shadow-lg scale-110"
-                      : "bg-gray-200 text-gray-700 border-gray-300 hover:bg-blue-100"
-                  }`}
-                >
-                  {img.label}
-                </button>
-              ))}
             </div>
           </div>
         </div>
