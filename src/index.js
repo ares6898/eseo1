@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import StockLensPage from "./pages/StockLensPage";
 import RefractiveLensPage from "./pages/RefractiveLensPage";
-import RxLensPage from "./pages/RxLensPage"; // ✅ 추가
+import RxLensPage from "./pages/RxLensPage";
+import MultifocalLensPage from "./pages/MultifocalLensPage"; // ✅ 추가
 
 import "./index.css";
 
@@ -15,8 +16,8 @@ root.render(
       <Route path="/" element={<HomePage />} />
       <Route path="/stock-lens" element={<StockLensPage />} />
       <Route path="/stock-lens/refractive" element={<RefractiveLensPage />} />
-	  <Route path="/rx-lens" element={<RxLensPage />} />  // ✅ 추가
-
+      <Route path="/rx-lens" element={<RxLensPage />} />
+      <Route path="/multifocal-lens" element={<MultifocalLensPage />} />  {/* ✅ 추가 */}
     </Routes>
   </Router>
 );
