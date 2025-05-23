@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 
-// 4가지 브랜드 샘플 데이터 (필요시 내용 수정 가능)
 const sampleLenses = [
   {
     brandLogo: "/logos/nikon.png",
@@ -82,62 +81,105 @@ const sampleLenses = [
   }
 ];
 
+const refractiveIndexes = ["1.50", "1.60", "1.67", "1.74"];
+
 export default function MultifocalLensDetailAll() {
+  const [selectedRef, setSelectedRef] = useState("1.50");
+
   return (
-    <div className="max-w-7xl mx-auto px-3 py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
-      {sampleLenses.map((lens, idx) => (
-        <div
-          key={idx}
-          className="bg-white rounded-2xl shadow-lg p-4 flex flex-col gap-2 border hover:shadow-2xl transition"
-        >
-          {/* 상단 브랜드/제품/로고 */}
-          <div className="flex items-center gap-3 mb-1">
-            <img
-              src={lens.brandLogo}
-              alt="브랜드 로고"
-              className="h-12 w-12 object-contain rounded bg-gray-100 p-2"
-            />
-            <div>
-              <div className="text-base font-bold">{lens.productName}</div>
-              <div className="flex flex-col mt-1 text-gray-600 text-xs">
-                {lens.features.map((f, i) => (
-                  <span key={i}>• {f}</span>
-                ))}
+    <div className="relative min-h-screen pb-32 bg-gray-50">
+      {/* 카드 그리드 */}
+      <div className="max-w-7xl mx-auto px-3 py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
+        {sampleLenses.map((lens, idx) => (
+          <div
+            key={idx}
+            className="bg-white rounded-2xl shadow-lg p-4 flex flex-col gap-2 border hover:shadow-2xl transition"
+          >
+            {/* 상단 브랜드/제품/로고 */}
+            <div className="flex items-center gap-3 mb-1">
+              <img
+                src={lens.brandLogo}
+                alt="브랜드 로고"
+                className="h-12 w-12 object-contain rounded bg-gray-100 p-2"
+              />
+              <div>
+                <div className="text-base font-bold">{lens.productName}</div>
+                <div className="flex flex-col mt-1 text-gray-600 text-xs">
+                  {lens.features.map((f, i) => (
+                    <span key={i}>• {f}</span>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-          {/* 렌즈 이미지 */}
-          <div className="flex justify-center my-2">
-            <img
-              src={lens.lensImage}
-              alt="렌즈 시야 예시"
-              className="h-24 rounded-md shadow border border-gray-200"
-            />
-          </div>
-          {/* 가격표 */}
-          <div className="bg-gray-50 rounded-lg p-2 mb-1">
-            <div className="flex justify-between text-xs font-semibold text-gray-600 border-b pb-1 mb-1">
-              <span>굴절률</span>
-              <span>정가</span>
-              <span className="text-red-600">할인가</span>
+            {/* 렌즈 이미지 */}
+            <div className="flex justify-center my-2">
+              <img
+                src={lens.lensImage}
+                alt="렌즈 시야 예시"
+                className="h-24 rounded-md shadow border border-gray-200"
+              />
             </div>
-            {lens.prices.map((row) => (
-              <div key={row.refraction} className="flex justify-between items-center py-0.5">
-                <span className="font-bold">{row.refraction}</span>
-                <span>{parseInt(row.regular).toLocaleString()}원</span>
-                <span className="font-bold text-base text-red-600">{parseInt(row.discount).toLocaleString()}원</span>
+            {/* 가격표 */}
+            <div className="bg-gray-50 rounded-lg p-2 mb-1">
+              <div className="flex justify-between text-xs font-semibold text-gray-600 border-b pb-1 mb-1">
+                <span>굴절률</span>
+                <span>정가</span>
+                <span className="text-red-600">할인가</span>
               </div>
-            ))}
-            <div className="mt-1 text-xs text-red-500 font-bold">{lens.discountInfo}</div>
+              {lens.prices.map((row) => {
+                const isActive = row.refraction === selectedRef;
+                return (
+                  <div
+                    key={row.refraction}
+                    className={
+                      "flex justify-between items-center py-0.5 rounded transition " +
+                      (isActive
+                        ? "bg-yellow-200 font-bold text-orange-900 shadow"
+                        : "")
+                    }
+                  >
+                    <span>{row.refraction}</span>
+                    <span>{parseInt(row.regular).toLocaleString()}원</span>
+                    <span className={
+                      "text-base " +
+                      (isActive ? "text-orange-600" : "text-red-600")
+                    }>
+                      {parseInt(row.discount).toLocaleString()}원
+                    </span>
+                  </div>
+                );
+              })}
+              <div className="mt-1 text-xs text-red-500 font-bold">{lens.discountInfo}</div>
+            </div>
+            {/* 옵션 안내 */}
+            <div className="bg-blue-50 rounded p-2 text-xs text-blue-900">
+              {lens.options.map((opt, i) => (
+                <div key={i}>- {opt}</div>
+              ))}
+            </div>
           </div>
-          {/* 옵션 안내 */}
-          <div className="bg-blue-50 rounded p-2 text-xs text-blue-900">
-            {lens.options.map((opt, i) => (
-              <div key={i}>- {opt}</div>
-            ))}
-          </div>
+        ))}
+      </div>
+
+      {/* 하단 고정 사이드바: 굴절률 선택 */}
+      <div className="fixed bottom-0 left-0 w-full bg-white shadow-xl border-t z-30 flex justify-center items-center gap-4 py-4">
+        <div className="flex gap-2">
+          {refractiveIndexes.map((idx) => (
+            <button
+              key={idx}
+              className={
+                "px-8 py-3 rounded-xl font-bold text-lg shadow border-2 transition " +
+                (selectedRef === idx
+                  ? "bg-orange-600 text-white border-orange-600 scale-110"
+                  : "bg-gray-100 text-gray-700 border-gray-300 hover:bg-orange-50")
+              }
+              onClick={() => setSelectedRef(idx)}
+            >
+              굴절률 {idx}
+            </button>
+          ))}
         </div>
-      ))}
+      </div>
     </div>
   );
 }
