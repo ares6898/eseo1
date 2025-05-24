@@ -196,7 +196,7 @@ export default function MultifocalLensDetailAll() {
                 <img
                   src={lens.lensImage}
                   alt="렌즈 시야 예시"
-                  className="h-42 rounded-md shadow border border-gray-200"
+                  className="h-52 rounded-md shadow border border-gray-200"
                 />
               </div>
 
