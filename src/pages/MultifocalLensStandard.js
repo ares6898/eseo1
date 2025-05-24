@@ -13,7 +13,7 @@ const sampleLenses = [
       "가성비 높은 제품",
       "기본에 충실한 렌즈"
     ],
-    lensImage: "/images/e1-demo.jpg",
+    lensImage: "/images/e1-view.png",
     prices: [
       { refraction: "1.50", regular: 320000 },
       { refraction: "1.60", regular: 380000 }
