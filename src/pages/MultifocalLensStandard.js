@@ -13,7 +13,7 @@ const sampleLenses = [
       "가성비 높은 제품",
       "기본에 충실한 렌즈"
     ],
-    lensImage: "/images/e1-view.png",
+    lensImage: "/images/E1.jpg",
     prices: [
       { refraction: "1.50", regular: 320000 },
       { refraction: "1.60", regular: 380000 }
@@ -37,7 +37,7 @@ const sampleLenses = [
       "디지털핏 옵티마이저 기능",
       "오랜 근업시 더 편안하게"
     ],
-    lensImage: "/images/e2-demo.jpg",
+    lensImage: "/images/E2.jpg",
     prices: [
       { refraction: "1.50", regular: 390000 },
       { refraction: "1.60", regular: 470000 },
@@ -62,7 +62,7 @@ const sampleLenses = [
       "소프트 와이드 테크놀로지",
       "원시, 난시 복잡한 도수 특화"
     ],
-    lensImage: "/images/e3-demo.jpg",
+    lensImage: "/images/E3.jpg",
     prices: [
       { refraction: "1.50", regular: 480000 },
       { refraction: "1.60", regular: 570000 },
@@ -87,7 +87,7 @@ const sampleLenses = [
       "비전스캔 테크놀로지 - 양안시",
       "복잡한 도수 + 부등시 특화"
     ],
-    lensImage: "/images/e4-demo.jpg",
+    lensImage: "/images/E4.jpg",
     prices: [
       { refraction: "1.50", regular: 620000 },
       { refraction: "1.60", regular: 750000 },
