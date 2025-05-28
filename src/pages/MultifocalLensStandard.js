@@ -192,12 +192,12 @@ export default function MultifocalLensDetailAll() {
               </div>
 
               {/* 렌즈 이미지 */}
-              <div className="flex justify-center my-1">
-                <img
-                  src={lens.lensImage}
-                  alt="렌즈 시야 예시"
-                  className="h-52 rounded-md shadow border border-gray-200"
-                />
+              <div className="w-full aspect-[3/2] rounded-md overflow-hidden shadow border border-gray-200 my-1">
+  <img
+    src={lens.lensImage}
+    alt="렌즈 시야 예시"
+    className="w-full h-full object-contain"
+  />
               </div>
 
               {/* 선택된 굴절률의 가격만 한 줄 출력 */}
