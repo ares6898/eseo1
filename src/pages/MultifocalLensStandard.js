@@ -3,8 +3,8 @@ import React, { useState } from "react";
 const sampleLenses = [
   {
     brandLogo: "/logos/essilor.jpg",
-    productName: "에실로 E1",
-    badge: null,
+    productName: "이노티X에실로 E1",
+	badge: { text: "가성비", bg: "bg-ye-200", color: "text-sky-800", border: "border-sky-300" },
     features: ["초기 노안용 기본내면누진", "합리적인 금액"],
     recommend: ["가성비 높은 제품", "기본에 충실한 렌즈"],
     lensImage: "/images/E1.jpg",
@@ -17,8 +17,8 @@ const sampleLenses = [
   },
   {
     brandLogo: "/logos/essilor.jpg",
-    productName: "에실로 E2",
-    badge: { text: "스마트기기 특화", bg: "bg-sky-200", color: "text-sky-800", border: "border-sky-300" },
+    productName: "이노티X에실로 E2",
+    badge: { text: "디지털기기 특화", bg: "bg-sky-200", color: "text-sky-800", border: "border-sky-300" },
     features: ["부드러운 중간시야", "디지털 시생활 특화렌즈"],
     recommend: ["디지털핏 옵티마이저 기능", "오랜 근업시 더 편안하게"],
     lensImage: "/images/E2.jpg",
@@ -32,8 +32,8 @@ const sampleLenses = [
   },
   {
     brandLogo: "/logos/essilor.jpg",
-    productName: "에실로 E3",
-    badge: { text: "쉽고빠른적응", bg: "bg-lime-200", color: "text-lime-800", border: "border-lime-300" },
+    productName: "이노티X에실로 E3",
+    badge: { text: "쉽고빠른 적응", bg: "bg-lime-200", color: "text-lime-800", border: "border-lime-300" },
     features: ["부드러운 시선전환, 빠른적응", "일상생활을 편안하게"],
     recommend: ["소프트 와이드 테크놀로지", "원시, 난시 복잡한 도수 특화"],
     lensImage: "/images/E3.jpg",
@@ -47,8 +47,8 @@ const sampleLenses = [
   },
   {
     brandLogo: "/logos/essilor.jpg",
-    productName: "에실로 E4",
-    badge: { text: "양안 도수 다름", bg: "bg-orange-200", color: "text-orange-800", border: "border-orange-300" },
+    productName: "이노티X에실로 E4",
+    badge: { text: "좌우 도수 다름", bg: "bg-orange-200", color: "text-orange-800", border: "border-orange-300" },
     features: ["양안시 기술력", "어떠한 도수도 빠르게 적응"],
     recommend: ["비전스캔 테크놀로지 - 양안시", "복잡한 도수 + 부등시 특화"],
     lensImage: "/images/E4.jpg",
@@ -75,33 +75,44 @@ export default function MultifocalLensStandard() {
           const regular = priceRow ? priceRow.regular : null;
           const sale = priceRow && priceRow.regular ? Math.round(priceRow.regular * lens.discountRate) : null;
           const discountAmount = priceRow && priceRow.regular ? priceRow.regular - sale : null;
-          const isE3 = lens.productName === "에실로 E3";
+          const isE3 = lens.productName === "이노티X에실로 E3";
 
           return (
             <div
               key={idx}
-              className={`relative bg-white rounded-2xl p-5 flex flex-col gap-4 border transition ${isE3 ? "ring-4 ring-emerald-300/80 scale-105 shadow-2xl" : "shadow-xl hover:shadow-2xl"}`}
+              className={`relative bg-white rounded-2xl p-5 flex flex-col gap-4 border shadow hover:shadow-2xl transition ${isE3 ? 'ring-4 ring-sky-300/80' : ''}`}
               style={{ zIndex: isE3 ? 5 : 1 }}
             >
               {isE3 && (
-                <div className="absolute left-6 -top-4 bg-emerald-400 text-white font-extrabold px-5 py-1 rounded-full shadow-xl text-sm tracking-wide border-2 border-emerald-600 whitespace-nowrap z-20">
+                <div className="absolute left-6 -top-4 bg-sky-400 text-white font-extrabold px-5 py-1 rounded-full shadow-xl text-sm tracking-wide border-2 border-sky-600 animate-bounce whitespace-nowrap z-20">
                   보급형 고객 선택 1위
                 </div>
               )}
 
               <div className="flex items-center gap-2 mb-1 flex-nowrap">
-                <img src={lens.brandLogo} alt="브랜드 로고" className="h-14 w-14 object-contain rounded bg-gray-100 p-2" />
+                {lens.brandLogo && (
+                  <img
+                    src={lens.brandLogo}
+                    alt="브랜드 로고"
+                    className="h-10 w-10 object-contain rounded bg-white border p-1"
+                  />
+                )}
                 <div className="flex flex-col">
-                  <div className="flex items-center gap-1 whitespace-nowrap">
-                    <div className="text-lg font-bold text-blue-900 whitespace-nowrap">{lens.productName}</div>
-                    {lens.badge && (
-                      <span className={`ml-1 px-1.5 py-0.5 rounded-full text-xs font-bold ${lens.badge.bg} ${lens.badge.color} ${lens.badge.border} shadow`} style={{ fontSize: "12px", whiteSpace: "nowrap" }}>
-                        {lens.badge.text}
-                      </span>
-                    )}
-                  </div>
+                  <div className="text-lg font-bold text-blue-900 whitespace-nowrap">{lens.productName}</div>
+
+                  {/* ✅ 제품 뱃지 표시 */}
+                  {lens.badge && (
+                    <div
+                      className={`inline-block mt-1 px-3 py-1 text-xs font-bold rounded-full border ${lens.badge.bg} ${lens.badge.color} ${lens.badge.border} self-start`}
+                    >
+                      {lens.badge.text}
+                    </div>
+                  )}
+
                   <ul className="mt-2 text-gray-600 text-xs list-disc ml-4 space-y-1">
-                    {lens.features.map((f, i) => <li key={i}>{f}</li>)}
+                    {lens.features.map((f, i) => (
+                      <li key={i}>{f}</li>
+                    ))}
                   </ul>
                 </div>
               </div>
