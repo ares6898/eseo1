@@ -123,9 +123,7 @@ export default function MultifocalLensBasic() {
               </div>
 
               <div className={`bg-gray-50 rounded-lg p-4 mb-1 shadow flex flex-col items-center ${isC1 ? "animate-pulse" : ""}`}>
-                <div className="font-bold text-base text-gray-800 mb-2">
-                  굴절률 <span className="text-blue-800">{selectedRef || "-"}</span> 가격
-                </div>
+                
                 <div className="flex items-center gap-3 text-lg font-semibold">
                   <span className={`mr-1 whitespace-nowrap ${regular ? "line-through text-gray-400 text-base" : "text-gray-300 text-base"}`} style={{ fontSize: "15px" }}>
                     {selectedRef ? (regular ? `${regular.toLocaleString()}원` : "–") : "–"}
@@ -137,6 +135,9 @@ export default function MultifocalLensBasic() {
                 </div>
                 <div className="mt-2 text-xs text-blue-700 font-bold text-center">
                   {selectedRef && discountAmount !== null ? `할인 금액: ${discountAmount.toLocaleString()}원` : "–"}
+                </div>
+				<div className="font-bold text-base text-gray-800 mb-2">
+                  굴절률 <span className="text-blue-800">{selectedRef || "-"}</span> 가격
                 </div>
               </div>
 
