@@ -34,7 +34,7 @@ const lensTypes = [
     type: "고급형",
     name: "호야 다초점렌즈",
     color: "bg-blue-900 text-white ring-2 ring-yellow-300 shadow-2xl border-blue-900",
-    badge: "🌟 브레스트 추천",
+    badge: "🌟 베스트 추천",
     path: "/multifocal-lens/advanced",
     priceTable: {
       "1.50": "264,000원 ~ 420,000원",
