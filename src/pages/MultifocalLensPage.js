@@ -82,7 +82,7 @@ export default function MultifocalLensPage() {
             <button
               key={item.type}
               className={
-                "w-[320px] h-[520px] rounded-2xl shadow-lg border-2 flex flex-col items-center justify-start p-5 transition hover:scale-105 duration-200 relative " +
+                "w-[250px] h-[520px] rounded-2xl shadow-lg border-2 flex flex-col items-center justify-start p-5 transition hover:scale-105 duration-200 relative " +
                 item.color +
                 (item.type === "고급형" ? " animate-pulse" : "")
               }
