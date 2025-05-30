@@ -64,7 +64,7 @@ const sampleLenses = [
   }
 ];
 
-const refractiveIndexes = ["1.50", "1.60", "1.67"];
+const refractiveIndexes = ["1.50", "1.60", "1.67", "1.74"];
 
 export default function MultifocalLensStandard() {
   const [selectedRef, setSelectedRef] = useState("");
