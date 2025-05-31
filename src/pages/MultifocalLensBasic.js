@@ -65,6 +65,7 @@ const refractiveIndexes = ["1.50", "1.60", "1.67", "1.74"];
 export default function MultifocalLensBasic() {
   const [selectedRef, setSelectedRef] = useState("");
   const navigate = useNavigate();
+    const [popupImage, setPopupImage] = useState(null);  // 팝업 이미지 상태 추가
 
   return (
     <div className="relative min-h-screen pb-36 bg-gray-50">
@@ -117,9 +118,10 @@ export default function MultifocalLensBasic() {
               <div className={`w-full aspect-[3/2] rounded-md overflow-hidden shadow border border-gray-200 my-1 ${isC1 ? "animate-pulse" : ""}`}>
                 <img
                   src={lens.lensImage}
-                  alt="렌즈 시야 예시"
-                  className="w-full h-full object-contain"
-                />
+                  alt="렌즈 시야 예시" 
+				className="w-full h-full object-contain cursor-pointer hover:scale-105 transition"
+				onClick={() => setPopupImage(lens.lensImage)}
+				/>
               </div>
 
               <div className={`bg-gray-50 rounded-lg p-4 mb-1 shadow flex flex-col items-center ${isC1 ? "animate-pulse" : ""}`}>
@@ -172,6 +174,33 @@ export default function MultifocalLensBasic() {
     </div>
   ))}
 </div>
-</div>
+
+{/* 팝업은 화면 전체의 마지막에! */}
+      {popupImage && (
+  <div
+    className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center"
+    onClick={() => setPopupImage(null)} // 바깥 영역 클릭시 팝업 닫힘
+  >
+    <div
+      className="bg-white rounded-2xl shadow-2xl p-5 max-w-lg w-[90vw] max-h-[85vh] flex flex-col items-center relative border-4 border-blue-500"
+      onClick={e => e.stopPropagation()} // 카드 내부 클릭은 닫힘 막기
+    >
+      <button
+        className="absolute top-3 right-4 px-4 py-2 rounded-lg font-bold text-lg bg-blue-600 text-white border-2 border-blue-800 shadow hover:bg-white hover:text-blue-700 hover:border-blue-800 transition"
+        onClick={() => setPopupImage(null)}
+        style={{ zIndex: 10 }}
+      >
+        닫기
+      </button>
+      <img
+        src={popupImage}
+        alt="시야표 확대"
+        className="w-full h-auto max-h-[60vh] object-contain rounded-lg mb-3"
+      />
+      <div className="font-bold text-blue-900 text-base mt-2">시야 예시 (확대 보기)</div>
+    </div>
+  </div>
+)}
+    </div>
   );
 }
