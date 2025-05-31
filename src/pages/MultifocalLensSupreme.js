@@ -9,13 +9,13 @@ const sampleLenses = [
     recommend: ["스크라치에 강한 내구성", "발란시스KR+인디비주얼설계", "양면복합+개인맞춤"],
     lensImage: "/images/BIND.jpg",
     prices: [
-      { refraction: "1.50", regular: 650000 },
-	  { refraction: "1.60", regular: 750000 },
-      { refraction: "1.67", regular: 850000 },
-	  { refraction: "1.74", regular: 1050000 }
+      { refraction: "1.50", regular: 600000, sale: 480000 },
+	  { refraction: "1.60", regular: 700000, sale: 540000 },
+      { refraction: "1.67", regular: 800000, sale: 630000 },
+	  { refraction: "1.74", regular: 1000000, sale: 770000 }
     ],
     discountRate: 0.7,
-    options: ["카카오 채널추가 이벤트 포함","메이리오코팅, 풀컨트롤코팅 선택", "착색 3만원 추가", "변색 옵션 15만원 추가"]
+    options: ["카카오 채널추가 이벤트 포함","프리미엄 코팅 5만원 추가", "착색 3만원 추가", "변색 옵션 15만원 추가"]
   },
   {
     brandLogo: "/logos/hoya-logo.jpg",
@@ -25,13 +25,13 @@ const sampleLenses = [
     recommend: ["스크라치에 강한 내구성", "B.H.T기술 + 3D비전테크", "두 눈의 시력차이에도 편안함"],
     lensImage: "/images/L3.jpg",
     prices: [
-      { refraction: "1.50", regular: 750000 },
-      { refraction: "1.60", regular: 850000 },
-      { refraction: "1.67", regular: 950000 },
-	  { refraction: "1.74", regular: 1150000 }
+      { refraction: "1.50", regular: 700000 },
+      { refraction: "1.60", regular: 800000 },
+      { refraction: "1.67", regular: 900000 },
+	  { refraction: "1.74", regular: 1100000 }
     ],
-    discountRate: 0.7,
-    options: ["메이리오코팅, 풀컨트롤코팅 선택", "착색 3만원 추가", "변색 옵션 15만원 추가"]
+    discountRate: 0.75,
+    options: ["프리미엄 코팅 5만원 추가", "착색 3만원 추가", "변색 옵션 15만원 추가"]
   },
   {
     brandLogo: "/logos/essilor.jpg",
@@ -78,8 +78,17 @@ export default function MultifocalLensStandard() {
         {sampleLenses.map((lens, idx) => {
           const priceRow = selectedRef ? lens.prices.find(p => p.refraction === selectedRef) : null;
           const regular = priceRow ? priceRow.regular : null;
-          const sale = priceRow && priceRow.regular ? Math.round(priceRow.regular * lens.discountRate) : null;
-          const discountAmount = priceRow && priceRow.regular ? priceRow.regular - sale : null;
+          
+		  // ✅ sale이 명시돼 있으면 그대로 사용, 없으면 계산
+			const sale = priceRow
+				? priceRow.sale !== undefined
+				? priceRow.sale
+				: priceRow.regular
+				? Math.round(priceRow.regular * lens.discountRate)
+				: null
+			: null;
+
+			const discountAmount = regular && sale ? regular - sale : null;
           const isE3 = lens.productName === "호야 발란시스 KR-IND";
 		  const isE4 = lens.productName === "호야 발란시스 KR";
 

@@ -34,13 +34,13 @@ const lensTypes = [
     type: "고급형",
     name: "호야 다초점렌즈",
     color: "bg-blue-900 text-white ring-2 ring-yellow-300 shadow-2xl border-blue-900",
-    badge: "🌟 베스트 추천",
+    badge: "🌟 브레스트 추천",
     path: "/multifocal-lens/advanced",
     priceTable: {
-      "1.50": "264,000원 ~ 420,000원",
-      "1.60": "344,000원 ~ 490,000원",
-      "1.67": "424,000원 ~ 560,000원",
-      "1.74": "665,000원"
+      "1.50": "224,000원 ~ 440,000원",
+      "1.60": "304,000원 ~ 520,000원",
+      "1.67": "384,000원 ~ 600,000원",
+      "1.74": "720,000원"
     },
     viewImage: "/images/DP.jpg"
   },
@@ -50,10 +50,10 @@ const lensTypes = [
     color: "bg-gray-900 text-yellow-100 border-yellow-200",
     path: "/multifocal-lens/supreme",
     priceTable: {
-      "1.50": "455,000원 ~ 910,000원",
-      "1.60": "525,000원 ~ 1,050,000원",
-      "1.67": "595,000원 ~ 1,190,000원",
-      "1.74": "735,000원 ~ 1,470,000원"
+      "1.50": "480,000원 ~ 910,000원",
+      "1.60": "540,000원 ~ 1,050,000원",
+      "1.67": "630,000원 ~ 1,190,000원",
+      "1.74": "770,000원 ~ 1,470,000원"
     },
     viewImage: "/images/F.jpg"
   }
@@ -82,7 +82,7 @@ export default function MultifocalLensPage() {
             <button
               key={item.type}
               className={
-                "w-[250px] h-[520px] rounded-2xl shadow-lg border-2 flex flex-col items-center justify-start p-5 transition hover:scale-105 duration-200 relative " +
+                "w-[320px] h-[520px] rounded-2xl shadow-lg border-2 flex flex-col items-center justify-start p-5 transition hover:scale-105 duration-200 relative " +
                 item.color +
                 (item.type === "고급형" ? " animate-pulse" : "")
               }
