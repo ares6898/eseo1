@@ -17,7 +17,7 @@ const sampleLenses = [
       { refraction: "1.67", regular: 480000 }
     ],
     discountRate: 0.8,
-    options: ["메이리오코팅, 풀컨트롤코팅 선택", "착색 3만원 추가", "변색 옵션 15만원 추가"]
+    options: ["메이리오코팅, 풀컨트롤코팅 선택"]
   },
   {
     brandLogo: "/images/hoya-logo.jpg",
@@ -34,7 +34,7 @@ const sampleLenses = [
       { refraction: "1.67", regular: 550000, sale: 432000 }
     ],
     discountRate: 0.7,
-    options: ["카카오 채널추가 이벤트 포함", "메이리오코팅, 풀컨트롤코팅 선택", "착색 3만원 추가", "변색 옵션 15만원 추가"]
+    options: ["카카오 채널추가 이벤트 포함", "메이리오코팅, 풀컨트롤코팅 선택"]
   },
   {
     brandLogo: "/images/hoya-logo.jpg",
@@ -51,7 +51,7 @@ const sampleLenses = [
       { refraction: "1.67", regular: 650000, sale: 495000 }
     ],
     discountRate: 0.7,
-    options: ["카카오 채널추가 이벤트 포함", "메이리오코팅, 풀컨트롤코팅 선택", "착색 3만원 추가", "변색 옵션 15만원 추가"]
+    options: ["카카오 채널추가 이벤트 포함", "메이리오코팅, 풀컨트롤코팅 선택"]
   },
   {
     brandLogo: "/images/hoya-logo.jpg",
@@ -69,7 +69,7 @@ const sampleLenses = [
       { refraction: "1.74", regular: 900000 }
     ],
     discountRate: 0.8,
-    options: ["메이리오코팅, 풀컨트롤코팅 선택", "착색 3만원 추가", "변색 옵션 15만원 추가"]
+    options: ["메이리오코팅, 풀컨트롤코팅 선택"]
   }
 ];
 
