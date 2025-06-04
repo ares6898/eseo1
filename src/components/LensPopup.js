@@ -56,7 +56,75 @@ const LensPopup = ({ brand, onClose }) => {
       ],
       recommendation: "눈 건강을 중시하신다면, 루테인 파괴의 주범인 근적외선까지 차단하는 고기능 렌즈를 추천드립니다.",
       review: "“눈 피로가 훨씬 줄었어요. 특히 근적외선 차단이 마음에 들어요.”"
+    },
+    chemi11: {
+      name: "케미 원앤원 - 국산 케미",
+      logo: "/images/chemi-logo.jpg",
+      image: "/photo/oneand.png",
+      description: [
+        { icon: <Sparkles className="inline w-5 h-5 mr-1 text-blue-500" />, text: "변색속도 : ⭐⭐ " },
+        { icon: <Sparkles className="inline w-5 h-5 mr-1 text-blue-500" />, text: "변색농도 : ⭐ " },
+        { icon: <Sparkles className="inline w-5 h-5 mr-1 text-blue-500" />, text: "색상 : 그레이🖤, 브라운🤎" }
+      ],
+      recommendation: "가장 기본적인 변색방식",
+      review: "“저렴한 가격이 만족스러워요.”"
+    },
+    chemip: {
+      name: "케미 포토에이드 - 국산 케미",
+      logo: "/images/chemi-logo.jpg",
+      image: "/photo/photoA.jpg",
+      description: [
+        { icon: <Sparkles className="inline w-5 h-5 mr-1 text-blue-500" />, text: "변색속도 : ⭐⭐⭐ " },
+        { icon: <Sparkles className="inline w-5 h-5 mr-1 text-blue-500" />, text: "변색농도 : ⭐⭐ " },
+        { icon: <Sparkles className="inline w-5 h-5 mr-1 text-blue-500" />, text: "색상 : 그레이🖤, 브라운🤎" }
+      ],
+      recommendation: "스핀코팅변색 + 블루라이트차단",
+      review: "“가성비좋은 보안경으로 추천합니다.”"
+    },
+    sensity: {
+      name: "호야 센서티2 - 일본 호야",
+      logo: "/images/chemi-logo.jpg",
+      image: "/photo/sensity.jpg",
+      description: [
+        { icon: <Sparkles className="inline w-5 h-5 mr-1 text-blue-500" />, text: "변색속도 : ⭐⭐⭐⭐ " },
+        { icon: <Sparkles className="inline w-5 h-5 mr-1 text-blue-500" />, text: "변색농도 : ⭐⭐⭐⭐ " },
+        { icon: <Sparkles className="inline w-5 h-5 mr-1 text-blue-500" />, text: "색상 : 그레이🖤 브라운🤎 그린💚 3~7일" }
+      ],
+      recommendation: "더 진하고 더 빠릅니다.",
+      review: "“빠르고 진하게 변색되니 선글라스가 필요없어요.”"
+    },
+    gens: {
+      name: "니콘 젠S 스타일컬러 - 일본 니콘",
+      logo: "/logos/nikon.jpg",
+      image: "/photo/gens.jpg",
+      description: [
+        { icon: <Sparkles className="inline w-5 h-5 mr-1 text-blue-500" />, text: "변색속도 : ⭐⭐⭐⭐⭐ - 전세계 제품중 가장 빠른 속도 " },
+        { icon: <Sparkles className="inline w-5 h-5 mr-1 text-blue-500" />, text: "변색농도 : ⭐⭐⭐⭐ " },
+        { icon: <Sparkles className="inline w-5 h-5 mr-1 text-blue-500" />, text: "색상 : 앰버,사파이어,루비 등 카달로그 확인👌 7~10일" }
+      ],
+      recommendation: "주문제작RX렌즈, 다양한 컬러",
+      review: "“색 빠지는 속도가 기존렌즈와는 차원이 다르네요. 정말빨라요”"
+    },
+    ex: {
+      name: "니콘 엑스트라액티브RX - 일본 니콘",
+      logo: "/logos/nikon.jpg",
+      image: "/photo/ex.jpg",
+      description: [
+        { icon: <Sparkles className="inline w-5 h-5 mr-1 text-blue-500" />, text: "변색속도 : ⭐⭐⭐⭐ " },
+        { icon: <Sparkles className="inline w-5 h-5 mr-1 text-blue-500" />, text: "변색농도 : ⭐⭐⭐⭐⭐ - 전세계 제품중 가장 진한 농도 " },
+        { icon: <Sparkles className="inline w-5 h-5 mr-1 text-blue-500" />, text: "색상 : 그레이🖤 브라운🤎 그린💚 7~10일" }
+      ],
+      recommendation: "차 안에서도 변색. 세계에서 가장 진한 변색렌즈",
+      review: "“다른 변색렌즈는 차안에서 변하지 않아요. 엑스트라액티브는 차안에서도 변색됩니다.”"
     }
+	
+	
+	
+	
+	
+	
+	
+	
   };
 
   const data = brandData[currentBrand];
