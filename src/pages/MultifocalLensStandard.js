@@ -13,7 +13,7 @@ const sampleLenses = [
       { refraction: "1.60", regular: 380000 }
     ],
     discountRate: 0.5,
-    options: ["블루라이트 코팅 30,000원 추가", "착색 3만원 추가", "변색 옵션 불가"]
+    options: ["블루라이트 코팅 3만원 추가"]
   },
   {
     brandLogo: "/logos/essilor.jpg",
@@ -28,7 +28,7 @@ const sampleLenses = [
       { refraction: "1.67", regular: 550000 }
     ],
     discountRate: 0.5,
-    options: ["퓨어블루 5만원 추가(1.60이상)", "착색 3만원 추가", "변색 옵션 20만원 추가 (1.60이상)"]
+    options: ["퓨어블루 5만원 추가(1.60이상)"]
   },
   {
     brandLogo: "/logos/essilor.jpg",
@@ -43,7 +43,7 @@ const sampleLenses = [
       { refraction: "1.67", regular: 710000 }
     ],
     discountRate: 0.5,
-    options: ["퓨어블루 5만원 추가(1.60이상)", "착색 3만원 추가", "변색 옵션 20만원 추가 (1.60이상)"]
+    options: ["퓨어블루 5만원 추가(1.60이상)"]
   },
   {
     brandLogo: "/logos/essilor.jpg",
@@ -58,7 +58,7 @@ const sampleLenses = [
       { refraction: "1.67", regular: 860000 }
     ],
     discountRate: 0.5,
-    options: ["퓨어블루 5만원 추가(1.60이상)", "착색 3만원 추가", "변색 옵션 20만원 추가 (1.60이상)"]
+    options: ["퓨어블루 5만원 추가(1.60이상)"]
   }
 ];
 
