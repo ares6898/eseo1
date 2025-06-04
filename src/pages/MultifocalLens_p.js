@@ -2,127 +2,105 @@ import React, { useState } from "react";
 
 const sampleLenses = [
   {
-    brandLogo: "/logos/hoya-logo.jpg",
-    productName: "호야 발란시스 KR-IND",
-	badge: { text: "한국인+개인맞춤", bg: "bg-ye-200", color: "text-sky-800", border: "border-sky-300" },
-    features: ["강한 내구성의 호야", "프리미엄다초점 합리적인 선택"],
-    recommend: ["스크라치에 강한 내구성", "발란시스KR+인디비주얼설계", "양면복합+개인맞춤"],
-    lensImage: "/images/BIND.jpg",
+    brandLogo: "/logos/pentax.png",
+    productName: "펜탁스 퍼스트 어드밴스",
+	badge: { text: "가성비", bg: "bg-ye-200", color: "text-sky-800", border: "border-sky-300" },
+    features: ["초기 노안용 기본내면누진", "합리적인 금액"],
+    recommend: ["가성비 높은 제품", "기본에 충실한 렌즈"],
+    lensImage: "/images/E1.jpg",
     prices: [
-      { refraction: "1.50", regular: 600000, sale: 480000 },
-	  { refraction: "1.60", regular: 700000, sale: 540000 },
-      { refraction: "1.67", regular: 800000, sale: 630000 },
-	  { refraction: "1.74", regular: 1000000, sale: 770000 }
+      { refraction: "1.50", regular: 280000 },
+      { refraction: "1.60", regular: 320000 },
+	  { refraction: "1.67", regular: 390000 },
+	  { refraction: "1.74", regular: 510000 }
     ],
-    discountRate: 0.7,
-    options: ["카카오 채널추가 이벤트 포함","프리미엄 코팅 5만원 추가", "착색 3만원 추가", "변색 옵션 15만원 추가"]
+    discountRate: 0.5,
+    options: ["프리미엄 코팅 3만원 추가", "착색 2만원 추가", "변색 옵션 15만원 추가"]
   },
   {
-    brandLogo: "/logos/hoya-logo.jpg",
-    productName: "호야 라이프스타일4",
-    badge: { text: "양쪽 눈의 시력차", bg: "bg-sky-200", color: "text-sky-800", border: "border-sky-300" },
-    features: ["강한 내구성의 호야", "양안시 리더"],
-    recommend: ["스크라치에 강한 내구성", "B.H.T기술 + 3D비전테크", "두 눈의 시력차이에도 편안함"],
-    lensImage: "/images/L3.jpg",
+    brandLogo: "/logos/pentax.png",
+    productName: "펜탁스 스마트 어드밴스",
+    badge: { text: "균형감 있는 시야", bg: "bg-sky-200", color: "text-sky-800", border: "border-sky-300" },
+    features: ["원-근 균형감 있는 시야", "편안한 적응"],
+    recommend: ["레티나 포워드디자인", "스마트기기 특화"],
+    lensImage: "/images/E2.jpg",
     prices: [
-      { refraction: "1.50", regular: 700000 },
-      { refraction: "1.60", regular: 800000 },
-      { refraction: "1.67", regular: 900000 },
-	  { refraction: "1.74", regular: 1100000 }
+      { refraction: "1.50", regular: 430000 },
+      { refraction: "1.60", regular: 470000 },
+	  { refraction: "1.67", regular: 530000 },
+	  { refraction: "1.74", regular: 700000 }
     ],
-    discountRate: 0.75,
-    options: ["프리미엄 코팅 5만원 추가", "착색 3만원 추가", "변색 옵션 15만원 추가"]
+    discountRate: 0.5,
+    options: ["프리미엄 코팅 3만원 추가", "착색 2만원 추가", "변색 옵션 15만원 추가"]
   },
   {
-    brandLogo: "/logos/essilor.jpg",
-    productName: "바리락스 XR 디자인",
-    badge: { text: "움직임에도 지속되는 선명함", bg: "bg-lime-200", color: "text-lime-800", border: "border-lime-300" },
-    features: ["AI설계 최첨단 프리미엄 다초점", "움직임속에서도 선명함"],
-    recommend: ["에실로의 프리미엄렌즈", "착용 첫날 적응", "움직임에도 선명한 넓은시야"],
-    lensImage: "/images/F.jpg",
+    brandLogo: "/logos/pentax.png",
+    productName: "펜탁스 슈퍼 어드밴스",
+    badge: { text: "쉽고빠른 적응", bg: "bg-lime-200", color: "text-lime-800", border: "border-lime-300" },
+    features: ["부드러운 시선전환, 빠른적응", "일상생활을 편안하게"],
+    recommend: ["비점수차컨트롤", "울렁임과 왜곡영역 제거 "],
+    lensImage: "/images/E3.jpg",
     prices: [
-      { refraction: "1.50", regular: 850000 },
-      { refraction: "1.60", regular: 1000000 },
-      { refraction: "1.67", regular: 1100000 },
-	  { refraction: "1.74", regular: 1350000 }
+      { refraction: "1.50", regular: 540000 },
+      { refraction: "1.60", regular: 580000 },
+	  { refraction: "1.67", regular: 660000 },
+	  { refraction: "1.74", regular: 830000 }
     ],
-    discountRate: 0.8,
-    options: ["1.50 - see+uv, 1.60 - PureBlue", "착색 3만원 추가", "변색 옵션 15만원 추가"]
+    discountRate: 0.5,
+    options: ["프리미엄 코팅 3만원 추가", "착색 2만원 추가", "변색 옵션 15만원 추가"]
   },
   {
-    brandLogo: "/logos/nikon.jpg",
-    productName: "씨맥스 얼티밋 Z",
-    badge: { text: "40억개의 데이터매칭", bg: "bg-orange-200", color: "text-orange-800", border: "border-orange-300" },
-    features: ["모든 상황에서 선명함", "대비 최적화 렌즈"],
-    recommend: ["40억개의 설계데이터 매칭", "대비감도기술", "어떠한 변수에서도 최적설계"],
-    lensImage: "/images/F.jpg",
+    brandLogo: "/logos/pentax.png",
+    productName: "펜탁스 슈퍼 프라임",
+    badge: { text: "좌우 도수 다름", bg: "bg-orange-200", color: "text-orange-800", border: "border-orange-300" },
+    features: ["양안시 기술력", "개인맞춤형 누진"],
+    recommend: ["양안시 균형 설계", "고도수+부등시 특화"],
+    lensImage: "/images/E4.jpg",
     prices: [
-      { refraction: "1.50", regular: 1300000 },
-      { refraction: "1.60", regular: 1500000 },
-      { refraction: "1.67", regular: 1700000 },
-	  { refraction: "1.74", regular: 2100000 }
+      { refraction: "1.50", regular: 600000 },
+      { refraction: "1.60", regular: 660000 },
+	  { refraction: "1.67", regular: 760000 },
+	  { refraction: "1.74", regular: 950000 }
     ],
-    discountRate: 0.7,
-    options: ["1.50 - see+uv, 1.60 - PureBlue", "착색 3만원 추가", "변색 옵션 15만원 추가"]
+    discountRate: 0.5,
+    options: ["프리미엄 코팅 3만원 추가", "착색 2만원 추가", "변색 옵션 15만원 추가"]
   }
 ];
 
 const refractiveIndexes = ["1.50", "1.60", "1.67", "1.74"];
 
-export default function MultifocalLensSupreme() {
-	const [selectedRef, setSelectedRef] = useState("");
-    const [popupImage, setPopupImage] = useState(null);  // 팝업 이미지 상태 추가
-
+export default function MultifocalLens_p() {
+  const [selectedRef, setSelectedRef] = useState("");
+  const [popupImage, setPopupImage] = useState(null);  // 팝업 이미지 상태 추가
 
   return (
-    <div className="relative min-h-screen pb-36 bg-gray-900">
+    <div className="relative min-h-screen pb-36 bg-blue-50">
       <div className="max-w-7xl mx-auto px-3 py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
         {sampleLenses.map((lens, idx) => {
           const priceRow = selectedRef ? lens.prices.find(p => p.refraction === selectedRef) : null;
           const regular = priceRow ? priceRow.regular : null;
-          
-		  // ✅ sale이 명시돼 있으면 그대로 사용, 없으면 계산
-			const sale = priceRow
-				? priceRow.sale !== undefined
-				? priceRow.sale
-				: priceRow.regular
-				? Math.round(priceRow.regular * lens.discountRate)
-				: null
-			: null;
-
-			const discountAmount = regular && sale ? regular - sale : null;
-          const isE3 = lens.productName === "호야 발란시스 KR-IND";
-		  const isE4 = lens.productName === "호야 발란시스 KR";
+          const sale = priceRow && priceRow.regular ? Math.round(priceRow.regular * lens.discountRate) : null;
+          const discountAmount = priceRow && priceRow.regular ? priceRow.regular - sale : null;
+          const isE3 = lens.productName === "펜탁스 슈퍼 어드밴스";
 
           return (
             <div
               key={idx}
-              className={`relative bg-white rounded-2xl p-5 flex flex-col gap-4 border shadow hover:shadow-2xl transition
-			  ${isE3 ? 'ring-4 ring-yellow-100/80' : ''}
-			  ${isE4 ? 'ring-4 ring-pink-300/80' : ''}`}
-              style={{ zIndex: isE3 || isE4 ? 5 : 1 }}
+              className={`relative bg-white rounded-2xl p-5 flex flex-col gap-4 border shadow hover:shadow-2xl transition ${isE3 ? 'ring-4 ring-red-300/80' : ''}`}
+              style={{ zIndex: isE3 ? 5 : 1 }}
             >
-			
               {isE3 && (
-                <div className="absolute left-6 -top-4 bg-yellow-400 text-white font-extrabold px-5 py-1 rounded-full shadow-xl text-sm tracking-wide border-2 border-yellow-600 animate-bounce whitespace-nowrap z-20">
-                  프리미엄 고객 선택 1위
+                <div className="absolute left-6 -top-4 bg-red-400 text-white font-extrabold px-5 py-1 rounded-full shadow-xl text-sm tracking-wide border-2 border-red-600 animate-bounce whitespace-nowrap z-20">
+                  펜탁스 고객 선택 1위
                 </div>
               )}
-			  
-			  {isE4 && (
-				<div className="absolute right-6 -top-4 bg-pink-500 text-white font-extrabold px-4 py-1 rounded-full shadow-xl text-sm tracking-wide border-2 border-pink-600 animate-bounce whitespace-nowrap z-20">
-				전문가 추천 1위
-				</div>
-				)}
-			  
-
 
               <div className="flex items-center gap-2 mb-1 flex-nowrap">
                 {lens.brandLogo && (
                   <img
                     src={lens.brandLogo}
                     alt="브랜드 로고"
-                    className="h-12 w-12 object-contain rounded bg-white border p-1"
+                    className="h-10 w-10 object-contain rounded bg-white border p-1"
                   />
                 )}
                 <div className="flex flex-col">
@@ -150,21 +128,16 @@ export default function MultifocalLensSupreme() {
                 {lens.recommend.map((r, i) => <div key={i}>⏩ {r}</div>)}
               </div>
 
-              <div className={`w-full aspect-[3/2] rounded-md overflow-hidden shadow border border-gray-200 my-1 
-				${isE3 ? "animate-pulse" : ""}
-				${isE4 ? "animate-pulse" : ""}`}>
+              <div className={`w-full aspect-[3/2] rounded-md overflow-hidden shadow border border-gray-200 my-1 ${isE3 ? "animate-pulse" : ""}`}>
                 <img src={lens.lensImage} 
 				alt="렌즈 시야 예시" 
 				className="w-full h-full object-contain cursor-pointer hover:scale-105 transition"
 				onClick={() => setPopupImage(lens.lensImage)}
 				/>
-				
+			
               </div>
 
-              <div className={`bg-gray-50 rounded-lg p-4 mb-1 shadow flex flex-col items-center 
-				
-				${isE3 ? "animate-pulse" : ""}
-				${isE4 ? "animate-pulse" : ""}`}>
+              <div className={`bg-gray-50 rounded-lg p-4 mb-1 shadow flex flex-col items-center ${isE3 ? "animate-pulse" : ""}`}>
                 
                 <div className="flex items-center gap-3 text-lg font-semibold whitespace-nowrap">
                   <span className={`mr-1 ${regular ? "line-through text-gray-400" : "text-gray-300"}`} style={{ fontSize: "15px" }}>

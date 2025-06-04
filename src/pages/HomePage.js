@@ -31,13 +31,7 @@ export default function HomePage() {
         </p>
       </div>
 	        {/* 우측 하단 관리자 임시 버튼 */}
-      <button
-        className="fixed bottom-6 right-6 z-50 bg-black bg-opacity-80 text-white px-5 py-3 rounded-full shadow-xl text-xs font-semibold hover:bg-opacity-100 transition-all"
-        onClick={() => navigate("/multifocal-lens")}
-        style={{ letterSpacing: "0.08em" }}
-      >
-        🔒 관리자 (다초점 테스트)
-      </button>
+      
 
     </div>
   );

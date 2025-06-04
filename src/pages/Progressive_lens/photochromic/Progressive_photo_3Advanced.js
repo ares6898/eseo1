@@ -12,12 +12,12 @@ const sampleLenses = [
     descImage: "/images/ampop.png", // 설명팝업 이미지(제품별로 다르게)
     descText: "이 제품은 합리적 가격의 호야 앰플리튜드 플러스! 선명한 시야와 내구성 모두 잡은 균형잡힌 제품입니다.", // 설명팝업 텍스트(제품별로 다르게)
     prices: [
-      { refraction: "1.50", regular: 280000 },
-      { refraction: "1.60", regular: 380000 },
-      { refraction: "1.67", regular: 480000 }
+      { refraction: "1.50", regular: 430000 },
+      { refraction: "1.60", regular: 530000 },
+      { refraction: "1.67", regular: 630000 }
     ],
-    discountRate: 0.8,
-    options: ["메이리오코팅, 풀컨트롤코팅 선택", "착색 3만원 추가", "변색 옵션 15만원 추가"]
+    discountRate: 0.7,
+    options: ["프리미엄코팅 5만원 추가"]
   },
   {
     brandLogo: "/images/hoya-logo.jpg",
@@ -29,12 +29,12 @@ const sampleLenses = [
     descImage: "/images/desc-e4.jpg",
     descText: "한국인 처방 데이터로 최적화된 호야 다이나믹 써미트KR. 선명하고 빠른 적응력, 높은 내구성이 특징!",
     prices: [
-      { refraction: "1.50", regular: 350000, sale: 280000 },
-      { refraction: "1.60", regular: 450000, sale: 342000 },
-      { refraction: "1.67", regular: 550000, sale: 432000 }
+      { refraction: "1.50", regular: 500000 },
+      { refraction: "1.60", regular: 600000 },
+      { refraction: "1.67", regular: 700000 }
     ],
     discountRate: 0.7,
-    options: ["카카오 채널추가 이벤트 포함", "메이리오코팅, 풀컨트롤코팅 선택", "착색 3만원 추가", "변색 옵션 15만원 추가"]
+    options: ["카카오 채널추가 이벤트 포함", "프리미엄코팅 5만원 추가"]
   },
   {
     brandLogo: "/images/hoya-logo.jpg",
@@ -46,12 +46,12 @@ const sampleLenses = [
     descImage: "/images/desc-dp.jpg",
     descText: "누진 초보도 빠르게 적응! 개인맞춤 설계로 한 단계 높은 편안함을 느낄 수 있는 프리미엄KR-IND.",
     prices: [
-      { refraction: "1.50", regular: 450000, sale: 315000 },
-      { refraction: "1.60", regular: 550000, sale: 405000 },
-      { refraction: "1.67", regular: 650000, sale: 495000 }
+      { refraction: "1.50", regular: 600000 },
+      { refraction: "1.60", regular: 700000 },
+      { refraction: "1.67", regular: 800000 }
     ],
     discountRate: 0.7,
-    options: ["카카오 채널추가 이벤트 포함", "메이리오코팅, 풀컨트롤코팅 선택", "착색 3만원 추가", "변색 옵션 15만원 추가"]
+    options: ["카카오 채널추가 이벤트 포함", "프리미엄코팅 5만원 추가"]
   },
   {
     brandLogo: "/images/hoya-logo.jpg",
@@ -63,19 +63,19 @@ const sampleLenses = [
     descImage: "/images/desc-ba.jpg",
     descText: "업계 추천 1위! 한국인 시야에 최적화된 설계와 탁월한 적응력으로 많은 사랑을 받고 있는 발란시스 KR.",
     prices: [
-      { refraction: "1.50", regular: 550000 },
-      { refraction: "1.60", regular: 650000 },
-      { refraction: "1.67", regular: 750000 },
-      { refraction: "1.74", regular: 900000 }
+      { refraction: "1.50", regular: 700000 },
+      { refraction: "1.60", regular: 800000 },
+      { refraction: "1.67", regular: 900000 }
+     
     ],
-    discountRate: 0.8,
-    options: ["메이리오코팅, 풀컨트롤코팅 선택", "착색 3만원 추가", "변색 옵션 15만원 추가"]
+    discountRate: 0.7,
+    options: ["프리미엄코팅 5만원 추가"]
   }
 ];
 
-const refractiveIndexes = ["1.50", "1.60", "1.67", "1.74"];
+const refractiveIndexes = ["1.50", "1.60", "1.67"];
 
-export default function MultifocalLensAdvanced() {
+export default function Progressive_photo_3Advanced() {
   const [selectedRef, setSelectedRef] = useState("");
   const [imagePopup, setImagePopup] = useState(null); // 이미지 팝업
   const [descPopup, setDescPopup] = useState(null);   // 설명 팝업(객체 저장)
@@ -143,10 +143,7 @@ export default function MultifocalLensAdvanced() {
 
               {/* 가격 카드 */}
               <div className={`relative bg-gray-50 rounded-lg p-4 mb-1 shadow flex flex-col items-center ${isE3 || isE4 ? "animate-pulse" : ""}`}>
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 px-3 py-1 text-xs font-bold rounded-full shadow 
-                  bg-yellow-100 text-yellow-800 border border-yellow-300 whitespace-nowrap">
-                  5만원 프리미엄코팅 무상지원
-                </div>
+                
 
                 <div className="flex items-center gap-3 text-lg font-semibold whitespace-nowrap">
                   <span className={`mr-1 ${regular ? "line-through text-gray-400" : "text-gray-300"}`} style={{ fontSize: "15px" }}>
@@ -186,6 +183,15 @@ export default function MultifocalLensAdvanced() {
               굴절률 {idx}
             </button>
           ))}
+		  
+		  
+		  <button        
+            className="px-6 py-3 rounded-xl font-bold text-lg shadow border-2 bg-purple-300 
+			text-gray-700 border-gray-300 hover:bg-gray-200">
+            변색
+          </button>
+		  
+		  
         </div>
       </div>
 

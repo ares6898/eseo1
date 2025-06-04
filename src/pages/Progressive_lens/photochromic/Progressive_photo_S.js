@@ -8,24 +8,24 @@ const lensTypes = [
     type: "실속형",
     name: "이노티 X 케미렌즈 PB",
     color: "bg-gray-100 text-gray-700 border-gray-200",
-    path: "/multifocal-lens/basic",
+    path: "/Progressive_photo_1Basic",
     priceTable: {
-      "1.50": "79,000원 ~ 179,000원",
-      "1.60": "119,000원 ~ 209,000원",
-      "1.67": "149,000원 ~ 279,000원",
-      "1.74": "219,000원 ~ 399,000원"
+      "1.50": "-",
+      "1.60": "149,000원 ~ 259,000원",
+      "1.67": "199,000원 ~ 355,000원",
+	  "1.74": "-"
     },
     viewImage: "/images/C1.jpg"
   },
   {
     type: "보급형",
-    name: "이노티 X 에실로 PB",
+    name: "펜탁스 다초점렌즈",
     color: "bg-blue-50 text-blue-800 border-blue-200",
-    path: "/multifocal-lens/standard",
+    path: "/Progressive_photo_2P",
     priceTable: {
-      "1.50": "160,000원 ~ 310,000원",
-      "1.60": "190,000원 ~ 375,000원",
-      "1.67": "275,000원 ~ 430,000원",
+      "1.50": "185,000원 ~ 345,000원",
+      "1.60": "215,000원 ~ 385,000원",
+      "1.67": "250,000원 ~ 435,000원",
       "1.74": "-"
     },
     viewImage: "/images/E3.jpg"
@@ -35,12 +35,12 @@ const lensTypes = [
     name: "호야 다초점렌즈",
     color: "bg-blue-900 text-white ring-2 ring-yellow-300 shadow-2xl border-blue-900",
     badge: "🌟 베스트 추천",
-    path: "/multifocal-lens/advanced",
+    path: "/Progressive_photo_3Advanced",
     priceTable: {
-      "1.50": "224,000원 ~ 440,000원",
-      "1.60": "304,000원 ~ 520,000원",
-      "1.67": "384,000원 ~ 600,000원",
-      "1.74": "720,000원"
+      "1.50": "301,000원 ~ 490,000원",
+      "1.60": "371,000원 ~ 560,000원",
+      "1.67": "441,000원 ~ 630,000원",
+      "1.74": "-"
     },
     viewImage: "/images/DP.jpg"
   },
@@ -48,18 +48,18 @@ const lensTypes = [
     type: "프리미엄",
     name: "호야, 니콘, 바리락스",
     color: "bg-gray-900 text-yellow-100 border-yellow-200",
-    path: "/multifocal-lens/supreme",
+    path: "/Progressive_photo_4Supreme",
     priceTable: {
-      "1.50": "480,000원 ~ 910,000원",
-      "1.60": "540,000원 ~ 1,050,000원",
-      "1.67": "630,000원 ~ 1,190,000원",
-      "1.74": "770,000원 ~ 1,470,000원"
+      "1.50": "525,000원 ~ 750,000원",
+      "1.60": "595,000원 ~ 850,000원",
+      "1.67": "665,000원 ~ 950,000원",
+      "1.74": "1,085,000원 ~ 1,150,000원"
     },
     viewImage: "/images/F.jpg"
   }
 ];
 
-export default function MultifocalLensPage() {
+export default function Progressive_photo_S() {
   const navigate = useNavigate();
   const [selectedRef, setSelectedRef] = useState("1.50");
 
@@ -72,7 +72,7 @@ export default function MultifocalLensPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 flex flex-col items-center justify-center pb-32">
-      <h2 className="text-3xl font-bold mb-10 text-blue-900">다초점렌즈 한눈에 비교</h2>
+      <h2 className="text-3xl font-bold mb-10 text-blue-900">변색 다초점렌즈 한눈에 비교</h2>
 
       <div className="flex gap-6 mb-10 flex-wrap justify-center">
         {lensTypes.map((item) => {
@@ -144,6 +144,12 @@ export default function MultifocalLensPage() {
             굴절률 {idx}
           </button>
         ))}
+		<button
+         
+            className="px-6 py-3 rounded-xl font-bold text-lg shadow border-2 bg-purple-300 text-gray-700 border-gray-300 hover:bg-gray-200"
+          >
+            변색
+          </button>
       </div>
     </div>
   );

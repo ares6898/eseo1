@@ -9,13 +9,13 @@ const sampleLenses = [
     recommend: ["스크라치에 강한 내구성", "발란시스KR+인디비주얼설계", "양면복합+개인맞춤"],
     lensImage: "/images/BIND.jpg",
     prices: [
-      { refraction: "1.50", regular: 600000, sale: 480000 },
-	  { refraction: "1.60", regular: 700000, sale: 540000 },
-      { refraction: "1.67", regular: 800000, sale: 630000 },
-	  { refraction: "1.74", regular: 1000000, sale: 770000 }
+      { refraction: "1.50", regular: 750000 },
+	  { refraction: "1.60", regular: 850000 },
+      { refraction: "1.67", regular: 950000 },
+	  
     ],
     discountRate: 0.7,
-    options: ["카카오 채널추가 이벤트 포함","프리미엄 코팅 5만원 추가", "착색 3만원 추가", "변색 옵션 15만원 추가"]
+    options: ["카카오 채널추가 이벤트 포함","프리미엄코팅 5만원 추가"]
   },
   {
     brandLogo: "/logos/hoya-logo.jpg",
@@ -25,13 +25,13 @@ const sampleLenses = [
     recommend: ["스크라치에 강한 내구성", "B.H.T기술 + 3D비전테크", "두 눈의 시력차이에도 편안함"],
     lensImage: "/images/L3.jpg",
     prices: [
-      { refraction: "1.50", regular: 700000 },
-      { refraction: "1.60", regular: 800000 },
-      { refraction: "1.67", regular: 900000 },
-	  { refraction: "1.74", regular: 1100000 }
+      { refraction: "1.50", regular: 850000 },
+      { refraction: "1.60", regular: 950000 },
+      { refraction: "1.67", regular: 1050000 }
+	  
     ],
-    discountRate: 0.75,
-    options: ["프리미엄 코팅 5만원 추가", "착색 3만원 추가", "변색 옵션 15만원 추가"]
+    discountRate: 0.7,
+    options: ["프리미엄코팅 5만원 추가"]
   },
   {
     brandLogo: "/logos/essilor.jpg",
@@ -41,13 +41,13 @@ const sampleLenses = [
     recommend: ["에실로의 프리미엄렌즈", "착용 첫날 적응", "움직임에도 선명한 넓은시야"],
     lensImage: "/images/F.jpg",
     prices: [
-      { refraction: "1.50", regular: 850000 },
-      { refraction: "1.60", regular: 1000000 },
-      { refraction: "1.67", regular: 1100000 },
-	  { refraction: "1.74", regular: 1350000 }
+      { refraction: "1.50", regular: 1050000 },
+      { refraction: "1.60", regular: 1150000 },
+      { refraction: "1.67", regular: 1250000 },
+	  { refraction: "1.74", regular: 1550000 }
     ],
-    discountRate: 0.8,
-    options: ["1.50 - see+uv, 1.60 - PureBlue", "착색 3만원 추가", "변색 옵션 15만원 추가"]
+    discountRate: 0.7,
+    options: ["추가코팅 불가"]
   },
   {
     brandLogo: "/logos/nikon.jpg",
@@ -57,19 +57,19 @@ const sampleLenses = [
     recommend: ["40억개의 설계데이터 매칭", "대비감도기술", "어떠한 변수에서도 최적설계"],
     lensImage: "/images/F.jpg",
     prices: [
-      { refraction: "1.50", regular: 1300000 },
-      { refraction: "1.60", regular: 1500000 },
-      { refraction: "1.67", regular: 1700000 },
-	  { refraction: "1.74", regular: 2100000 }
+      { refraction: "1.50", regular: 1500000 },
+      { refraction: "1.60", regular: 1700000 },
+      { refraction: "1.67", regular: 1900000 },
+	  { refraction: "1.74", regular: 2300000 }
     ],
-    discountRate: 0.7,
-    options: ["1.50 - see+uv, 1.60 - PureBlue", "착색 3만원 추가", "변색 옵션 15만원 추가"]
+    discountRate: 0.5,
+    options: ["1.50 - see+uv, 1.60 - PureBlue"]
   }
 ];
 
 const refractiveIndexes = ["1.50", "1.60", "1.67", "1.74"];
 
-export default function MultifocalLensSupreme() {
+export default function Progressive_photo_4Supreme() {
 	const [selectedRef, setSelectedRef] = useState("");
     const [popupImage, setPopupImage] = useState(null);  // 팝업 이미지 상태 추가
 
@@ -214,6 +214,15 @@ export default function MultifocalLensSupreme() {
               굴절률 {idx}
             </button>
           ))}
+		  
+		  
+		  <button        
+            className="px-6 py-3 rounded-xl font-bold text-lg shadow border-2 bg-purple-300 
+			text-gray-700 border-gray-300 hover:bg-gray-200">
+            변색
+          </button>
+		  
+		  
         </div>
       </div>
 	  

@@ -10,6 +10,25 @@ import MultifocalLensBasic from "./pages/MultifocalLensBasic";
 import MultifocalLensStandard from "./pages/MultifocalLensStandard";
 import MultifocalLensAdvanced from "./pages/MultifocalLensAdvanced";
 import MultifocalLensSupreme from "./pages/MultifocalLensSupreme";
+import MultifocalLensPage11 from "./pages/MultifocalLensPage11";
+import MultifocalLens_p from "./pages/MultifocalLens_p";
+import Multifocal_CH from "./pages/Multifocal_CH";
+//착색다초점
+import Progressive_tinted_R from "./pages/Progressive_lens/tinted/Progressive_tinted_R";
+import Progressive_tinted_S from "./pages/Progressive_lens/tinted/Progressive_tinted_S";
+import Progressive_tinted_1Basic from "./pages/Progressive_lens/tinted/Progressive_tinted_1Basic";
+import Progressive_tinted_2P from "./pages/Progressive_lens/tinted/Progressive_tinted_2P";
+import Progressive_tinted_2Standard from "./pages/Progressive_lens/tinted/Progressive_tinted_2Standard";
+import Progressive_tinted_3Advanced from "./pages/Progressive_lens/tinted/Progressive_tinted_3Advanced";
+import Progressive_tinted_4Supreme from "./pages/Progressive_lens/tinted/Progressive_tinted_4Supreme";
+//변색다초점
+import Progressive_photo_R from "./pages/Progressive_lens/photochromic/Progressive_photo_R";
+import Progressive_photo_S from "./pages/Progressive_lens/photochromic/Progressive_photo_S";
+import Progressive_photo_1Basic from "./pages/Progressive_lens/photochromic/Progressive_photo_1Basic";
+import Progressive_photo_2P from "./pages/Progressive_lens/photochromic/Progressive_photo_2P";
+import Progressive_photo_2Standard from "./pages/Progressive_lens/photochromic/Progressive_photo_2Standard";
+import Progressive_photo_3Advanced from "./pages/Progressive_lens/photochromic/Progressive_photo_3Advanced";
+import Progressive_photo_4Supreme from "./pages/Progressive_lens/photochromic/Progressive_photo_4Supreme";
 
 import "./index.css";
 
@@ -26,6 +45,31 @@ root.render(
       <Route path="/multifocal-lens/standard" element={<MultifocalLensStandard />} />
       <Route path="/multifocal-lens/advanced" element={<MultifocalLensAdvanced />} />
       <Route path="/multifocal-lens/supreme" element={<MultifocalLensSupreme />} />
+	  <Route path="/multifocal-lens-11" element={<MultifocalLensPage11 />} />
+	  <Route path="/multifocal-lens/p" element={<MultifocalLens_p />} />
+	  <Route path="/Multifocal_CH" element={<Multifocal_CH />} />
+	  
+	  //착색다초점
+	  <Route path="/Progressive_tinted_R" element={<Progressive_tinted_R />} />
+	  <Route path="/Progressive_tinted_S" element={<Progressive_tinted_S />} />
+	  <Route path="/Progressive_tinted_1Basic" element={<Progressive_tinted_1Basic />} />
+	  <Route path="/Progressive_tinted_2P" element={<Progressive_tinted_2P />} />
+	  <Route path="/Progressive_tinted_2Standard" element={<Progressive_tinted_2Standard />} />
+	  <Route path="/Progressive_tinted_3Advanced" element={<Progressive_tinted_3Advanced />} />
+	  <Route path="/Progressive_tinted_4Supreme" element={<Progressive_tinted_4Supreme />} />
+	  
+	  //변색다초점
+	  <Route path="/Progressive_photo_R" element={<Progressive_photo_R />} />
+	  <Route path="/Progressive_photo_S" element={<Progressive_photo_S />} />
+	  <Route path="/Progressive_photo_1Basic" element={<Progressive_photo_1Basic />} />
+	  <Route path="/Progressive_photo_2P" element={<Progressive_photo_2P />} />
+	  <Route path="/Progressive_photo_2Standard" element={<Progressive_photo_2Standard />} />
+	  <Route path="/Progressive_photo_3Advanced" element={<Progressive_photo_3Advanced />} />
+	  <Route path="/Progressive_photo_4Supreme" element={<Progressive_photo_4Supreme />} />
+	  
+	  
+	  
+	  
     </Routes>
   </Router>
 );

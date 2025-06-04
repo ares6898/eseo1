@@ -19,14 +19,14 @@ const lensTypes = [
   },
   {
     type: "보급형",
-    name: "이노티 X 에실로 PB",
+    name: "펜탁스 다초점렌즈",
     color: "bg-blue-50 text-blue-800 border-blue-200",
-    path: "/multifocal-lens/standard",
+    path: "/multifocal-lens/p",
     priceTable: {
-      "1.50": "160,000원 ~ 310,000원",
-      "1.60": "190,000원 ~ 375,000원",
-      "1.67": "275,000원 ~ 430,000원",
-      "1.74": "-"
+      "1.50": "140,000원 ~ 300,000원",
+      "1.60": "160,000원 ~ 330,000원",
+      "1.67": "195,000원 ~ 380,000원",
+      "1.74": "225,000원 ~ 475,000원"
     },
     viewImage: "/images/E3.jpg"
   },
@@ -59,7 +59,7 @@ const lensTypes = [
   }
 ];
 
-export default function MultifocalLensPage() {
+export default function MultifocalLensPage11() {
   const navigate = useNavigate();
   const [selectedRef, setSelectedRef] = useState("1.50");
 
