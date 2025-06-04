@@ -15,7 +15,7 @@ const sampleLenses = [
 	  { refraction: "1.74", regular: 1000000, sale: 770000 }
     ],
     discountRate: 0.7,
-    options: ["카카오 채널추가 이벤트 포함","프리미엄 코팅 5만원 추가", "착색 3만원 추가", "변색 옵션 15만원 추가"]
+    options: ["카카오 채널추가 이벤트 포함","프리미엄 코팅 5만원 추가"]
   },
   {
     brandLogo: "/logos/hoya-logo.jpg",
@@ -31,7 +31,7 @@ const sampleLenses = [
 	  { refraction: "1.74", regular: 1100000 }
     ],
     discountRate: 0.75,
-    options: ["프리미엄 코팅 5만원 추가", "착색 3만원 추가", "변색 옵션 15만원 추가"]
+    options: ["프리미엄 코팅 5만원 추가"]
   },
   {
     brandLogo: "/logos/essilor.jpg",
@@ -47,7 +47,7 @@ const sampleLenses = [
 	  { refraction: "1.74", regular: 1350000 }
     ],
     discountRate: 0.8,
-    options: ["1.50 - see+uv, 1.60 - PureBlue", "착색 3만원 추가", "변색 옵션 15만원 추가"]
+    options: ["1.50 - see+uv, 1.60 - PureBlue"]
   },
   {
     brandLogo: "/logos/nikon.jpg",
@@ -63,7 +63,7 @@ const sampleLenses = [
 	  { refraction: "1.74", regular: 2100000 }
     ],
     discountRate: 0.7,
-    options: ["1.50 - see+uv, 1.60 - PureBlue", "착색 3만원 추가", "변색 옵션 15만원 추가"]
+    options: ["1.50 - see+uv, 1.60 - PureBlue"]
   }
 ];
 
