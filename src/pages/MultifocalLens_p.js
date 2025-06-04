@@ -15,7 +15,7 @@ const sampleLenses = [
 	  { refraction: "1.74", regular: 510000 }
     ],
     discountRate: 0.5,
-    options: ["프리미엄 코팅 3만원 추가", "착색 2만원 추가", "변색 옵션 15만원 추가"]
+    options: ["프리미엄 코팅 3만원 추가"]
   },
   {
     brandLogo: "/logos/pentax.png",
@@ -31,7 +31,7 @@ const sampleLenses = [
 	  { refraction: "1.74", regular: 700000 }
     ],
     discountRate: 0.5,
-    options: ["프리미엄 코팅 3만원 추가", "착색 2만원 추가", "변색 옵션 15만원 추가"]
+    options: ["프리미엄 코팅 3만원 추가"]
   },
   {
     brandLogo: "/logos/pentax.png",
@@ -47,7 +47,7 @@ const sampleLenses = [
 	  { refraction: "1.74", regular: 830000 }
     ],
     discountRate: 0.5,
-    options: ["프리미엄 코팅 3만원 추가", "착색 2만원 추가", "변색 옵션 15만원 추가"]
+    options: ["프리미엄 코팅 3만원 추가"]
   },
   {
     brandLogo: "/logos/pentax.png",
@@ -63,7 +63,7 @@ const sampleLenses = [
 	  { refraction: "1.74", regular: 950000 }
     ],
     discountRate: 0.5,
-    options: ["프리미엄 코팅 3만원 추가", "착색 2만원 추가", "변색 옵션 15만원 추가"]
+    options: ["프리미엄 코팅 3만원 추가"]
   }
 ];
 
