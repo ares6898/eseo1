@@ -29,7 +29,7 @@ export default function StockLensPage() {
 
         <button
           className="rounded-xl bg-purple-100 aspect-square w-40 h-40 shadow-md hover:shadow-lg text-center font-semibold text-purple-900 text-lg flex items-center justify-center text-wrap p-4"
-          onClick={() => navigate("/stock-lens/photochromic")}
+          onClick={() => navigate("/stock-lens/PhotoLensPage")}
         >
           변색렌즈 
         </button>
