@@ -110,9 +110,9 @@ export default function PhotoLensPage() {
         "1.67": { regular: "-", discount: "9만원" },
         "1.74": { regular: "-", discount: "14만원" }
       },
-      label: "니콘 GenS 스타일컬러",
+      label: "GenS 스타일컬러",
       brandCode: "gens",
-      icon: "💎 프리미엄",
+      icon: "💎스타일",
       color: "blue",
       tagline: "다양한 컬러, 세계에서 가장 빠른 변색"
     },
@@ -125,9 +125,9 @@ export default function PhotoLensPage() {
         "1.67": { regular: "-", discount: "6만원" },
         "1.74": { regular: "-", discount: "9만원" }
       },
-      label: "니콘 엑스트라엑티브",
+      label: "엑스트라엑티브",
       brandCode: "ex",
-      icon: "🔥 대체불가",
+      icon: "🔥최고급",
       color: "orange",
       tagline: "차 안에서도 변색. 세계에서 가장 진한 변색"
     }
