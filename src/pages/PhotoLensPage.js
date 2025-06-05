@@ -235,7 +235,7 @@ export default function PhotoLensPage() {
                   }`}
                 >
                   <div
-                    className={`text-sm font-bold flex items-center justify-center gap-1 cursor-pointer rounded px-2 py-1 transition ${
+                    className={`text-xs font-bold flex items-center justify-center gap-1 cursor-pointer rounded px-2 py-1 transition ${
                       color.bg(isActive)
                     } ${color.text} ${
                       isActive ? "shadow-md scale-105 animate-pulse" : ""
@@ -243,7 +243,7 @@ export default function PhotoLensPage() {
                     onClick={() => handleBrandClick(item.brandCode)}
                   >
                     <span
-                      className={`${color.badgeBg} ${color.badgeText} px-2 py-0.5 rounded-full text-xs font-semibold`}
+                      className={`${color.badgeBg} ${color.badgeText} px-2 py-0.5 rounded-full text-[10px] font-semibold`}
                     >
                       {item.icon}
                     </span>
