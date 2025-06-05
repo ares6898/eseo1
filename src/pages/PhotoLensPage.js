@@ -219,8 +219,8 @@ export default function PhotoLensPage() {
       </div>
 
       <div className="bg-blue-100 rounded-xl shadow p-4 mb-2">
-        <div className="grid grid-cols-[1fr_4fr] items-start gap-4">
-          <div className="font-bold text-gray-600 text-sm pt-2">굴절률∖제품명</div>
+        <div className="grid grid-cols-[80px_auto] items-start gap-4">
+          <div className="font-bold text-gray-600 text-sm pt-2">굴절률</div>
           {/* 컬럼 수를 5로 변경 */}
           <div className="grid grid-cols-5 gap-2">
             {priceData.map((item, idx) => {
@@ -260,7 +260,7 @@ export default function PhotoLensPage() {
       <div className="grid gap-4">
         {["1.56", "1.60", "1.67", "1.74"].map((row) => (
           <div key={row} className="bg-white rounded-xl shadow p-4">
-            <div className="grid grid-cols-[1fr_4fr] items-center gap-4 mb-2">
+            <div className="grid grid-cols-[80px_auto] items-center gap-4 mb-2">
               <div
                 className="font-semibold text-blue-800 cursor-pointer text-left"
                 onClick={() => handleRowSelect(row)}
