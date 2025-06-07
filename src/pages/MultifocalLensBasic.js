@@ -31,21 +31,21 @@ const basicLenses = [
     options: ["블루라이트 기본"]
   },
   {
-    productName: "C3",
+    productName: "C5 (C3 리뉴얼업)",
     brandLogo: "/images/chemi-logo.jpg",
     lensImage: "/images/c3.jpg",
     prices: [
-      { refraction: "1.50", regular: getRoundedRetail(129000), sale: 129000 },
-      { refraction: "1.60", regular: getRoundedRetail(159000), sale: 159000 },
-      { refraction: "1.67", regular: getRoundedRetail(199000), sale: 199000 },
-      { refraction: "1.74", regular: getRoundedRetail(259000), sale: 259000 }
+      { refraction: "1.50", regular: getRoundedRetail(159000), sale: 159000 },
+      { refraction: "1.60", regular: getRoundedRetail(199000), sale: 199000 },
+      { refraction: "1.67", regular: getRoundedRetail(249000), sale: 249000 },
+      { refraction: "1.74", regular: getRoundedRetail(329000), sale: 329000 }
     ],
     recommend: ["소프트설계로 비교적 부드러움"],
     features: ["실속형 기준 적응도 높음", "기본 소프트설계"],
     options: ["블루라이트 기본"]
   },
   {
-    productName: "C6",
+    productName: "C6 (C4 리뉴얼업)",
     brandLogo: "/images/chemi-logo.jpg",
     lensImage: "/images/c6.jpg",
     prices: [
