@@ -20,13 +20,13 @@ const basicLenses = [
     options: ["블루라이트 기본"]
   },
   {
-    productName: "C3",
+    productName: "C5 (C3 리뉴얼업)",
     brandLogo: "/images/chemi-logo.jpg",
     lensImage: "/images/c3.jpg",
     prices: [
       
-      { refraction: "1.60", regular: 420000, sale: 209000 },
-      { refraction: "1.67", regular: 500000, sale: 249000 }
+      { refraction: "1.60", regular: 400000, sale: 199000 },
+      { refraction: "1.67", regular: 520000, sale: 259000 }
       
     ],
     recommend: ["소프트설계로 비교적 부드러움"],
@@ -34,7 +34,7 @@ const basicLenses = [
     options: ["블루라이트 기본"]
   },
   {
-    productName: "C6",
+    productName: "C6 (C4 리뉴얼업)",
     brandLogo: "/images/chemi-logo.jpg",
     lensImage: "/images/c6.jpg",
     prices: [
