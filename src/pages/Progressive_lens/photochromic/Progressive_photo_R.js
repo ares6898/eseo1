@@ -10,7 +10,7 @@ const lensTypes = [
     color: "bg-gray-100 text-gray-700 border-gray-200",
     path: "/Progressive_photo_1Basic",
     priceTable: {
-      "1.50": "-",
+      "1.50": "149,000원 ~ 259,000원",
       "1.60": "149,000원 ~ 259,000원",
       "1.67": "199,000원 ~ 355,000원",
 	  "1.74": "-"
