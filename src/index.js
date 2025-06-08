@@ -14,6 +14,7 @@ import MultifocalLensPage11 from "./pages/MultifocalLensPage11";
 import MultifocalLens_p from "./pages/MultifocalLens_p";
 import PhotoLensPage from "./pages/PhotoLensPage";
 import Multifocal_CH from "./pages/Multifocal_CH";
+import Kids from "./pages/Kids";
 //착색다초점
 import Progressive_tinted_R from "./pages/Progressive_lens/tinted/Progressive_tinted_R";
 import Progressive_tinted_S from "./pages/Progressive_lens/tinted/Progressive_tinted_S";
@@ -50,6 +51,7 @@ root.render(
 	  <Route path="/multifocal-lens/p" element={<MultifocalLens_p />} />
 	  <Route path="/Multifocal_CH" element={<Multifocal_CH />} />
 	  <Route path="/stock-lens/PhotoLensPage" element={<PhotoLensPage />} />
+	  <Route path="/stock-lens/Kids" element={<Kids />} />
 	  
 	  //착색다초점
 	  <Route path="/Progressive_tinted_R" element={<Progressive_tinted_R />} />
