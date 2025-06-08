@@ -64,15 +64,17 @@ export default function RefractiveLensPage() {
       brandCode: "chemi2",
       label: "케미 2세대",
       value: { "1.56": { regular: "6만원", discount: "3만원" }, "1.60": { regular: "10만원", discount: "5만원" }, "1.67": { regular: "16만원", discount: "8만원" }, "1.74": { regular: "20만원", discount: "10만원" } },
-      icon: "👍",
-      color: "green"
+      icon: "👍가성비",
+      color: "green",
+	  tagline: "가성비 최고, 자외선 차단"
     },
     {
       brandCode: "chemi3",
       label: "케미 3세대 IR",
       value: { "1.56": { regular: "9만원", discount: "5만원" }, "1.60": { regular: "14만원", discount: "8만원" }, "1.67": { regular: "19만원", discount: "10만원" }, "1.74": { regular: "24만원", discount: "15만원" } },
-      icon: "⭐",
-      color: "purple"
+      icon: "⭐고기능",
+      color: "purple",
+	  tagline: "근적외선까지 차단, 스마트폰 사용자 추천"
     }
   ];
 
@@ -105,6 +107,8 @@ export default function RefractiveLensPage() {
               ❌ 추가할인 초기화
             </button>
           </div>
+		  
+		  
           <div className="bg-blue-100 rounded-xl shadow p-4 mb-4">
             <div className="grid grid-cols-[1fr_2fr] gap-4 items-start">
               <div className="font-bold text-gray-600 text-sm pt-2">굴절률 ∖ 제품명</div>
@@ -112,7 +116,7 @@ export default function RefractiveLensPage() {
                 {priceData.map(item => {
                   const active = activeBrandLabel === item.brandCode;
                   return (
-                    <button key={item.brandCode} onClick={() => handleBrandClick(item.brandCode)} className={`flex items-center gap-1 px-3 py-1 rounded ${colorMap[item.color].bg(active)} ${colorMap[item.color].text} ${active ? `ring-2 ring-offset-1 ring-${item.color}-400 animate-pulse` : `shadow`}`}>                      
+                    <button key={item.brandCode} onClick={() => handleBrandClick(item.brandCode)} className={`flex items-center justify-center gap-1 px-3 py-1 rounded ${colorMap[item.color].bg(active)} ${colorMap[item.color].text} ${active ? `ring-2 ring-offset-1 ring-${item.color}-400 animate-pulse` : `shadow`}`}>                      
                       <span className={`px-2 py-0.5 rounded-full text-xs font-semibold ${colorMap[item.color].badgeBg} ${colorMap[item.color].badgeText}`}>{item.icon}</span>
                       {item.label}
                     </button>
