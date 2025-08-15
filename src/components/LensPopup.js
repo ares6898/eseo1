@@ -21,15 +21,15 @@ const LensPopup = ({ brand, onClose }) => {
 
   const brandData = {
     hoya: {
-      name: "호야 뉴럭스 - 일본 호야",
-      logo: "/images/hoya-logo.jpg",
-      image: ["/images/hoya-1.jpg", "/images/hoya-2.jpg"],
+      name: "니콘 씨맥스 INF - 일본 니콘",
+      logo: "/logos/nikon.jpg",
+      image: "/images/see1.jpg",
       description: [
-        { icon: <Sparkles className="inline w-5 h-5 mr-1 text-yellow-500" />, text: "정밀 가공으로 더 선명한 시야 (비구면 설계 포함)" },
-        { icon: <Gem className="inline w-5 h-5 mr-1 text-purple-500" />, text: "전세계 1위 수준의 코팅 내구성" },
-        { icon: <Shield className="inline w-5 h-5 mr-1 text-blue-500" />, text: "자외선·청색광 차단 + 항균코팅까지 완비" }
+        { icon: <Sparkles className="inline w-5 h-5 mr-1 text-yellow-500" />, text: "8개축 수차제어" },
+        { icon: <Gem className="inline w-5 h-5 mr-1 text-purple-500" />, text: "세계최고 기술력으로 가장 선명한 안경렌즈" },
+        { icon: <Shield className="inline w-5 h-5 mr-1 text-blue-500" />, text: "자세한 설명은 카달로그로 확인하세요." }
       ],
-      recommendation: "같은 도수라도 뉴럭스는 더 선명하고 더 오래 갑니다. 강력한 코팅과 선명도를 원하신다면 추천드립니다.",
+      recommendation: "어떤 도수에서도 가장 선명한 안경렌즈.",
       review: "“같은 도수인데도 더 선명하고 오래 가네요. 한 번 쓰면 다시 돌아가기 어렵습니다.”",
       bling: true
     },
@@ -46,16 +46,16 @@ const LensPopup = ({ brand, onClose }) => {
       review: "“가성비 최고! 아이들안경, 그리고 예비용으로 딱 좋아요.”"
     },
     chemi3: {
-      name: "케미 3세대 IR - 국산 케미",
-      logo: "/images/chemi-logo.jpg",
-      image: "/images/IR.jpg",
+      name: "니콘 BLUV - 일본 니콘",
+      logo: "/logos/nikon.jpg",
+      image: ["/images/bluv.jpg","/images/bluv2.jpg"],
       description: [
-        { icon: <Star className="inline w-5 h-5 mr-1 text-yellow-500" />, text: "근적외선(IR), 자외선, 청색광까지 3중 차단" },
-        { icon: <Shield className="inline w-5 h-5 mr-1 text-blue-500" />, text: "고기능 렌즈로 눈 건강 보호" },
+        { icon: <Star className="inline w-5 h-5 mr-1 text-yellow-500" />, text: "유해한 블루라이트만 선별적 차단" },
+        { icon: <Shield className="inline w-5 h-5 mr-1 text-blue-500" />, text: "비구면설계의 고기능렌즈로 더욱 선명하게" },
         { icon: <Sparkles className="inline w-5 h-5 mr-1 text-indigo-500" />, text: "최신 코팅 기술 적용" }
       ],
       recommendation: "눈 건강을 중시하신다면, 루테인 파괴의 주범인 근적외선까지 차단하는 고기능 렌즈를 추천드립니다.",
-      review: "“눈 피로가 훨씬 줄었어요. 특히 근적외선 차단이 마음에 들어요.”"
+      review: "“눈 피로가 훨씬 줄었어요. 전보다 더 얇고 또렸해졌어요.”"
     },
     chemi11: {
       name: "케미 원앤원 - 국산 케미",
