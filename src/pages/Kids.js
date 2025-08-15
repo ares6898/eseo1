@@ -70,11 +70,11 @@ export default function RefractiveLensPage() {
     },
     {
       brandCode: "chemi3",
-      label: "케미 3세대 IR",
-      value: { "1.56": { regular: "9만원", discount: "5만원" }, "1.60": { regular: "14만원", discount: "8만원" }, "1.67": { regular: "19만원", discount: "10만원" }, "1.74": { regular: "24만원", discount: "15만원" } },
+      label: "니콘 BLUV",
+      value: { "1.56": { regular: "10만원", discount: "5.5만원" }, "1.60": { regular: "16.5만원", discount: "9만원" }, "1.67": { regular: "25만원", discount: "13만원" }, "1.74": { regular: "-", discount: "0만원" } },
       icon: "⭐고기능",
       color: "purple",
-	  tagline: "근적외선까지 차단, 스마트폰 사용자 추천"
+	  tagline: "자외선+블루라이트. 비구면설계"
     }
   ];
 
