@@ -54,7 +54,7 @@ const LensPopup = ({ brand, onClose }) => {
         { icon: <Shield className="inline w-5 h-5 mr-1 text-blue-500" />, text: "비구면설계의 고기능렌즈로 더욱 선명하게" },
         { icon: <Sparkles className="inline w-5 h-5 mr-1 text-indigo-500" />, text: "최신 코팅 기술 적용" }
       ],
-      recommendation: "눈 건강을 중시하신다면, 자외선과 블루라이트를 선별적으로 차단하는 BLUV를 추천드립니다.",
+      recommendation: "눈 건강을 중시하신다면, 루테인 파괴의 주범인 근적외선까지 차단하는 고기능 렌즈를 추천드립니다.",
       review: "“눈 피로가 훨씬 줄었어요. 전보다 더 얇고 또렸해졌어요.”"
     },
     chemi11: {
@@ -70,25 +70,25 @@ const LensPopup = ({ brand, onClose }) => {
       review: "“저렴한 가격이 만족스러워요.”"
     },
     chemip: {
-      name: "케미 포토에이드 - 국산 케미",
-      logo: "/images/chemi-logo.jpg",
-      image: "/photo/photoA.jpg",
+      name: "트렌지션클래식 - 일본 니콘",
+      logo: "/logos/nikon.jpg",
+      image: "/images/tc.jpg",
       description: [
         { icon: <Sparkles className="inline w-5 h-5 mr-1 text-blue-500" />, text: "변색속도 : ⭐⭐⭐ " },
-        { icon: <Sparkles className="inline w-5 h-5 mr-1 text-blue-500" />, text: "변색농도 : ⭐⭐ " },
+        { icon: <Sparkles className="inline w-5 h-5 mr-1 text-blue-500" />, text: "변색농도 : ⭐⭐⭐ " },
         { icon: <Sparkles className="inline w-5 h-5 mr-1 text-blue-500" />, text: "색상 : 그레이🖤, 브라운🤎" }
       ],
-      recommendation: "스핀코팅변색 + 블루라이트차단",
+      recommendation: "합리적인 가격의 스핀코팅변색",
       review: "“가성비좋은 보안경으로 추천합니다.”"
     },
     sensity: {
-      name: "호야 센서티2 - 일본 호야",
-      logo: "/images/chemi-logo.jpg",
-      image: "/photo/sensity.jpg",
+      name: "니콘 젠S - 일본 니콘",
+      logo: "/logos/nikon.jpg",
+      image: "/photo/gens.jpg",
       description: [
-        { icon: <Sparkles className="inline w-5 h-5 mr-1 text-blue-500" />, text: "변색속도 : ⭐⭐⭐⭐ " },
+        { icon: <Sparkles className="inline w-5 h-5 mr-1 text-blue-500" />, text: "변색속도 : ⭐⭐⭐⭐⭐ - 전세계 제품중 가장 빠른 속도 " },
         { icon: <Sparkles className="inline w-5 h-5 mr-1 text-blue-500" />, text: "변색농도 : ⭐⭐⭐⭐ " },
-        { icon: <Sparkles className="inline w-5 h-5 mr-1 text-blue-500" />, text: "색상 : 그레이🖤 브라운🤎 그린💚 3~7일" }
+        { icon: <Sparkles className="inline w-5 h-5 mr-1 text-blue-500" />, text: "색상 : 그레이🖤, 1.60 브라운🤎" }
       ],
       recommendation: "더 진하고 더 빠릅니다.",
       review: "“빠르고 진하게 변색되니 선글라스가 필요없어요.”"
