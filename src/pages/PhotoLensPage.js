@@ -65,8 +65,8 @@ export default function PhotoLensPage() {
       value: {
         "1.56": { regular: "8만원", discount: "6만원" },
         "1.60": { regular: "11만원", discount: "9만원" },
-        "1.67": { regular: "-", discount: "8만원" },
-        "1.74": { regular: "-", discount: "X" }
+        "1.67": { regular: "18만원", discount: "17만원" },
+        "1.74": { regular: "30만원", discount: "25만원" }
       },
       label: "케미 원앤원",
       brandCode: "chemi11",
@@ -75,53 +75,53 @@ export default function PhotoLensPage() {
       tagline: "모노머 변색"
     },
     {
-      brand: "케미 포토에이드",
+      brand: "니콘 T클래식",
       value: {
-        "1.56": { regular: "-", discount: "5만원" },
-        "1.60": { regular: "12만원", discount: "10만원" },
-        "1.67": { regular: "18만원", discount: "16만원" },
-        "1.74": { regular: "30만원", discount: "24만원" }
+        "1.56": { regular: "15만원", discount: "7.5만원" },
+        "1.60": { regular: "22만원", discount: "11만원" },
+        "1.67": { regular: "-", discount: "16만원" },
+        "1.74": { regular: "-", discount: "24만원" }
       },
-      label: "케미 포토에이드",
+      label: "니콘 T클래식",
       brandCode: "chemip",
       icon: "⭐ 고기능",
       color: "purple",
       tagline: "스핀코팅변색"
     },
     {
-      brand: "호야 센서티2",
+      brand: "니콘 GenS(S)",
       value: {
-        "1.56": { regular: "하이럭스 15만원", discount: "12만원" },
-        "1.60": { regular: "하이럭스 20만원", discount: "16만원" },
-        "1.67": { regular: "뉴럭스 34만원", discount: "27만원" },
-        "1.74": { regular: "-", discount: "19만원" }
+        "1.56": { regular: "25만원", discount: "13만원" },
+        "1.60": { regular: "35만원", discount: "19만원" },
+        "1.67": { regular: "75만원(10일)", discount: "37.5만원" },
+        "1.74": { regular: "95만원(10일)", discount: "47.5만원" }
       },
-      label: "호야 센서티2",
+      label: "니콘GenS(S)",
       brandCode: "sensity",
       icon: "🌟 베스트",
       color: "yellow",
-      tagline: "스핀코팅변색"
+      tagline: "가장 빠른 변색"
     },
     {
       brand: "니콘 GenS 스타일컬러",
       value: {
-        "1.56": { regular: "30만원", discount: "26만원" },
-        "1.60": { regular: "40만원", discount: "34만원" },
-        "1.67": { regular: "-", discount: "9만원" },
-        "1.74": { regular: "-", discount: "14만원" }
+        "1.56": { regular: "30만원(7일)", discount: "17만원" },
+        "1.60": { regular: "40만원(7일)", discount: "23만원" },
+        "1.67": { regular: "75만원(10일)", discount: "37.5만원" },
+        "1.74": { regular: "95만원(10일)", discount: "47.5만원" }
       },
-      label: "GenS 스타일컬러",
+      label: "니콘GenS (RX)",
       brandCode: "gens",
       icon: "💎스타일",
       color: "blue",
-      tagline: "다양한 컬러, 세계에서 가장 빠른 변색"
+      tagline: "젠S의 다양한 컬러"
     },
     // 샘플 다섯 번째 상품
     {
       brand: "엑스트라엑티브",
       value: {
-        "1.56": { regular: "33만원", discount: "28만원" },
-        "1.60": { regular: "43만원", discount: "36만원" },
+        "1.56": { regular: "33만원(10일)", discount: "19만원" },
+        "1.60": { regular: "43만원(10일)", discount: "24만원" },
         "1.67": { regular: "-", discount: "6만원" },
         "1.74": { regular: "-", discount: "9만원" }
       },
@@ -287,6 +287,7 @@ export default function PhotoLensPage() {
                         <>
                           <div className="text-sm text-gray-400 line-through mb-0.5">
                             {cell.value[row].regular}
+							
                           </div>
                           <div className="text-xl font-extrabold text-blue-900 flex items-center">
                             {formatPrice(
