@@ -49,15 +49,19 @@ export default function RefractiveLensPage() {
     );
   };
 
-  // 할인 적용 함수
+  // 문자열 가격(만원 단위) → 숫자 원 단위, 추가할인 적용
   const applyExtraDiscount = (price) => {
-    const numberOnly = parseFloat(price.replace(/[^\d.]/g, ""));
-    const value = numberOnly * 10000;
+    const numberOnly = parseFloat(String(price).replace(/[^\d.]/g, ""));
+    const value = isNaN(numberOnly) ? 0 : numberOnly * 10000;
     return extraDiscount ? Math.round(value * 0.9) : value;
   };
 
-  // 천 단위 표시 함수
-  const formatPrice = (value) => value.toLocaleString() + "원";
+  // 천단위 표시
+  const formatPrice = (value) => (isNaN(value) ? "-" : value.toLocaleString() + "원");
+
+  // "—" 처리( "-", "---", 공백 포함 )
+  const isDash = (v) =>
+    typeof v === "string" && v.replace(/\s/g, "").includes("-");
 
   const priceData = [
     {
@@ -75,57 +79,56 @@ export default function RefractiveLensPage() {
       tagline: "가성비 최고, 자외선 차단"
     },
     {
-      brand: "케미 3세대 IR",
+      brand: "니콘 BLUV",
       value: {
-        "1.56": { regular: "9만원", discount: "5만원" },
-        "1.60": { regular: "14만원", discount: "8만원" },
-        "1.67": { regular: "19만원", discount: "10만원" },
-        "1.74": { regular: "24만원", discount: "15만원" }
+        "1.56": { regular: "10만원", discount: "5.5만원" },
+        "1.60": { regular: "16.5만원", discount: "9만원" },
+        "1.67": { regular: "25만원", discount: "13만원" },
+        "1.74": { regular: "---", discount: "0" } // 정가 대시 처리
       },
-      label: "케미 3세대 IR",
+      label: "니콘 BLUV",
       brandCode: "chemi3",
       icon: "⭐ 고기능",
       color: "purple",
-      tagline: "근적외선까지 차단, 스마트폰 사용자 추천"
+      tagline: "유해한 블루라이트만 차단, 비구면으로 왜곡제거"
     },
     {
-      brand: "호야 뉴럭스 FC",
+      brand: "니콘 씨맥스 INF",
       value: {
-        "1.56": { regular: "11만원", discount: "7만원" },
-        "1.60": { regular: "16만원", discount: "9만원" },
-        "1.67": { regular: "23만원", discount: "12만원" },
-        "1.74": { regular: "43만원", discount: "19만원" }
+        "1.56": { regular: "40만원", discount: "13.5만원" },
+        "1.60": { regular: "50만원", discount: "19만원" },
+        "1.67": { regular: "60만원", discount: "28만원" },
+        "1.74": { regular: "85만원", discount: "35만원" }
       },
-      label: "호야 뉴럭스 FC",
+      label: "니콘 씨맥스 INF",
       brandCode: "hoya",
       icon: "🌟 베스트",
       color: "yellow",
-      tagline: "고급 내구성, 자외선·청색광·오염방지 올인원"
+      tagline: "세계최고의 개인맞춤 안경렌즈"
     }
   ];
 
   const colorMap = {
     green: {
-      bg: (active) => active ? "bg-green-300" : "bg-green-100",
+      bg: (active) => (active ? "bg-green-300" : "bg-green-100"),
       text: "text-green-900",
       badgeBg: "bg-green-500",
       badgeText: "text-white"
     },
     purple: {
-      bg: (active) => active ? "bg-purple-300" : "bg-purple-100",
+      bg: (active) => (active ? "bg-purple-300" : "bg-purple-100"),
       text: "text-purple-900",
       badgeBg: "bg-purple-500",
       badgeText: "text-white"
     },
     yellow: {
-      bg: (active) => active ? "bg-yellow-300" : "bg-yellow-100",
+      bg: (active) => (active ? "bg-yellow-300" : "bg-yellow-100"),
       text: "text-yellow-900",
       badgeBg: "bg-yellow-500",
       badgeText: "text-white"
     }
   };
 
-  // 할인 프로그램별 버튼 스타일
   const discountButtonStyles = [
     "bg-blue-500 hover:bg-blue-600 text-white",
     "bg-green-500 hover:bg-green-600 text-white",
@@ -137,14 +140,22 @@ export default function RefractiveLensPage() {
   return (
     <div className="bg-gray-50 text-gray-900 min-h-screen p-6">
       <div className="bg-white rounded-xl shadow p-4 w-fit mx-auto mb-6">
-        <img src="/images/이노티로고.jpg" alt="이노티안경 로고" className="h-16 cursor-pointer" onClick={() => navigate("/")} />
+        <img
+          src="/images/이노티로고.jpg"
+          alt="이노티안경 로고"
+          className="h-16 cursor-pointer"
+          onClick={() => navigate("/")}
+        />
       </div>
 
       <h2 className="text-xl font-semibold text-center mb-2">Refractive lens</h2>
 
       <div className="text-center text-sm text-blue-800 font-bold mb-4">
         어떤 렌즈가 좋을지 모르시겠다면 👉
-        <span className="underline cursor-pointer hover:text-blue-500 ml-1" onClick={() => setShowRecommendation(true)}>
+        <span
+          className="underline cursor-pointer hover:text-blue-500 ml-1"
+          onClick={() => setShowRecommendation(true)}
+        >
           전문 안경사의 굴절률 추천 보기
         </span>
       </div>
@@ -180,15 +191,24 @@ export default function RefractiveLensPage() {
               return (
                 <div
                   key={idx}
-                  className={`flex flex-col items-center text-center bg-white rounded-xl shadow p-4 transition cursor-pointer w-full hover:shadow-lg ${isActive ? 'ring-2 ring-offset-1 ring-' + item.color + '-400' : ''}`}
+                  className={`flex flex-col items-center text-center bg-white rounded-xl shadow p-4 transition cursor-pointer w-full hover:shadow-lg ${
+                    isActive ? "ring-2 ring-offset-1 ring-" + item.color + "-400" : ""
+                  }`}
                 >
-                  <div className={`text-sm font-bold flex items-center justify-center gap-1 cursor-pointer rounded px-2 py-1 transition ${color.bg(isActive)} ${color.text} ${isActive ? 'shadow-md scale-105 animate-pulse' : ''}`} onClick={() => handleBrandClick(item.brandCode)}>
-                    <span className={`${color.badgeBg} ${color.badgeText} px-2 py-0.5 rounded-full text-xs font-semibold`}>
+                  <div
+                    className={`text-sm font-bold flex items-center justify-center gap-1 cursor-pointer rounded px-2 py-1 transition ${color.bg(
+                      isActive
+                    )} ${color.text} ${isActive ? "shadow-md scale-105 animate-pulse" : ""}`}
+                    onClick={() => handleBrandClick(item.brandCode)}
+                  >
+                    <span
+                      className={`${color.badgeBg} ${color.badgeText} px-2 py-0.5 rounded-full text-xs font-semibold`}
+                    >
                       {item.icon}
                     </span>
                     {item.label}
                   </div>
-                  <div className='text-xs mt-1 text-gray-600'>{item.tagline}</div>
+                  <div className="text-xs mt-1 text-gray-600">{item.tagline}</div>
                 </div>
               );
             })}
@@ -200,7 +220,10 @@ export default function RefractiveLensPage() {
         {["1.56", "1.60", "1.67", "1.74"].map((row) => (
           <div key={row} className="bg-white rounded-xl shadow p-4">
             <div className="grid grid-cols-[1fr_3fr] items-center gap-4 mb-2">
-              <div className="font-semibold text-blue-800 cursor-pointer text-left" onClick={() => handleRowSelect(row)}>
+              <div
+                className="font-semibold text-blue-800 cursor-pointer text-left"
+                onClick={() => handleRowSelect(row)}
+              >
                 {row}
               </div>
               <div className="grid grid-cols-3 gap-2">
@@ -208,25 +231,37 @@ export default function RefractiveLensPage() {
                   <div
                     key={idx}
                     className={`w-full text-center py-2 px-3 rounded cursor-pointer transition border border-gray-300 ${
-                      selectedRows.includes(row) ? "bg-yellow-200 text-black font-bold shadow" : "opacity-50"
+                      selectedRows.includes(row)
+                        ? "bg-yellow-200 text-black font-bold shadow"
+                        : "opacity-50"
                     }`}
                     onClick={() => handleBrandClick(cell.brandCode)}
                   >
                     <div className="flex flex-col items-center">
-                      <div className="text-sm text-gray-400 line-through mb-0.5">{cell.value[row].regular}</div>
-                      <div className="text-xl font-extrabold text-blue-900 flex items-center">
-                        {formatPrice(applyExtraDiscount(cell.value[row].discount))}
-                        {extraDiscount && (
-                          <span className="ml-2 text-red-600 text-xs bg-red-100 px-2 py-0.5 rounded-full font-semibold animate-bounce">
-                            추가할인!
-                          </span>
-                        )}
-                        {cell.brandCode === "hoya" && (
-                          <span className="ml-2 text-red-600 text-xs bg-red-100 px-2 py-0.5 rounded-full font-semibold animate-bounce">
-                            전국최저가
-                          </span>
-                        )}
-                      </div>
+                      {isDash(cell.value[row].regular) ? (
+                        // 정가가 대시(미공급/미제공)인 경우
+                        <div className="text-lg text-gray-400 font-medium">-</div>
+                      ) : (
+                        <>
+                          <div className="text-sm text-gray-400 line-through mb-0.5">
+                            {cell.value[row].regular}
+                          </div>
+
+                          <div className="text-xl font-extrabold text-blue-900 flex items-center">
+                            {formatPrice(applyExtraDiscount(cell.value[row].discount))}
+                            {extraDiscount && (
+                              <span className="ml-2 text-red-600 text-xs bg-red-100 px-2 py-0.5 rounded-full font-semibold animate-bounce">
+                                추가할인!
+                              </span>
+                            )}
+                            {cell.brandCode === "chemi3" && (
+                              <span className="ml-2 text-red-600 text-xs bg-red-100 px-2 py-0.5 rounded-full font-semibold animate-bounce">
+                                전국최저가
+                              </span>
+                            )}
+                          </div>
+                        </>
+                      )}
                     </div>
                   </div>
                 ))}
@@ -246,17 +281,54 @@ export default function RefractiveLensPage() {
               반드시 안경사와 상의하세요.
             </p>
             <div className="grid grid-cols-2 gap-2">
-              <button className="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded hover:bg-blue-200 font-semibold" onClick={() => { setSelectedRows(["1.56", "1.60"]); setShowRecommendation(false); }}>2디옵터 이하</button>
-              <button className="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded hover:bg-blue-200 font-semibold" onClick={() => { setSelectedRows(["1.60", "1.67"]); setShowRecommendation(false); }}>4디옵터 이하</button>
-              <button className="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded hover:bg-blue-200 font-semibold" onClick={() => { setSelectedRows(["1.67", "1.74"]); setShowRecommendation(false); }}>6디옵터 이하</button>
-              <button className="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded hover:bg-blue-200 font-semibold" onClick={() => { setSelectedRows(["1.74"]); setShowRecommendation(false); }}>6디옵터 초과</button>
+              <button
+                className="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded hover:bg-blue-200 font-semibold"
+                onClick={() => {
+                  setSelectedRows(["1.56", "1.60"]);
+                  setShowRecommendation(false);
+                }}
+              >
+                2디옵터 이하
+              </button>
+              <button
+                className="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded hover:bg-blue-200 font-semibold"
+                onClick={() => {
+                  setSelectedRows(["1.60", "1.67"]);
+                  setShowRecommendation(false);
+                }}
+              >
+                4디옵터 이하
+              </button>
+              <button
+                className="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded hover:bg-blue-200 font-semibold"
+                onClick={() => {
+                  setSelectedRows(["1.67", "1.74"]);
+                  setShowRecommendation(false);
+                }}
+              >
+                6디옵터 이하
+              </button>
+              <button
+                className="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded hover:bg-blue-200 font-semibold"
+                onClick={() => {
+                  setSelectedRows(["1.74"]);
+                  setShowRecommendation(false);
+                }}
+              >
+                6디옵터 초과
+              </button>
             </div>
-            <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" onClick={() => setShowRecommendation(false)}>닫기</button>
+            <button
+              className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+              onClick={() => setShowRecommendation(false)}
+            >
+              닫기
+            </button>
           </div>
         </div>
       )}
 
-      {/* 할인 프로그램 팝업 개선 */}
+      {/* 할인 프로그램 팝업 */}
       {showDiscountPopup && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
           <div className="bg-white rounded-xl p-8 w-[95%] max-w-lg text-center space-y-6 shadow-2xl">
@@ -271,14 +343,24 @@ export default function RefractiveLensPage() {
               ].map((text, i) => (
                 <button
                   key={i}
-                  onClick={() => { setExtraDiscount(true); setShowDiscountPopup(false); }}
-                  className={`w-full text-xl font-bold py-4 rounded-xl shadow transition ${discountButtonStyles[i % discountButtonStyles.length]}`}
+                  onClick={() => {
+                    setExtraDiscount(true);
+                    setShowDiscountPopup(false);
+                  }}
+                  className={`w-full text-xl font-bold py-4 rounded-xl shadow transition ${
+                    discountButtonStyles[i % discountButtonStyles.length]
+                  }`}
                 >
                   {text}
                 </button>
               ))}
             </div>
-            <button onClick={() => setShowDiscountPopup(false)} className="mt-4 bg-gray-500 text-white px-6 py-3 rounded-xl hover:bg-gray-600 text-lg font-extrabold shadow transition">닫기</button>
+            <button
+              onClick={() => setShowDiscountPopup(false)}
+              className="mt-4 bg-gray-500 text-white px-6 py-3 rounded-xl hover:bg-gray-600 text-lg font-extrabold shadow transition"
+            >
+              닫기
+            </button>
           </div>
         </div>
       )}
