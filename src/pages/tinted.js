@@ -126,7 +126,7 @@ export default function tinted() {
         "1.74": { regular: "30만원", discount: "18만원" }
       },
       label: "주문착색",
-      brandCode: "ex",
+      brandCode: "rxc",
       icon: "🔥주문제작",
       color: "orange",
       tagline: "샘플색상 선택하여 주문제작"
