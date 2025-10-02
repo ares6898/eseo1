@@ -2,72 +2,72 @@ import React, { useState } from "react";
 
 const sampleLenses = [
   {
-    brandLogo: "/logos/hoya-logo.jpg",
-    productName: "호야 발란시스 KR-IND",
-	badge: { text: "한국인+개인맞춤", bg: "bg-ye-200", color: "text-sky-800", border: "border-sky-300" },
-    features: ["강한 내구성의 호야", "프리미엄다초점 합리적인 선택"],
-    recommend: ["스크라치에 강한 내구성", "발란시스KR+인디비주얼설계", "양면복합+개인맞춤"],
-    lensImage: "/images/BIND.jpg",
+    brandLogo: "/logos/VX.jpg",
+    productName: "컴포트맥스 KAN",
+	badge: { text: "한국인 전용", bg: "bg-ye-200", color: "text-sky-800", border: "border-sky-300" },
+    features: ["한국인 전용디자인", "하루종일 편안한 시야"],
+    recommend: ["장시간 착용해도 편안한 자세", "어두운 환경 선명하고 또렷함", "원 근거리 정확한 시야"],
+    lensImage: "/images/DP.jpg",
     prices: [
-      { refraction: "1.50", regular: 600000, sale: 480000 },
-	  { refraction: "1.60", regular: 700000, sale: 540000 },
-      { refraction: "1.67", regular: 800000, sale: 630000 },
-	  { refraction: "1.74", regular: 1000000, sale: 770000 }
+      { refraction: "1.50", regular: 450000 },
+	  { refraction: "1.60", regular: 600000 },
+      { refraction: "1.67", regular: 700000 }
+	  
     ],
     discountRate: 0.7,
-    options: ["카카오 채널추가 이벤트 포함","프리미엄 코팅 5만원 추가"]
+    options: ["1.60, 1.67 퓨어블루 코팅 포함"]
   },
   {
-    brandLogo: "/logos/hoya-logo.jpg",
-    productName: "호야 라이프스타일4",
-    badge: { text: "양쪽 눈의 시력차", bg: "bg-sky-200", color: "text-sky-800", border: "border-sky-300" },
-    features: ["강한 내구성의 호야", "양안시 리더"],
-    recommend: ["스크라치에 강한 내구성", "B.H.T기술 + 3D비전테크", "두 눈의 시력차이에도 편안함"],
-    lensImage: "/images/L3.jpg",
+    brandLogo: "/logos/VX.jpg",
+    productName: "피지오 KAN",
+    badge: { text: "활동적인 시생활", bg: "bg-sky-200", color: "text-sky-800", border: "border-sky-300" },
+    features: ["한국인 전용디자인", "양안시 리더"],
+    recommend: ["양안 균형 더욱 넓은 시야", "어두운 환경 선명하고 또렷함", "빠르고 정확한 시야전환"],
+    lensImage: "/images/BIND.jpg",
     prices: [
-      { refraction: "1.50", regular: 700000 },
-      { refraction: "1.60", regular: 800000 },
-      { refraction: "1.67", regular: 900000 },
-	  { refraction: "1.74", regular: 1100000 }
+      { refraction: "1.50", regular: 550000 },
+      { refraction: "1.60", regular: 700000 },
+      { refraction: "1.67", regular: 800000 },
+	  { refraction: "1.74 - 납기2주", regular: 900000 }
     ],
-    discountRate: 0.75,
-    options: ["프리미엄 코팅 5만원 추가"]
+    discountRate: 0.7,
+    options: ["1.60, 1.67 퓨어블루 코팅 포함", "1.74 Crizal 코팅"]
   },
   {
-    brandLogo: "/logos/essilor.jpg",
+    brandLogo: "/logos/VX.jpg",
     productName: "바리락스 XR 디자인",
     badge: { text: "움직임에도 지속되는 선명함", bg: "bg-lime-200", color: "text-lime-800", border: "border-lime-300" },
     features: ["AI설계 최첨단 프리미엄 다초점", "움직임속에서도 선명함"],
-    recommend: ["에실로의 프리미엄렌즈", "착용 첫날 적응", "움직임에도 선명한 넓은시야"],
+    recommend: ["AI설계 즉각적인 선명함", "착용 첫날 적응", "움직임에도 선명한 넓은시야"],
     lensImage: "/images/F.jpg",
     prices: [
       { refraction: "1.50", regular: 850000 },
       { refraction: "1.60", regular: 1000000 },
       { refraction: "1.67", regular: 1100000 },
-	  { refraction: "1.74", regular: 1350000 }
+	  { refraction: "1.74 - 납기2주", regular: 1350000 }
     ],
-    discountRate: 0.8,
-    options: ["1.50 - see+uv, 1.60 - PureBlue"]
+    discountRate: 0.6,
+    options: ["1.60, 1.67 퓨어블루 코팅 포함", "1.74 Crizal 코팅"]
   },
   {
-    brandLogo: "/logos/nikon.jpg",
-    productName: "씨맥스 얼티밋 Z",
-    badge: { text: "40억개의 데이터매칭", bg: "bg-orange-200", color: "text-orange-800", border: "border-orange-300" },
-    features: ["모든 상황에서 선명함", "대비 최적화 렌즈"],
-    recommend: ["40억개의 설계데이터 매칭", "대비감도기술", "어떠한 변수에서도 최적설계"],
+    brandLogo: "/logos/VX.jpg",
+    productName: "바리락스 XR PRO",
+    badge: { text: "움직임에도 지속되는 선명함", bg: "bg-orange-200", color: "text-orange-800", border: "border-orange-300" },
+    features: ["AI설계 최첨단 프리미엄 다초점", "움직임속에서도 선명함"],
+    recommend: ["아이코드 적용모델", "4D 개인맞춤", "세계최고의 다초점렌즈"],
     lensImage: "/images/F.jpg",
     prices: [
-      { refraction: "1.50", regular: 1300000 },
-      { refraction: "1.60", regular: 1500000 },
-      { refraction: "1.67", regular: 1700000 },
-	  { refraction: "1.74", regular: 2100000 }
+      { refraction: "1.50", regular: 1800000 },
+      { refraction: "1.60", regular: 2050000 },
+      { refraction: "1.67", regular: 2250000 },
+	  { refraction: "1.74 - 납기2주", regular: 2600000 }
     ],
-    discountRate: 0.7,
-    options: ["1.50 - see+uv, 1.60 - PureBlue"]
+    discountRate: 0.5,
+    options: ["1.60, 1.67 퓨어블루 코팅 포함", "1.74 Crizal 코팅"]
   }
 ];
 
-const refractiveIndexes = ["1.50", "1.60", "1.67", "1.74"];
+const refractiveIndexes = ["1.50", "1.60", "1.67", "1.74 - 납기2주"];
 
 export default function MultifocalLensSupreme() {
 	const [selectedRef, setSelectedRef] = useState("");
@@ -91,8 +91,8 @@ export default function MultifocalLensSupreme() {
 			: null;
 
 			const discountAmount = regular && sale ? regular - sale : null;
-          const isE3 = lens.productName === "호야 발란시스 KR-IND";
-		  const isE4 = lens.productName === "호야 발란시스 KR";
+          const isE3 = lens.productName === "피지오 KAN";
+		  const isE4 = lens.productName === "바리락스 XR 디자인";
 
           return (
             <div
@@ -105,13 +105,13 @@ export default function MultifocalLensSupreme() {
 			
               {isE3 && (
                 <div className="absolute left-6 -top-4 bg-yellow-400 text-white font-extrabold px-5 py-1 rounded-full shadow-xl text-sm tracking-wide border-2 border-yellow-600 animate-bounce whitespace-nowrap z-20">
-                  프리미엄 고객 선택 1위
+                  전문가 추천
                 </div>
               )}
 			  
 			  {isE4 && (
 				<div className="absolute right-6 -top-4 bg-pink-500 text-white font-extrabold px-4 py-1 rounded-full shadow-xl text-sm tracking-wide border-2 border-pink-600 animate-bounce whitespace-nowrap z-20">
-				전문가 추천 1위
+				구매 만족도 1위
 				</div>
 				)}
 			  
@@ -179,7 +179,7 @@ export default function MultifocalLensSupreme() {
                   {selectedRef && discountAmount !== null ? `할인 금액: ${discountAmount.toLocaleString()}원` : "–"}
                 </div>
 				<div className="font-bold text-base text-gray-800 mb-2">
-                  굴절률 <span className="text-blue-800">{selectedRef || "-"}</span> 가격
+                  굴절률 <span className="text-blue-800">{selectedRef || "-"}</span> 
                 </div>
               </div>
 
@@ -214,6 +214,11 @@ export default function MultifocalLensSupreme() {
               굴절률 {idx}
             </button>
           ))}
+		  <button        
+            className="px-6 py-3 rounded-xl font-bold text-lg shadow border-2 bg-blue-100 
+			text-gray-700 border-gray-300 hover:bg-gray-200">
+            클리어
+          </button>
         </div>
       </div>
 	  

@@ -3,79 +3,83 @@ import React, { useState } from "react";
 // 1. 각 제품 객체에 descImage(설명팝업 이미지), descText(설명팝업 텍스트) 추가!
 const sampleLenses = [
   {
-    brandLogo: "/images/hoya-logo.jpg",
-    productName: "호야 앰플리튜드 플러스",
-    badge: { text: "균형잡힌 시생활", bg: "bg-ye-200", color: "text-sky-800", border: "border-sky-300" },
-    features: ["합리적인 호야 다초점렌즈"],
-    recommend: ["스크라치에 강한 내구성", "맥스 부스터 플러스 기술", "원-근 밸런스 설계"],
-    lensImage: "/images/E3.jpg",
+    brandLogo: "/logos/nikon.jpg",
+    productName: "니콘 퍼스트",
+    badge: { text: "초기노안", bg: "bg-ye-200", color: "text-sky-800", border: "border-sky-300" },
+    features: ["수평방향 수차제어"],
+    recommend: ["혁신적인 니콘의 비구면설계", "수평방향 수차제어", "합리적인 가격"],
+    lensImage: "/images/E2.jpg",
     descImage: "/images/ampop.png", // 설명팝업 이미지(제품별로 다르게)
     descText: "이 제품은 합리적 가격의 호야 앰플리튜드 플러스! 선명한 시야와 내구성 모두 잡은 균형잡힌 제품입니다.", // 설명팝업 텍스트(제품별로 다르게)
     prices: [
-      { refraction: "1.50", regular: 310000 },
-      { refraction: "1.60", regular: 410000 },
+      { refraction: "1.50", regular: 280000 },
+      { refraction: "1.60", regular: 380000 },
       { refraction: "1.67", regular: 510000 }
     ],
     discountRate: 0.8,
-    options: ["메이리오코팅, 풀컨트롤코팅 선택"]
+    options: ["1.60, 1.67 퓨어블루 코팅 포함"]
   },
+  
   {
-    brandLogo: "/images/hoya-logo.jpg",
-    productName: "호야 다이나믹 써미트KR",
-    badge: { text: "스테디셀러", bg: "bg-sky-200", color: "text-sky-800", border: "border-sky-300" },
-    features: ["한국인 전용 다초점렌즈"],
-    recommend: ["스크라치에 강한 내구성", "퀵포커스+파워옵티마이저", "처방도수에 따른 최적화설계"],
+    brandLogo: "/logos/nikon.jpg",
+    productName: "니콘 어드밴스 Z",
+    badge: { text: "디지털기기 전용", bg: "bg-lime-200", color: "text-lime-800", border: "border-lime-300" },
+    features: ["모든 상황에서 진하고 또렷한 Z"],
+    recommend: ["Z-저조도상황에서도 선명하게", "더욱 편안한 근거리시야", "디지털라이프 스타일"],
     lensImage: "/images/E4.jpg",
-    descImage: "/images/desc-e4.jpg",
-    descText: "한국인 처방 데이터로 최적화된 호야 다이나믹 써미트KR. 선명하고 빠른 적응력, 높은 내구성이 특징!",
-    prices: [
-      { refraction: "1.50", regular: 380000, sale: 295000 },
-      { refraction: "1.60", regular: 480000, sale: 362000 },
-      { refraction: "1.67", regular: 580000, sale: 452000 }
-    ],
-    discountRate: 0.7,
-    options: ["카카오 채널추가 이벤트 포함", "메이리오코팅, 풀컨트롤코팅 선택"]
-  },
-  {
-    brandLogo: "/images/hoya-logo.jpg",
-    productName: "호야 D-프리미엄KR-IND",
-    badge: { text: "쾌적한시야+빠른적응", bg: "bg-lime-200", color: "text-lime-800", border: "border-lime-300" },
-    features: ["합리적인 가격의 인디비주얼렌즈"],
-    recommend: ["스크라치에 강한 내구성", "자유롭게, 더 다이나믹하게", "개인맞춤설계 - 인디비주얼설계"],
-    lensImage: "/images/DP.jpg",
     descImage: "/images/desc-dp.jpg",
     descText: "누진 초보도 빠르게 적응! 개인맞춤 설계로 한 단계 높은 편안함을 느낄 수 있는 프리미엄KR-IND.",
     prices: [
-      { refraction: "1.50", regular: 480000, sale: 335000 },
-      { refraction: "1.60", regular: 580000, sale: 425000 },
-      { refraction: "1.67", regular: 680000, sale: 515000 }
+      { refraction: "1.50", regular: 430000 },
+      { refraction: "1.60", regular: 580000 },
+      { refraction: "1.67", regular: 680000 },
+	  { refraction: "1.74-납기 10일", regular: 780000 }
     ],
     discountRate: 0.7,
-    options: ["카카오 채널추가 이벤트 포함", "메이리오코팅, 풀컨트롤코팅 선택"]
+    options: ["1.60, 1.67 퓨어블루 코팅 포함"]
   },
   {
-    brandLogo: "/images/hoya-logo.jpg",
-    productName: "호야 발란시스 KR",
-    badge: { text: "한국 안경사 커뮤니티 추천1위", bg: "bg-orange-200", color: "text-orange-800", border: "border-orange-300" },
-    features: ["가장빠른 적응 + 한국인전용설계"],
-    recommend: ["스크라치에 강한 내구성", "원-근용 넓은 시야", "전문가 추천1위"],
-    lensImage: "/images/BA.jpg",
+    brandLogo: "/logos/nikon.jpg",
+    productName: "니콘 와이드 Z",
+    badge: { text: "자연스러움과 편안함의 조화", bg: "bg-orange-200", color: "text-orange-800", border: "border-orange-300" },
+    features: ["강력한 수차제어 디자인"],
+    recommend: ["모든 거리의 주변부 수차제어", "울렁임없이 넓은 시야", "편안하고 빠른 적응"],
+    lensImage: "/images/BIND.jpg",
     descImage: "/images/desc-ba.jpg",
     descText: "업계 추천 1위! 한국인 시야에 최적화된 설계와 탁월한 적응력으로 많은 사랑을 받고 있는 발란시스 KR.",
     prices: [
       { refraction: "1.50", regular: 580000 },
-      { refraction: "1.60", regular: 680000 },
-      { refraction: "1.67", regular: 780000 },
-      { refraction: "1.74", regular: 930000 }
+      { refraction: "1.60", regular: 730000 },
+      { refraction: "1.67", regular: 830000 },
+      { refraction: "1.74-납기 10일", regular: 930000 }
     ],
-    discountRate: 0.8,
-    options: ["메이리오코팅, 풀컨트롤코팅 선택"]
+    discountRate: 0.7,
+    options: ["1.60, 1.67 퓨어블루 코팅 포함"]
+  },
+  {
+    brandLogo: "/logos/nikon.jpg",
+    productName: "니콘 씨맥스 마스터Z",
+    badge: { text: "적응실패 없는 다초점", bg: "bg-sky-200", color: "text-sky-800", border: "border-sky-300" },
+    features: ["40억개의 디자인"],
+    recommend: ["40억개의 디자인 중에","나를 위한 단 하나의 설계", "세계 최고의 다초점렌즈"],
+    lensImage: "/images/F.jpg",
+    descImage: "/images/desc-e4.jpg",
+    descText: "한국인 처방 데이터로 최적화된 호야 다이나믹 써미트KR. 선명하고 빠른 적응력, 높은 내구성이 특징!",
+    prices: [
+      { refraction: "1.50", regular: 930000 },
+      { refraction: "1.60", regular: 1180000 },
+      { refraction: "1.67", regular: 1380000 },
+      { refraction: "1.74-납기 10일", regular: 1630000 }
+    ],
+    discountRate: 0.5,
+    options: ["1.60, 1.67 퓨어블루 코팅 포함"]
   }
+  
 ];
 
-const refractiveIndexes = ["1.50", "1.60", "1.67", "1.74"];
+const refractiveIndexes = ["1.50", "1.60", "1.67", "1.74-납기 10일"];
 
-export default function Progressive_tinted_3Advanced() {
+export default function MultifocalLensAdvanced() {
   const [selectedRef, setSelectedRef] = useState("");
   const [imagePopup, setImagePopup] = useState(null); // 이미지 팝업
   const [descPopup, setDescPopup] = useState(null);   // 설명 팝업(객체 저장)
@@ -89,20 +93,20 @@ export default function Progressive_tinted_3Advanced() {
           const sale = priceRow ? priceRow.sale ?? Math.round(priceRow.regular * lens.discountRate) : null;
           const discountAmount = regular && sale ? regular - sale : null;
 
-          const isE3 = lens.productName === "호야 다이나믹 써미트KR";
-          const isE4 = lens.productName === "호야 발란시스 KR";
+          const isE3 = lens.productName === "니콘 와이드 Z";
+          const isE4 = lens.productName === "니콘 씨맥스 마스터Z";
 
           return (
             <div key={idx} className={`relative bg-white rounded-2xl p-5 flex flex-col gap-4 border shadow hover:shadow-2xl transition ${isE3 ? 'ring-4 ring-sky-300/80' : ''} ${isE4 ? 'ring-4 ring-pink-300/80' : ''}`} style={{ zIndex: isE3 || isE4 ? 5 : 1 }}>
               {/* 카드 상단 고정 뱃지들 */}
               {isE3 && (
                 <div className="absolute left-6 -top-4 bg-sky-400 text-white font-extrabold px-5 py-1 rounded-full shadow-xl text-sm tracking-wide border-2 border-sky-600 animate-bounce whitespace-nowrap z-20">
-                  고급형 고객 선택 1위
+                  전문가 추천 
                 </div>
               )}
               {isE4 && (
                 <div className="absolute right-6 -top-4 bg-pink-500 text-white font-extrabold px-4 py-1 rounded-full shadow-xl text-sm tracking-wide border-2 border-pink-600 animate-bounce whitespace-nowrap z-20">
-                  전문가 추천 1위
+                  다초점렌즈의 마스터피스 
                 </div>
               )}
 
@@ -145,7 +149,7 @@ export default function Progressive_tinted_3Advanced() {
               <div className={`relative bg-gray-50 rounded-lg p-4 mb-1 shadow flex flex-col items-center ${isE3 || isE4 ? "animate-pulse" : ""}`}>
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 px-3 py-1 text-xs font-bold rounded-full shadow 
                   bg-yellow-100 text-yellow-800 border border-yellow-300 whitespace-nowrap">
-                  5만원 프리미엄코팅 무상지원
+                  니콘 파트너쉽 할인 전국최저가
                 </div>
 
                 <div className="flex items-center gap-3 text-lg font-semibold whitespace-nowrap">
@@ -163,7 +167,7 @@ export default function Progressive_tinted_3Advanced() {
                 </div>
 
                 <div className="font-bold text-base text-gray-800 mb-2">
-                  굴절률 <span className="text-blue-800">{selectedRef || "-"}</span> 가격
+                  굴절률 <span className="text-blue-800">{selectedRef || "-"}</span> 
                 </div>
               </div>
 
@@ -185,16 +189,13 @@ export default function Progressive_tinted_3Advanced() {
             <button key={idx} className={"px-8 py-3 rounded-xl font-bold text-lg shadow border-2 transition-all duration-100 " + (selectedRef === idx ? "bg-orange-600 text-white border-orange-600 scale-110" : "bg-gray-100 text-gray-700 border-gray-300 hover:bg-orange-50")} onClick={() => setSelectedRef(selectedRef === idx ? "" : idx)}>
               굴절률 {idx}
             </button>
+			
           ))}
-		  
-		  
 		  <button        
             className="px-6 py-3 rounded-xl font-bold text-lg shadow border-2 bg-yellow-100 
 			text-gray-700 border-gray-300 hover:bg-gray-200">
             착색
           </button>
-		  
-		  
         </div>
       </div>
 

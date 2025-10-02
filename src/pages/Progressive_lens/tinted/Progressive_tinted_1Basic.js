@@ -6,7 +6,7 @@ const getRoundedRetail = (price) => Math.ceil((price * 2) / 10000) * 10000;
 const basicLenses = [
   {
     productName: "ASIO",
-    lensImage: "/images/ASIO.jpg",
+    lensImage: "/images/C1.jpg",
     prices: [
       { refraction: "1.50", regular: getRoundedRetail(94000), sale: 94000 },
       { refraction: "1.60", regular: getRoundedRetail(134000), sale: 134000 },
@@ -19,7 +19,7 @@ const basicLenses = [
   {
     productName: "C1",
     brandLogo: "/images/chemi-logo.jpg",
-    lensImage: "/images/C1.jpg",
+    lensImage: "/images/c3.jpg",
     prices: [
       { refraction: "1.50", regular: getRoundedRetail(114000), sale: 114000 },
       { refraction: "1.60", regular: getRoundedRetail(144000), sale: 144000 },
@@ -33,7 +33,7 @@ const basicLenses = [
   {
     productName: "C5 (C3 리뉴얼업)",
     brandLogo: "/images/chemi-logo.jpg",
-    lensImage: "/images/c3.jpg",
+    lensImage: "/images/E1.jpg",
     prices: [
       { refraction: "1.50", regular: getRoundedRetail(174000), sale: 174000 },
       { refraction: "1.60", regular: getRoundedRetail(214000), sale: 214000 },
@@ -47,7 +47,7 @@ const basicLenses = [
   {
     productName: "C6 (C4 리뉴얼업)",
     brandLogo: "/images/chemi-logo.jpg",
-    lensImage: "/images/c6.jpg",
+    lensImage: "/images/E2.jpg",
     prices: [
       { refraction: "1.50", regular: getRoundedRetail(194000), sale: 194000 },
       { refraction: "1.60", regular: getRoundedRetail(224000), sale: 224000 },

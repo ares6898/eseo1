@@ -6,7 +6,7 @@ const getRoundedRetail = (price) => Math.ceil((price * 2) / 10000) * 10000;
 const basicLenses = [
   {
     productName: "ASIO",
-    lensImage: "/images/ASIO.jpg",
+    lensImage: "/images/C1.jpg",
     prices: [
       { refraction: "1.50", regular: getRoundedRetail(79000), sale: 79000 },
       { refraction: "1.60", regular: getRoundedRetail(119000), sale: 119000 },
@@ -19,7 +19,7 @@ const basicLenses = [
   {
     productName: "C1",
     brandLogo: "/images/chemi-logo.jpg",
-    lensImage: "/images/C1.jpg",
+    lensImage: "/images/c3.jpg",
     prices: [
       { refraction: "1.50", regular: getRoundedRetail(99000), sale: 99000 },
       { refraction: "1.60", regular: getRoundedRetail(129000), sale: 129000 },
@@ -33,7 +33,7 @@ const basicLenses = [
   {
     productName: "C5 (C3 리뉴얼업)",
     brandLogo: "/images/chemi-logo.jpg",
-    lensImage: "/images/c3.jpg",
+    lensImage: "/images/E1.jpg",
     prices: [
       { refraction: "1.50", regular: getRoundedRetail(159000), sale: 159000 },
       { refraction: "1.60", regular: getRoundedRetail(199000), sale: 199000 },
@@ -47,7 +47,7 @@ const basicLenses = [
   {
     productName: "C6 (C4 리뉴얼업)",
     brandLogo: "/images/chemi-logo.jpg",
-    lensImage: "/images/c6.jpg",
+    lensImage: "/images/E2.jpg",
     prices: [
       { refraction: "1.50", regular: getRoundedRetail(179000), sale: 179000 },
       { refraction: "1.60", regular: getRoundedRetail(209000), sale: 209000 },
@@ -139,7 +139,7 @@ export default function MultifocalLensBasic() {
                   {selectedRef && discountAmount !== null ? `할인 금액: ${discountAmount.toLocaleString()}원` : "–"}
                 </div>
 				<div className="font-bold text-base text-gray-800 mb-2">
-                  굴절률 <span className="text-blue-800">{selectedRef || "-"}</span> 가격
+                  굴절률 <span className="text-blue-800">{selectedRef || "-"}</span> 
                 </div>
               </div>
 
@@ -173,6 +173,11 @@ export default function MultifocalLensBasic() {
       </button>
     </div>
   ))}
+  <button        
+            className="px-6 py-3 rounded-xl font-bold text-lg shadow border-2 bg-blue-100 
+			text-gray-700 border-gray-300 hover:bg-gray-200">
+            클리어
+          </button>
 </div>
 
 {/* 팝업은 화면 전체의 마지막에! */}

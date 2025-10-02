@@ -147,7 +147,7 @@ export default function MultifocalLensStandard() {
                   {selectedRef && discountAmount !== null ? `할인 금액: ${discountAmount.toLocaleString()}원` : "–"}
                 </div>
 				<div className="font-bold text-base text-gray-800 mb-2">
-                  굴절률 <span className="text-blue-800">{selectedRef || "-"}</span> 가격
+                  굴절률 <span className="text-blue-800">{selectedRef || "-"}</span> 
                 </div>
               </div>
 
@@ -182,6 +182,11 @@ export default function MultifocalLensStandard() {
               굴절률 {idx}
             </button>
           ))}
+		  <button        
+            className="px-6 py-3 rounded-xl font-bold text-lg shadow border-2 bg-blue-100 
+			text-gray-700 border-gray-300 hover:bg-gray-200">
+            클리어
+          </button>
         </div>
       </div>
 	  
