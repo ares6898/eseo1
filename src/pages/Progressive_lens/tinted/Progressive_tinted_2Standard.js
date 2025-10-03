@@ -64,19 +64,20 @@ const sampleLenses = [
 
 const refractiveIndexes = ["1.50", "1.60", "1.67"];
 
-export default function Progressive_tinted_2Standard() {
-  const [selectedRef, setSelectedRef] = useState("");
+export default function MultifocalLensStandard() {
+  // ✅ 기본 선택을 1.50으로
+  const [selectedRef, setSelectedRef] = useState("1.50");
   const [popupImage, setPopupImage] = useState(null);  // 팝업 이미지 상태 추가
 
   return (
     <div className="relative min-h-screen pb-36 bg-blue-50">
       <div className="max-w-7xl mx-auto px-3 py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
-        {sampleLenses.map((lens, idx) => {
+        {[...sampleLenses].reverse().map((lens, idx) => {
           const priceRow = selectedRef ? lens.prices.find(p => p.refraction === selectedRef) : null;
           const regular = priceRow ? priceRow.regular : null;
           const sale = priceRow && priceRow.regular ? Math.round(priceRow.regular * lens.discountRate) : null;
           const discountAmount = priceRow && priceRow.regular ? priceRow.regular - sale : null;
-          const isE3 = lens.productName === "이노티X에실로 E3";
+          const isE3 = lens.productName === "이노티X에실로 E4";
 
           return (
             <div
@@ -86,7 +87,7 @@ export default function Progressive_tinted_2Standard() {
             >
               {isE3 && (
                 <div className="absolute left-6 -top-4 bg-sky-400 text-white font-extrabold px-5 py-1 rounded-full shadow-xl text-sm tracking-wide border-2 border-sky-600 animate-bounce whitespace-nowrap z-20">
-                  보급형 고객 선택 1위
+                  전문가 추천
                 </div>
               )}
 
@@ -125,15 +126,13 @@ export default function Progressive_tinted_2Standard() {
 
               <div className={`w-full aspect-[3/2] rounded-md overflow-hidden shadow border border-gray-200 my-1 ${isE3 ? "animate-pulse" : ""}`}>
                 <img src={lens.lensImage} 
-				alt="렌즈 시야 예시" 
-				className="w-full h-full object-contain cursor-pointer hover:scale-105 transition"
-				onClick={() => setPopupImage(lens.lensImage)}
-				/>
-			
+                  alt="렌즈 시야 예시" 
+                  className="w-full h-full object-contain cursor-pointer hover:scale-105 transition"
+                  onClick={() => setPopupImage(lens.lensImage)}
+                />
               </div>
 
               <div className={`bg-gray-50 rounded-lg p-4 mb-1 shadow flex flex-col items-center ${isE3 ? "animate-pulse" : ""}`}>
-                
                 <div className="flex items-center gap-3 text-lg font-semibold whitespace-nowrap">
                   <span className={`mr-1 ${regular ? "line-through text-gray-400" : "text-gray-300"}`} style={{ fontSize: "15px" }}>
                     {selectedRef ? (regular ? `${regular.toLocaleString()}원` : "–") : "–"}
@@ -146,8 +145,8 @@ export default function Progressive_tinted_2Standard() {
                 <div className="mt-2 text-xs text-blue-700 font-bold text-center">
                   {selectedRef && discountAmount !== null ? `할인 금액: ${discountAmount.toLocaleString()}원` : "–"}
                 </div>
-				<div className="font-bold text-base text-gray-800 mb-2">
-                  굴절률 <span className="text-blue-800">{selectedRef || "-"}</span> 가격
+                <div className="font-bold text-base text-gray-800 mb-2">
+                  굴절률 <span className="text-blue-800">{selectedRef || "-"}</span> 
                 </div>
               </div>
 
@@ -182,41 +181,40 @@ export default function Progressive_tinted_2Standard() {
               굴절률 {idx}
             </button>
           ))}
-		 <button
-         
+          <button        
             className="px-6 py-3 rounded-xl font-bold text-lg shadow border-2 bg-yellow-100 text-gray-700 border-gray-300 hover:bg-gray-200"
           >
             착색
           </button>
         </div>
       </div>
-	  
-	  {/* 팝업은 화면 전체의 마지막에! */}
+      
+      {/* 팝업은 화면 전체의 마지막에! */}
       {popupImage && (
-  <div
-    className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center"
-    onClick={() => setPopupImage(null)} // 바깥 영역 클릭시 팝업 닫힘
-  >
-    <div
-      className="bg-white rounded-2xl shadow-2xl p-5 max-w-lg w-[90vw] max-h-[85vh] flex flex-col items-center relative border-4 border-blue-500"
-      onClick={e => e.stopPropagation()} // 카드 내부 클릭은 닫힘 막기
-    >
-      <button
-        className="absolute top-3 right-4 px-4 py-2 rounded-lg font-bold text-lg bg-blue-600 text-white border-2 border-blue-800 shadow hover:bg-white hover:text-blue-700 hover:border-blue-800 transition"
-        onClick={() => setPopupImage(null)}
-        style={{ zIndex: 10 }}
-      >
-        닫기
-      </button>
-      <img
-        src={popupImage}
-        alt="시야표 확대"
-        className="w-full h-auto max-h-[60vh] object-contain rounded-lg mb-3"
-      />
-      <div className="font-bold text-blue-900 text-base mt-2">시야 예시 (확대 보기)</div>
-    </div>
-  </div>
-)}
+        <div
+          className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center"
+          onClick={() => setPopupImage(null)} // 바깥 영역 클릭시 팝업 닫힘
+        >
+          <div
+            className="bg-white rounded-2xl shadow-2xl p-5 max-w-lg w-[90vw] max-h-[85vh] flex flex-col items-center relative border-4 border-blue-500"
+            onClick={e => e.stopPropagation()} // 카드 내부 클릭은 닫힘 막기
+          >
+            <button
+              className="absolute top-3 right-4 px-4 py-2 rounded-lg font-bold text-lg bg-blue-600 text-white border-2 border-blue-800 shadow hover:bg-white hover:text-blue-700 hover:border-blue-800 transition"
+              onClick={() => setPopupImage(null)}
+              style={{ zIndex: 10 }}
+            >
+              닫기
+            </button>
+            <img
+              src={popupImage}
+              alt="시야표 확대"
+              className="w-full h-auto max-h-[60vh] object-contain rounded-lg mb-3"
+            />
+            <div className="font-bold text-blue-900 text-base mt-2">시야 예시 (확대 보기)</div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
