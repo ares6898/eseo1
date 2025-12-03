@@ -10,9 +10,9 @@ const sampleLenses = [
     lensImage: "/images/DP.jpg",
     infoUrl: "https://www.essilor.com/kr-ko/products/varilux/varilux-comfort-max/", // 원하는 링크로 교체
     prices: [
-      { refraction: "1.50", regular: 480000 },
-      { refraction: "1.60", regular: 630000 },
-      { refraction: "1.67", regular: 730000 }
+      { refraction: "1.50", regular: 510000 },
+      { refraction: "1.60", regular: 660000 },
+      { refraction: "1.67", regular: 760000 }
     ],
     discountRate: 0.7,
     options: ["1.60, 1.67 퓨어블루 코팅 포함"]
@@ -26,10 +26,10 @@ const sampleLenses = [
     lensImage: "/images/BIND.jpg",
     infoUrl: "https://www.essilor.com/kr-ko/products/varilux/varilux-physio/", // 교체 가능
     prices: [
-      { refraction: "1.50", regular: 650000 },
-      { refraction: "1.60", regular: 800000 },
-      { refraction: "1.67", regular: 900000 },
-      { refraction: "1.74 - 납기2주", regular: 1000000 }
+      { refraction: "1.50", regular: 680000 },
+      { refraction: "1.60", regular: 830000 },
+      { refraction: "1.67", regular: 930000 },
+      { refraction: "1.74 - 납기2주", regular: 1030000 }
     ],
     discountRate: 0.7,
     options: ["1.60, 1.67 퓨어블루 코팅 포함", "1.74 Crizal 코팅"]
@@ -293,4 +293,5 @@ export default function MultifocalLensSupreme() {
     </div>
   );
 }
+
 
