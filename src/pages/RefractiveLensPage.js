@@ -82,8 +82,8 @@ export default function RefractiveLensPage() {
       brand: "니콘 BLUV",
       value: {
         "1.56": { regular: "10만원", discount: "5.5만원" },
-        "1.60": { regular: "16.5만원", discount: "9만원" },
-        "1.67": { regular: "25만원", discount: "13만원" },
+        "1.60": { regular: "16.5만원", discount: "6.5만원" },
+        "1.67": { regular: "25만원", discount: "10만원" },
         "1.74": { regular: "---", discount: "0" } // 정가 대시 처리
       },
       label: "니콘 BLUV",
