@@ -68,9 +68,9 @@ export default function RefractiveLensPage() {
       brand: "케미 2세대",
       value: {
         "1.56": { regular: "6만원", discount: "3만원" },
-        "1.60": { regular: "10만원", discount: "5만원" },
-        "1.67": { regular: "16만원", discount: "8만원" },
-        "1.74": { regular: "20만원", discount: "10만원" }
+        "1.60": { regular: "10만원", discount: "4만원" },
+        "1.67": { regular: "16만원", discount: "6만원" },
+        "1.74": { regular: "20만원", discount: "9만원" }
       },
       label: "케미 2세대",
       brandCode: "chemi2",
