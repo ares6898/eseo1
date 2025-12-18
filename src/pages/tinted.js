@@ -63,10 +63,10 @@ export default function tinted() {
     {
       brand: "IR 보안경15%",
       value: {
-        "1.56": { regular: "9만원", discount: "5만원" },
-        "1.60": { regular: "12만원", discount: "7만원" },
-        "1.67": { regular: "17만원", discount: "9만원" },
-        "1.74": { regular: "-", discount: "25만원" }
+        "1.56": { regular: "9만원", discount: "4만원" },
+        "1.60": { regular: "12만원", discount: "5만원" },
+        "1.67": { regular: "17만원", discount: "6만원" },
+        "1.74": { regular: "25만원 그레이만가능", discount: "12만원" }
       },
       label: "IR 보안경15%",
       brandCode: "ir15",
@@ -77,9 +77,9 @@ export default function tinted() {
     {
       brand: "IR 기본커브85%",
       value: {
-        "1.56": { regular: "9만원", discount: "5만원" },
-        "1.60": { regular: "12만원", discount: "7만원" },
-        "1.67": { regular: "17만원", discount: "9만원" },
+        "1.56": { regular: "9만원", discount: "4만원" },
+        "1.60": { regular: "12만원", discount: "5만원" },
+        "1.67": { regular: "17만원", discount: "6만원" },
         "1.74": { regular: "30만원 그레이만가능", discount: "15만원" }
       },
       label: "IR 기본커브85%",
@@ -91,9 +91,9 @@ export default function tinted() {
     {
       brand: "IR 하이커브85%",
       value: {
-        "1.56": { regular: "11만원", discount: "6만원" },
-        "1.60": { regular: "14만원", discount: "8만원" },
-        "1.67": { regular: "19만원", discount: "10만원" },
+        "1.56": { regular: "11만원", discount: "4.5만원" },
+        "1.60": { regular: "14만원", discount: "5.5만원" },
+        "1.67": { regular: "19만원", discount: "6.5만원" },
         "1.74": { regular: "-", discount: "만원" }
       },
       label: "IR 하이커브85%",
@@ -105,8 +105,8 @@ export default function tinted() {
     {
       brand: "미러 하이커브",
       value: {
-        "1.56": { regular: "12만원", discount: "6.5만원" },
-        "1.60": { regular: "15만원", discount: "8.5만원" },
+        "1.56": { regular: "12만원", discount: "4.5만원" },
+        "1.60": { regular: "15만원", discount: "5.5만원" },
         "1.67": { regular: "-", discount: "37.5만원" },
         "1.74": { regular: "-", discount: "47.5만원" }
       },
@@ -120,10 +120,10 @@ export default function tinted() {
     {
       brand: "주문제작 착색",
       value: {
-        "1.56": { regular: "12만원", discount: "6.5만원" },
-        "1.60": { regular: "15만원", discount: "8.5만원" },
-        "1.67": { regular: "18만원", discount: "12만원" },
-        "1.74": { regular: "30만원", discount: "18만원" }
+        "1.56": { regular: "12만원", discount: "4.5만원" },
+        "1.60": { regular: "15만원", discount: "5.5만원" },
+        "1.67": { regular: "18만원", discount: "7.5만원" },
+        "1.74": { regular: "30만원", discount: "12만원" }
       },
       label: "주문착색",
       brandCode: "rxc",
