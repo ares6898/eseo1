@@ -33,6 +33,31 @@ import Progressive_photo_2Standard from "./pages/Progressive_lens/photochromic/P
 import Progressive_photo_3Advanced from "./pages/Progressive_lens/photochromic/Progressive_photo_3Advanced";
 import Progressive_photo_4Supreme from "./pages/Progressive_lens/photochromic/Progressive_photo_4Supreme";
 
+//2m 
+import Multifocal_CH2 from "./pages/2m/Multifocal_CH2";
+import MultifocalLensPage2 from "./pages/2m/MultifocalLensPage2";
+import MultifocalLensI2 from "./pages/2m/MultifocalLensI2";
+import MultifocalLensT2 from "./pages/2m/MultifocalLensT2";
+import MultifocalLensE2 from "./pages/2m/MultifocalLensE2";
+import MultifocalLensSupreme2 from "./pages/2m/MultifocalLensSupreme2";
+
+
+
+//2m착색다초점
+import Progressive_tinted_R2 from "./pages/2m/Progressive_lens/tinted/Progressive_tinted_R2";
+
+
+//2m변색다초점
+import Progressive_photo_R2 from "./pages/2m/Progressive_lens/photochromic/Progressive_photo_R2";
+
+
+
+
+
+
+
+
+
 import "./index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -73,6 +98,24 @@ root.render(
 	  <Route path="/Progressive_photo_3Advanced" element={<Progressive_photo_3Advanced />} />
 	  <Route path="/Progressive_photo_4Supreme" element={<Progressive_photo_4Supreme />} />
 	  
+	  //2m 루트
+	  <Route path="/Multifocal_CH2" element={<Multifocal_CH2 />} />
+      <Route path="/multifocal-lens2" element={<MultifocalLensPage2 />} />
+	  <Route path="/multifocal-lens/I2" element={<MultifocalLensI2 />} />
+      <Route path="/multifocal-lens/T2" element={<MultifocalLensT2 />} />
+      <Route path="/multifocal-lens/E2" element={<MultifocalLensE2 />} />
+      <Route path="/multifocal-lens/supreme2" element={<MultifocalLensSupreme2 />} />
+
+	  
+	  //2m착색다초점 루트
+	  <Route path="/Progressive_tinted_R2" element={<Progressive_tinted_R2 />} />
+	  
+	  
+	  //변색다초점
+	  <Route path="/Progressive_photo_R2" element={<Progressive_photo_R2 />} />
+
+
+
 	  
 	  
 	  
