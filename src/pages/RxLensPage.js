@@ -43,6 +43,7 @@ export default function RxLensPage() {
           className="aspect-square w-36 rounded-xl bg-gradient-to-br from-emerald-200 to-emerald-100/80 backdrop-blur-md 
                      border border-emerald-300 shadow-xl text-center font-semibold text-emerald-900 text-sm 
                      flex items-center justify-center"
+			onClick={() => navigate("/Multifocal_CH2")}
         >
           Individual<br />lens
         </button>
