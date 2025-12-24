@@ -14,7 +14,7 @@ export default function Multifocal_CH() {
         <img src="/images/이노티로고.jpg" alt="이노티안경 로고" className="h-16" />
       </div>
 
-      <h1 className="text-2xl font-bold text-center mb-6">Progressive lens</h1>
+      <h1 className="text-2xl font-bold text-center mb-6">이노티안경 스페셜할인 다초점렌즈</h1>
 
       {/* 버튼: 모두 모달 없이 12mm(R) 경로로 바로 이동 */}
       <div className="flex flex-wrap justify-center gap-6 px-4 max-w-md mx-auto">

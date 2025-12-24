@@ -15,13 +15,13 @@ const sampleLenses = [
     // 🔗 제품별 외부 설명 URL (원하는 주소로 교체)
     infoUrl: null, 
     prices: [
-      { refraction: "1.50", regular: 150000, sale: 59000 },
-      { refraction: "1.60", regular: 250000, sale: 79000 },
-      { refraction: "1.67", regular: 350000, sale: 99000 },
-      { refraction: "1.74", regular: 400000, sale: 149000 }
+      { refraction: "1.50", regular: 200000, sale: 79000 },
+      { refraction: "1.60", regular: 300000, sale: 99000 },
+      { refraction: "1.67", regular: 400000, sale: 119000 },
+      { refraction: "1.74", regular: 450000, sale: 189000 }
     ],
     discountRate: 0.8,
-    options: ["블루라이트코팅 2만원추가"]
+    options: ["블루라이트코팅 불가"]
   },
   {
     brandLogo: "/logos/pentax.png",
@@ -34,13 +34,13 @@ const sampleLenses = [
     descText: "누진 초보도 빠르게 적응! 개인맞춤 설계로 한 단계 높은 편안함을 느낄 수 있는 프리미엄KR-IND.",
     
     prices: [
-      { refraction: "1.50", regular: 200000, sale: 99000 },
-      { refraction: "1.60", regular: 280000, sale: 129000 },
-      { refraction: "1.67", regular: 380000, sale: 149000 },
-      { refraction: "1.74", regular: 480000, sale: 199000 }
+      { refraction: "1.50", regular: 250000, sale: 119000 },
+      { refraction: "1.60", regular: 330000, sale: 149000 },
+      { refraction: "1.67", regular: 430000, sale: 169000 },
+      { refraction: "1.74", regular: 530000, sale: 239000 }
     ],
     discountRate: 0.7,
-    options: ["블루라이트코팅 2만원추가"]
+    options: ["블루라이트코팅 불가"]
   },
   {
     brandLogo: "/logos/pentax.png",
@@ -53,13 +53,13 @@ const sampleLenses = [
     descText: "업계 추천 1위! 한국인 시야에 최적화된 설계와 탁월한 적응력으로 많은 사랑을 받고 있는 발란시스 KR.",
     
     prices: [
-      { refraction: "1.50", regular: 260000, sale: 129000 },
-      { refraction: "1.60", regular: 300000, sale: 149000 },
-      { refraction: "1.67", regular: 360000, sale: 179000 },
-      { refraction: "1.74", regular: 520000, sale: 259000 }
+      { refraction: "1.50", regular: 310000, sale: 149000 },
+      { refraction: "1.60", regular: 350000, sale: 169000 },
+      { refraction: "1.67", regular: 410000, sale: 199000 },
+      { refraction: "1.74", regular: 580000, sale: 299000 }
     ],
     discountRate: 0.7,
-    options: ["블루라이트코팅 2만원추가"]
+    options: ["블루라이트코팅 불가"]
   },
   {
     brandLogo: "/logos/pentax.png",
@@ -72,13 +72,13 @@ const sampleLenses = [
     descText: "한국인 처방 데이터로 최적화된 호야 다이나믹 써미트KR. 선명하고 빠른 적응력, 높은 내구성이 특징!",
     
     prices: [
-      { refraction: "1.50", regular: 400000},
-      { refraction: "1.60", regular: 440000},
-      { refraction: "1.67", regular: 480000},
-      { refraction: "1.74", regular: 620000}
+      { refraction: "1.50", regular: 450000},
+      { refraction: "1.60", regular: 490000},
+      { refraction: "1.67", regular: 530000},
+      { refraction: "1.74", regular: 670000}
     ],
     discountRate: 0.5,
-    options: ["블루라이트코팅 2만원추가"]
+    options: ["블루라이트코팅 불가"]
   }
 ];
 
@@ -266,10 +266,10 @@ export default function MultifocalLensAdvanced() {
             </button>
           ))}
           <button
-            className="px-6 py-3 rounded-xl font-bold text-lg shadow border-2 bg-blue-100 
+            className="px-6 py-3 rounded-xl font-bold text-lg shadow border-2 bg-yellow-100 
             text-gray-700 border-gray-300 hover:bg-gray-200"
           >
-            클리어
+            착색
           </button>
         </div>
       </div>
