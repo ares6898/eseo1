@@ -45,11 +45,14 @@ import MultifocalLensSupreme2 from "./pages/2m/MultifocalLensSupreme2";
 
 //2m착색다초점
 import Progressive_tinted_R2 from "./pages/2m/Progressive_lens/tinted/Progressive_tinted_R2";
+import MultifocalLensE2_T from "./pages/2m/Progressive_lens/tinted/MultifocalLensE2_T";
+import MultifocalLensT2_T from "./pages/2m/Progressive_lens/tinted/MultifocalLensT2_T";
 
 
 //2m변색다초점
 import Progressive_photo_R2 from "./pages/2m/Progressive_lens/photochromic/Progressive_photo_R2";
-
+import MultifocalLensT2_P from "./pages/2m/Progressive_lens/photochromic/MultifocalLensT2_P";
+import MultifocalLensE2_P from "./pages/2m/Progressive_lens/photochromic/MultifocalLensE2_P";
 
 
 
@@ -109,11 +112,14 @@ root.render(
 	  
 	  //2m착색다초점 루트
 	  <Route path="/Progressive_tinted_R2" element={<Progressive_tinted_R2 />} />
+	  <Route path="/MultifocalLensT2_T" element={<MultifocalLensT2_T />} />
+	  <Route path="/MultifocalLensE2_T" element={<MultifocalLensE2_T />} />
 	  
 	  
 	  //변색다초점
 	  <Route path="/Progressive_photo_R2" element={<Progressive_photo_R2 />} />
-
+	  <Route path="/MultifocalLensT2_P" element={<MultifocalLensT2_P />} />
+	  <Route path="/MultifocalLensE2_P" element={<MultifocalLensE2_P />} />
 
 
 	  
