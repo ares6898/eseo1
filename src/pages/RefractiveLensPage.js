@@ -68,8 +68,8 @@ export default function RefractiveLensPage() {
       brand: "케미 2세대",
       value: {
         "1.56": { regular: "6만원", discount: "3만원" },
-        "1.60": { regular: "10만원", discount: "4만원" },
-        "1.67": { regular: "16만원", discount: "6만원" },
+        "1.60": { regular: "10만원", discount: "4.5만원" },
+        "1.67": { regular: "16만원", discount: "6.5만원" },
         "1.74": { regular: "20만원", discount: "9만원" }
       },
       label: "케미 2세대",
@@ -82,7 +82,7 @@ export default function RefractiveLensPage() {
       brand: "니콘 BLUV",
       value: {
         "1.56": { regular: "10만원", discount: "5.5만원" },
-        "1.60": { regular: "16.5만원", discount: "6.5만원" },
+        "1.60": { regular: "16.5만원", discount: "7만원" },
         "1.67": { regular: "25만원", discount: "10만원" },
         "1.74": { regular: "---", discount: "0" } // 정가 대시 처리
       },
