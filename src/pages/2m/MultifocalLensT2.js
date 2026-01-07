@@ -54,8 +54,8 @@ const sampleLenses = [
     
     prices: [
       { refraction: "1.50", regular: 260000, sale: 129000 },
-      { refraction: "1.60", regular: 300000, sale: 149000 },
-      { refraction: "1.67", regular: 360000, sale: 179000 },
+      { refraction: "1.60", regular: 320000, sale: 159000 },
+      { refraction: "1.67", regular: 380000, sale: 189000 },
       { refraction: "1.74", regular: 520000, sale: 259000 }
     ],
     discountRate: 0.7,
@@ -303,3 +303,4 @@ export default function MultifocalLensAdvanced() {
     </div>
   );
 }
+
