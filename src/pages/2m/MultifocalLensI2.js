@@ -1,65 +1,141 @@
 import React, { useState } from "react";
 
+// 1. 각 제품 객체에 descImage(설명팝업 이미지), descText(설명팝업 텍스트), infoUrl(외부 링크) 추가!
 const sampleLenses = [
-  
   {
-    brandLogo: "/logos/essilor.jpg",
-    productName: "이노티X에실로 E3",
-    badge: { text: "쉽고빠른 적응", bg: "bg-lime-200", color: "text-lime-800", border: "border-lime-300" },
-    features: ["부드러운 시선전환, 빠른적응", "일상생활을 편안하게"],
-    recommend: ["소프트 와이드 테크놀로지", "원시, 난시 복잡한 도수 특화"],
-    lensImage: "/images/E3.jpg",
+    brandLogo: "/images/chemi-logo.jpg",
+    productName: "케미C6 - IR",
+    // ✅ Tailwind 오타 수정: bg-ye-200 → bg-yellow-200
+    badge: { text: "안건강 보호", bg: "bg-yellow-200", color: "text-sky-800", border: "border-sky-300" },
+    features: ["강력한 유해광선 차단"],
+    recommend: ["UV, BL, IR 모두차단", "안질환수술후 눈보호 효과적"],
+    lensImage: "/images/BIND.jpg",
+    descImage: "/images/ampop.png",
+    descText: ".",
+    // 🔗 제품별 외부 설명 URL (원하는 주소로 교체)
+    infoUrl: null, 
     prices: [
-      { refraction: "1.50", regular: 680000 },
-      { refraction: "1.60", regular: 770000 },
-      { refraction: "1.67", regular: 910000 }
+      { refraction: "1.50", regular: 375000, sale: 189000 },
+      { refraction: "1.60", regular: 445000, sale: 219000 },
+      { refraction: "1.67", regular: 520000, sale: 289000 },
+      { refraction: "1.74", regular: 650000, sale: 410000 }
     ],
-    discountRate: 0.5,
-    options: ["1.50변색 가능", "추가코팅 불가"]
+    discountRate: 0.8,
+    options: ["착색, 변색불가"]
+  },
+  {
+    brandLogo: "/logos/nidek.jpg",
+    productName: "니덱 N1-하이밸런스",
+    badge: { text: "올라운드", bg: "bg-lime-200", color: "text-lime-800", border: "border-lime-300" },
+    features: ["강력한 코팅기술"],
+    recommend: ["스크라치에 강한코팅", "스크래치 내구성 2배"],
+    lensImage: "/images/BIND.jpg",
+    descImage: "/images/desc-dp.jpg",
+    descText: "누진 초보도 빠르게 적응! 개인맞춤 설계로 한 단계 높은 편안함을 느낄 수 있는 프리미엄KR-IND.",
+    
+    prices: [
+      
+      { refraction: "1.60", regular: 600000, sale: 190000 },
+      { refraction: "1.67", regular: 750000, sale: 260000 },
+      { refraction: "1.74", regular: 990000, sale: 340000 }
+    ],
+    discountRate: 0.7,
+    options: ["블루라이트 2만원추가"]
   },
   {
     brandLogo: "/logos/essilor.jpg",
-    productName: "이노티X에실로 E4",
-    badge: { text: "좌우 도수 다름", bg: "bg-orange-200", color: "text-orange-800", border: "border-orange-300" },
-    features: ["양안시 기술력", "어떠한 도수도 빠르게 적응"],
-    recommend: ["비전스캔 테크놀로지 - 양안시", "복잡한 도수 + 부등시 특화"],
-    lensImage: "/images/E4.jpg",
+    productName: "에실로 E2-퓨어블루",
+    badge: { text: "디지털기기 포커싱", bg: "bg-orange-200", color: "text-orange-800", border: "border-orange-300" },
+    features: ["스마트폰 기능성"],
+    recommend: ["스마트폰을 더 편하게", "강력한 블루라이트 차단"],
+    lensImage: "/images/BIND.jpg",
+    descImage: "/images/desc-ba.jpg",
+    descText: "업계 추천 1위! 한국인 시야에 최적화된 설계와 탁월한 적응력으로 많은 사랑을 받고 있는 발란시스 KR.",
+    
     prices: [
-      { refraction: "1.50", regular: 820000 },
-      { refraction: "1.60", regular: 950000 },
-      { refraction: "1.67", regular: 1060000 }
+      
+      { refraction: "1.60", regular: 470000 },
+      { refraction: "1.67", regular: 550000 }
+      
     ],
     discountRate: 0.5,
-    options: ["1.50변색 가능", "추가코팅 불가"]
+    options: ["퓨어블루 포함"]
+  },
+  {
+    brandLogo: "/logos/nikon.jpg",
+    productName: "니콘 로하스 액티브",
+    badge: { text: "탁월한 누진적응", bg: "bg-sky-200", color: "text-sky-800", border: "border-sky-300" },
+    features: ["최고의 성능"],
+    recommend: ["첫누진 완벽적응","기존 누진 부적응 추천"],
+    lensImage: "/images/BIND.jpg",
+    descImage: "/images/desc-e4.jpg",
+    descText: "한국인 처방 데이터로 최적화된 호야 다이나믹 써미트KR. 선명하고 빠른 적응력, 높은 내구성이 특징!",
+    
+    prices: [
+      { refraction: "1.50", regular: 400000},
+      { refraction: "1.60", regular: 550000},
+      { refraction: "1.67", regular: 650000}
+      
+    ],
+    discountRate: 0.5,
+    options: ["1.60, 1.67 퓨어블루 포함"]
   }
 ];
 
-const refractiveIndexes = ["1.50", "1.60", "1.67"];
+const refractiveIndexes = ["1.50", "1.60", "1.67", "1.74"];
 
-export default function MultifocalLensStandard() {
-  // ✅ 기본 선택을 1.50으로
+export default function MultifocalLensAdvanced() {
+  // 기본 선택값 1.50
   const [selectedRef, setSelectedRef] = useState("1.50");
-  const [popupImage, setPopupImage] = useState(null);  // 팝업 이미지 상태 추가
+  const [popupImage, setPopupImage] = useState(null);
+
+  // ✅ 항상 새 창으로만 열기
+  const openInNewTab = (url) => {
+    if (!url) return;
+    try {
+      window.open(url, "_blank", "noopener,noreferrer");
+    } catch {
+      // 팝업 차단 등 예외 시 대체
+      window.location.href = url;
+    }
+  };
 
   return (
-    <div className="relative min-h-screen pb-36 bg-blue-50">
-      <div className="max-w-5xl mx-auto px-3 py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+    <div className="relative min-h-screen pb-36 bg-green-200">
+      <div className="max-w-7xl mx-auto px-3 py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
         {[...sampleLenses].reverse().map((lens, idx) => {
           const priceRow = selectedRef ? lens.prices.find(p => p.refraction === selectedRef) : null;
           const regular = priceRow ? priceRow.regular : null;
-          const sale = priceRow && priceRow.regular ? Math.round(priceRow.regular * lens.discountRate) : null;
-          const discountAmount = priceRow && priceRow.regular ? priceRow.regular - sale : null;
-          const isE3 = lens.productName === "이노티X에실로 E2";
+          const sale = priceRow
+            ? priceRow.sale !== undefined
+              ? priceRow.sale
+              : priceRow.regular
+              ? Math.round(priceRow.regular * lens.discountRate)
+              : null
+            : null;
+
+          const discountAmount = regular && sale ? regular - sale : null;
+          const isE3 = lens.productName === "니덱 N1-하이밸런스";
+          const isE4 = lens.productName === "니콘 로하스 액티브";
+          const hasLink = Boolean(lens.infoUrl);
 
           return (
             <div
               key={idx}
-              className={`relative bg-white rounded-2xl p-5 flex flex-col gap-4 border shadow hover:shadow-2xl transition ${isE3 ? 'ring-4 ring-sky-300/80' : ''}`}
-              style={{ zIndex: isE3 ? 5 : 1 }}
+              className={`relative bg-white rounded-2xl p-5 flex flex-col gap-4 border shadow hover:shadow-2xl transition
+                ${isE3 ? "ring-4 ring-blue-100/80" : ""}
+                ${isE4 ? "ring-4 ring-pink-300/80" : ""}`}
+              style={{ zIndex: isE3 || isE4 ? 5 : 1 }}
             >
               {isE3 && (
-                <div className="absolute left-6 -top-4 bg-sky-400 text-white font-extrabold px-5 py-1 rounded-full shadow-xl text-sm tracking-wide border-2 border-sky-600 animate-bounce whitespace-nowrap z-20">
-                  전문가 추천
+                <div className="absolute left-6 -top-4 bg-blue-400 text-white font-extrabold px-5 py-1 rounded-full shadow-xl text-sm tracking-wide border-2 border-blue-600 animate-bounce whitespace-nowrap z-20">
+                  강력한 스크래치 내구성 
+                </div>
+              )}
+
+              {isE4 && (
+                <div className="absolute right-6 -top-4 bg-pink-500 text-white font-extrabold px-4 py-1 rounded-full shadow-xl text-sm tracking-wide border-2 border-pink-600 animate-bounce whitespace-nowrap z-20">
+                  안경이 처음이라도 쉬운적응
                 </div>
               )}
 
@@ -68,13 +144,12 @@ export default function MultifocalLensStandard() {
                   <img
                     src={lens.brandLogo}
                     alt="브랜드 로고"
-                    className="h-10 w-10 object-contain rounded bg-white border p-1"
+                    className="h-12 w-12 object-contain rounded bg-white border p-1"
                   />
                 )}
                 <div className="flex flex-col">
                   <div className="text-lg font-bold text-blue-900 whitespace-nowrap">{lens.productName}</div>
 
-                  {/* ✅ 제품 뱃지 표시 */}
                   {lens.badge && (
                     <div
                       className={`inline-block mt-1 px-3 py-1 text-xs font-bold rounded-full border ${lens.badge.bg} ${lens.badge.color} ${lens.badge.border} self-start`}
@@ -91,26 +166,61 @@ export default function MultifocalLensStandard() {
                 </div>
               </div>
 
-              <div className="bg-green-100 rounded-md px-3 py-2 text-[14px] leading-snug text-green-900 font-semibold shadow mb-1 flex flex-col gap-1">
-                <div className="mb-1 font-bold text-green-800">제품 설명</div>
-                {lens.recommend.map((r, i) => <div key={i}>⏩ {r}</div>)}
+              {/* ✅ 제품 설명: 새 창으로만 열기 / 링크 없으면 비활성 */}
+              <div
+                className={[
+                  "bg-green-100 rounded-md px-3 py-2 text-[14px] leading-snug text-green-900 font-semibold shadow mb-1",
+                  "flex flex-col gap-1 transition",
+                  hasLink ? "cursor-pointer hover:bg-green-200" : "opacity-200 cursor-not-allowed"
+                ].join(" ")}
+                onClick={() => hasLink && openInNewTab(lens.infoUrl)}
+                role="button"
+                aria-disabled={!hasLink}
+                tabIndex={hasLink ? 0 : -1}
+                onKeyDown={(e) => {
+                  if (hasLink && e.key === "Enter") openInNewTab(lens.infoUrl);
+                }}
+                title={hasLink ? "새 창으로 설명 페이지 열기" : "설명 링크 준비중"}
+              >
+                <div className="mb-1 font-bold text-green-800 flex items-center gap-2">
+                  제품 설명
+                  
+                </div>
+                {lens.recommend.map((r, i) => (
+                  <div key={i}>⏩ {r}</div>
+                ))}
               </div>
 
-              <div className={`w-full aspect-[3/2] rounded-md overflow-hidden shadow border border-gray-200 my-1 ${isE3 ? "animate-pulse" : ""}`}>
-                <img src={lens.lensImage} 
-                  alt="렌즈 시야 예시" 
+              <div
+                className={`w-full aspect-[3/2] rounded-md overflow-hidden shadow border border-gray-200 my-1 
+                  ${isE3 ? "animate-pulse" : ""} 
+                  ${isE4 ? "animate-pulse" : ""}`}
+              >
+                <img
+                  src={lens.lensImage}
+                  alt="렌즈 시야 예시"
                   className="w-full h-full object-contain cursor-pointer hover:scale-105 transition"
                   onClick={() => setPopupImage(lens.lensImage)}
                 />
               </div>
 
-              <div className={`bg-gray-50 rounded-lg p-4 mb-1 shadow flex flex-col items-center ${isE3 ? "animate-pulse" : ""}`}>
+              <div
+                className={`bg-gray-50 rounded-lg p-4 mb-1 shadow flex flex-col items-center 
+                  ${isE3 ? "animate-pulse" : ""} 
+                  ${isE4 ? "animate-pulse" : ""}`}
+              >
                 <div className="flex items-center gap-3 text-lg font-semibold whitespace-nowrap">
-                  <span className={`mr-1 ${regular ? "line-through text-gray-400" : "text-gray-300"}`} style={{ fontSize: "15px" }}>
+                  <span
+                    className={`mr-1 ${regular ? "line-through text-gray-400" : "text-gray-300"}`}
+                    style={{ fontSize: "15px" }}
+                  >
                     {selectedRef ? (regular ? `${regular.toLocaleString()}원` : "–") : "–"}
                   </span>
                   <span className="text-2xl text-gray-400 mx-1">→</span>
-                  <span className={sale ? "font-extrabold text-orange-600 text-xl" : "text-gray-300 text-xl"} style={{ fontSize: "20px" }}>
+                  <span
+                    className={sale ? "font-extrabold text-orange-600 text-xl" : "text-gray-300 text-xl"}
+                    style={{ fontSize: "20px" }}
+                  >
                     {selectedRef ? (sale ? `${sale.toLocaleString()}원` : "–") : "–"}
                   </span>
                 </div>
@@ -118,13 +228,15 @@ export default function MultifocalLensStandard() {
                   {selectedRef && discountAmount !== null ? `할인 금액: ${discountAmount.toLocaleString()}원` : "–"}
                 </div>
                 <div className="font-bold text-base text-gray-800 mb-2">
-                  굴절률 <span className="text-blue-800">{selectedRef || "-"}</span> 
+                  굴절률 <span className="text-blue-800">{selectedRef || "-"}</span>
                 </div>
               </div>
 
               <div className="bg-blue-50 rounded p-3 text-xs text-blue-900 flex flex-col gap-1 shadow">
                 <div className="font-bold mb-1 text-blue-800">옵션/추가 안내</div>
-                {lens.options.map((opt, i) => <div key={i}>- {opt}</div>)}
+                {lens.options.map((opt, i) => (
+                  <div key={i}>- {opt}</div>
+                ))}
               </div>
             </div>
           );
@@ -153,23 +265,24 @@ export default function MultifocalLensStandard() {
               굴절률 {idx}
             </button>
           ))}
-          <button        
-            className="px-6 py-3 rounded-xl font-bold text-lg shadow border-2 bg-purple-300 text-gray-700 border-gray-300 hover:bg-gray-200"
+          <button
+            className="px-6 py-3 rounded-xl font-bold text-lg shadow border-2 bg-yellow-100 
+            text-gray-700 border-gray-300 hover:bg-gray-200"
           >
-            변색
+            착색
           </button>
         </div>
       </div>
-      
-      {/* 팝업은 화면 전체의 마지막에! */}
+
+      {/* 이미지 팝업 */}
       {popupImage && (
         <div
           className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center"
-          onClick={() => setPopupImage(null)} // 바깥 영역 클릭시 팝업 닫힘
+          onClick={() => setPopupImage(null)}
         >
           <div
             className="bg-white rounded-2xl shadow-2xl p-5 max-w-lg w-[90vw] max-h-[85vh] flex flex-col items-center relative border-4 border-blue-500"
-            onClick={e => e.stopPropagation()} // 카드 내부 클릭은 닫힘 막기
+            onClick={(e) => e.stopPropagation()}
           >
             <button
               className="absolute top-3 right-4 px-4 py-2 rounded-lg font-bold text-lg bg-blue-600 text-white border-2 border-blue-800 shadow hover:bg-white hover:text-blue-700 hover:border-blue-800 transition"
