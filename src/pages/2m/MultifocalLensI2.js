@@ -266,10 +266,10 @@ export default function MultifocalLensAdvanced() {
             </button>
           ))}
           <button
-            className="px-6 py-3 rounded-xl font-bold text-lg shadow border-2 bg-yellow-100 
+            className="px-6 py-3 rounded-xl font-bold text-lg shadow border-2 bg-blue-100 
             text-gray-700 border-gray-300 hover:bg-gray-200"
           >
-            착색
+            클리어
           </button>
         </div>
       </div>
@@ -303,3 +303,4 @@ export default function MultifocalLensAdvanced() {
     </div>
   );
 }
+
