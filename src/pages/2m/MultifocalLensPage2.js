@@ -47,7 +47,7 @@ const lensTypes = [
     color: "bg-gray-1 text-gray-700 border-gray-200",
     badge: "특별한 혜택 💰",
     badgeClasses: "bg-gray-100 text-gray-700 ring-gray-200", // 연한 그레이
-    path: "/multifocal-lens/basic",
+    path: "/multifocal-lens/I2",
     viewImage: "/images/이노티로고.jpg",
     pros: ["이노티 이천증포점", "강력히 추천하는", "기능성 다초점렌즈"]
   }
@@ -207,3 +207,4 @@ export default function MultifocalLensPage2() {
     </div>
   );
 }
+
