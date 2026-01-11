@@ -82,7 +82,7 @@ const sampleLenses = [
   }
 ];
 
-const refractiveIndexes = ["1.50", "1.60", "1.67", "1.74"];
+const refractiveIndexes = ["1.60", "1.67"];
 
 export default function MultifocalLensAdvanced() {
   // 기본 선택값 1.50
@@ -269,7 +269,7 @@ export default function MultifocalLensAdvanced() {
             className="px-6 py-3 rounded-xl font-bold text-lg shadow border-2 bg-blue-100 
             text-gray-700 border-gray-300 hover:bg-gray-200"
           >
-            클리어
+            변색
           </button>
         </div>
       </div>
@@ -303,5 +303,6 @@ export default function MultifocalLensAdvanced() {
     </div>
   );
 }
+
 
 
