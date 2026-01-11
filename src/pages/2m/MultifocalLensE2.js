@@ -24,7 +24,7 @@ const sampleLenses = [
     recommend: ["디지털핏 옵티마이저 기능", "오랜 근업시 더 편안하게"],
     lensImage: "/images/DP.jpg",
     prices: [
-      { refraction: "1.50", regular: 390000, sale: 189000 },
+      { refraction: "1.50", regular: 390000 },
       { refraction: "1.60", regular: 470000 },
       { refraction: "1.67", regular: 550000 }
     ],
@@ -39,9 +39,9 @@ const sampleLenses = [
     recommend: ["소프트 와이드 테크놀로지", "원시, 난시 복잡한 도수 특화"],
     lensImage: "/images/BIND.jpg",
     prices: [
-      { refraction: "1.50", regular: 480000, sale: 199000 },
-      { refraction: "1.60", regular: 570000, sale: 259000 },
-      { refraction: "1.67", regular: 710000, sale: 299000 }
+      { refraction: "1.50", regular: 480000 },
+      { refraction: "1.60", regular: 570000 },
+      { refraction: "1.67", regular: 710000 }
     ],
     discountRate: 0.5,
     options: ["퓨어블루 5만원 추가(1.60이상)"]
@@ -229,3 +229,4 @@ export default function MultifocalLensStandard() {
     </div>
   );
 }
+
