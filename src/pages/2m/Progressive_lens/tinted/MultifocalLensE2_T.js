@@ -39,9 +39,9 @@ const sampleLenses = [
     recommend: ["소프트 와이드 테크놀로지", "원시, 난시 복잡한 도수 특화"],
     lensImage: "/images/BIND.jpg",
     prices: [
-      { refraction: "1.50", regular: 510000, sale: 219000 },
-      { refraction: "1.60", regular: 600000, sale: 279000 },
-      { refraction: "1.67", regular: 740000, sale: 319000 }
+      { refraction: "1.50", regular: 510000 },
+      { refraction: "1.60", regular: 600000 },
+      { refraction: "1.67", regular: 740000 }
     ],
     discountRate: 0.5,
     options: ["블루라이트 코팅 불가"]
@@ -58,7 +58,7 @@ const sampleLenses = [
       { refraction: "1.60", regular: 780000 },
       { refraction: "1.67", regular: 890000 }
     ],
-    discountRate: 0.45,
+    discountRate: 0.5,
     options: ["블루라이트 코팅 불가"]
   }
 ];
@@ -229,3 +229,4 @@ export default function MultifocalLensStandard() {
     </div>
   );
 }
+
