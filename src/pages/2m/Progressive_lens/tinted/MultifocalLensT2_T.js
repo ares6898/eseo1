@@ -3,11 +3,11 @@ import React, { useState } from "react";
 // 1. 각 제품 객체에 descImage(설명팝업 이미지), descText(설명팝업 텍스트), infoUrl(외부 링크) 추가!
 const sampleLenses = [
   {
-    brandLogo: "/logos/pentax.png",
-    productName: "HT10 이지핏",
+    brandLogo: "/images/chemi-logo.jpg",
+    productName: "Ino C0",
     // ✅ Tailwind 오타 수정: bg-ye-200 → bg-yellow-200
     badge: { text: "최저가", bg: "bg-yellow-200", color: "text-sky-800", border: "border-sky-300" },
-    features: ["가성비"],
+    features: ["최저가"],
     recommend: ["부담없는 가격", "저가입도"],
     lensImage: "/images/C1.jpg",
     descImage: "/images/ampop.png",
@@ -15,37 +15,37 @@ const sampleLenses = [
     // 🔗 제품별 외부 설명 URL (원하는 주소로 교체)
     infoUrl: null, 
     prices: [
-      { refraction: "1.50", regular: 200000, sale: 79000 },
-      { refraction: "1.60", regular: 300000, sale: 99000 },
-      { refraction: "1.67", regular: 400000, sale: 119000 },
-      { refraction: "1.74", regular: 450000, sale: 189000 }
+      { refraction: "1.50", regular: 140000, sale: 79000 },
+      { refraction: "1.60", regular: 190000, sale: 99000 },
+      { refraction: "1.67", regular: 255000, sale: 129000 },
+      { refraction: "1.74", regular: 320000, sale: 159000 }
     ],
     discountRate: 0.8,
-    options: ["블루라이트코팅 불가"]
+    options: ["블루라이트코팅 2만원추가"]
   },
   {
-    brandLogo: "/logos/pentax.png",
-    productName: "HT40 이지밸런스",
-    badge: { text: "실내용", bg: "bg-lime-200", color: "text-lime-800", border: "border-lime-300" },
-    features: ["시야&적응 균형설계"],
-    recommend: ["부담없는 가격", "적응균형설계"],
+    brandLogo: "/images/chemi-logo.jpg",
+    productName: "Ino C1",
+    badge: { text: "실속형", bg: "bg-lime-200", color: "text-lime-800", border: "border-lime-300" },
+    features: ["실속누진다초점"],
+    recommend: ["부담없는 가격", "가성비"],
     lensImage: "/images/E2.jpg",
     descImage: "/images/desc-dp.jpg",
     descText: "누진 초보도 빠르게 적응! 개인맞춤 설계로 한 단계 높은 편안함을 느낄 수 있는 프리미엄KR-IND.",
     
     prices: [
-      { refraction: "1.50", regular: 250000, sale: 119000 },
-      { refraction: "1.60", regular: 330000, sale: 149000 },
-      { refraction: "1.67", regular: 430000, sale: 169000 },
-      { refraction: "1.74", regular: 530000, sale: 239000 }
+      { refraction: "1.50", regular: 255000, sale: 119000 },
+      { refraction: "1.60", regular: 315000, sale: 159000 },
+      { refraction: "1.67", regular: 355000, sale: 179000 },
+      { refraction: "1.74", regular: 510000, sale: 239000 }
     ],
     discountRate: 0.7,
-    options: ["블루라이트코팅 불가"]
+    options: ["블루라이트코팅 2만원추가"]
   },
   {
-    brandLogo: "/logos/pentax.png",
-    productName: "HT60 이지와이드",
-    badge: { text: "실내외 올라운드", bg: "bg-orange-200", color: "text-orange-800", border: "border-orange-300" },
+    brandLogo: "/images/chemi-logo.jpg",
+    productName: "Ino C4",
+    badge: { text: "고급형", bg: "bg-orange-200", color: "text-orange-800", border: "border-orange-300" },
     features: ["올라운드"],
     recommend: ["실내외 모든활동", "안정적인 성능"],
     lensImage: "/images/DP.jpg",
@@ -53,17 +53,17 @@ const sampleLenses = [
     descText: "업계 추천 1위! 한국인 시야에 최적화된 설계와 탁월한 적응력으로 많은 사랑을 받고 있는 발란시스 KR.",
     
     prices: [
-      { refraction: "1.50", regular: 310000, sale: 149000 },
-      { refraction: "1.60", regular: 350000, sale: 169000 },
-      { refraction: "1.67", regular: 410000, sale: 199000 },
-      { refraction: "1.74", regular: 580000, sale: 299000 }
+      { refraction: "1.50", regular: 325000, sale: 149000 },
+      { refraction: "1.60", regular: 380000, sale: 179000 },
+      { refraction: "1.67", regular: 465000, sale: 239000 },
+      { refraction: "1.74", regular: 610000, sale: 289000 }
     ],
     discountRate: 0.7,
-    options: ["블루라이트코팅 불가"]
+    options: ["블루라이트코팅 2만원추가"]
   },
   {
-    brandLogo: "/logos/pentax.png",
-    productName: "HT70 이지프로H",
+    brandLogo: "/images/chemi-logo.jpg",
+    productName: "Ino C6",
     badge: { text: "개인맞춤 정밀광학", bg: "bg-sky-200", color: "text-sky-800", border: "border-sky-300" },
     features: ["최고의 성능"],
     recommend: ["뛰어난 적응성능","광대역 넓은시야"],
@@ -72,13 +72,13 @@ const sampleLenses = [
     descText: "한국인 처방 데이터로 최적화된 호야 다이나믹 써미트KR. 선명하고 빠른 적응력, 높은 내구성이 특징!",
     
     prices: [
-      { refraction: "1.50", regular: 450000},
-      { refraction: "1.60", regular: 490000},
-      { refraction: "1.67", regular: 530000},
-      { refraction: "1.74", regular: 670000}
+      { refraction: "1.50", regular: 385000, sale: 199000},
+      { refraction: "1.60", regular: 455000, sale: 229000},
+      { refraction: "1.67", regular: 530000, sale: 299000},
+      { refraction: "1.74", regular: 660000, sale: 419000}
     ],
     discountRate: 0.5,
-    options: ["블루라이트코팅 불가"]
+    options: ["블루라이트코팅 2만원추가"]
   }
 ];
 
@@ -116,7 +116,7 @@ export default function MultifocalLensAdvanced() {
 
           const discountAmount = regular && sale ? regular - sale : null;
           const isE3 = lens.productName === "니콘 와이드 Z";
-          const isE4 = lens.productName === "HT70 이지프로H";
+          const isE4 = lens.productName === "Ino C6";
           const hasLink = Boolean(lens.infoUrl);
 
           return (
@@ -135,7 +135,7 @@ export default function MultifocalLensAdvanced() {
 
               {isE4 && (
                 <div className="absolute right-6 -top-4 bg-pink-500 text-white font-extrabold px-4 py-1 rounded-full shadow-xl text-sm tracking-wide border-2 border-pink-600 animate-bounce whitespace-nowrap z-20">
-                  HT시리즈 최고급렌즈
+                  C시리즈 최고급렌즈
                 </div>
               )}
 
@@ -266,10 +266,10 @@ export default function MultifocalLensAdvanced() {
             </button>
           ))}
           <button
-            className="px-6 py-3 rounded-xl font-bold text-lg shadow border-2 bg-yellow-100 
+            className="px-6 py-3 rounded-xl font-bold text-lg shadow border-2 bg-blue-100 
             text-gray-700 border-gray-300 hover:bg-gray-200"
           >
-            착색
+            클리어
           </button>
         </div>
       </div>
@@ -303,3 +303,5 @@ export default function MultifocalLensAdvanced() {
     </div>
   );
 }
+
+
