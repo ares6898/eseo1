@@ -39,7 +39,7 @@ const lensTypes = [
     badgeClasses: "bg-gray-200 text-gray-800 ring-gray-300", // 중립/톤다운
     path: "/multifocal-lens/T2",
     viewImage: "/images/chemi-logo.jpg",
-    pros: ["국내브랜드 1", "넓은시야 편안한안경","좋은 품질 저렴한 가격"]
+    pros: ["국내브랜드 1위", "넓은시야 편안한안경","좋은 품질 저렴한 가격"]
   },
   {
     type: "탁월한 기능성",
@@ -207,5 +207,6 @@ export default function MultifocalLensPage2() {
     </div>
   );
 }
+
 
 
