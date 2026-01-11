@@ -116,7 +116,7 @@ export default function MultifocalLensAdvanced() {
 
           const discountAmount = regular && sale ? regular - sale : null;
           const isE3 = lens.productName === "니콘 와이드 Z";
-          const isE4 = lens.productName === "HT70 이지프로H";
+          const isE4 = lens.productName === "Ino C6";
           const hasLink = Boolean(lens.infoUrl);
 
           return (
@@ -303,5 +303,6 @@ export default function MultifocalLensAdvanced() {
     </div>
   );
 }
+
 
 
