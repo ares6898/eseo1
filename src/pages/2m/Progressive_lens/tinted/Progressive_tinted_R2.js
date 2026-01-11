@@ -32,14 +32,14 @@ const lensTypes = [
     ]
   },
   {
-    type: "국내 - 한미스위스",
-    name: "H-TITAL",
+    type: "국내 - 케미",
+    name: "C-series",
     color: "bg-blue-50 text-blue-800 border-blue-200",
     badge: "균형 추천 ⭐",
     badgeClasses: "bg-gray-200 text-gray-800 ring-gray-300", // 중립/톤다운
     path: "/MultifocalLensT2_T",
-    viewImage: "/logos/pentax.png",
-    pros: ["독일 GF공법 내면아토릭", "넓은시야 편안한안경","좋은 품질 저렴한 가격"]
+    viewImage: "/images/chemi-logo.jpg",
+    pros: ["국내브랜드 1위", "넓은시야 편안한안경","좋은 품질 저렴한 가격"]
   },
   {
     type: "고객님 이노티의",
@@ -207,3 +207,4 @@ export default function MultifocalLensPage2() {
     </div>
   );
 }
+
