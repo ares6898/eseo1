@@ -34,10 +34,10 @@ const sampleLenses = [
     descText: "누진 초보도 빠르게 적응! 개인맞춤 설계로 한 단계 높은 편안함을 느낄 수 있는 프리미엄KR-IND.",
     
     prices: [
-      
-      { refraction: "1.60", regular: 600000, sale: 190000 },
-      { refraction: "1.67", regular: 750000, sale: 260000 },
-      { refraction: "1.74", regular: 990000, sale: 340000 }
+      { refraction: "1.50", regular: 460000, sale: 189000 },
+      { refraction: "1.60", regular: 600000, sale: 239000 },
+      { refraction: "1.67", regular: 750000, sale: 330000 },
+      { refraction: "1.74", regular: 990000, sale: 430000 }
     ],
     discountRate: 0.7,
     options: ["블루라이트 2만원추가"]
@@ -303,5 +303,6 @@ export default function MultifocalLensAdvanced() {
     </div>
   );
 }
+
 
 
