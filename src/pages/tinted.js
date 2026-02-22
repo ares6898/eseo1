@@ -123,7 +123,7 @@ export default function tinted() {
         "1.56": { regular: "12만원", discount: "4.5만원" },
         "1.60": { regular: "15만원", discount: "5.5만원" },
         "1.67": { regular: "18만원", discount: "7.5만원" },
-        "1.74": { regular: "30만원", discount: "12만원" }
+        "1.74": { regular: "30만원", discount: "17만원" }
       },
       label: "주문착색",
       brandCode: "rxc",
