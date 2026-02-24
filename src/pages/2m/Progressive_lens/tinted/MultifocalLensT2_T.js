@@ -53,8 +53,8 @@ const sampleLenses = [
     descText: "업계 추천 1위! 한국인 시야에 최적화된 설계와 탁월한 적응력으로 많은 사랑을 받고 있는 발란시스 KR.",
     
     prices: [
-      { refraction: "1.50", regular: 325000, sale: 149000 },
-      { refraction: "1.60", regular: 380000, sale: 179000 },
+      { refraction: "1.50", regular: 345000, sale: 169000 },
+      { refraction: "1.60", regular: 400000, sale: 199000 },
       { refraction: "1.67", regular: 465000, sale: 239000 },
       { refraction: "1.74", regular: 610000, sale: 289000 }
     ],
@@ -303,5 +303,6 @@ export default function MultifocalLensAdvanced() {
     </div>
   );
 }
+
 
 
