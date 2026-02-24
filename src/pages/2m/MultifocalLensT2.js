@@ -16,7 +16,7 @@ const sampleLenses = [
     infoUrl: null, 
     prices: [
       { refraction: "1.50", regular: 120000, sale: 59000 },
-      { refraction: "1.60", regular: 170000, sale: 79000 },
+      { refraction: "1.60", regular: 170000, sale: 89000 },
       { refraction: "1.67", regular: 235000, sale: 109000 },
       { refraction: "1.74", regular: 300000, sale: 139000 }
     ],
@@ -53,8 +53,8 @@ const sampleLenses = [
     descText: "업계 추천 1위! 한국인 시야에 최적화된 설계와 탁월한 적응력으로 많은 사랑을 받고 있는 발란시스 KR.",
     
     prices: [
-      { refraction: "1.50", regular: 305000, sale: 129000 },
-      { refraction: "1.60", regular: 360000, sale: 159000 },
+      { refraction: "1.50", regular: 325000, sale: 149000 },
+      { refraction: "1.60", regular: 380000, sale: 179000 },
       { refraction: "1.67", regular: 445000, sale: 219000 },
       { refraction: "1.74", regular: 590000, sale: 269000 }
     ],
@@ -303,6 +303,7 @@ export default function MultifocalLensAdvanced() {
     </div>
   );
 }
+
 
 
 
