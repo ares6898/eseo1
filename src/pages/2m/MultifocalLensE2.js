@@ -71,7 +71,7 @@ const refractiveIndexes = ["1.50", "1.60", "1.67", "1.74"];
 
 export default function MultifocalLensStandard() {
   // ✅ 기본 선택을 1.50으로
-  const [selectedRef, setSelectedRef] = useState("1.50");
+  const [selectedRef, setSelectedRef] = useState("1.60");
   const [popupImage, setPopupImage] = useState(null);  // 팝업 이미지 상태 추가
 
   return (
@@ -233,3 +233,4 @@ export default function MultifocalLensStandard() {
     </div>
   );
 }
+
