@@ -3,23 +3,23 @@ import { useNavigate } from "react-router-dom";
 
 const lensTypes = [
   {
-    type: "바리락스",
-    name: "세계최초 다초점",
+    type: "프리미엄 등급",
+    name: "바리락스",
     color: "bg-gray-900 text-yellow-100 border-yellow-200",
-    badge: "카달로그설명🌟",
+    badge: "전세계 판매1위🌟",
     badgeClasses: "bg-amber-300 text-slate-900 ring-amber-500", // 골드톤(프리미엄)
     path: null,
     viewImage: "/logos/VX.jpg",
     pros: [
-      "전세계 판매 1위",
-      "프리미엄 다초점렌즈",
+      "세계최초 다초점렌즈",
+      "다초점브랜드 절대강자",
       "비교적 고가의 다초점",
       "퓨어블루코팅이 강점"
     ]
   },
   {
-    type: "수입 - 프랑스",
-    name: "에실로 PB",
+    type: "고급형",
+    name: "대표제품:E3",
     color: "bg-blue-800 text-white ring-2 ring-yellow-300 shadow-xl border-blue-800",
     badge: "선호도 1위 👍",
     badgeClasses: "bg-sky-300 text-slate-900 ring-sky-700", // 프리미엄/신뢰 블루
@@ -32,14 +32,14 @@ const lensTypes = [
     ]
   },
   {
-    type: "국내 - 케미",
-    name: "C-series",
+    type: "기본형",
+    name: "대표제품:E1",
     color: "bg-blue-50 text-blue-800 border-blue-200",
     badge: "균형 추천 ⭐",
     badgeClasses: "bg-gray-200 text-gray-800 ring-gray-300", // 중립/톤다운
     path: "/multifocal-lens/T2",
     viewImage: "/images/chemi-logo.jpg",
-    pros: ["국내브랜드 1위", "넓은시야 편안한안경","좋은 품질 저렴한 가격"]
+    pros: ["가격대 성능비", "넓은시야 편안한안경","좋은 품질 저렴한 가격"]
   },
   {
     type: "탁월한 기능성",
@@ -67,7 +67,7 @@ export default function MultifocalLensPage2() {
   // 안내 버튼(역순: 안내3 → 안내2 → 안내1)
   const infoButtons = [
     {
-      text: "누진다초점 전제품 50%할인", // 안내3
+      text: "내 눈에 딱 맞는 안경", // 안내3
       color:
         "bg-gradient-to-br from-green-100 to-green-50 text-green-900 border-green-200",
       icon: "🌟",
@@ -207,6 +207,7 @@ export default function MultifocalLensPage2() {
     </div>
   );
 }
+
 
 
 
