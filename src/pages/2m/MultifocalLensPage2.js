@@ -6,7 +6,7 @@ const lensTypes = [
     type: "프리미엄 등급",
     name: "바리락스",
     color: "bg-gray-900 text-yellow-100 border-yellow-200",
-    badge: "전세계 판매1위🌟",
+    badge: "전세계 판매1위",
     badgeClasses: "bg-amber-300 text-slate-900 ring-amber-500", // 골드톤(프리미엄)
     path: null,
     viewImage: "/logos/VX.jpg",
@@ -207,6 +207,7 @@ export default function MultifocalLensPage2() {
     </div>
   );
 }
+
 
 
 
