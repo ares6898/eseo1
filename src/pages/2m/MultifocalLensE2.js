@@ -3,33 +3,18 @@ import React, { useState } from "react";
 const sampleLenses = [
   {
     brandLogo: "/logos/essilor.jpg",
-    productName: "이노티X에실로 E1",
-    // Tailwind 오타 수정: bg-ye-200 → bg-yellow-200
-    badge: { text: "가성비", bg: "bg-yellow-200", color: "text-sky-800", border: "border-sky-300" },
-    features: ["초기 노안용 기본내면누진", "합리적인 금액"],
-    recommend: ["가성비 높은 제품", "기본에 충실한 렌즈"],
-    lensImage: "/images/E4.jpg",
-    prices: [
-      { refraction: "1.50", regular: 320000 },
-      { refraction: "1.60", regular: 380000 }
-    ],
-    discountRate: 0.5,
-    options: ["블루라이트 코팅 3만원 추가"]
-  },
-  {
-    brandLogo: "/logos/essilor.jpg",
     productName: "이노티X에실로 E2",
     badge: { text: "디지털기기 특화", bg: "bg-sky-200", color: "text-sky-800", border: "border-sky-300" },
     features: ["부드러운 중간시야", "디지털 시생활 특화렌즈"],
     recommend: ["디지털핏 옵티마이저 기능", "오랜 근업시 더 편안하게"],
-    lensImage: "/images/DP.jpg",
+    lensImage: "/images/E4.jpg",
     prices: [
-      { refraction: "1.50", regular: 390000 },
-      { refraction: "1.60", regular: 470000 },
-      { refraction: "1.67", regular: 550000 }
+      { refraction: "1.50", regular: 390000, sale: 230000 },
+      { refraction: "1.60", regular: 520000, sale: 310000 },
+      { refraction: "1.67", regular: 600000, sale: 380000 }
     ],
     discountRate: 0.5,
-    options: ["퓨어블루 5만원 추가(1.60이상)"]
+    options: ["1.60,1.67 퓨어블루코팅 5만원"]
   },
   {
     brandLogo: "/logos/essilor.jpg",
@@ -37,33 +22,52 @@ const sampleLenses = [
     badge: { text: "적응형설계", bg: "bg-lime-200", color: "text-lime-800", border: "border-lime-300" },
     features: ["부드러운 시선전환, 빠른적응", "일상생활을 편안하게"],
     recommend: ["소프트 와이드 테크놀로지", "원시, 난시 복잡한 도수 특화"],
-    lensImage: "/images/BIND.jpg",
+    lensImage: "/images/DP.jpg",
     prices: [
-      { refraction: "1.50", regular: 480000 },
-      { refraction: "1.60", regular: 570000 },
-      { refraction: "1.67", regular: 710000 }
+      { refraction: "1.50", regular: 480000, sale: 290000 },
+      { refraction: "1.60", regular: 620000, sale: 380000 },
+      { refraction: "1.67", regular: 760000, sale: 430000 }
     ],
     discountRate: 0.5,
-    options: ["퓨어블루 5만원 추가(1.60이상)"]
+    options: ["1.60,1.67 퓨어블루코팅 5만원"]
   },
   {
-    brandLogo: "/logos/essilor.jpg",
-    productName: "이노티X에실로 E4",
-    badge: { text: "최고의 기술력", bg: "bg-orange-200", color: "text-orange-800", border: "border-orange-300" },
-    features: ["모든거리에서 선명함", "흔들림없는 편안한 시야"],
-    recommend: ["원/중/근 모든거리 선명한시야", "어떠한 도수에서도 적응가능"],
-    lensImage: "/images/L3.jpg",
+    brandLogo: "/logos/nikon.jpg",
+    productName: "니콘 어드밴스Z",
+    badge: { text: "대비감도 향상", bg: "bg-lime-200", color: "text-lime-800", border: "border-lime-300" },
+    features: ["어두울 때 선명함", "편안하고 빠른적응"],
+    recommend: ["디지털라이프 반영", "대비감도 Z기술 적용"],
+    lensImage: "/images/BIND.jpg",
     prices: [
-      { refraction: "1.50", regular: 620000 },
-      { refraction: "1.60", regular: 750000 },
-      { refraction: "1.67", regular: 860000 }
+      { refraction: "1.50", regular: 400000, sale: 340000 },
+      { refraction: "1.60", regular: 550000, sale: 430000 },
+      { refraction: "1.67", regular: 650000, sale: 490000 },
+	  { refraction: "1.74", regular: 750000, sale: 550000 }
+
     ],
     discountRate: 0.5,
-    options: ["퓨어블루 5만원 추가(1.60이상)"]
+    options: ["1.60,1.67 퓨어블루코팅 5만원"]
+  },
+  {
+    brandLogo: "/logos/nikon.jpg",
+    productName: "니콘 와이드Z",
+    badge: { text: "최고의 기술력", bg: "bg-orange-200", color: "text-orange-800", border: "border-orange-300" },
+    features: ["야간운전, 활동적인운동", "원거리까지 넓은 시야"],
+    recommend: ["모든거리에서 선명함", "어떠한 도수에서도 적응가능"],
+    lensImage: "/images/L3.jpg",
+    prices: [
+      { refraction: "1.50", regular: 550000, sale: 440000 },
+      { refraction: "1.60", regular: 700000, sale: 560000 },
+      { refraction: "1.67", regular: 800000, sale: 640000 },
+	  { refraction: "1.74", regular: 900000, sale: 720000 }
+
+    ],
+    discountRate: 0.45,
+    options: ["1.60,1.67 퓨어블루코팅 5만원"]
   }
 ];
 
-const refractiveIndexes = ["1.50", "1.60", "1.67"];
+const refractiveIndexes = ["1.50", "1.60", "1.67", "1.74"];
 
 export default function MultifocalLensStandard() {
   // ✅ 기본 선택을 1.50으로
@@ -88,7 +92,7 @@ export default function MultifocalLensStandard() {
               : null
 			  : null;
           const discountAmount = priceRow && priceRow.regular ? priceRow.regular - sale : null;
-          const isE3 = lens.productName === "이노티X에실로 E4";
+          const isE3 = lens.productName === "이노티X에실로 E3";
 
           return (
             <div
@@ -98,7 +102,7 @@ export default function MultifocalLensStandard() {
             >
               {isE3 && (
                 <div className="absolute right-6 -top-4 bg-pink-500 text-white font-extrabold px-4 py-1 rounded-full shadow-xl text-sm tracking-wide border-2 border-pink-600 animate-bounce whitespace-nowrap z-20">
-                  E시리즈 최고급렌즈
+                  고급형 선택율 1위
                 </div>
               )}
 
@@ -229,5 +233,3 @@ export default function MultifocalLensStandard() {
     </div>
   );
 }
-
-
