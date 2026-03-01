@@ -3,18 +3,18 @@ import { useNavigate } from "react-router-dom";
 
 const lensTypes = [
   {
-    type: "바리락스, 니콘",
-    name: "호야, 자이스",
+    type: "바리락스",
+    name: "세계최초 다초점",
     color: "bg-gray-900 text-yellow-100 border-yellow-200",
     badge: "카달로그설명🌟",
     badgeClasses: "bg-amber-300 text-slate-900 ring-amber-500", // 골드톤(프리미엄)
     path: null,
     viewImage: "/logos/VX.jpg",
     pros: [
-      "글로벌 유명브랜드",
-      "전품목 50%할인",
-      "코팅추가조건",
-      "에실로계열 1.60추가필요"
+      "전세계 판매 1위",
+      "프리미엄 다초점렌즈",
+      "비교적 고가의 다초점",
+      "퓨어블루코팅이 강점"
     ]
   },
   {
@@ -207,6 +207,7 @@ export default function MultifocalLensPage2() {
     </div>
   );
 }
+
 
 
 
