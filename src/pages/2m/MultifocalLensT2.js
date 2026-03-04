@@ -85,7 +85,7 @@ const refractiveIndexes = ["1.50", "1.60", "1.67", "1.74"];
 
 export default function MultifocalLensAdvanced() {
   // 기본 선택값 1.50
-  const [selectedRef, setSelectedRef] = useState("1.60");
+  const [selectedRef, setSelectedRef] = useState("1.50");
   const [popupImage, setPopupImage] = useState(null);
 
   // ✅ 항상 새 창으로만 열기
@@ -302,6 +302,7 @@ export default function MultifocalLensAdvanced() {
     </div>
   );
 }
+
 
 
 
