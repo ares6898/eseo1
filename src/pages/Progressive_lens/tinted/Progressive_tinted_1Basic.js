@@ -35,7 +35,7 @@ const basicLenses = [
     brandLogo: "/images/chemi-logo.jpg",
     lensImage: "/images/E1.jpg",
     prices: [
-      { refraction: "1.50", regular: getRoundedRetail(174000), sale: 174000 },
+      { refraction: "1.50", regular: getRoundedRetail(174000), sale: 164000 },
       { refraction: "1.60", regular: getRoundedRetail(214000), sale: 214000 },
       { refraction: "1.67", regular: getRoundedRetail(264000), sale: 264000 },
       { refraction: "1.74", regular: getRoundedRetail(344000), sale: 344000 }
@@ -77,7 +77,7 @@ export default function MultifocalLensBasic() {
           const sale = priceRow ? priceRow.sale : null;
           const discountAmount = priceRow ? regular - sale : null;
 
-          const isC1 = lens.productName === "C1";
+          const isC1 = lens.productName === "C5 (C3 리뉴얼업)";
 
           return (
             <div
@@ -211,3 +211,4 @@ export default function MultifocalLensBasic() {
     </div>
   );
 }
+
