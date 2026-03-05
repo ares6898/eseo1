@@ -24,7 +24,7 @@ const sampleLenses = [
     features: ["한국인 전용디자인", "양안시 리더"],
     recommend: ["양안 균형 더욱 넓은 시야", "어두운 환경 선명하고 또렷함", "빠르고 정확한 시야전환"],
     lensImage: "/images/BIND.jpg",
-    infoUrl: "https://www.essilor.com/kr-ko/products/varilux/varilux-physio/", // 교체 가능
+    infoUrl: "https://www.essilor.com/kr-ko/products/varilux/varilux-physio-extensee/", // 교체 가능
     prices: [
       { refraction: "1.50", regular: 850000 },
       { refraction: "1.60", regular: 950000 },
@@ -43,10 +43,10 @@ const sampleLenses = [
     lensImage: "/images/F.jpg",
     infoUrl: "https://www.essilor.com/kr-ko/products/varilux/varilux-xr-series/", // 교체 가능
     prices: [
-      { refraction: "1.50", regular: 1050000 },
-      { refraction: "1.60", regular: 1150000 },
-      { refraction: "1.67", regular: 1250000 },
-	  { refraction: "1.74-2주 기본컬러만 가능", regular: 1550000 }
+      { refraction: "1.50", regular: 1100000 },
+      { refraction: "1.60", regular: 1200000 },
+      { refraction: "1.67", regular: 1300000 },
+	  { refraction: "1.74-2주 기본컬러만 가능", regular: 1600000 }
     ],
     discountRate: 0.6,
     options: ["엑스트라 엑티브 납기 10일", "스타일컬러 납기 10일","엑티브, 스타일컬러  Crizal코팅"]
@@ -293,4 +293,5 @@ export default function MultifocalLensSupreme() {
     </div>
   );
 }
+
 
