@@ -24,7 +24,7 @@ const sampleLenses = [
     features: ["한국인 전용디자인", "양안시 리더"],
     recommend: ["양안 균형 더욱 넓은 시야", "어두운 환경 선명하고 또렷함", "빠르고 정확한 시야전환"],
     lensImage: "/images/BIND.jpg",
-    infoUrl: "https://www.essilor.com/kr-ko/products/varilux/varilux-physio/", // 교체 가능
+    infoUrl: "https://www.essilor.com/kr-ko/products/varilux/varilux-physio-extensee/", // 교체 가능
     prices: [
       { refraction: "1.50", regular: 650000 },
       { refraction: "1.60", regular: 800000 },
@@ -293,6 +293,7 @@ export default function MultifocalLensSupreme() {
     </div>
   );
 }
+
 
 
 
