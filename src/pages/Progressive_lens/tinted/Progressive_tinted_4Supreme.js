@@ -10,9 +10,9 @@ const sampleLenses = [
     lensImage: "/images/DP.jpg",
     infoUrl: "https://www.essilor.com/kr-ko/products/varilux/varilux-comfort-max/", // 원하는 링크로 교체
     prices: [
-      { refraction: "1.50", regular: 480000 },
-	  { refraction: "1.60", regular: 580000 },
-      { refraction: "1.67", regular: 680000 }
+      { refraction: "1.50", regular: 510000 },
+	  { refraction: "1.60", regular: 610000 },
+      { refraction: "1.67", regular: 710000 }
     ],
     discountRate: 0.7,
     options: ["착색은 See+uv, SeeBlue만 가능"]
@@ -26,10 +26,10 @@ const sampleLenses = [
     lensImage: "/images/BIND.jpg",
     infoUrl: "https://www.essilor.com/kr-ko/products/varilux/varilux-physio/", // 교체 가능
     prices: [
-      { refraction: "1.50", regular: 580000 },
-      { refraction: "1.60", regular: 680000 },
-      { refraction: "1.67", regular: 780000 },
-	  { refraction: "1.74 - 납기2주", regular: 930000 }
+      { refraction: "1.50", regular: 680000 },
+      { refraction: "1.60", regular: 780000 },
+      { refraction: "1.67", regular: 880000 },
+	  { refraction: "1.74 - 납기2주", regular: 1030000 }
     ],
     discountRate: 0.7,
     options: ["착색은 See+uv, SeeBlue만 가능", "1.74 Crizal 코팅"]
@@ -41,12 +41,12 @@ const sampleLenses = [
     features: ["AI설계 최첨단 프리미엄 다초점", "움직임속에서도 선명함"],
     recommend: ["AI설계 즉각적인 선명함", "착용 첫날 적응", "움직임에도 선명한 넓은시야"],
     lensImage: "/images/F.jpg",
-    infoUrl: "https://www.essilor.com/kr-ko/products/varilux/varilux-xr-series/", // 교체 가능
+    infoUrl: "https://www.essilor.com/kr-ko/products/varilux/varilux-physio-extensee/", // 교체 가능
     prices: [
-      { refraction: "1.50", regular: 880000 },
-      { refraction: "1.60", regular: 980000 },
-      { refraction: "1.67", regular: 1080000 },
-	  { refraction: "1.74 - 납기2주", regular: 1380000 }
+      { refraction: "1.50", regular: 930000 },
+      { refraction: "1.60", regular: 1020000 },
+      { refraction: "1.67", regular: 1130000 },
+	  { refraction: "1.74 - 납기2주", regular: 1430000 }
     ],
     discountRate: 0.6,
     options: ["착색은 See+uv, SeeBlue만 가능", "1.74 Crizal 코팅"]
@@ -293,3 +293,4 @@ export default function MultifocalLensSupreme() {
     </div>
   );
 }
+
