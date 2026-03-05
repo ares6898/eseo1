@@ -55,8 +55,8 @@ const lensTypes = [
 
 // 타입별 할인 안내 레이블
 const discountLabel = (type) => {
-  if (type === "실속형 - 국산" || type === "보급형 - 프랑스") return "50% 할인";
-  if (type === "고급형 - 일본") return "20%~50% 할인";
+  if (type === "실속형 - 국산" ) return "50% 할인";
+  if (type === "보급형 - 프랑스") return "35%~50% 할인";
   if (type === "프리미엄 - 프랑스") return "30%~50%할인";
   return "";
 };
@@ -207,3 +207,4 @@ export default function MultifocalLensPage() {
     </div>
   );
 }
+
