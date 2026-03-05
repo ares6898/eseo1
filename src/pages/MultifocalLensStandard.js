@@ -13,7 +13,7 @@ const sampleLenses = [
       { refraction: "1.50", regular: 320000 },
       { refraction: "1.60", regular: 380000 }
     ],
-    discountRate: 0.5,
+    discountRate: 0.65,
     options: ["블루라이트 코팅 3만원 추가"]
   },
   {
@@ -28,7 +28,7 @@ const sampleLenses = [
       { refraction: "1.60", regular: 470000 },
       { refraction: "1.67", regular: 550000 }
     ],
-    discountRate: 0.5,
+    discountRate: 0.6,
     options: ["퓨어블루 5만원 추가(1.60이상)"]
   },
   {
@@ -43,7 +43,7 @@ const sampleLenses = [
       { refraction: "1.60", regular: 570000 },
       { refraction: "1.67", regular: 710000 }
     ],
-    discountRate: 0.5,
+    discountRate: 0.55,
     options: ["퓨어블루 5만원 추가(1.60이상)"]
   },
   {
@@ -219,3 +219,4 @@ export default function MultifocalLensStandard() {
     </div>
   );
 }
+
