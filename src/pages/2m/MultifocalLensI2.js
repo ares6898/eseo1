@@ -1,145 +1,84 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-// 1. 각 제품 객체에 descImage(설명팝업 이미지), descText(설명팝업 텍스트), infoUrl(외부 링크) 추가!
-const sampleLenses = [
+const getRoundedRetail = (price) => Math.ceil((price * 2) / 10000) * 10000;
+
+const basicLenses = [
   {
+    productName: "C6 (추천)",
     brandLogo: "/images/chemi-logo.jpg",
-    productName: "케미C6 - IR",
-    // ✅ Tailwind 오타 수정: bg-ye-200 → bg-yellow-200
-    badge: { text: "안건강 보호", bg: "bg-yellow-200", color: "text-sky-800", border: "border-sky-300" },
-    features: ["강력한 유해광선 차단"],
-    recommend: ["UV, BL, IR 모두차단", "안질환수술후 눈보호 효과적"],
-    lensImage: "/images/BIND.jpg",
-    descImage: "/images/ampop.png",
-    descText: ".",
-    // 🔗 제품별 외부 설명 URL (원하는 주소로 교체)
-    infoUrl: null, 
+    lensImage: "/images/E2.jpg",
     prices: [
-      { refraction: "1.50", regular: 375000, sale: 189000 },
-      { refraction: "1.60", regular: 445000, sale: 219000 },
-      { refraction: "1.67", regular: 520000, sale: 289000 },
-      { refraction: "1.74", regular: 650000, sale: 410000 }
+      { refraction: "1.50", regular: getRoundedRetail(179000), sale: 179000 },
+      { refraction: "1.60", regular: getRoundedRetail(209000), sale: 209000 },
+      { refraction: "1.67", regular: getRoundedRetail(279000), sale: 279000 },
+      { refraction: "1.74", regular: getRoundedRetail(399000), sale: 399000 }
     ],
-    discountRate: 0.8,
-    options: ["착색, 변색불가"]
+    recommend: ["처음 쓰는 분도 비교적 적응이 편한 추천형"],
+    features: ["실속형 중 추천도 높음", "수차제어 소프트설계"],
+    options: ["블루라이트 기본", "베이직케어 추천모델"],
+    highlight: true
   },
   {
-    brandLogo: "/logos/nidek.jpg",
-    productName: "니덱 N1-하이밸런스",
-    badge: { text: "올라운드", bg: "bg-lime-200", color: "text-lime-800", border: "border-lime-300" },
-    features: ["강력한 코팅기술"],
-    recommend: ["스크라치에 강한코팅", "스크래치 내구성 2배"],
-    lensImage: "/images/BIND.jpg",
-    descImage: "/images/desc-dp.jpg",
-    descText: "누진 초보도 빠르게 적응! 개인맞춤 설계로 한 단계 높은 편안함을 느낄 수 있는 프리미엄KR-IND.",
-    
+    productName: "C1",
+    brandLogo: "/images/chemi-logo.jpg",
+    lensImage: "/images/c3.jpg",
     prices: [
-      { refraction: "1.50", regular: 460000, sale: 189000 },
-      { refraction: "1.60", regular: 600000, sale: 239000 },
-      { refraction: "1.67", regular: 750000, sale: 330000 },
-      { refraction: "1.74", regular: 990000, sale: 430000 }
+      { refraction: "1.50", regular: getRoundedRetail(99000), sale: 99000 },
+      { refraction: "1.60", regular: getRoundedRetail(129000), sale: 129000 },
+      { refraction: "1.67", regular: getRoundedRetail(159000), sale: 159000 },
+      { refraction: "1.74", regular: getRoundedRetail(219000), sale: 219000 }
     ],
-    discountRate: 0.7,
-    options: ["블루라이트 2만원추가"]
-  },
-  {
-    brandLogo: "/logos/essilor.jpg",
-    productName: "에실로 E2-퓨어블루",
-    badge: { text: "디지털기기 포커싱", bg: "bg-orange-200", color: "text-orange-800", border: "border-orange-300" },
-    features: ["스마트폰 기능성"],
-    recommend: ["스마트폰을 더 편하게", "강력한 블루라이트 차단"],
-    lensImage: "/images/BIND.jpg",
-    descImage: "/images/desc-ba.jpg",
-    descText: "업계 추천 1위! 한국인 시야에 최적화된 설계와 탁월한 적응력으로 많은 사랑을 받고 있는 발란시스 KR.",
-    
-    prices: [
-      
-      { refraction: "1.60", regular: 470000 },
-      { refraction: "1.67", regular: 550000 }
-      
-    ],
-    discountRate: 0.5,
-    options: ["퓨어블루 포함"]
-  },
-  {
-    brandLogo: "/logos/nikon.jpg",
-    productName: "니콘 로하스 액티브",
-    badge: { text: "탁월한 누진적응", bg: "bg-sky-200", color: "text-sky-800", border: "border-sky-300" },
-    features: ["최고의 성능"],
-    recommend: ["첫누진 완벽적응","기존 누진 부적응 추천"],
-    lensImage: "/images/BIND.jpg",
-    descImage: "/images/desc-e4.jpg",
-    descText: "한국인 처방 데이터로 최적화된 호야 다이나믹 써미트KR. 선명하고 빠른 적응력, 높은 내구성이 특징!",
-    
-    prices: [
-      { refraction: "1.50", regular: 400000},
-      { refraction: "1.60", regular: 550000},
-      { refraction: "1.67", regular: 650000}
-      
-    ],
-    discountRate: 0.5,
-    options: ["1.60, 1.67 퓨어블루 포함"]
+    recommend: ["가격 부담을 줄인 입문형"],
+    features: ["부담 없는 가격", "입문용 누진다초점"],
+    options: ["블루라이트 기본"],
+    highlight: false
   }
 ];
 
 const refractiveIndexes = ["1.50", "1.60", "1.67", "1.74"];
 
-export default function MultifocalLensAdvanced() {
-  // 기본 선택값 1.50
+export default function MultifocalLensBasic() {
   const [selectedRef, setSelectedRef] = useState("1.50");
   const [popupImage, setPopupImage] = useState(null);
-
-  // ✅ 항상 새 창으로만 열기
-  const openInNewTab = (url) => {
-    if (!url) return;
-    try {
-      window.open(url, "_blank", "noopener,noreferrer");
-    } catch {
-      // 팝업 차단 등 예외 시 대체
-      window.location.href = url;
-    }
-  };
+  const navigate = useNavigate();
 
   return (
-    <div className="relative min-h-screen pb-36 bg-blue-900">
-      <div className="max-w-7xl mx-auto px-3 py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
-        {[...sampleLenses].reverse().map((lens, idx) => {
-          const priceRow = selectedRef ? lens.prices.find(p => p.refraction === selectedRef) : null;
-          const regular = priceRow ? priceRow.regular : null;
-          const sale = priceRow
-            ? priceRow.sale !== undefined
-              ? priceRow.sale
-              : priceRow.regular
-              ? Math.round(priceRow.regular * lens.discountRate)
-              : null
-            : null;
+    <div className="relative min-h-screen pb-36 bg-gray-50">
+      {/* 상단 안내문구 */}
+      <div className="max-w-6xl mx-auto px-4 pt-8">
+        <div className="bg-white rounded-2xl shadow border px-6 py-5 text-center">
+          <h1 className="text-2xl font-extrabold text-blue-900">
+            베이직케어 누진다초점
+          </h1>
+          <p className="mt-2 text-base text-gray-700 font-semibold">
+            가격을 우선할지, 처음부터 더 편한 적응형을 선택할지 비교해보세요
+          </p>
+        </div>
+      </div>
 
-          const discountAmount = regular && sale ? regular - sale : null;
-          const isE3 = lens.productName === "니덱 N1-하이밸런스";
-          const isE4 = lens.productName === "니콘 로하스 액티브";
-          const hasLink = Boolean(lens.infoUrl);
+      {/* 카드 영역 */}
+      <div className="max-w-5xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+        {basicLenses.map((lens, idx) => {
+          const priceRow = lens.prices.find((p) => p.refraction === selectedRef);
+          const regular = priceRow?.regular ?? null;
+          const sale = priceRow?.sale ?? null;
+          const discountAmount = regular !== null && sale !== null ? regular - sale : null;
 
           return (
             <div
               key={idx}
-              className={`relative bg-white rounded-2xl p-5 flex flex-col gap-4 border shadow hover:shadow-2xl transition
-                ${isE3 ? "ring-4 ring-blue-100/80" : ""}
-                ${isE4 ? "ring-4 ring-pink-300/80" : ""}`}
-              style={{ zIndex: isE3 || isE4 ? 5 : 1 }}
+              className={`relative bg-white rounded-3xl p-6 flex flex-col gap-4 border shadow-lg transition hover:shadow-2xl ${
+                lens.highlight ? "ring-4 ring-emerald-300/80 scale-[1.02]" : ""
+              }`}
             >
-              {isE3 && (
-                <div className="absolute left-6 -top-4 bg-blue-400 text-white font-extrabold px-5 py-1 rounded-full shadow-xl text-sm tracking-wide border-2 border-blue-600 animate-bounce whitespace-nowrap z-20">
-                  강력한 스크래치 내구성 
+              {lens.highlight && (
+                <div className="absolute left-6 -top-4 bg-emerald-400 text-white font-extrabold px-5 py-1 rounded-full shadow-xl text-sm tracking-wide border-2 border-emerald-600 whitespace-nowrap z-20 animate-pulse">
+                  가장 많이 추천
                 </div>
               )}
 
-              {isE4 && (
-                <div className="absolute right-6 -top-4 bg-pink-500 text-white font-extrabold px-4 py-1 rounded-full shadow-xl text-sm tracking-wide border-2 border-pink-600 animate-bounce whitespace-nowrap z-20">
-                  안경이 처음이라도 쉬운적응
-                </div>
-              )}
-
-              <div className="flex items-center gap-2 mb-1 flex-nowrap">
+              <div className="flex items-start gap-3">
                 {lens.brandLogo && (
                   <img
                     src={lens.brandLogo}
@@ -147,18 +86,11 @@ export default function MultifocalLensAdvanced() {
                     className="h-12 w-12 object-contain rounded bg-white border p-1"
                   />
                 )}
-                <div className="flex flex-col">
-                  <div className="text-lg font-bold text-blue-900 whitespace-nowrap">{lens.productName}</div>
-
-                  {lens.badge && (
-                    <div
-                      className={`inline-block mt-1 px-3 py-1 text-xs font-bold rounded-full border ${lens.badge.bg} ${lens.badge.color} ${lens.badge.border} self-start`}
-                    >
-                      {lens.badge.text}
-                    </div>
-                  )}
-
-                  <ul className="mt-2 text-gray-600 text-xs list-disc ml-4 space-y-1">
+                <div className="flex-1">
+                  <div className="text-2xl font-extrabold text-blue-900 whitespace-nowrap">
+                    {lens.productName}
+                  </div>
+                  <ul className="mt-3 text-gray-700 text-sm list-disc ml-5 space-y-1">
                     {lens.features.map((f, i) => (
                       <li key={i}>{f}</li>
                     ))}
@@ -166,25 +98,15 @@ export default function MultifocalLensAdvanced() {
                 </div>
               </div>
 
-              {/* ✅ 제품 설명: 새 창으로만 열기 / 링크 없으면 비활성 */}
               <div
-                className={[
-                  "bg-green-100 rounded-md px-3 py-2 text-[14px] leading-snug text-green-900 font-semibold shadow mb-1",
-                  "flex flex-col gap-1 transition",
-                  hasLink ? "cursor-pointer hover:bg-green-200" : "opacity-200 cursor-not-allowed"
-                ].join(" ")}
-                onClick={() => hasLink && openInNewTab(lens.infoUrl)}
-                role="button"
-                aria-disabled={!hasLink}
-                tabIndex={hasLink ? 0 : -1}
-                onKeyDown={(e) => {
-                  if (hasLink && e.key === "Enter") openInNewTab(lens.infoUrl);
-                }}
-                title={hasLink ? "새 창으로 설명 페이지 열기" : "설명 링크 준비중"}
+                className={`rounded-xl px-4 py-3 text-[15px] leading-snug font-semibold shadow ${
+                  lens.highlight
+                    ? "bg-emerald-50 text-emerald-900"
+                    : "bg-blue-50 text-blue-900"
+                }`}
               >
-                <div className="mb-1 font-bold text-green-800 flex items-center gap-2">
-                  제품 설명
-                  
+                <div className="mb-1 font-bold">
+                  {lens.highlight ? "추천 포인트" : "제품 설명"}
                 </div>
                 {lens.recommend.map((r, i) => (
                   <div key={i}>⏩ {r}</div>
@@ -192,9 +114,9 @@ export default function MultifocalLensAdvanced() {
               </div>
 
               <div
-                className={`w-full aspect-[3/2] rounded-md overflow-hidden shadow border border-gray-200 my-1 
-                  ${isE3 ? "animate-pulse" : ""} 
-                  ${isE4 ? "animate-pulse" : ""}`}
+                className={`w-full aspect-[3/2] rounded-xl overflow-hidden shadow border border-gray-200 ${
+                  lens.highlight ? "animate-pulse" : ""
+                }`}
               >
                 <img
                   src={lens.lensImage}
@@ -205,35 +127,45 @@ export default function MultifocalLensAdvanced() {
               </div>
 
               <div
-                className={`bg-gray-50 rounded-lg p-4 mb-1 shadow flex flex-col items-center 
-                  ${isE3 ? "animate-pulse" : ""} 
-                  ${isE4 ? "animate-pulse" : ""}`}
+                className={`rounded-2xl p-5 shadow flex flex-col items-center ${
+                  lens.highlight ? "bg-emerald-50" : "bg-gray-50"
+                }`}
               >
-                <div className="flex items-center gap-3 text-lg font-semibold whitespace-nowrap">
+                <div className="text-sm font-bold text-gray-700 mb-2">
+                  굴절률 <span className="text-blue-800">{selectedRef}</span>
+                </div>
+
+                <div className="flex items-center gap-3 text-lg font-semibold">
                   <span
-                    className={`mr-1 ${regular ? "line-through text-gray-400" : "text-gray-300"}`}
-                    style={{ fontSize: "15px" }}
+                    className={`mr-1 whitespace-nowrap ${
+                      regular
+                        ? "line-through text-gray-400 text-base"
+                        : "text-gray-300 text-base"
+                    }`}
                   >
-                    {selectedRef ? (regular ? `${regular.toLocaleString()}원` : "–") : "–"}
+                    {regular ? `${regular.toLocaleString()}원` : "–"}
                   </span>
-                  <span className="text-2xl text-gray-400 mx-1">→</span>
+                  <span className="text-2xl text-gray-400 mx-1 whitespace-nowrap">→</span>
                   <span
-                    className={sale ? "font-extrabold text-orange-600 text-xl" : "text-gray-300 text-xl"}
-                    style={{ fontSize: "20px" }}
+                    className={`whitespace-nowrap ${
+                      sale
+                        ? "font-extrabold text-orange-600 text-2xl"
+                        : "text-gray-300 text-xl"
+                    }`}
                   >
-                    {selectedRef ? (sale ? `${sale.toLocaleString()}원` : "–") : "–"}
+                    {sale ? `${sale.toLocaleString()}원` : "–"}
                   </span>
                 </div>
-                <div className="mt-2 text-xs text-blue-700 font-bold text-center">
-                  {selectedRef && discountAmount !== null ? `할인 금액: ${discountAmount.toLocaleString()}원` : "–"}
-                </div>
-                <div className="font-bold text-base text-gray-800 mb-2">
-                  굴절률 <span className="text-blue-800">{selectedRef || "-"}</span>
+
+                <div className="mt-3 text-xs text-blue-700 font-bold text-center">
+                  {discountAmount !== null
+                    ? `할인 금액: ${discountAmount.toLocaleString()}원`
+                    : "–"}
                 </div>
               </div>
 
-              <div className="bg-blue-50 rounded p-3 text-xs text-blue-900 flex flex-col gap-1 shadow">
-                <div className="font-bold mb-1 text-blue-800">옵션/추가 안내</div>
+              <div className="bg-slate-50 rounded-xl p-4 text-sm text-slate-800 flex flex-col gap-1 shadow">
+                <div className="font-bold mb-1 text-slate-900">옵션/추가 안내</div>
                 {lens.options.map((opt, i) => (
                   <div key={i}>- {opt}</div>
                 ))}
@@ -243,35 +175,35 @@ export default function MultifocalLensAdvanced() {
         })}
       </div>
 
-      <div className="fixed bottom-0 left-0 w-full bg-white shadow-2xl border-t z-30 flex justify-center items-center gap-4 py-4">
-        <div className="flex gap-2">
+      {/* 하단 버튼 */}
+      <div className="fixed bottom-0 left-0 w-full bg-white shadow-2xl border-t z-30 flex justify-center items-center gap-2 py-4 flex-wrap">
+        <button
+          onClick={() => navigate(-1)}
+          className="px-5 py-3 rounded-xl font-semibold text-sm bg-gray-100 text-gray-700 border border-gray-300 hover:bg-gray-200"
+        >
+          ← 뒤로가기
+        </button>
+
+        {refractiveIndexes.map((idx) => (
           <button
-            onClick={() => window.history.back()}
-            className="px-6 py-3 rounded-xl font-bold text-lg shadow border-2 bg-gray-100 text-gray-700 border-gray-300 hover:bg-gray-200"
+            key={idx}
+            className={`px-8 py-3 rounded-xl font-bold text-lg shadow border-2 transition-all duration-100 ${
+              selectedRef === idx
+                ? "bg-orange-600 text-white border-orange-600 scale-110"
+                : "bg-gray-100 text-gray-700 border-gray-300 hover:bg-orange-50"
+            }`}
+            onClick={() => setSelectedRef(idx)}
           >
-            ← 뒤로가기
+            굴절률 {idx}
           </button>
-          {refractiveIndexes.map((idx) => (
-            <button
-              key={idx}
-              className={
-                "px-8 py-3 rounded-xl font-bold text-lg shadow border-2 transition-all duration-100 " +
-                (selectedRef === idx
-                  ? "bg-orange-600 text-white border-orange-600 scale-110"
-                  : "bg-gray-100 text-gray-700 border-gray-300 hover:bg-orange-50")
-              }
-              onClick={() => setSelectedRef(selectedRef === idx ? "" : idx)}
-            >
-              굴절률 {idx}
-            </button>
-          ))}
-          <button
-            className="px-6 py-3 rounded-xl font-bold text-lg shadow border-2 bg-blue-100 
-            text-gray-700 border-gray-300 hover:bg-gray-200"
-          >
-            클리어
-          </button>
-        </div>
+        ))}
+
+        <button
+          onClick={() => setSelectedRef("1.50")}
+          className="px-6 py-3 rounded-xl font-bold text-lg shadow border-2 bg-blue-100 text-gray-700 border-gray-300 hover:bg-gray-200"
+        >
+          클리어
+        </button>
       </div>
 
       {/* 이미지 팝업 */}
@@ -296,13 +228,12 @@ export default function MultifocalLensAdvanced() {
               alt="시야표 확대"
               className="w-full h-auto max-h-[60vh] object-contain rounded-lg mb-3"
             />
-            <div className="font-bold text-blue-900 text-base mt-2">시야 예시 (확대 보기)</div>
+            <div className="font-bold text-blue-900 text-base mt-2">
+              시야 예시 (확대 보기)
+            </div>
           </div>
         </div>
       )}
     </div>
   );
 }
-
-
-
