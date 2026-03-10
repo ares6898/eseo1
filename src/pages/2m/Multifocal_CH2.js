@@ -1,5 +1,7 @@
 import React, { useMemo, useState } from "react";
 
+const REFRACTIVE_OPTIONS = ["1.50", "1.60", "1.67", "1.74"];
+
 const PRODUCT_INFO = {
   C6: {
     desc: "가볍게 사용하는 실속형",
@@ -13,8 +15,27 @@ const PRODUCT_INFO = {
         points: ["실속형", "부담 적은 선택", "기본 기능 중심"],
         image: "/images/multifocal-c6.jpg",
         url: "https://example.com/c6",
-        price: "23만원",
-        variantLabel: "기본",
+        refractivePrices: {
+          // 🔧 클리어렌즈 판매가 수정
+          "1.50": "23만원",
+          "1.60": "28만원",
+          "1.67": "33만원",
+        },
+        tintPrices: {
+          // 🔧 착색 추가 판매가 수정 / 값이 없으면 생산불가
+          "1.50": "3만원",
+          "1.60": "3만원",
+          "1.67": "3만원",
+        },
+        photoPrices: {
+          // 🔧 변색 추가 판매가 수정 / 값이 없으면 생산불가
+        },
+        premiumCoatingPrices: {
+          // 🔧 프리미엄코팅 추가 판매가 수정 / 값이 없으면 생산불가
+          "1.50": "5만원",
+          "1.60": "5만원",
+          "1.67": "5만원",
+        },
       },
     },
   },
@@ -30,8 +51,25 @@ const PRODUCT_INFO = {
         points: ["적응 무난", "균형 잡힌 선택", "상담 시 추천하기 쉬움"],
         image: "/images/multifocal-e3.jpg",
         url: "https://example.com/e3",
-        price: "28만원",
-        variantLabel: "기본",
+        refractivePrices: {
+          "1.50": "28만원",
+          "1.60": "33만원",
+          "1.67": "38만원",
+        },
+        tintPrices: {
+          "1.50": "3만원",
+          "1.60": "3만원",
+          "1.67": "3만원",
+        },
+        photoPrices: {
+          "1.60": "15만원",
+          "1.67": "15만원",
+        },
+        premiumCoatingPrices: {
+          "1.50": "5만원",
+          "1.60": "5만원",
+          "1.67": "5만원",
+        },
       },
     },
   },
@@ -47,8 +85,25 @@ const PRODUCT_INFO = {
         points: ["근거리 편안함", "업무 활용도 우수", "프리미엄 입문"],
         image: "/images/multifocal-comfort-basic.jpg",
         url: "https://example.com/comfort-basic",
-        price: "40만원",
-        variantLabel: "기본",
+        refractivePrices: {
+          "1.50": "40만원",
+          "1.60": "45만원",
+          "1.67": "50만원",
+        },
+        tintPrices: {
+          "1.50": "3만원",
+          "1.60": "3만원",
+          "1.67": "3만원",
+        },
+        photoPrices: {
+          "1.60": "15만원",
+          "1.67": "15만원",
+        },
+        premiumCoatingPrices: {
+          "1.50": "5만원",
+          "1.60": "5만원",
+          "1.67": "5만원",
+        },
       },
       KAN: {
         summary:
@@ -57,8 +112,25 @@ const PRODUCT_INFO = {
         points: ["KAN 설계", "적응감 향상", "상위 업그레이드"],
         image: "/images/multifocal-comfort-kan.jpg",
         url: "https://example.com/comfort-kan",
-        price: "45만원",
-        variantLabel: "KAN",
+        refractivePrices: {
+          "1.50": "45만원",
+          "1.60": "50만원",
+          "1.67": "55만원",
+        },
+        tintPrices: {
+          "1.50": "3만원",
+          "1.60": "3만원",
+          "1.67": "3만원",
+        },
+        photoPrices: {
+          "1.60": "15만원",
+          "1.67": "15만원",
+        },
+        premiumCoatingPrices: {
+          "1.50": "5만원",
+          "1.60": "5만원",
+          "1.67": "5만원",
+        },
       },
     },
   },
@@ -74,8 +146,25 @@ const PRODUCT_INFO = {
         points: ["상위 편안함", "장시간 사용 대응", "프리미엄 설득력"],
         image: "/images/multifocal-physio-basic.jpg",
         url: "https://example.com/physio-basic",
-        price: "50만원",
-        variantLabel: "기본",
+        refractivePrices: {
+          "1.50": "50만원",
+          "1.60": "55만원",
+          "1.67": "60만원",
+        },
+        tintPrices: {
+          "1.50": "3만원",
+          "1.60": "3만원",
+          "1.67": "3만원",
+        },
+        photoPrices: {
+          "1.60": "15만원",
+          "1.67": "15만원",
+        },
+        premiumCoatingPrices: {
+          "1.50": "5만원",
+          "1.60": "5만원",
+          "1.67": "5만원",
+        },
       },
       KAN: {
         summary:
@@ -84,8 +173,25 @@ const PRODUCT_INFO = {
         points: ["KAN 설계", "높은 적응성", "최상위 전 업셀 구간"],
         image: "/images/multifocal-physio-kan.jpg",
         url: "https://example.com/physio-kan",
-        price: "55만원",
-        variantLabel: "KAN",
+        refractivePrices: {
+          "1.50": "55만원",
+          "1.60": "60만원",
+          "1.67": "65만원",
+        },
+        tintPrices: {
+          "1.50": "3만원",
+          "1.60": "3만원",
+          "1.67": "3만원",
+        },
+        photoPrices: {
+          "1.60": "15만원",
+          "1.67": "15만원",
+        },
+        premiumCoatingPrices: {
+          "1.50": "5만원",
+          "1.60": "5만원",
+          "1.67": "5만원",
+        },
       },
     },
   },
@@ -101,8 +207,29 @@ const PRODUCT_INFO = {
         points: ["최상위 라인", "고급 상담용", "브랜드 가치 전달 강함"],
         image: "/images/multifocal-xr.jpg",
         url: "https://example.com/xr",
-        price: "70만원",
-        variantLabel: "기본",
+        refractivePrices: {
+          "1.50": "70만원",
+          "1.60": "75만원",
+          "1.67": "80만원",
+          "1.74": "90만원",
+        },
+        tintPrices: {
+          "1.50": "3만원",
+          "1.60": "3만원",
+          "1.67": "3만원",
+        },
+        photoPrices: {
+          "1.50": "15만원",
+          "1.60": "15만원",
+          "1.67": "15만원",
+          "1.74": "15만원",
+        },
+        premiumCoatingPrices: {
+          "1.50": "5만원",
+          "1.60": "5만원",
+          "1.67": "5만원",
+          "1.74": "5만원",
+        },
       },
     },
   },
@@ -115,6 +242,19 @@ function getDefaultVariant(productName) {
   return Object.keys(product.variants)[0];
 }
 
+function getCurrentVariantInfo(product, selectedVariant) {
+  const variantNames = Object.keys(product?.variants || {});
+  return (
+    product?.variants?.[selectedVariant] || product?.variants?.[variantNames[0]]
+  );
+}
+
+function parseKoreanPriceToNumber(priceText) {
+  if (!priceText) return 0;
+  const num = Number(String(priceText).replace(/[^\d]/g, ""));
+  return num * 10000;
+}
+
 export default function Ina2Flow() {
   const [step, setStep] = useState("intro");
 
@@ -125,6 +265,11 @@ export default function Ina2Flow() {
   const [recommended, setRecommended] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [selectedVariant, setSelectedVariant] = useState("기본");
+  const [selectedIndex, setSelectedIndex] = useState("1.50");
+
+  // ⭐ 옵션 상태
+  const [selectedLensMode, setSelectedLensMode] = useState("clear"); // clear | tint | photo
+  const [selectedCoatingMode, setSelectedCoatingMode] = useState("basic"); // basic | premium
 
   const canNextDistance = refractiveType && astigmatismType;
   const mainRecommended = useMemo(() => recommended?.[0] || null, [recommended]);
@@ -133,6 +278,8 @@ export default function Ina2Flow() {
   const handleSelectProduct = (productName) => {
     setSelectedProduct(productName);
     setSelectedVariant(getDefaultVariant(productName));
+    setSelectedLensMode("clear");
+    setSelectedCoatingMode("basic");
   };
 
   const resetToHome = () => {
@@ -144,6 +291,9 @@ export default function Ina2Flow() {
     setRecommended([]);
     setSelectedProduct(null);
     setSelectedVariant("기본");
+    setSelectedIndex("1.50");
+    setSelectedLensMode("clear");
+    setSelectedCoatingMode("basic");
   };
 
   const handleFinish = (level, use) => {
@@ -170,6 +320,9 @@ export default function Ina2Flow() {
     setRecommended(result);
     setSelectedProduct(firstProduct);
     setSelectedVariant(getDefaultVariant(firstProduct));
+    setSelectedIndex("1.50");
+    setSelectedLensMode("clear");
+    setSelectedCoatingMode("basic");
     setStep("analyzing");
 
     setTimeout(() => {
@@ -177,203 +330,297 @@ export default function Ina2Flow() {
     }, 1050);
   };
 
+  const priceResult = useMemo(() => {
+    if (!leftProduct) return null;
+
+    const product = PRODUCT_INFO[leftProduct];
+    const variantInfo = getCurrentVariantInfo(product, selectedVariant);
+    const basePriceText = variantInfo?.refractivePrices?.[selectedIndex];
+
+    if (!basePriceText) return null;
+
+    const baseSale = parseKoreanPriceToNumber(basePriceText);
+    const tintPriceText = variantInfo?.tintPrices?.[selectedIndex] || null;
+    const photoPriceText = variantInfo?.photoPrices?.[selectedIndex] || null;
+    const premiumCoatingPriceText =
+      variantInfo?.premiumCoatingPrices?.[selectedIndex] || null;
+
+    let optionSale = 0;
+
+    if (selectedLensMode === "tint" && tintPriceText) {
+      optionSale += parseKoreanPriceToNumber(tintPriceText);
+    }
+
+    if (selectedLensMode === "photo" && photoPriceText) {
+      optionSale += parseKoreanPriceToNumber(photoPriceText);
+    }
+
+    if (selectedCoatingMode === "premium" && premiumCoatingPriceText) {
+      optionSale += parseKoreanPriceToNumber(premiumCoatingPriceText);
+    }
+
+    const sale = baseSale + optionSale;
+
+    return {
+      sale,
+      // 🔧 정상가 연출값 수정 위치
+      regular: sale + 100000,
+    };
+  }, [leftProduct, selectedVariant, selectedIndex, selectedLensMode, selectedCoatingMode]);
+
+  const summaryText = useMemo(() => {
+    if (!leftProduct) return "";
+
+    const lensModeLabel =
+      selectedLensMode === "clear"
+        ? "클리어"
+        : selectedLensMode === "tint"
+        ? "착색"
+        : "변색";
+
+    const coatingLabel =
+      selectedCoatingMode === "premium" ? "프리미엄코팅" : "기본코팅";
+
+    return `${leftProduct} / ${selectedVariant} / ${selectedIndex} / ${lensModeLabel} / ${coatingLabel}`;
+  }, [leftProduct, selectedVariant, selectedIndex, selectedLensMode, selectedCoatingMode]);
+
   return (
     <div className="w-screen h-screen bg-slate-50 overflow-hidden">
       <div className="w-full h-full px-6 py-5">
-        <div className="w-full h-full bg-white rounded-[32px] shadow-2xl border border-slate-200 flex overflow-hidden">
-          {/* ================= LEFT ================= */}
-          <div className="relative w-[64%] h-full overflow-hidden border-r border-slate-200">
-            {step === "result" && leftProduct ? (
-              <ProductPreviewPanel
-                productName={leftProduct}
-                product={PRODUCT_INFO[leftProduct]}
-                selectedVariant={selectedVariant}
-                setSelectedVariant={setSelectedVariant}
-                isMain={leftProduct === mainRecommended}
-              />
-            ) : (
-              <IntroPanel />
-            )}
-          </div>
-
-          {/* ================= RIGHT ================= */}
-          <div className="relative w-[36%] h-full bg-gradient-to-b from-slate-50 to-slate-100 px-8 py-6 overflow-y-auto">
-            <button
-              onClick={resetToHome}
-              className="absolute top-5 right-5 z-30 h-[52px] px-5 rounded-2xl bg-white border border-slate-300 text-slate-700 text-[17px] font-bold shadow-sm hover:bg-slate-50 transition"
-            >
-              홈
-            </button>
-
-            <div className="absolute top-5 left-5 right-24 flex flex-wrap gap-2 z-20">
-              {refractiveType && <Chip text={refractiveType} />}
-              {astigmatismType && <Chip text={astigmatismType} />}
-              {addLevel && (
-                <Chip
-                  text={`ADD ${
-                    addLevel === "low"
-                      ? "낮음"
-                      : addLevel === "mid"
-                      ? "중간"
-                      : "높음"
-                  }`}
+        <div className="relative w-full h-full bg-white rounded-[32px] shadow-2xl border border-slate-200 overflow-hidden">
+          <div className={`w-full h-full flex ${step === "result" ? "pb-[92px]" : ""}`}>
+            <div className="relative w-[64%] h-full overflow-hidden border-r border-slate-200">
+              {step === "result" && leftProduct ? (
+                <ProductPreviewPanel
+                  productName={leftProduct}
+                  product={PRODUCT_INFO[leftProduct]}
+                  selectedVariant={selectedVariant}
+                  setSelectedVariant={setSelectedVariant}
+                  selectedIndex={selectedIndex}
+                  selectedLensMode={selectedLensMode}
+                  selectedCoatingMode={selectedCoatingMode}
+                  setSelectedCoatingMode={setSelectedCoatingMode}
+                  setSelectedLensMode={setSelectedLensMode}
+                  isMain={leftProduct === mainRecommended}
                 />
-              )}
-              {usage && (
-                <Chip
-                  text={
-                    usage === "light"
-                      ? "가볍게 사용"
-                      : usage === "normal"
-                      ? "보통 사용"
-                      : "많이 사용"
-                  }
-                />
+              ) : (
+                <IntroPanel />
               )}
             </div>
 
-            <div
-              key={step}
-              className="w-full min-h-full flex items-center justify-center pt-16 pb-4 animate-fade"
-            >
-              <div className="w-full">
-                {step === "intro" && (
-                  <Center>
-                    <MainButton onClick={() => setStep("distance")}>
-                      맞춤 추천 시작
-                    </MainButton>
-                  </Center>
+            <div className="relative w-[36%] h-full bg-gradient-to-b from-slate-50 to-slate-100 px-8 py-6 overflow-y-auto">
+              <button
+                onClick={resetToHome}
+                className="absolute top-5 right-5 z-30 h-[48px] px-5 rounded-2xl bg-white border border-slate-300 text-slate-700 text-[16px] font-bold shadow-sm hover:bg-slate-50 transition"
+              >
+                홈
+              </button>
+
+              <div className="absolute top-5 left-5 right-24 flex flex-wrap gap-2 z-20">
+                {refractiveType && <Chip text={refractiveType} />}
+                {astigmatismType && <Chip text={astigmatismType} />}
+                {addLevel && (
+                  <Chip
+                    text={`ADD ${
+                      addLevel === "low"
+                        ? "낮음"
+                        : addLevel === "mid"
+                        ? "중간"
+                        : "높음"
+                    }`}
+                  />
                 )}
-
-                {step === "distance" && (
-                  <Center>
-                    <Title>도수 기준 확인</Title>
-
-                    <Grid2>
-                      {["근시", "원시"].map((x) => (
-                        <SelectBtn
-                          key={x}
-                          active={refractiveType === x}
-                          onClick={() => setRefractiveType(x)}
-                        >
-                          {x}
-                        </SelectBtn>
-                      ))}
-                    </Grid2>
-
-                    <Grid2>
-                      {["난시 있음", "난시 없음"].map((x) => (
-                        <SelectBtn
-                          key={x}
-                          active={astigmatismType === x}
-                          onClick={() => setAstigmatismType(x)}
-                        >
-                          {x}
-                        </SelectBtn>
-                      ))}
-                    </Grid2>
-
-                    <NextBtn
-                      active={canNextDistance}
-                      onClick={() => canNextDistance && setStep("add")}
-                    />
-                  </Center>
-                )}
-
-                {step === "add" && (
-                  <Center>
-                    <Title>근거리 사용 정도</Title>
-
-                    <AddBtn
-                      color="green"
-                      active={addLevel === "low"}
-                      onClick={() => setAddLevel("low")}
-                      label="낮음"
-                      sub="1.50↓"
-                    />
-
-                    <AddBtn
-                      color="yellow"
-                      active={addLevel === "mid"}
-                      onClick={() => setAddLevel("mid")}
-                      label="중간"
-                      sub="1.75↓"
-                    />
-
-                    <AddBtn
-                      color="red"
-                      active={addLevel === "high"}
-                      onClick={() => setAddLevel("high")}
-                      label="높음"
-                      sub="2.00↑"
-                    />
-
-                    {addLevel && (
-                      <NextBtn active onClick={() => setStep("usage")} />
-                    )}
-                  </Center>
-                )}
-
-                {step === "usage" && (
-                  <Center>
-                    <Title>사용량 확인</Title>
-
-                    <UsageBtn onClick={() => handleFinish(addLevel, "light")}>
-                      가볍게 사용
-                    </UsageBtn>
-
-                    <UsageBtn onClick={() => handleFinish(addLevel, "normal")}>
-                      보통 사용
-                    </UsageBtn>
-
-                    <UsageBtn onClick={() => handleFinish(addLevel, "heavy")}>
-                      많이 사용
-                    </UsageBtn>
-                  </Center>
-                )}
-
-                {step === "analyzing" && (
-                  <div className="w-full flex items-center justify-center">
-                    <div className="w-full rounded-[28px] bg-white border border-slate-200 shadow-sm px-7 py-9 text-center">
-                      <div className="inline-flex items-center justify-center px-4 py-1 rounded-full bg-blue-100 text-blue-800 text-sm font-bold border border-blue-200 mb-5">
-                        맞춤 추천 분석
-                      </div>
-
-                      <div className="text-[26px] font-extrabold text-slate-900 mb-3 break-keep leading-snug">
-                        고객님 눈 기준으로 확인 중입니다
-                      </div>
-
-                      <div className="text-[17px] text-slate-500 font-semibold leading-relaxed mb-8 break-keep">
-                        도수와 사용환경을 반영하고 있습니다
-                      </div>
-
-                      <div className="flex items-center justify-center gap-3">
-                        <span className="w-4 h-4 rounded-full bg-blue-500 animate-pulse [animation-delay:0ms]"></span>
-                        <span className="w-4 h-4 rounded-full bg-blue-400 animate-pulse [animation-delay:150ms]"></span>
-                        <span className="w-4 h-4 rounded-full bg-blue-300 animate-pulse [animation-delay:300ms]"></span>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {step === "result" && (
-                  <ResultStep
-                    recommended={recommended}
-                    selectedProduct={selectedProduct}
-                    onSelectProduct={handleSelectProduct}
-                    onBack={() => setStep("usage")}
+                {usage && (
+                  <Chip
+                    text={
+                      usage === "light"
+                        ? "가볍게 사용"
+                        : usage === "normal"
+                        ? "보통 사용"
+                        : "많이 사용"
+                    }
                   />
                 )}
               </div>
+
+              <div
+                key={step}
+                className="w-full min-h-full flex items-center justify-center pt-16 pb-4 animate-fade"
+              >
+                <div className="w-full">
+                  {step === "intro" && (
+                    <Center>
+                      <MainButton onClick={() => setStep("distance")}>
+                        맞춤 추천 시작
+                      </MainButton>
+                    </Center>
+                  )}
+
+                  {step === "distance" && (
+                    <Center>
+                      <Title>도수 기준 확인</Title>
+
+                      <Grid2>
+                        {["근시", "원시"].map((x) => (
+                          <SelectBtn
+                            key={x}
+                            active={refractiveType === x}
+                            onClick={() => setRefractiveType(x)}
+                          >
+                            {x}
+                          </SelectBtn>
+                        ))}
+                      </Grid2>
+
+                      <Grid2>
+                        {["난시 있음", "난시 없음"].map((x) => (
+                          <SelectBtn
+                            key={x}
+                            active={astigmatismType === x}
+                            onClick={() => setAstigmatismType(x)}
+                          >
+                            {x}
+                          </SelectBtn>
+                        ))}
+                      </Grid2>
+
+                      <NextBtn
+                        active={canNextDistance}
+                        onClick={() => canNextDistance && setStep("add")}
+                      />
+                    </Center>
+                  )}
+
+                  {step === "add" && (
+                    <Center>
+                      <Title>근거리 사용 정도</Title>
+
+                      <AddBtn
+                        color="green"
+                        active={addLevel === "low"}
+                        onClick={() => setAddLevel("low")}
+                        label="낮음"
+                        sub="1.50↓"
+                      />
+
+                      <AddBtn
+                        color="yellow"
+                        active={addLevel === "mid"}
+                        onClick={() => setAddLevel("mid")}
+                        label="중간"
+                        sub="1.75↓"
+                      />
+
+                      <AddBtn
+                        color="red"
+                        active={addLevel === "high"}
+                        onClick={() => setAddLevel("high")}
+                        label="높음"
+                        sub="2.00↑"
+                      />
+
+                      {addLevel && (
+                        <NextBtn active onClick={() => setStep("usage")} />
+                      )}
+                    </Center>
+                  )}
+
+                  {step === "usage" && (
+                    <Center>
+                      <Title>사용량 확인</Title>
+
+                      <UsageBtn onClick={() => handleFinish(addLevel, "light")}>
+                        가볍게 사용
+                      </UsageBtn>
+
+                      <UsageBtn onClick={() => handleFinish(addLevel, "normal")}>
+                        보통 사용
+                      </UsageBtn>
+
+                      <UsageBtn onClick={() => handleFinish(addLevel, "heavy")}>
+                        많이 사용
+                      </UsageBtn>
+                    </Center>
+                  )}
+
+                  {step === "analyzing" && (
+                    <div className="w-full flex items-center justify-center">
+                      <div className="w-full rounded-[28px] bg-white border border-slate-200 shadow-sm px-7 py-9 text-center">
+                        <div className="inline-flex items-center justify-center px-4 py-1 rounded-full bg-blue-100 text-blue-800 text-sm font-bold border border-blue-200 mb-5">
+                          맞춤 추천 분석
+                        </div>
+
+                        <div className="text-[24px] font-extrabold text-slate-900 mb-3 break-keep leading-snug">
+                          고객님 눈 기준으로 확인 중입니다
+                        </div>
+
+                        <div className="text-[16px] text-slate-500 font-semibold leading-relaxed mb-8 break-keep">
+                          도수와 사용환경을 반영하고 있습니다
+                        </div>
+
+                        <div className="flex items-center justify-center gap-3">
+                          <span className="w-4 h-4 rounded-full bg-blue-500 animate-pulse [animation-delay:0ms]"></span>
+                          <span className="w-4 h-4 rounded-full bg-blue-400 animate-pulse [animation-delay:150ms]"></span>
+                          <span className="w-4 h-4 rounded-full bg-blue-300 animate-pulse [animation-delay:300ms]"></span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {step === "result" && (
+                    <ResultStep
+                      recommended={recommended}
+                      selectedProduct={selectedProduct}
+                      selectedVariant={selectedVariant}
+                      selectedIndex={selectedIndex}
+                      selectedLensMode={selectedLensMode}
+                      onSelectProduct={handleSelectProduct}
+                      setSelectedVariant={setSelectedVariant}
+                      setSelectedLensMode={setSelectedLensMode}
+                      setSelectedCoatingMode={setSelectedCoatingMode}
+                      onBack={() => setStep("usage")}
+                      setSelectedIndex={setSelectedIndex}
+                    />
+                  )}
+                </div>
+              </div>
             </div>
           </div>
+
+          {step === "result" && leftProduct && (
+            <div className="absolute bottom-0 left-0 right-0 h-[92px] border-t border-slate-700 bg-slate-900 px-8 flex items-center justify-between">
+              <div className="min-w-0 pr-6">
+                <div className="text-[13px] font-bold text-slate-400 mb-1">
+                  현재 구성
+                </div>
+                <div className="text-[20px] font-extrabold text-white truncate break-keep">
+                  {summaryText}
+                </div>
+              </div>
+
+              <div className="shrink-0 text-right">
+                {priceResult ? (
+                  <>
+                    <div className="text-[14px] text-slate-400 line-through">
+                      정상가 {priceResult.regular.toLocaleString()}원
+                    </div>
+                    <div className="text-[28px] font-extrabold text-cyan-300">
+                      {priceResult.sale.toLocaleString()}원
+                    </div>
+                  </>
+                ) : (
+                  <div className="text-[22px] font-bold text-red-300">
+                    생산불가
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
   );
 }
-
-/* ---------------- LEFT PANELS ---------------- */
 
 function IntroPanel() {
   return (
@@ -412,10 +659,37 @@ function ProductPreviewPanel({
   product,
   selectedVariant,
   setSelectedVariant,
+  selectedIndex,
+  selectedLensMode,
+  selectedCoatingMode,
+  setSelectedCoatingMode,
+  setSelectedLensMode,
   isMain,
 }) {
   const variantNames = Object.keys(product?.variants || {});
-  const variantInfo = product?.variants?.[selectedVariant] || product?.variants?.[variantNames[0]];
+  const variantInfo =
+    product?.variants?.[selectedVariant] || product?.variants?.[variantNames[0]];
+
+  const currentPrice = variantInfo?.refractivePrices?.[selectedIndex] || null;
+  const tintPrice = variantInfo?.tintPrices?.[selectedIndex] || null;
+  const photoPrice = variantInfo?.photoPrices?.[selectedIndex] || null;
+  const premiumCoatingPrice =
+    variantInfo?.premiumCoatingPrices?.[selectedIndex] || null;
+
+  const canPremiumCoating = Boolean(premiumCoatingPrice);
+
+  let sale = parseKoreanPriceToNumber(currentPrice);
+  if (selectedLensMode === "tint" && tintPrice) {
+    sale += parseKoreanPriceToNumber(tintPrice);
+  }
+  if (selectedLensMode === "photo" && photoPrice) {
+    sale += parseKoreanPriceToNumber(photoPrice);
+  }
+  if (selectedCoatingMode === "premium" && premiumCoatingPrice) {
+    sale += parseKoreanPriceToNumber(premiumCoatingPrice);
+  }
+
+  const regular = currentPrice ? sale + 100000 : 0;
 
   const handleOpenUrl = () => {
     if (variantInfo?.url) {
@@ -432,7 +706,7 @@ function ProductPreviewPanel({
 
       <div className="relative z-10 min-h-full flex flex-col">
         <div className="flex items-start justify-between gap-6 mb-8">
-          <div className="min-w-0">
+          <div className="min-w-0 flex-1">
             <div className="flex items-center gap-3 mb-4 flex-wrap">
               <span className="px-4 py-1 rounded-full bg-white border border-slate-300 text-slate-700 text-sm font-bold shadow-sm">
                 제품 상세 보기
@@ -449,11 +723,38 @@ function ProductPreviewPanel({
               {product?.grade}
             </div>
 
-            <h2 className="text-[46px] leading-none font-extrabold text-slate-900 break-keep">
-              {productName}
-            </h2>
+            <div className="flex items-center gap-4 flex-wrap mb-3">
+              <h2 className="text-[46px] leading-none font-extrabold text-slate-900 break-keep">
+                {productName}
+              </h2>
 
-            <div className="mt-4 text-[22px] font-semibold text-slate-600 break-keep leading-snug">
+              {variantNames.length > 1 && (
+                <div className="flex gap-2 flex-wrap">
+                  {variantNames.map((name) => {
+                    const active = selectedVariant === name;
+                    return (
+                      <button
+                        key={name}
+                        onClick={() => {
+                          setSelectedVariant(name);
+                          setSelectedLensMode("clear");
+                          setSelectedCoatingMode("basic");
+                        }}
+                        className={`h-[44px] px-4 rounded-2xl border-2 text-[15px] font-bold transition ${
+                          active
+                            ? "bg-blue-600 border-blue-600 text-white shadow-sm"
+                            : "bg-white border-slate-300 text-slate-800 hover:border-blue-300 hover:bg-blue-50"
+                        }`}
+                      >
+                        {name}
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+
+            <div className="text-[22px] font-semibold text-slate-600 break-keep leading-snug">
               {product?.desc}
             </div>
           </div>
@@ -463,46 +764,97 @@ function ProductPreviewPanel({
           </div>
         </div>
 
-        {variantNames.length > 1 && (
-          <div className="mb-6">
-            <div className="text-[16px] font-bold text-slate-700 mb-3">
-              버전 선택
-            </div>
-
-            <div className="flex gap-3">
-              {variantNames.map((name) => {
-                const active = selectedVariant === name;
-                const price = product?.variants?.[name]?.price;
-
-                return (
-                  <button
-                    key={name}
-                    onClick={() => setSelectedVariant(name)}
-                    className={`min-w-[150px] rounded-[22px] border-2 px-5 py-4 text-left transition ${
-                      active
-                        ? "bg-blue-600 border-blue-600 text-white shadow-md"
-                        : "bg-white border-slate-300 text-slate-800 hover:border-blue-300 hover:bg-blue-50"
-                    }`}
-                  >
-                    <div className="text-[22px] font-extrabold break-keep">
-                      {name}
-                    </div>
-                    <div
-                      className={`mt-1 text-[15px] font-bold ${
-                        active ? "text-blue-100" : "text-slate-500"
-                      }`}
-                    >
-                      {price}
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-        )}
-
         <div className="grid grid-cols-[1.1fr_0.9fr] gap-6 flex-1 min-h-0">
           <div className="flex flex-col gap-5 min-h-0">
+            <div className="rounded-[28px] bg-white/90 backdrop-blur border border-slate-200 shadow-sm p-6">
+              {/* 가격안내 + 코팅버튼 같은 줄 */}
+              <div className="flex items-center justify-between gap-4 mb-4">
+                <div className="text-[17px] font-bold text-slate-700">
+                  가격 안내
+                </div>
+
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => setSelectedCoatingMode("basic")}
+                    className={`h-[40px] px-4 rounded-2xl border font-bold text-[14px] transition ${
+                      selectedCoatingMode === "basic"
+                        ? "bg-slate-800 text-white border-slate-800"
+                        : "bg-white text-slate-700 border-slate-300 hover:bg-slate-50"
+                    }`}
+                  >
+                    기본코팅
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      if (!canPremiumCoating) return;
+                      setSelectedCoatingMode("premium");
+                      // ⭐ 프리미엄코팅은 다른 옵션과 동시 불가
+                      setSelectedLensMode("clear");
+                    }}
+                    disabled={!canPremiumCoating}
+                    className={`h-[40px] px-4 rounded-2xl border font-bold text-[14px] transition ${
+                      !canPremiumCoating
+                        ? "bg-slate-200 text-slate-400 border-slate-200"
+                        : selectedCoatingMode === "premium"
+                        ? "bg-emerald-600 text-white border-emerald-600"
+                        : "bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100"
+                    }`}
+                  >
+                    {!canPremiumCoating ? "생산불가" : "프리미엄코팅"}
+                  </button>
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between rounded-2xl border px-5 py-5 bg-blue-50 border-blue-300 mb-4">
+                <div>
+                  <div className="text-[15px] font-bold text-blue-700 mb-1">
+                    현재 선택 굴절률
+                  </div>
+                  <div className="text-[22px] font-extrabold text-slate-900">
+                    {selectedIndex}
+                  </div>
+                </div>
+
+                <div className="text-right">
+                  <div className="text-[14px] text-slate-400 line-through mb-1">
+                    정상가 {currentPrice ? `${regular.toLocaleString()}원` : "생산불가"}
+                  </div>
+                  <div className="text-[28px] font-extrabold text-blue-900">
+                    {currentPrice ? `${sale.toLocaleString()}원` : "생산불가"}
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-4 gap-3">
+                {REFRACTIVE_OPTIONS.map((idx) => {
+                  const price = variantInfo?.refractivePrices?.[idx];
+
+                  return (
+                    <div
+                      key={idx}
+                      className={`rounded-2xl border px-3 py-3 text-center ${
+                        idx === selectedIndex
+                          ? "bg-blue-50 border-blue-300"
+                          : "bg-slate-50 border-slate-200"
+                      }`}
+                    >
+                      <div
+                        className={`text-[16px] font-extrabold ${
+                          idx === selectedIndex ? "text-blue-900" : "text-slate-800"
+                        }`}
+                      >
+                        {idx}
+                      </div>
+                      <div className="mt-1 text-[13px] font-bold text-slate-500 break-keep">
+                        {price || "불가"}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
             <button
               type="button"
               onClick={handleOpenUrl}
@@ -539,53 +891,6 @@ function ProductPreviewPanel({
                 ))}
               </div>
             </button>
-
-            <div className="rounded-[28px] bg-white/90 backdrop-blur border border-slate-200 shadow-sm p-6">
-              <div className="text-[17px] font-bold text-slate-700 mb-4">
-                가격 안내
-              </div>
-
-              <div className="flex flex-col gap-3">
-                {variantNames.map((name) => {
-                  const active = selectedVariant === name;
-                  const price = product?.variants?.[name]?.price;
-
-                  return (
-                    <div
-                      key={name}
-                      className={`flex items-center justify-between rounded-2xl border px-5 py-4 ${
-                        active
-                          ? "bg-blue-50 border-blue-300"
-                          : "bg-slate-50 border-slate-200"
-                      }`}
-                    >
-                      <div className="flex items-center gap-3">
-                        <div
-                          className={`w-3 h-3 rounded-full ${
-                            active ? "bg-blue-600" : "bg-slate-300"
-                          }`}
-                        />
-                        <div
-                          className={`text-[20px] font-extrabold break-keep ${
-                            active ? "text-blue-900" : "text-slate-800"
-                          }`}
-                        >
-                          {name}
-                        </div>
-                      </div>
-
-                      <div
-                        className={`text-[20px] font-extrabold ${
-                          active ? "text-blue-900" : "text-slate-700"
-                        }`}
-                      >
-                        {price}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
 
             <div className="rounded-[28px] bg-white/90 backdrop-blur border border-slate-200 shadow-sm p-6 flex-1">
               <div className="text-[17px] font-bold text-slate-700 mb-4">
@@ -646,22 +951,45 @@ function ProductPreviewPanel({
   );
 }
 
-/* ---------------- RESULT STEP ---------------- */
-
 function ResultStep({
   recommended,
   selectedProduct,
+  selectedVariant,
+  selectedIndex,
+  selectedLensMode,
   onSelectProduct,
+  setSelectedVariant,
+  setSelectedLensMode,
+  setSelectedCoatingMode,
   onBack,
+  setSelectedIndex,
 }) {
   return (
     <div className="w-full transition-all duration-300 ease-out animate-fade">
-      <div className="text-center mb-5">
-        <div className="text-[26px] font-extrabold text-slate-900 mb-2 break-keep leading-snug">
-          고객님 기준에서 가장 잘 맞는 선택입니다
+      <div className="text-center mb-4">
+        <div className="text-[22px] font-extrabold text-slate-900 mb-2 break-keep leading-snug">
+          고객님 기준에서 잘 맞는 제품입니다
         </div>
-        <div className="text-[17px] font-semibold text-slate-500 break-keep">
-          원하는 제품을 눌러 왼쪽에서 상세 내용을 보세요
+        <div className="text-[15px] font-semibold text-slate-500 break-keep">
+          굴절률을 선택한 뒤 원하는 제품을 눌러 상세 내용을 보세요
+        </div>
+      </div>
+
+      <div className="mb-5">
+        <div className="grid grid-cols-4 gap-2">
+          {REFRACTIVE_OPTIONS.map((idx) => (
+            <button
+              key={idx}
+              onClick={() => setSelectedIndex(idx)}
+              className={`h-[48px] rounded-xl border font-bold text-[15px] transition ${
+                selectedIndex === idx
+                  ? "bg-blue-700 text-white border-blue-700"
+                  : "bg-white text-slate-700 border-slate-300 hover:bg-blue-50"
+              }`}
+            >
+              {idx}
+            </button>
+          ))}
         </div>
       </div>
 
@@ -670,69 +998,135 @@ function ResultStep({
           const info = PRODUCT_INFO[item] || { desc: "추천 제품" };
           const isMain = i === 0;
           const isSelected = selectedProduct === item;
+
           const variantNames = Object.keys(info?.variants || {});
-          const priceSummary =
-            variantNames.length > 1
-              ? `${info?.variants?.기본?.price || ""} / ${info?.variants?.KAN?.price || ""}`
-              : info?.variants?.[variantNames[0]]?.price || "";
+          const itemVariant =
+            isSelected
+              ? selectedVariant
+              : info?.variants?.KAN
+              ? "KAN"
+              : variantNames[0] || "기본";
+
+          const variantInfo = info?.variants?.[itemVariant];
+          const canTint = Boolean(variantInfo?.tintPrices?.[selectedIndex]);
+          const canPhoto = Boolean(variantInfo?.photoPrices?.[selectedIndex]);
 
           return (
-            <button
+            <div
               key={i}
-              onClick={() => onSelectProduct(item)}
-              className={`w-full text-left rounded-[24px] border-2 px-5 py-4 transition ${
+              className={`w-full rounded-[22px] border-2 px-4 py-4 transition ${
                 isSelected
                   ? "bg-blue-50 border-blue-500 shadow-md"
                   : isMain
-                  ? "bg-white border-blue-300 shadow-sm hover:border-blue-400 hover:bg-blue-50/40"
-                  : "bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50"
+                  ? "bg-white border-blue-300 shadow-sm"
+                  : "bg-white border-slate-200"
               }`}
             >
-              <div className="flex flex-col gap-2">
-                <div
-                  className={`inline-flex w-fit px-3 py-1 rounded-full text-sm font-bold border ${
-                    isSelected
-                      ? "bg-blue-600 text-white border-blue-600"
-                      : isMain
-                      ? "bg-blue-100 text-blue-800 border-blue-300"
-                      : "bg-slate-100 text-slate-700 border-slate-300"
-                  }`}
-                >
-                  {isSelected ? "현재 표시중" : isMain ? "추천" : "함께 비교"}
+              <div className="flex items-start gap-3">
+                <div className="w-3/5 min-w-0">
+                  <button
+                    onClick={() => {
+                      onSelectProduct(item);
+                      if (info?.variants?.KAN) setSelectedVariant("KAN");
+                      setSelectedLensMode("clear");
+                      setSelectedCoatingMode("basic");
+                    }}
+                    className={`w-full text-left rounded-[18px] border px-4 py-3 transition ${
+                      isSelected && selectedLensMode === "clear"
+                        ? "bg-blue-700 text-white border-blue-700"
+                        : "bg-white border-slate-300 hover:bg-blue-50"
+                    }`}
+                  >
+                    <div className="flex items-center gap-2 min-w-0">
+                      <div
+                        className={`text-[20px] leading-tight font-extrabold break-keep ${
+                          isSelected && selectedLensMode === "clear"
+                            ? "text-white"
+                            : "text-slate-900"
+                        }`}
+                      >
+                        {item}
+                      </div>
+
+                      <div
+                        className={`shrink-0 inline-flex px-3 py-1 rounded-full text-[12px] font-bold border ${
+                          isSelected
+                            ? "bg-blue-100 text-blue-800 border-blue-200"
+                            : isMain
+                            ? "bg-blue-100 text-blue-800 border-blue-300"
+                            : "bg-slate-100 text-slate-700 border-slate-300"
+                        }`}
+                      >
+                        {isSelected ? "현재 표시중" : isMain ? "추천" : "비교"}
+                      </div>
+                    </div>
+
+                    <div
+                      className={`mt-2 text-[14px] leading-snug font-semibold break-keep ${
+                        isSelected && selectedLensMode === "clear"
+                          ? "text-blue-100"
+                          : "text-slate-500"
+                      }`}
+                    >
+                      {info.desc}
+                    </div>
+                  </button>
                 </div>
 
-                <div className="text-[24px] leading-tight font-extrabold text-slate-900 break-keep">
-                  {item}
-                </div>
+                <div className="w-2/5 flex gap-2">
+                  <button
+                    onClick={() => {
+                      onSelectProduct(item);
+                      if (info?.variants?.KAN) setSelectedVariant("KAN");
+                      setSelectedCoatingMode("basic");
+                      if (canTint) setSelectedLensMode("tint");
+                    }}
+                    disabled={!canTint}
+                    className={`flex-1 h-[78px] rounded-[18px] border font-bold text-[14px] transition ${
+                      !canTint
+                        ? "bg-slate-200 border-slate-200 text-slate-400"
+                        : isSelected && selectedLensMode === "tint"
+                        ? "bg-yellow-300 border-yellow-400 text-slate-900"
+                        : "bg-yellow-100 border-yellow-300 text-slate-800 hover:bg-yellow-200"
+                    }`}
+                  >
+                    {!canTint ? "생산불가" : "착색"}
+                  </button>
 
-                <div className="text-[16px] leading-snug font-semibold text-slate-500 break-keep">
-                  {info.desc}
+                  <button
+                    onClick={() => {
+                      onSelectProduct(item);
+                      if (info?.variants?.KAN) setSelectedVariant("KAN");
+                      setSelectedCoatingMode("basic");
+                      if (canPhoto) setSelectedLensMode("photo");
+                    }}
+                    disabled={!canPhoto}
+                    className={`flex-1 h-[78px] rounded-[18px] border font-bold text-[14px] transition ${
+                      !canPhoto
+                        ? "bg-slate-200 border-slate-200 text-slate-400"
+                        : isSelected && selectedLensMode === "photo"
+                        ? "bg-purple-400 border-purple-500 text-white"
+                        : "bg-purple-100 border-purple-300 text-slate-800 hover:bg-purple-200"
+                    }`}
+                  >
+                    {!canPhoto ? "생산불가" : "변색"}
+                  </button>
                 </div>
-
-                {priceSummary && (
-                  <div className="mt-1 text-[15px] font-bold text-blue-700 break-keep">
-                    {variantNames.length > 1
-                      ? `기본 / KAN : ${priceSummary}`
-                      : `가격 : ${priceSummary}`}
-                  </div>
-                )}
               </div>
-            </button>
+            </div>
           );
         })}
       </div>
 
       <button
         onClick={onBack}
-        className="mt-5 w-full h-[62px] rounded-2xl bg-white border-2 border-slate-300 text-slate-700 text-[19px] font-bold hover:bg-slate-50 transition"
+        className="mt-5 w-full h-[60px] rounded-2xl bg-white border-2 border-slate-300 text-slate-700 text-[18px] font-bold hover:bg-slate-50 transition"
       >
         이전 단계로
       </button>
     </div>
   );
 }
-
-/* ---------------- COMPONENTS ---------------- */
 
 const Chip = ({ text }) => (
   <div className="px-4 py-1 rounded-full bg-white border border-slate-300 text-slate-700 font-semibold text-sm shadow-sm break-keep">
