@@ -3,7 +3,6 @@ import React, { useMemo, useState } from "react";
 const PRODUCT_INFO = {
   C6: {
     desc: "가볍게 사용하는 실속형",
-    autoMent: "가볍게 쓰시면 이 정도면 충분합니다.",
     grade: "합리적 선택",
     badge: "입문 추천",
     summary:
@@ -11,10 +10,10 @@ const PRODUCT_INFO = {
     goodFor: ["가벼운 근거리 작업", "가격 부담이 큰 고객", "입문형 누진다초점"],
     points: ["실속형", "부담 적은 선택", "기본 기능 중심"],
     image: "/images/multifocal-c6.jpg",
+    url: "https://example.com/c6",
   },
   E3: {
     desc: "무난하고 적응 쉬운 선택",
-    autoMent: "무난하고 적응 쉬운 쪽으로 보시면 됩니다.",
     grade: "밸런스형",
     badge: "적응 추천",
     summary:
@@ -22,10 +21,10 @@ const PRODUCT_INFO = {
     goodFor: ["처음 쓰는 고객", "무난한 적응감 선호", "가성비와 편안함 동시 고려"],
     points: ["적응 무난", "균형 잡힌 선택", "상담 시 추천하기 쉬움"],
     image: "/images/multifocal-e3.jpg",
+    url: "https://example.com/e3",
   },
   컴포트칸: {
     desc: "자세가 더 편한 프리미엄",
-    autoMent: "많이 쓰시면 이쪽이 더 편합니다.",
     grade: "프리미엄",
     badge: "편안함 추천",
     summary:
@@ -33,10 +32,10 @@ const PRODUCT_INFO = {
     goodFor: ["업무용 비중이 높은 고객", "근거리 사용량이 많은 고객", "자세 편안함 중시"],
     points: ["근거리 편안함", "업무 활용도 우수", "업셀 포인트 강함"],
     image: "/images/multifocal-comfort.jpg",
+    url: "https://www.essilor.com/kr-ko/products/varilux/",
   },
   피지오칸: {
     desc: "더 높은 편안함의 상위선택",
-    autoMent: "지금 기준에서는 편한 쪽으로 가시는 게 좋습니다.",
     grade: "상위 프리미엄",
     badge: "상위 추천",
     summary:
@@ -44,10 +43,10 @@ const PRODUCT_INFO = {
     goodFor: ["장시간 착용 고객", "적응 스트레스 줄이고 싶은 고객", "상위 프리미엄 선호"],
     points: ["높은 편안함", "장시간 사용 대응", "프리미엄 설득력 우수"],
     image: "/images/multifocal-physio.jpg",
+    url: "https://example.com/physio",
   },
   XR: {
     desc: "최상위 프리미엄",
-    autoMent: "가장 편한 쪽으로 보시면 이 라인입니다.",
     grade: "최상위",
     badge: "최상위 추천",
     summary:
@@ -55,6 +54,7 @@ const PRODUCT_INFO = {
     goodFor: ["최상위 제품 선호", "적응과 시야 모두 중요", "프리미엄 가치 설명이 잘 먹히는 고객"],
     points: ["최상위 라인", "고급 상담용", "브랜드 가치 전달 강함"],
     image: "/images/multifocal-xr.jpg",
+    url: "https://example.com/xr",
   },
 };
 
@@ -69,12 +69,18 @@ export default function Ina2Flow() {
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   const canNextDistance = refractiveType && astigmatismType;
-
-  const mainRecommended = useMemo(() => {
-    return recommended?.[0] || null;
-  }, [recommended]);
-
+  const mainRecommended = useMemo(() => recommended?.[0] || null, [recommended]);
   const leftProduct = selectedProduct || mainRecommended;
+
+  const resetToHome = () => {
+    setStep("intro");
+    setRefractiveType(null);
+    setAstigmatismType(null);
+    setAddLevel(null);
+    setUsage(null);
+    setRecommended([]);
+    setSelectedProduct(null);
+  };
 
   const handleFinish = (level, use) => {
     let result = [];
@@ -123,7 +129,14 @@ export default function Ina2Flow() {
 
           {/* ================= RIGHT ================= */}
           <div className="relative w-[36%] h-full bg-gradient-to-b from-slate-50 to-slate-100 px-8 py-6 overflow-y-auto">
-            <div className="absolute top-5 left-5 right-5 flex flex-wrap gap-2 z-20">
+            <button
+              onClick={resetToHome}
+              className="absolute top-5 right-5 z-30 h-[52px] px-5 rounded-2xl bg-white border border-slate-300 text-slate-700 text-[17px] font-bold shadow-sm hover:bg-slate-50 transition"
+            >
+              홈
+            </button>
+
+            <div className="absolute top-5 left-5 right-24 flex flex-wrap gap-2 z-20">
               {refractiveType && <Chip text={refractiveType} />}
               {astigmatismType && <Chip text={astigmatismType} />}
               {addLevel && (
@@ -326,6 +339,12 @@ function IntroPanel() {
 }
 
 function ProductPreviewPanel({ productName, info, isMain }) {
+  const handleOpenUrl = () => {
+    if (info?.url) {
+      window.open(info.url, "_blank", "noopener,noreferrer");
+    }
+  };
+
   return (
     <div className="relative w-full h-full px-12 py-10 bg-gradient-to-br from-slate-50 via-white to-blue-50 overflow-y-auto">
       <div className="absolute inset-0 opacity-40 pointer-events-none">
@@ -368,18 +387,23 @@ function ProductPreviewPanel({ productName, info, isMain }) {
 
         <div className="grid grid-cols-[1.1fr_0.9fr] gap-6 flex-1 min-h-0">
           <div className="flex flex-col gap-5 min-h-0">
-            <div className="rounded-[28px] bg-white/90 backdrop-blur border border-slate-200 shadow-sm p-6">
-              <div className="text-[17px] font-bold text-blue-700 mb-3">
-                상담 멘트
-              </div>
-              <div className="text-[30px] leading-snug font-extrabold text-slate-900 break-keep">
-                {info?.autoMent}
-              </div>
-            </div>
+            <button
+              type="button"
+              onClick={handleOpenUrl}
+              className={`rounded-[28px] bg-white/90 backdrop-blur border border-slate-200 shadow-sm p-6 text-left transition ${
+                info?.url ? "hover:shadow-md hover:border-blue-300 cursor-pointer" : "cursor-default"
+              }`}
+            >
+              <div className="flex items-center justify-between gap-4 mb-3">
+                <div className="text-[17px] font-bold text-slate-700">
+                  제품 포인트
+                </div>
 
-            <div className="rounded-[28px] bg-white/90 backdrop-blur border border-slate-200 shadow-sm p-6">
-              <div className="text-[17px] font-bold text-slate-700 mb-3">
-                제품 포인트
+                {info?.url && (
+                  <div className="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-[13px] font-bold border border-blue-200">
+                    홈페이지 보기
+                  </div>
+                )}
               </div>
 
               <p className="text-[21px] leading-relaxed font-semibold text-slate-700 mb-5 break-keep">
@@ -396,7 +420,7 @@ function ProductPreviewPanel({ productName, info, isMain }) {
                   </span>
                 ))}
               </div>
-            </div>
+            </button>
 
             <div className="rounded-[28px] bg-white/90 backdrop-blur border border-slate-200 shadow-sm p-6 flex-1">
               <div className="text-[17px] font-bold text-slate-700 mb-4">
@@ -455,9 +479,9 @@ function ProductPreviewPanel({ productName, info, isMain }) {
                   상담 활용 팁
                 </div>
                 <div className="text-[18px] font-bold text-slate-800 leading-relaxed break-keep">
-                  이 패널은 제품 비교 설명용으로 고정 사용하고,
+                  제품 설명은 좌측에 고정하고,
                   <br />
-                  이미지 확대만 팝업으로 연결하면 좋습니다.
+                  필요한 제품만 홈페이지로 연결하면 좋습니다.
                 </div>
               </div>
             </div>
@@ -476,12 +500,6 @@ function ResultStep({
   setSelectedProduct,
   onBack,
 }) {
-  const mainItem = recommended?.[0];
-  const mainMent = mainItem
-    ? PRODUCT_INFO[mainItem]?.autoMent ||
-      "고객님 기준에 맞는 쪽으로 추천드립니다."
-    : "고객님 기준에 맞는 쪽으로 추천드립니다.";
-
   return (
     <div className="w-full transition-all duration-300 ease-out animate-fade">
       <div className="text-center mb-5">
@@ -489,20 +507,11 @@ function ResultStep({
           고객님 기준에서 가장 잘 맞는 선택입니다
         </div>
         <div className="text-[17px] font-semibold text-slate-500 break-keep">
-          사용환경과 근거리 기준으로 추천드립니다
+          원하는 제품을 눌러 왼쪽에서 상세 내용을 보세요
         </div>
       </div>
 
-      <div className="mb-5 rounded-[24px] bg-blue-50 border border-blue-200 px-5 py-4 shadow-sm">
-        <div className="text-[14px] font-bold text-blue-700 mb-1">
-          상담 가이드
-        </div>
-        <div className="text-[20px] font-extrabold text-slate-900 leading-snug break-keep">
-          {mainMent}
-        </div>
-      </div>
-
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-3">
         {recommended.map((item, i) => {
           const info = PRODUCT_INFO[item] || {
             desc: "추천 제품",
@@ -512,60 +521,46 @@ function ResultStep({
           const isSelected = selectedProduct === item;
 
           return (
-            <div
+            <button
               key={i}
-              className={`rounded-[26px] border-2 p-5 transition ${
+              onClick={() => setSelectedProduct(item)}
+              className={`w-full text-left rounded-[24px] border-2 px-5 py-4 transition ${
                 isSelected
                   ? "bg-blue-50 border-blue-500 shadow-md"
                   : isMain
-                  ? "bg-white border-blue-300 shadow-sm"
-                  : "bg-white border-slate-200"
+                  ? "bg-white border-blue-300 shadow-sm hover:border-blue-400 hover:bg-blue-50/40"
+                  : "bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50"
               }`}
             >
-              <div className="flex flex-col gap-4">
-                <div>
-                  <div
-                    className={`inline-flex px-3 py-1 rounded-full text-sm font-bold border mb-3 ${
-                      isSelected
-                        ? "bg-blue-600 text-white border-blue-600"
-                        : isMain
-                        ? "bg-blue-100 text-blue-800 border-blue-300"
-                        : "bg-slate-100 text-slate-700 border-slate-300"
-                    }`}
-                  >
-                    {isSelected ? "현재 표시중" : isMain ? "추천" : "함께 비교"}
-                  </div>
-
-                  <div className="text-[24px] leading-tight font-extrabold text-slate-900 break-keep">
-                    {item}
-                  </div>
-
-                  <div className="mt-2 text-[16px] leading-snug font-semibold text-slate-500 break-keep">
-                    {info.desc}
-                  </div>
-                </div>
-
-                <button
-                  onClick={() => setSelectedProduct(item)}
-                  className={`w-full h-[58px] rounded-2xl font-bold text-[16px] transition ${
+              <div className="flex flex-col gap-2">
+                <div
+                  className={`inline-flex w-fit px-3 py-1 rounded-full text-sm font-bold border ${
                     isSelected
-                      ? "bg-blue-700 text-white"
+                      ? "bg-blue-600 text-white border-blue-600"
                       : isMain
-                      ? "bg-blue-700 text-white hover:bg-blue-800"
-                      : "bg-slate-100 text-slate-700 border border-slate-300 hover:bg-slate-200"
+                      ? "bg-blue-100 text-blue-800 border-blue-300"
+                      : "bg-slate-100 text-slate-700 border-slate-300"
                   }`}
                 >
-                  {isSelected ? "보고 있는 제품" : "왼쪽에서 보기"}
-                </button>
+                  {isSelected ? "현재 표시중" : isMain ? "추천" : "함께 비교"}
+                </div>
+
+                <div className="text-[24px] leading-tight font-extrabold text-slate-900 break-keep">
+                  {item}
+                </div>
+
+                <div className="text-[16px] leading-snug font-semibold text-slate-500 break-keep">
+                  {info.desc}
+                </div>
               </div>
-            </div>
+            </button>
           );
         })}
       </div>
 
       <button
         onClick={onBack}
-        className="mt-5 w-full h-[68px] rounded-2xl bg-white border-2 border-slate-300 text-slate-700 text-[20px] font-bold hover:bg-slate-50 transition"
+        className="mt-5 w-full h-[62px] rounded-2xl bg-white border-2 border-slate-300 text-slate-700 text-[19px] font-bold hover:bg-slate-50 transition"
       >
         이전 단계로
       </button>
@@ -598,7 +593,7 @@ const Grid2 = ({ children }) => (
 const SelectBtn = ({ children, active, onClick }) => (
   <button
     onClick={onClick}
-    className={`h-[104px] rounded-2xl border-2 font-bold text-[22px] transition break-keep ${
+    className={`h-[92px] rounded-2xl border-2 font-bold text-[22px] transition break-keep ${
       active
         ? "bg-blue-100 border-blue-600 text-blue-900"
         : "bg-white border-slate-300 text-slate-800 hover:bg-blue-50"
@@ -618,18 +613,18 @@ const AddBtn = ({ color, active, onClick, label, sub }) => {
   return (
     <button
       onClick={onClick}
-      className={`h-[104px] rounded-2xl border-2 px-6 flex items-center gap-5 transition ${
+      className={`h-[92px] rounded-2xl border-2 px-6 flex items-center gap-5 transition ${
         active
           ? "bg-white border-slate-500 scale-[1.01]"
           : "bg-white border-slate-300"
       }`}
     >
-      <div className={`w-8 h-8 rounded-full ${map[color]} shrink-0`} />
+      <div className={`w-7 h-7 rounded-full ${map[color]} shrink-0`} />
       <div className="text-left min-w-0">
-        <div className="text-[24px] font-bold text-slate-800 break-keep">
+        <div className="text-[23px] font-bold text-slate-800 break-keep">
           {label}
         </div>
-        <div className="text-[17px] text-slate-500">{sub}</div>
+        <div className="text-[16px] text-slate-500">{sub}</div>
       </div>
     </button>
   );
@@ -638,7 +633,7 @@ const AddBtn = ({ color, active, onClick, label, sub }) => {
 const UsageBtn = ({ children, onClick }) => (
   <button
     onClick={onClick}
-    className="h-[104px] rounded-2xl border-2 bg-white border-slate-300 text-[24px] font-bold text-slate-800 hover:bg-blue-50 transition break-keep"
+    className="h-[92px] rounded-2xl border-2 bg-white border-slate-300 text-[23px] font-bold text-slate-800 hover:bg-blue-50 transition break-keep"
   >
     {children}
   </button>
@@ -647,7 +642,7 @@ const UsageBtn = ({ children, onClick }) => (
 const NextBtn = ({ active, onClick }) => (
   <button
     onClick={onClick}
-    className={`mt-2 h-[82px] rounded-2xl text-[24px] font-bold transition ${
+    className={`mt-2 h-[74px] rounded-2xl text-[23px] font-bold transition ${
       active
         ? "bg-blue-700 text-white hover:bg-blue-800"
         : "bg-slate-300 text-slate-500 cursor-not-allowed"
@@ -660,7 +655,7 @@ const NextBtn = ({ active, onClick }) => (
 const MainButton = ({ children, onClick }) => (
   <button
     onClick={onClick}
-    className="h-[132px] rounded-[30px] bg-blue-700 text-white text-[30px] font-extrabold hover:bg-blue-800 transition break-keep"
+    className="h-[118px] rounded-[30px] bg-blue-700 text-white text-[29px] font-extrabold hover:bg-blue-800 transition break-keep"
   >
     {children}
   </button>
