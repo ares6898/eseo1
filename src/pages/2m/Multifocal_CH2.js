@@ -13,7 +13,7 @@ const PRODUCT_INFO = {
           "누진다초점 적응이 수월하고 사용량이 많지 않은 고객에게 부담 없이 권하기 좋은 제품입니다.",
         goodFor: ["가벼운 근거리 작업", "가격 부담이 큰 고객", "입문형 누진다초점"],
         points: ["실속형", "부담 적은 선택", "기본 기능 중심"],
-        image: "/images/C6",
+        image: "/images/C6.jpg",
         url: null,
 
         regularPrices: {
@@ -70,7 +70,7 @@ const PRODUCT_INFO = {
           "부담 없는 실속형버전.",
         goodFor: ["가벼운 근거리 작업", "가격 부담이 큰 고객", "입문형 누진다초점"],
         points: ["실속형", "부담 적은 선택", "기본 기능 중심"],
-        image: "/images/C1",
+        image: "/images/C1.jpg",
         url: null,
 
         regularPrices: {
