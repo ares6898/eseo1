@@ -20,54 +20,53 @@ const PRODUCT_INFO = {
           "1.50": "36.5만원",
           "1.60": "43.5만원",
           "1.67": "51만원",
-		  "1.74": "64만원",
+          "1.74": "64만원",
         },
         salePrices: {
           "1.50": "17.9만원",
           "1.60": "20.9만원",
           "1.67": "27.9만원",
-		  "1.74": "39.9만원",
+          "1.74": "39.9만원",
         },
 
         tintRegularPrices: {
           "1.50": "3만원",
           "1.60": "3만원",
           "1.67": "3만원",
-		  "1.74": "3만원",
+          "1.74": "3만원",
         },
         tintSalePrices: {
           "1.50": "1.5만원",
           "1.60": "1.5만원",
           "1.67": "1.5만원",
-		  "1.74": "1.5만원",
+          "1.74": "1.5만원",
         },
 
         photoRegularPrices: {
-		  "1.60": "10만원",
-		  "1.67": "10만원",		
-		},
+          "1.60": "10만원",
+          "1.67": "10만원",
+        },
         photoSalePrices: {
-		  "1.60": "5만원",
-		  "1.67": "5만원",				
-		},
+          "1.60": "5만원",
+          "1.67": "5만원",
+        },
 
         premiumCoatingRegularPrices: {
           "1.50": "3만원",
           "1.60": "3만원",
           "1.67": "3만원",
-		  "1.74": "3만원",
+          "1.74": "3만원",
         },
         premiumCoatingSalePrices: {
           "1.50": "1만원",
           "1.60": "1만원",
           "1.67": "1만원",
-		  "1.74": "1만원",
+          "1.74": "1만원",
         },
       },
-	
+
       C1: {
-        summary:
-          "부담 없는 실속형버전.",
+        summary: "부담 없는 실속형버전.",
         goodFor: ["가벼운 근거리 작업", "가격 부담이 큰 고객", "입문형 누진다초점"],
         points: ["실속형", "부담 적은 선택", "기본 기능 중심"],
         image: "/images/C1.jpg",
@@ -77,56 +76,52 @@ const PRODUCT_INFO = {
           "1.50": "23.5만원",
           "1.60": "29.5만원",
           "1.67": "35.5만원",
-		  "1.74": "49만원",
+          "1.74": "49만원",
         },
         salePrices: {
           "1.50": "9.9만원",
           "1.60": "12.9만원",
           "1.67": "15.9만원",
-		  "1.74": "21.9만원",
+          "1.74": "21.9만원",
         },
 
         tintRegularPrices: {
           "1.50": "3만원",
           "1.60": "3만원",
           "1.67": "3만원",
-		  "1.74": "3만원",
+          "1.74": "3만원",
         },
         tintSalePrices: {
           "1.50": "1.5만원",
           "1.60": "1.5만원",
           "1.67": "1.5만원",
-		  "1.74": "1.5만원",
+          "1.74": "1.5만원",
         },
 
         photoRegularPrices: {
-		  "1.60": "10만원",
-		  "1.67": "10만원",		
-		},
+          "1.60": "10만원",
+          "1.67": "10만원",
+        },
         photoSalePrices: {
-		  "1.60": "2만원",
-		  "1.67": "4만원",				
-		},
+          "1.60": "2만원",
+          "1.67": "4만원",
+        },
 
         premiumCoatingRegularPrices: {
           "1.50": "3만원",
           "1.60": "3만원",
           "1.67": "3만원",
-		  "1.74": "3만원",
+          "1.74": "3만원",
         },
         premiumCoatingSalePrices: {
           "1.50": "1만원",
           "1.60": "1만원",
           "1.67": "1만원",
-		  "1.74": "1만원",
-	
-	  
-	  },
-	  },
+          "1.74": "1만원",
+        },
+      },
     },
   },
-
-
 
   E1: {
     desc: "가볍게 사용하는 실속형",
@@ -144,18 +139,15 @@ const PRODUCT_INFO = {
         regularPrices: {
           "1.50": "32만원",
           "1.60": "38만원",
-          
         },
         salePrices: {
           "1.50": "18만원",
           "1.60": "23.5만원",
-          
         },
 
         tintRegularPrices: {
           "1.50": "3만원",
           "1.60": "3만원",
-          
         },
         tintSalePrices: {
           "1.50": "1.5만원",
@@ -165,10 +157,7 @@ const PRODUCT_INFO = {
         photoRegularPrices: {},
         photoSalePrices: {},
 
-        premiumCoatingRegularPrices: {
-          
-          
-        },
+        premiumCoatingRegularPrices: {},
         premiumCoatingSalePrices: {
           "1.50": "0만원",
           "1.60": "0만원",
@@ -184,8 +173,7 @@ const PRODUCT_INFO = {
     badge: "실내중심",
     variants: {
       기본: {
-        summary:
-          "기본형보다 디지털 디바이스 특화설계로 조금더 편안하게.",
+        summary: "기본형보다 디지털 디바이스 특화설계로 조금더 편안하게.",
         goodFor: ["디지털기기 특화", "근거리 시야 무난", "가성비좋은 제품"],
         points: ["실내 중심", "근용 특화", "합리적인 가격"],
         image: "/images/E22.jpg",
@@ -235,7 +223,6 @@ const PRODUCT_INFO = {
       },
     },
   },
-
 
   E3: {
     desc: "무난하고 적응 쉬운 선택",
@@ -295,7 +282,7 @@ const PRODUCT_INFO = {
     },
   },
 
-E4: {
+  E4: {
     desc: "안정적인 시야의 다초점렌즈",
     grade: "밸런스형",
     badge: "적응 추천",
@@ -353,15 +340,13 @@ E4: {
     },
   },
 
-
   컴포트맥스: {
     desc: "하루 종일 지속되는 편안함",
     grade: "프리미엄",
     badge: "편안함 추천",
     variants: {
       기본: {
-        summary:
-          "전세계 판매1위 브랜드. <바리락스>의 기술력을 확인하세요.",
+        summary: "전세계 판매1위 브랜드. <바리락스>의 기술력을 확인하세요.",
         goodFor: ["첫 누진으로 빠른적응", "편안한 일상을 원하는 고객", "기존 안경의 자세가 불편한고객"],
         points: ["편안한 자세", "업무 활용도 우수", "프리미엄 입문"],
         image: "/images/BC.jpg",
@@ -390,18 +375,17 @@ E4: {
         },
 
         photoRegularPrices: {
-		  "1.50": "20만원",
+          "1.50": "20만원",
           "1.60": "20만원",
           "1.67": "20만원",
         },
         photoSalePrices: {
           "1.50": "14만원",
-		  "1.60": "14만원",
+          "1.60": "14만원",
           "1.67": "14만원",
         },
 
         premiumCoatingRegularPrices: {
-          
           "1.60": "5만원",
           "1.67": "5만원",
         },
@@ -444,12 +428,12 @@ E4: {
 
         photoRegularPrices: {
           "1.50": "20만원",
-		  "1.60": "20만원",
+          "1.60": "20만원",
           "1.67": "20만원",
         },
         photoSalePrices: {
           "1.50": "14만원",
-		  "1.60": "14만원",
+          "1.60": "14만원",
           "1.67": "14만원",
         },
 
@@ -471,8 +455,7 @@ E4: {
     badge: "상위 추천",
     variants: {
       기본: {
-        summary:
-          "전세계 판매1위 브랜드. <바리락스>의 기술력을 확인하세요.",
+        summary: "전세계 판매1위 브랜드. <바리락스>의 기술력을 확인하세요.",
         goodFor: ["장시간 착용 고객", "활동적인 라이프스타일", "원근거리 초점이동이 늦는고객"],
         points: ["실제 동공변화 정밀예측", "장시간 사용 대응", "뛰어난 시각 성능", "야간운전"],
         image: "/images/BP.jpg",
@@ -482,13 +465,13 @@ E4: {
           "1.50": "55만원",
           "1.60": "65만원",
           "1.67": "75만원",
-		  "1.74": "90만원",
+          "1.74": "90만원",
         },
         salePrices: {
           "1.50": "38.5만원",
           "1.60": "45.5만원",
           "1.67": "52.5만원",
-		  "1.74": "60만원",
+          "1.74": "60만원",
         },
 
         tintRegularPrices: {
@@ -504,15 +487,15 @@ E4: {
 
         photoRegularPrices: {
           "1.50": "20만원",
-		  "1.60": "20만원",
+          "1.60": "20만원",
           "1.67": "20만원",
-		  "1.74": "20만원",
+          "1.74": "20만원",
         },
         photoSalePrices: {
           "1.50": "14만원",
-		  "1.60": "14만원",
+          "1.60": "14만원",
           "1.67": "14만원",
-		  "1.74": "14만원",
+          "1.74": "14만원",
         },
 
         premiumCoatingRegularPrices: {
@@ -537,13 +520,13 @@ E4: {
           "1.50": "65만원",
           "1.60": "75만원",
           "1.67": "85만원",
-		  "1.74": "100만원",
+          "1.74": "100만원",
         },
         salePrices: {
           "1.50": "45.5만원",
           "1.60": "52.5만원",
           "1.67": "59.5만원",
-		  "1.74": "70만원",
+          "1.74": "70만원",
         },
 
         tintRegularPrices: {
@@ -561,13 +544,13 @@ E4: {
           "1.50": "20만원",
           "1.60": "20만원",
           "1.67": "20만원",
-		  "1.74": "20만원",
+          "1.74": "20만원",
         },
         photoSalePrices: {
           "1.50": "14만원",
           "1.60": "14만원",
           "1.67": "14만원",
-		  "1.74": "14만원",
+          "1.74": "14만원",
         },
 
         premiumCoatingRegularPrices: {
@@ -588,8 +571,7 @@ E4: {
     badge: "모든상황에서 추천",
     variants: {
       기본: {
-        summary:
-          "세계판매 1위의 <바리락스>의 최첨단 성능의 누진다초점.",
+        summary: "세계판매 1위의 <바리락스>의 최첨단 성능의 누진다초점.",
         goodFor: ["최상위 제품 선호", "적응과 시야 모두 중요", "프리미엄 가치 설명이 잘 먹히는 고객"],
         points: ["착용 첫날 적응", "빠르고 정확한 시야전환", "AI설계", "언제나 지속되는 선명함"],
         image: "/images/BX.jpg",
@@ -641,8 +623,6 @@ E4: {
           "1.67": "3.5만원",
         },
       },
-	  
-	  
     },
   },
 };
@@ -687,6 +667,20 @@ function canUsePremiumCoating(variantInfo, selectedIndex) {
   return Boolean(
     variantInfo?.premiumCoatingRegularPrices?.[selectedIndex] &&
       variantInfo?.premiumCoatingSalePrices?.[selectedIndex]
+  );
+}
+
+function canUseTint(variantInfo, selectedIndex) {
+  return Boolean(
+    variantInfo?.tintRegularPrices?.[selectedIndex] &&
+      variantInfo?.tintSalePrices?.[selectedIndex]
+  );
+}
+
+function canUsePhoto(variantInfo, selectedIndex) {
+  return Boolean(
+    variantInfo?.photoRegularPrices?.[selectedIndex] &&
+      variantInfo?.photoSalePrices?.[selectedIndex]
   );
 }
 
@@ -833,7 +827,10 @@ export default function Ina2Flow() {
   const [selectedCoatingMode, setSelectedCoatingMode] = useState("basic");
 
   const canNextDistance = refractiveType && sphereLevel && astigmatismType;
-  const mainRecommended = useMemo(() => recommended?.[0] || null, [recommended]);
+  const mainRecommended = useMemo(
+    () => recommended?.[0]?.name || null,
+    [recommended]
+  );
   const leftProduct = selectedProduct || mainRecommended;
   const sphereOptions = useMemo(
     () => getSphereOptions(refractiveType),
@@ -860,8 +857,13 @@ export default function Ina2Flow() {
     setSelectedCoatingMode(next.coatingMode);
   };
 
-  const handleSelectProduct = (productName) => {
-    applyPreferredSelection(productName, selectedIndex, "clear");
+  const handleSelectProduct = (productName, preferredVariant = null) => {
+    applyPreferredSelection(
+      productName,
+      selectedIndex,
+      "clear",
+      preferredVariant
+    );
   };
 
   const handleSelectIndex = (idx) => {
@@ -887,8 +889,17 @@ export default function Ina2Flow() {
     setSelectedCoatingMode(next.coatingMode);
   };
 
-  const handleSelectLensModeForProduct = (productName, lensMode) => {
-    applyPreferredSelection(productName, selectedIndex, lensMode);
+  const handleSelectLensModeForProduct = (
+    productName,
+    lensMode,
+    preferredVariant = null
+  ) => {
+    applyPreferredSelection(
+      productName,
+      selectedIndex,
+      lensMode,
+      preferredVariant
+    );
   };
 
   const handleSelectRefractiveType = (type) => {
@@ -921,24 +932,54 @@ export default function Ina2Flow() {
     let result = [];
 
     if (level === "low") {
-      if (use === "light") result = ["C6", "E1"];
-      else result = ["E3", "컴포트맥스"];
+      if (use === "light") {
+        result = [
+          { name: "C6", variant: "기본" },
+          { name: "E1", variant: "기본" },
+        ];
+      } else {
+        result = [
+          { name: "E3", variant: "기본" },
+          { name: "컴포트맥스", variant: "기본" },
+        ];
+      }
     }
 
     if (level === "mid") {
-      if (use === "heavy") result = ["컴포트맥스", "피지오"];
-      else result = ["E3", "컴포트맥스"];
+      if (use === "heavy") {
+        result = [
+          { name: "컴포트맥스", variant: "KAN" },
+          { name: "피지오", variant: "Kan" },
+        ];
+      } else {
+        result = [
+          { name: "E3", variant: "기본" },
+          { name: "컴포트맥스", variant: "기본" },
+        ];
+      }
     }
 
     if (level === "high") {
-      if (use === "heavy") result = ["피지오", "XR"];
-      else result = ["컴포트맥스", "피지오"];
+      if (use === "heavy") {
+        result = [
+          { name: "피지오", variant: "Kan" },
+          { name: "XR", variant: "기본" },
+        ];
+      } else {
+        result = [
+          { name: "컴포트맥스", variant: "KAN" },
+          { name: "피지오", variant: "기본" },
+        ];
+      }
     }
 
-    const firstProduct = result[0] || null;
+    const firstItem = result[0] || null;
+    const firstProduct = firstItem?.name || null;
+    const firstVariant = firstItem?.variant || null;
+
     const defaultIndex = selectedIndex || "1.50";
     const next = firstProduct
-      ? getPreferredSelection(firstProduct, defaultIndex, null, "clear")
+      ? getPreferredSelection(firstProduct, defaultIndex, firstVariant, "clear")
       : { variant: "기본", coatingMode: "basic" };
 
     setUsage(use);
@@ -1099,7 +1140,7 @@ export default function Ina2Flow() {
                   {step === "intro" && (
                     <Center>
                       <MainButton onClick={() => setStep("distance")}>
-                        맞춤 추천 시작
+                        맞춤 분석 시작
                       </MainButton>
                     </Center>
                   )}
@@ -1182,30 +1223,30 @@ export default function Ina2Flow() {
 
                   {step === "add" && (
                     <Center>
-                      <Title>근거리 사용 정도</Title>
+                      <Title>근용 도수 확인</Title>
 
                       <AddBtn
                         color="green"
                         active={addLevel === "low"}
                         onClick={() => setAddLevel("low")}
-                        label="낮음"
-                        sub="1.50↓"
+                        label="노안 저가입도"
+                        sub="Add = +1.50↓"
                       />
 
                       <AddBtn
                         color="yellow"
                         active={addLevel === "mid"}
                         onClick={() => setAddLevel("mid")}
-                        label="중간"
-                        sub="1.75↓"
+                        label="노안 중가입도"
+                        sub="Add = +1.75↓"
                       />
 
                       <AddBtn
                         color="red"
                         active={addLevel === "high"}
                         onClick={() => setAddLevel("high")}
-                        label="높음"
-                        sub="2.00↑"
+                        label="노안 고가입도"
+                        sub="Add = +2.00↑"
                       />
 
                       {addLevel && (
@@ -1214,27 +1255,50 @@ export default function Ina2Flow() {
                     </Center>
                   )}
 
-                  {step === "usage" && (
-                    <Center>
-                      <Title>사용량 확인</Title>
+{step === "usage" && (
+  <Center>
+    <Title>사용량 확인</Title>
 
-                      <UsageBtn onClick={() => handleFinish(addLevel, "heavy")}>
-                        많이 사용
-                      </UsageBtn>
+    {/* 🔥 메인 유도 버튼 */}
+    <div className="relative">
 
-                      <UsageBtn onClick={() => handleFinish(addLevel, "normal")}>
-                        보통 사용
-                      </UsageBtn>
+      {/* BEST 배지 */}
+      <div className="absolute -top-3 -right-2 z-10 px-3 py-1 rounded-full bg-red-500 text-white text-[12px] font-extrabold shadow-md">
+        BEST
+      </div>
 
-                      <UsageBtn onClick={() => handleFinish(addLevel, "light")}>
-                        가볍게 사용
-                      </UsageBtn>
+      <UsageBtn
+        variant="best"
+        sub="도수·사용환경 기준 최적 설계"
+        onClick={() => handleFinish(addLevel, "heavy")}
+      >
+        정밀 분석 추천
+      </UsageBtn>
+    </div>
 
-                      <BackBtn onClick={() => setStep("add")}>
-                        이전 단계로
-                      </BackBtn>
-                    </Center>
-                  )}
+    {/* 균형 */}
+    <UsageBtn
+      variant="balanced"
+      sub="적응과 가격을 함께 고려"
+      onClick={() => handleFinish(addLevel, "normal")}
+    >
+      균형 추천
+    </UsageBtn>
+
+    {/* 실속 */}
+    <UsageBtn
+      variant="value"
+      sub="저렴한 가격기준으로 추천"
+      onClick={() => handleFinish(addLevel, "light")}
+    >
+      실속 추천
+    </UsageBtn>
+
+    <BackBtn onClick={() => setStep("add")}>
+      이전 단계로
+    </BackBtn>
+  </Center>
+)}
 
                   {step === "analyzing" && (
                     <div className="w-full flex items-center justify-center">
@@ -1244,7 +1308,7 @@ export default function Ina2Flow() {
                         </div>
 
                         <div className="text-[24px] font-extrabold text-slate-900 mb-3 break-keep leading-snug">
-                          고객님 눈 기준으로 확인 중입니다
+                          분석을 시작합니다.
                         </div>
 
                         <div className="text-[16px] text-slate-500 font-semibold leading-relaxed mb-8 break-keep">
@@ -1278,7 +1342,7 @@ export default function Ina2Flow() {
             </div>
           </div>
         </div>
-      </div>l
+      </div>
     </div>
   );
 }
@@ -1302,13 +1366,13 @@ function IntroPanel() {
         <h1 className="text-[50px] font-extrabold text-slate-900 leading-tight break-keep">
           도수와 사용환경 기준으로
           <br />
-          추천드립니다
+          분석합니다.
         </h1>
 
         <p className="mt-8 text-[24px] text-slate-600 font-semibold leading-relaxed break-keep">
-          가격보다 맞는 방향으로
+          내 눈에 적합한 제품을
           <br />
-          안내해드립니다
+          객관적으로 추천받으세요.
         </p>
       </div>
     </div>
@@ -1351,16 +1415,33 @@ function ProductPreviewPanel({
   };
 
   const handleVariantChange = (name) => {
-    setSelectedVariant(name);
-    setSelectedLensMode("clear");
-
     const nextVariantInfo = product?.variants?.[name];
+    if (!nextVariantInfo) return;
+
+    let nextLensMode = selectedLensMode;
+
+    if (
+      selectedLensMode === "tint" &&
+      !canUseTint(nextVariantInfo, selectedIndex)
+    ) {
+      nextLensMode = "clear";
+    }
+
+    if (
+      selectedLensMode === "photo" &&
+      !canUsePhoto(nextVariantInfo, selectedIndex)
+    ) {
+      nextLensMode = "clear";
+    }
+
     const nextCoatingMode = getPreferredCoatingMode(
       nextVariantInfo,
       selectedIndex,
-      "clear"
+      nextLensMode
     );
 
+    setSelectedVariant(name);
+    setSelectedLensMode(nextLensMode);
     setSelectedCoatingMode(nextCoatingMode);
   };
 
@@ -1644,10 +1725,10 @@ function ResultStep({
     <div className="w-full transition-all duration-300 ease-out animate-fade">
       <div className="text-center mb-4">
         <div className="text-[22px] font-extrabold text-slate-900 mb-2 break-keep leading-snug">
-          고객님 기준에서 잘 맞는 제품입니다
+          상세내용은 전문안경사와 상담하세요.
         </div>
         <div className="text-[15px] font-semibold text-slate-500 break-keep">
-          굴절률을 선택한 뒤 원하는 제품을 눌러 상세 내용을 보세요
+          추천 굴절률 확인은 전문안경사와 상담하세요.
         </div>
       </div>
 
@@ -1671,13 +1752,18 @@ function ResultStep({
 
       <div className="flex flex-col gap-3">
         {recommended.map((item, i) => {
-          const info = PRODUCT_INFO[item] || { desc: "추천 제품" };
+          const productName = item.name;
+          const preferredVariant = item.variant || null;
+
+          const info = PRODUCT_INFO[productName] || { desc: "추천 제품" };
           const isMain = i === 0;
-          const isSelected = selectedProduct === item;
+          const isSelected = selectedProduct === productName;
 
           const variantNames = Object.keys(info?.variants || {});
           const itemVariant = isSelected
             ? selectedVariant
+            : preferredVariant && info?.variants?.[preferredVariant]
+            ? preferredVariant
             : info?.variants?.KAN
             ? "KAN"
             : variantNames[0] || "기본";
@@ -1708,7 +1794,7 @@ function ResultStep({
               <div className="flex items-start gap-3">
                 <div className="w-3/5 min-w-0">
                   <button
-                    onClick={() => onSelectProduct(item)}
+                    onClick={() => onSelectProduct(productName, preferredVariant)}
                     className={`w-full text-left rounded-[18px] border px-4 py-3 transition ${
                       isSelected && selectedLensMode === "clear"
                         ? "bg-blue-700 text-white border-blue-700"
@@ -1723,7 +1809,7 @@ function ResultStep({
                             : "text-slate-900"
                         }`}
                       >
-                        {item}
+                        {productName}
                       </div>
 
                       <div
@@ -1733,7 +1819,7 @@ function ResultStep({
                             : "bg-slate-100 text-slate-700 border-slate-300"
                         }`}
                       >
-                        {isMain ? "추천" : "비교"}
+                        {isMain ? "완벽 추천" : "상대 추천"}
                       </div>
                     </div>
 
@@ -1753,7 +1839,11 @@ function ResultStep({
                   <button
                     onClick={() => {
                       if (!canTint) return;
-                      onSelectLensModeForProduct(item, "tint");
+                      onSelectLensModeForProduct(
+                        productName,
+                        "tint",
+                        preferredVariant
+                      );
                     }}
                     disabled={!canTint}
                     className={`flex-1 h-[78px] rounded-[18px] border font-bold text-[14px] transition ${
@@ -1770,7 +1860,11 @@ function ResultStep({
                   <button
                     onClick={() => {
                       if (!canPhoto) return;
-                      onSelectLensModeForProduct(item, "photo");
+                      onSelectLensModeForProduct(
+                        productName,
+                        "photo",
+                        preferredVariant
+                      );
                     }}
                     disabled={!canPhoto}
                     className={`flex-1 h-[78px] rounded-[18px] border font-bold text-[14px] transition ${
@@ -1860,14 +1954,31 @@ const AddBtn = ({ color, active, onClick, label, sub }) => {
   );
 };
 
-const UsageBtn = ({ children, onClick }) => (
-  <button
-    onClick={onClick}
-    className="h-[92px] rounded-2xl border-2 bg-white border-slate-300 text-[23px] font-bold text-slate-800 hover:bg-blue-50 transition break-keep"
-  >
-    {children}
-  </button>
-);
+const UsageBtn = ({ children, sub, onClick, variant = "default" }) => {
+  const styles = {
+    best: "bg-gradient-to-r from-amber-300 to-orange-400 border-orange-400 text-slate-900 hover:from-amber-400 hover:to-orange-500 shadow-lg",
+    balanced: "bg-blue-100 border-blue-300 text-blue-900 hover:bg-blue-200",
+    value: "bg-emerald-100 border-emerald-300 text-emerald-900 hover:bg-emerald-200",
+    default: "bg-white border-slate-300 text-slate-800 hover:bg-blue-50",
+  };
+
+  return (
+    <button
+      onClick={onClick}
+      className={`w-full h-[96px] rounded-2xl border-2 px-6 text-left transition break-keep ${styles[variant]}`}
+    >
+      <div className="text-[23px] font-extrabold leading-tight">
+        {children}
+      </div>
+
+      {sub && (
+        <div className="text-[14px] font-semibold opacity-80 mt-1">
+          {sub}
+        </div>
+      )}
+    </button>
+  );
+};
 
 const NextBtn = ({ active, onClick }) => (
   <button
