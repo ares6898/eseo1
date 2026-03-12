@@ -420,20 +420,14 @@ function parseKoreanPriceToNumber(priceText) {
 
   if (text.includes("만원")) {
     const value = Number(
-      text
-        .replace(/만원/g, "")
-        .replace(/,/g, "")
-        .trim()
+      text.replace(/만원/g, "").replace(/,/g, "").trim()
     );
     return Number.isNaN(value) ? 0 : Math.round(value * 10000);
   }
 
   if (text.includes("원")) {
     const value = Number(
-      text
-        .replace(/원/g, "")
-        .replace(/,/g, "")
-        .trim()
+      text.replace(/원/g, "").replace(/,/g, "").trim()
     );
     return Number.isNaN(value) ? 0 : Math.round(value);
   }
@@ -604,31 +598,69 @@ export default function Ina2Flow() {
       selectedCoatingMode === "premium" ? "프리미엄코팅" : "기본코팅";
 
     return `${leftProduct} / ${selectedVariant} / ${selectedIndex} / ${lensModeLabel} / ${coatingLabel}`;
-  }, [leftProduct, selectedVariant, selectedIndex, selectedLensMode, selectedCoatingMode]);
+  }, [
+    leftProduct,
+    selectedVariant,
+    selectedIndex,
+    selectedLensMode,
+    selectedCoatingMode,
+  ]);
 
   return (
     <div className="w-screen h-screen bg-slate-50 overflow-hidden">
       <div className="w-full h-full px-6 py-5">
         <div className="relative w-full h-full bg-white rounded-[32px] shadow-2xl border border-slate-200 overflow-hidden">
-          <div
-            className={`w-full h-full flex ${step === "result" ? "pb-[92px]" : ""}`}
-          >
-            <div className="relative w-[64%] h-full overflow-hidden border-r border-slate-200">
+          <div className="w-full h-full flex">
+            <div className="relative w-[64%] h-full border-r border-slate-200">
               {step === "result" && leftProduct ? (
-                <ProductPreviewPanel
-                  productName={leftProduct}
-                  product={PRODUCT_INFO[leftProduct]}
-                  selectedVariant={selectedVariant}
-                  setSelectedVariant={setSelectedVariant}
-                  selectedIndex={selectedIndex}
-                  selectedLensMode={selectedLensMode}
-                  selectedCoatingMode={selectedCoatingMode}
-                  setSelectedCoatingMode={setSelectedCoatingMode}
-                  setSelectedLensMode={setSelectedLensMode}
-                  isMain={leftProduct === mainRecommended}
-                />
+                <>
+                  <div className="h-full pb-[92px] overflow-hidden">
+                    <ProductPreviewPanel
+                      productName={leftProduct}
+                      product={PRODUCT_INFO[leftProduct]}
+                      selectedVariant={selectedVariant}
+                      setSelectedVariant={setSelectedVariant}
+                      selectedIndex={selectedIndex}
+                      selectedLensMode={selectedLensMode}
+                      selectedCoatingMode={selectedCoatingMode}
+                      setSelectedCoatingMode={setSelectedCoatingMode}
+                      setSelectedLensMode={setSelectedLensMode}
+                      isMain={leftProduct === mainRecommended}
+                    />
+                  </div>
+
+                  <div className="absolute bottom-0 left-0 right-0 h-[92px] border-t border-slate-700 bg-slate-900 px-8 flex items-center justify-between z-20">
+                    <div className="min-w-0 pr-6">
+                      <div className="text-[13px] font-bold text-slate-400 mb-1">
+                        현재 구성
+                      </div>
+                      <div className="text-[20px] font-extrabold text-white truncate break-keep">
+                        {summaryText}
+                      </div>
+                    </div>
+
+                    <div className="shrink-0 text-right">
+                      {priceResult ? (
+                        <>
+                          <div className="text-[14px] text-slate-400 line-through">
+                            정상가 {priceResult.regular.toLocaleString()}원
+                          </div>
+                          <div className="text-[28px] font-extrabold text-cyan-300">
+                            {priceResult.sale.toLocaleString()}원
+                          </div>
+                        </>
+                      ) : (
+                        <div className="text-[22px] font-bold text-red-300">
+                          생산불가
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </>
               ) : (
-                <IntroPanel />
+                <div className="h-full overflow-hidden">
+                  <IntroPanel />
+                </div>
               )}
             </div>
 
@@ -810,36 +842,6 @@ export default function Ina2Flow() {
               </div>
             </div>
           </div>
-
-          {step === "result" && leftProduct && (
-            <div className="absolute bottom-0 left-0 w-[64%] h-[92px] border-t border-slate-700 bg-slate-900 px-8 flex items-center justify-between">
-              <div className="min-w-0 pr-6">
-                <div className="text-[13px] font-bold text-slate-400 mb-1">
-                  현재 구성
-                </div>
-                <div className="text-[20px] font-extrabold text-white truncate break-keep">
-                  {summaryText}
-                </div>
-              </div>
-
-              <div className="shrink-0 text-right">
-                {priceResult ? (
-                  <>
-                    <div className="text-[14px] text-slate-400 line-through">
-                      정상가 {priceResult.regular.toLocaleString()}원
-                    </div>
-                    <div className="text-[28px] font-extrabold text-cyan-300">
-                      {priceResult.sale.toLocaleString()}원
-                    </div>
-                  </>
-                ) : (
-                  <div className="text-[22px] font-bold text-red-300">
-                    생산불가
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
         </div>
       </div>
     </div>
@@ -941,69 +943,69 @@ function ProductPreviewPanel({
               {product?.grade}
             </div>
 
-<div className="flex items-center justify-between gap-3 mb-3 min-w-0">
-  <div className="flex items-center gap-2 min-w-0 flex-1 overflow-hidden">
-    <h2 className="text-[40px] leading-none font-extrabold text-slate-900 break-keep shrink-0">
-      {productName}
-    </h2>
+            <div className="flex items-center justify-between gap-3 mb-3 min-w-0">
+              <div className="flex items-center gap-2 min-w-0 flex-1 overflow-hidden">
+                <h2 className="text-[40px] leading-none font-extrabold text-slate-900 break-keep shrink-0">
+                  {productName}
+                </h2>
 
-    {variantNames.length > 1 && (
-      <div className="flex gap-2 shrink-0">
-        {variantNames.map((name) => {
-          const active = selectedVariant === name;
-          return (
-            <button
-              key={name}
-              onClick={() => {
-                setSelectedVariant(name);
-                setSelectedLensMode("clear");
-                setSelectedCoatingMode("basic");
-              }}
-              className={`h-[40px] px-3 rounded-xl border-2 text-[14px] font-bold transition ${
-                active
-                  ? "bg-blue-600 border-blue-600 text-white shadow-sm"
-                  : "bg-white border-slate-300 text-slate-800 hover:border-blue-300 hover:bg-blue-50"
-              }`}
-            >
-              {name}
-            </button>
-          );
-        })}
-      </div>
-    )}
-  </div>
+                {variantNames.length > 1 && (
+                  <div className="flex gap-2 shrink-0">
+                    {variantNames.map((name) => {
+                      const active = selectedVariant === name;
+                      return (
+                        <button
+                          key={name}
+                          onClick={() => {
+                            setSelectedVariant(name);
+                            setSelectedLensMode("clear");
+                            setSelectedCoatingMode("basic");
+                          }}
+                          className={`h-[40px] px-3 rounded-xl border-2 text-[14px] font-bold transition ${
+                            active
+                              ? "bg-blue-600 border-blue-600 text-white shadow-sm"
+                              : "bg-white border-slate-300 text-slate-800 hover:border-blue-300 hover:bg-blue-50"
+                          }`}
+                        >
+                          {name}
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
 
-  <div className="flex gap-2 shrink-0">
-    <button
-      onClick={() => setSelectedCoatingMode("basic")}
-      className={`h-[38px] px-3 rounded-xl border font-bold text-[13px] transition whitespace-nowrap ${
-        selectedCoatingMode === "basic"
-          ? "bg-slate-800 text-white border-slate-800"
-          : "bg-white text-slate-700 border-slate-300 hover:bg-slate-50"
-      }`}
-    >
-      기본코팅
-    </button>
+              <div className="flex gap-2 shrink-0">
+                <button
+                  onClick={() => setSelectedCoatingMode("basic")}
+                  className={`h-[38px] px-3 rounded-xl border font-bold text-[13px] transition whitespace-nowrap ${
+                    selectedCoatingMode === "basic"
+                      ? "bg-slate-800 text-white border-slate-800"
+                      : "bg-white text-slate-700 border-slate-300 hover:bg-slate-50"
+                  }`}
+                >
+                  기본코팅
+                </button>
 
-    <button
-      onClick={() => {
-        if (!canPremiumCoating) return;
-        setSelectedCoatingMode("premium");
-        setSelectedLensMode("clear");
-      }}
-      disabled={!canPremiumCoating}
-      className={`h-[38px] px-3 rounded-xl border font-bold text-[13px] transition whitespace-nowrap ${
-        !canPremiumCoating
-          ? "bg-slate-200 text-slate-400 border-slate-200"
-          : selectedCoatingMode === "premium"
-          ? "bg-emerald-600 text-white border-emerald-600"
-          : "bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100"
-      }`}
-    >
-      {!canPremiumCoating ? "생산불가" : "프리미엄코팅"}
-    </button>
-  </div>
-</div>
+                <button
+                  onClick={() => {
+                    if (!canPremiumCoating) return;
+                    setSelectedCoatingMode("premium");
+                    setSelectedLensMode("clear");
+                  }}
+                  disabled={!canPremiumCoating}
+                  className={`h-[38px] px-3 rounded-xl border font-bold text-[13px] transition whitespace-nowrap ${
+                    !canPremiumCoating
+                      ? "bg-slate-200 text-slate-400 border-slate-200"
+                      : selectedCoatingMode === "premium"
+                      ? "bg-emerald-600 text-white border-emerald-600"
+                      : "bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100"
+                  }`}
+                >
+                  {!canPremiumCoating ? "생산불가" : "프리미엄코팅"}
+                </button>
+              </div>
+            </div>
 
             <div className="text-[22px] font-semibold text-slate-600 break-keep leading-snug">
               {product?.desc}
