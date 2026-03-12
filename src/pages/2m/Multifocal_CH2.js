@@ -398,18 +398,40 @@ const PRODUCT_INFO = {
   },
 };
 
-function getDefaultVariant(productName) {
-  const product = PRODUCT_INFO[productName];
-  if (!product?.variants) return "기본";
-  if (product.variants.KAN) return "KAN";
-  return Object.keys(product.variants)[0];
-}
-
 function getCurrentVariantInfo(product, selectedVariant) {
   const variantNames = Object.keys(product?.variants || {});
   return (
     product?.variants?.[selectedVariant] || product?.variants?.[variantNames[0]]
   );
+}
+
+function getSphereOptions(refractiveType) {
+  if (refractiveType === "근시") {
+    return ["LOW", "-1.00", "-2.00", "-4.00", "-6.00", "HIGH"];
+  }
+  if (refractiveType === "원시") {
+    return ["LOW", "+1.00", "+2.00", "+4.00", "+6.00", "HIGH"];
+  }
+  return [];
+}
+
+function getRecommendedIndexBySphere(refractiveType, sphereLevel) {
+  if (!refractiveType || !sphereLevel) return "1.50";
+
+  const normalized = String(sphereLevel).toUpperCase();
+
+  if (normalized === "LOW") return "1.50";
+  if (normalized === "HIGH") return "1.74";
+
+  const numeric = Math.abs(
+    parseFloat(normalized.replace("+", "").replace("-", ""))
+  );
+
+  if (numeric <= 2.0) return "1.50";
+  if (numeric <= 4.0) return "1.60";
+  if (numeric <= 6.0) return "1.67";
+
+  return "1.74";
 }
 
 function canUsePremiumCoating(variantInfo, selectedIndex) {
@@ -434,7 +456,11 @@ function getPreferredVariant(productName, preferredVariant = null) {
   return variantNames[0];
 }
 
-function getPreferredCoatingMode(variantInfo, selectedIndex, selectedLensMode = "clear") {
+function getPreferredCoatingMode(
+  variantInfo,
+  selectedIndex,
+  selectedLensMode = "clear"
+) {
   if (selectedLensMode !== "clear") return "basic";
   return canUsePremiumCoating(variantInfo, selectedIndex) ? "premium" : "basic";
 }
@@ -475,16 +501,12 @@ function parseKoreanPriceToNumber(priceText) {
   if (!text) return 0;
 
   if (text.includes("만원")) {
-    const value = Number(
-      text.replace(/만원/g, "").replace(/,/g, "").trim()
-    );
+    const value = Number(text.replace(/만원/g, "").replace(/,/g, "").trim());
     return Number.isNaN(value) ? 0 : Math.round(value * 10000);
   }
 
   if (text.includes("원")) {
-    const value = Number(
-      text.replace(/원/g, "").replace(/,/g, "").trim()
-    );
+    const value = Number(text.replace(/원/g, "").replace(/,/g, "").trim());
     return Number.isNaN(value) ? 0 : Math.round(value);
   }
 
@@ -550,6 +572,7 @@ export default function Ina2Flow() {
   const [step, setStep] = useState("intro");
 
   const [refractiveType, setRefractiveType] = useState(null);
+  const [sphereLevel, setSphereLevel] = useState(null);
   const [astigmatismType, setAstigmatismType] = useState(null);
   const [addLevel, setAddLevel] = useState(null);
   const [usage, setUsage] = useState(null);
@@ -560,9 +583,13 @@ export default function Ina2Flow() {
   const [selectedLensMode, setSelectedLensMode] = useState("clear");
   const [selectedCoatingMode, setSelectedCoatingMode] = useState("basic");
 
-  const canNextDistance = refractiveType && astigmatismType;
+  const canNextDistance = refractiveType && sphereLevel && astigmatismType;
   const mainRecommended = useMemo(() => recommended?.[0] || null, [recommended]);
   const leftProduct = selectedProduct || mainRecommended;
+  const sphereOptions = useMemo(
+    () => getSphereOptions(refractiveType),
+    [refractiveType]
+  );
 
   const applyPreferredSelection = (
     productName,
@@ -615,9 +642,21 @@ export default function Ina2Flow() {
     applyPreferredSelection(productName, selectedIndex, lensMode);
   };
 
+  const handleSelectRefractiveType = (type) => {
+    setRefractiveType(type);
+    setSphereLevel(null);
+    setSelectedIndex("1.50");
+  };
+
+  const handleSelectSphereLevel = (value) => {
+    setSphereLevel(value);
+    setSelectedIndex(getRecommendedIndexBySphere(refractiveType, value));
+  };
+
   const resetToHome = () => {
     setStep("intro");
     setRefractiveType(null);
+    setSphereLevel(null);
     setAstigmatismType(null);
     setAddLevel(null);
     setUsage(null);
@@ -648,7 +687,7 @@ export default function Ina2Flow() {
     }
 
     const firstProduct = result[0] || null;
-    const defaultIndex = "1.50";
+    const defaultIndex = selectedIndex || "1.50";
     const next = firstProduct
       ? getPreferredSelection(firstProduct, defaultIndex, null, "clear")
       : { variant: "기본", coatingMode: "basic" };
@@ -777,6 +816,7 @@ export default function Ina2Flow() {
 
               <div className="absolute top-5 left-5 right-24 flex flex-wrap gap-2 z-20">
                 {refractiveType && <Chip text={refractiveType} />}
+                {sphereLevel && <Chip text={`도수 ${sphereLevel}`} />}
                 {astigmatismType && <Chip text={astigmatismType} />}
                 {addLevel && (
                   <Chip
@@ -824,12 +864,53 @@ export default function Ina2Flow() {
                           <SelectBtn
                             key={x}
                             active={refractiveType === x}
-                            onClick={() => setRefractiveType(x)}
+                            onClick={() => handleSelectRefractiveType(x)}
                           >
                             {x}
                           </SelectBtn>
                         ))}
                       </Grid2>
+
+                      {refractiveType && (
+                        <div className="rounded-[24px] border border-slate-200 bg-white px-4 py-4">
+                          <div className="text-[16px] font-bold text-slate-700 mb-3">
+                            구면도수 선택
+                          </div>
+
+                          <div className="flex gap-3 overflow-x-auto pb-1 scrollbar-hide">
+                            {sphereOptions.map((value) => {
+                              const active = sphereLevel === value;
+                              return (
+                                <button
+                                  key={value}
+                                  onClick={() => handleSelectSphereLevel(value)}
+                                  className={`shrink-0 h-[54px] min-w-[92px] px-4 rounded-2xl border font-bold text-[16px] transition ${
+                                    active
+                                      ? "bg-blue-700 text-white border-blue-700"
+                                      : "bg-slate-50 text-slate-800 border-slate-300 hover:bg-blue-50"
+                                  }`}
+                                >
+                                  {value}
+                                </button>
+                              );
+                            })}
+                          </div>
+
+                          {sphereLevel && (
+                            <div className="mt-3 rounded-2xl bg-blue-50 border border-blue-200 px-4 py-3">
+                              <div className="text-[13px] font-bold text-blue-700 mb-1">
+                                기본 추천 굴절률
+                              </div>
+                              <div className="text-[20px] font-extrabold text-slate-900">
+                                {getRecommendedIndexBySphere(
+                                  refractiveType,
+                                  sphereLevel
+                                )}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      )}
 
                       <Grid2>
                         {["난시 있음", "난시 없음"].map((x) => (
@@ -888,17 +969,21 @@ export default function Ina2Flow() {
                     <Center>
                       <Title>사용량 확인</Title>
 
-                      <UsageBtn onClick={() => handleFinish(addLevel, "light")}>
-                        가볍게 사용
+                      <UsageBtn onClick={() => handleFinish(addLevel, "heavy")}>
+                        많이 사용
                       </UsageBtn>
 
                       <UsageBtn onClick={() => handleFinish(addLevel, "normal")}>
                         보통 사용
                       </UsageBtn>
 
-                      <UsageBtn onClick={() => handleFinish(addLevel, "heavy")}>
-                        많이 사용
+                      <UsageBtn onClick={() => handleFinish(addLevel, "light")}>
+                        가볍게 사용
                       </UsageBtn>
+
+                      <BackBtn onClick={() => setStep("add")}>
+                        이전 단계로
+                      </BackBtn>
                     </Center>
                   )}
 
@@ -935,9 +1020,6 @@ export default function Ina2Flow() {
                       selectedLensMode={selectedLensMode}
                       onSelectProduct={handleSelectProduct}
                       onSelectLensModeForProduct={handleSelectLensModeForProduct}
-                      setSelectedVariant={setSelectedVariant}
-                      setSelectedLensMode={setSelectedLensMode}
-                      setSelectedCoatingMode={setSelectedCoatingMode}
                       onBack={() => setStep("usage")}
                       setSelectedIndex={handleSelectIndex}
                     />
@@ -947,7 +1029,7 @@ export default function Ina2Flow() {
             </div>
           </div>
         </div>
-      </div>
+      </div>l
     </div>
   );
 }
@@ -1397,14 +1479,12 @@ function ResultStep({
 
                       <div
                         className={`shrink-0 inline-flex px-3 py-1 rounded-full text-[12px] font-bold border ${
-                          isSelected
-                            ? "bg-blue-100 text-blue-800 border-blue-200"
-                            : isMain
+                          isMain
                             ? "bg-blue-100 text-blue-800 border-blue-300"
                             : "bg-slate-100 text-slate-700 border-slate-300"
                         }`}
                       >
-                        {isSelected ? "현재 표시중" : isMain ? "추천" : "비교"}
+                        {isMain ? "추천" : "비교"}
                       </div>
                     </div>
 
@@ -1550,6 +1630,15 @@ const NextBtn = ({ active, onClick }) => (
     }`}
   >
     다음
+  </button>
+);
+
+const BackBtn = ({ children, onClick }) => (
+  <button
+    onClick={onClick}
+    className="mt-2 h-[74px] rounded-2xl bg-white border-2 border-slate-300 text-[23px] font-bold text-slate-700 hover:bg-slate-50 transition"
+  >
+    {children}
   </button>
 );
 
