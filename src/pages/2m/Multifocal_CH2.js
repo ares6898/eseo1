@@ -15,23 +15,42 @@ const PRODUCT_INFO = {
         points: ["실속형", "부담 적은 선택", "기본 기능 중심"],
         image: "/images/multifocal-c6.jpg",
         url: "https://example.com/c6",
-        refractivePrices: {
-          // 🔧 클리어렌즈 판매가 수정
+
+        // 기본렌즈 정가 / 할인가
+        regularPrices: {
+          "1.50": "33만원",
+          "1.60": "38만원",
+          "1.67": "43만원",
+        },
+        salePrices: {
           "1.50": "23만원",
           "1.60": "28만원",
           "1.67": "33만원",
         },
-        tintPrices: {
-          // 🔧 착색 추가 판매가 수정 / 값이 없으면 생산불가
+
+        // 착색 정가 / 할인가
+        tintRegularPrices: {
+          "1.50": "5만원",
+          "1.60": "5만원",
+          "1.67": "5만원",
+        },
+        tintSalePrices: {
           "1.50": "3만원",
           "1.60": "3만원",
           "1.67": "3만원",
         },
-        photoPrices: {
-          // 🔧 변색 추가 판매가 수정 / 값이 없으면 생산불가
+
+        // 변색 정가 / 할인가
+        photoRegularPrices: {},
+        photoSalePrices: {},
+
+        // 프리미엄코팅 정가 / 할인가
+        premiumCoatingRegularPrices: {
+          "1.50": "7만원",
+          "1.60": "7만원",
+          "1.67": "7만원",
         },
-        premiumCoatingPrices: {
-          // 🔧 프리미엄코팅 추가 판매가 수정 / 값이 없으면 생산불가
+        premiumCoatingSalePrices: {
           "1.50": "5만원",
           "1.60": "5만원",
           "1.67": "5만원",
@@ -39,6 +58,7 @@ const PRODUCT_INFO = {
       },
     },
   },
+
   E3: {
     desc: "무난하고 적응 쉬운 선택",
     grade: "밸런스형",
@@ -49,30 +69,56 @@ const PRODUCT_INFO = {
           "너무 저가형보다는 편안함을 원하면서도 무난하게 적응하기 좋은 균형형 제품입니다.",
         goodFor: ["처음 쓰는 고객", "무난한 적응감 선호", "가성비와 편안함 동시 고려"],
         points: ["적응 무난", "균형 잡힌 선택", "상담 시 추천하기 쉬움"],
-        image: "/images/multifocal-e3.jpg",
+        image: "/images/E3.jpg",
         url: "https://example.com/e3",
-        refractivePrices: {
-          "1.50": "28만원",
-          "1.60": "33만원",
+
+        regularPrices: {
+          "1.50": "48만원",
+          "1.60": "62만원",
+          "1.67": "76만원",
+        },
+        salePrices: {
+          "1.50": "24만원",
+          "1.60": "31만원",
           "1.67": "38만원",
         },
-        tintPrices: {
+
+        tintRegularPrices: {
           "1.50": "3만원",
           "1.60": "3만원",
           "1.67": "3만원",
         },
-        photoPrices: {
-          "1.60": "15만원",
-          "1.67": "15만원",
+        tintSalePrices: {
+          "1.50": "1.5만원",
+          "1.60": "1.5만원",
+          "1.67": "1.5만원",
         },
-        premiumCoatingPrices: {
-          "1.50": "5만원",
+
+        photoRegularPrices: {
+		  "1.50": "20만원",
+          "1.60": "20만원",
+          "1.67": "20만원",
+        },
+        photoSalePrices: {
+          "1.50": "10만원",
+          "1.60": "10만원",
+          "1.67": "10만원",
+        },
+
+        premiumCoatingRegularPrices: {
+          
           "1.60": "5만원",
           "1.67": "5만원",
+        },
+        premiumCoatingSalePrices: {
+          
+          "1.60": "2.5만원",
+          "1.67": "2.5만원",
         },
       },
     },
   },
+
   컴포트맥스: {
     desc: "자세가 더 편한 프리미엄",
     grade: "프리미엄",
@@ -85,26 +131,50 @@ const PRODUCT_INFO = {
         points: ["근거리 편안함", "업무 활용도 우수", "프리미엄 입문"],
         image: "/images/multifocal-comfort-basic.jpg",
         url: "https://example.com/comfort-basic",
-        refractivePrices: {
+
+        regularPrices: {
+          "1.50": "50만원",
+          "1.60": "55만원",
+          "1.67": "60만원",
+        },
+        salePrices: {
           "1.50": "40만원",
           "1.60": "45만원",
           "1.67": "50만원",
         },
-        tintPrices: {
+
+        tintRegularPrices: {
+          "1.50": "5만원",
+          "1.60": "5만원",
+          "1.67": "5만원",
+        },
+        tintSalePrices: {
           "1.50": "3만원",
           "1.60": "3만원",
           "1.67": "3만원",
         },
-        photoPrices: {
+
+        photoRegularPrices: {
+          "1.60": "20만원",
+          "1.67": "20만원",
+        },
+        photoSalePrices: {
           "1.60": "15만원",
           "1.67": "15만원",
         },
-        premiumCoatingPrices: {
+
+        premiumCoatingRegularPrices: {
+          "1.50": "7만원",
+          "1.60": "7만원",
+          "1.67": "7만원",
+        },
+        premiumCoatingSalePrices: {
           "1.50": "5만원",
           "1.60": "5만원",
           "1.67": "5만원",
         },
       },
+
       KAN: {
         summary:
           "한국인 사용환경을 고려한 KAN 버전으로, 더 편한 적응감과 사용 만족도를 기대할 수 있는 상위 선택입니다.",
@@ -112,21 +182,44 @@ const PRODUCT_INFO = {
         points: ["KAN 설계", "적응감 향상", "상위 업그레이드"],
         image: "/images/multifocal-comfort-kan.jpg",
         url: "https://example.com/comfort-kan",
-        refractivePrices: {
+
+        regularPrices: {
+          "1.50": "55만원",
+          "1.60": "60만원",
+          "1.67": "65만원",
+        },
+        salePrices: {
           "1.50": "45만원",
           "1.60": "50만원",
           "1.67": "55만원",
         },
-        tintPrices: {
+
+        tintRegularPrices: {
+          "1.50": "5만원",
+          "1.60": "5만원",
+          "1.67": "5만원",
+        },
+        tintSalePrices: {
           "1.50": "3만원",
           "1.60": "3만원",
           "1.67": "3만원",
         },
-        photoPrices: {
+
+        photoRegularPrices: {
+          "1.60": "20만원",
+          "1.67": "20만원",
+        },
+        photoSalePrices: {
           "1.60": "15만원",
           "1.67": "15만원",
         },
-        premiumCoatingPrices: {
+
+        premiumCoatingRegularPrices: {
+          "1.50": "7만원",
+          "1.60": "7만원",
+          "1.67": "7만원",
+        },
+        premiumCoatingSalePrices: {
           "1.50": "5만원",
           "1.60": "5만원",
           "1.67": "5만원",
@@ -134,6 +227,7 @@ const PRODUCT_INFO = {
       },
     },
   },
+
   피지오: {
     desc: "더 높은 편안함의 상위선택",
     grade: "상위 프리미엄",
@@ -146,26 +240,50 @@ const PRODUCT_INFO = {
         points: ["상위 편안함", "장시간 사용 대응", "프리미엄 설득력"],
         image: "/images/multifocal-physio-basic.jpg",
         url: "https://example.com/physio-basic",
-        refractivePrices: {
+
+        regularPrices: {
+          "1.50": "60만원",
+          "1.60": "65만원",
+          "1.67": "70만원",
+        },
+        salePrices: {
           "1.50": "50만원",
           "1.60": "55만원",
           "1.67": "60만원",
         },
-        tintPrices: {
+
+        tintRegularPrices: {
+          "1.50": "5만원",
+          "1.60": "5만원",
+          "1.67": "5만원",
+        },
+        tintSalePrices: {
           "1.50": "3만원",
           "1.60": "3만원",
           "1.67": "3만원",
         },
-        photoPrices: {
+
+        photoRegularPrices: {
+          "1.60": "20만원",
+          "1.67": "20만원",
+        },
+        photoSalePrices: {
           "1.60": "15만원",
           "1.67": "15만원",
         },
-        premiumCoatingPrices: {
+
+        premiumCoatingRegularPrices: {
+          "1.50": "7만원",
+          "1.60": "7만원",
+          "1.67": "7만원",
+        },
+        premiumCoatingSalePrices: {
           "1.50": "5만원",
           "1.60": "5만원",
           "1.67": "5만원",
         },
       },
+
       KAN: {
         summary:
           "피지오의 장점에 KAN 설계를 더한 버전으로, 더 높은 적응성과 만족도를 기대하는 고객에게 적합합니다.",
@@ -173,21 +291,44 @@ const PRODUCT_INFO = {
         points: ["KAN 설계", "높은 적응성", "최상위 전 업셀 구간"],
         image: "/images/multifocal-physio-kan.jpg",
         url: "https://example.com/physio-kan",
-        refractivePrices: {
+
+        regularPrices: {
+          "1.50": "65만원",
+          "1.60": "70만원",
+          "1.67": "75만원",
+        },
+        salePrices: {
           "1.50": "55만원",
           "1.60": "60만원",
           "1.67": "65만원",
         },
-        tintPrices: {
+
+        tintRegularPrices: {
+          "1.50": "5만원",
+          "1.60": "5만원",
+          "1.67": "5만원",
+        },
+        tintSalePrices: {
           "1.50": "3만원",
           "1.60": "3만원",
           "1.67": "3만원",
         },
-        photoPrices: {
+
+        photoRegularPrices: {
+          "1.60": "20만원",
+          "1.67": "20만원",
+        },
+        photoSalePrices: {
           "1.60": "15만원",
           "1.67": "15만원",
         },
-        premiumCoatingPrices: {
+
+        premiumCoatingRegularPrices: {
+          "1.50": "7만원",
+          "1.60": "7만원",
+          "1.67": "7만원",
+        },
+        premiumCoatingSalePrices: {
           "1.50": "5만원",
           "1.60": "5만원",
           "1.67": "5만원",
@@ -195,6 +336,7 @@ const PRODUCT_INFO = {
       },
     },
   },
+
   XR: {
     desc: "최상위 프리미엄",
     grade: "최상위",
@@ -207,24 +349,51 @@ const PRODUCT_INFO = {
         points: ["최상위 라인", "고급 상담용", "브랜드 가치 전달 강함"],
         image: "/images/multifocal-xr.jpg",
         url: "https://example.com/xr",
-        refractivePrices: {
+
+        regularPrices: {
+          "1.50": "80만원",
+          "1.60": "85만원",
+          "1.67": "90만원",
+          "1.74": "100만원",
+        },
+        salePrices: {
           "1.50": "70만원",
           "1.60": "75만원",
           "1.67": "80만원",
           "1.74": "90만원",
         },
-        tintPrices: {
+
+        tintRegularPrices: {
+          "1.50": "5만원",
+          "1.60": "5만원",
+          "1.67": "5만원",
+        },
+        tintSalePrices: {
           "1.50": "3만원",
           "1.60": "3만원",
           "1.67": "3만원",
         },
-        photoPrices: {
+
+        photoRegularPrices: {
+          "1.50": "20만원",
+          "1.60": "20만원",
+          "1.67": "20만원",
+          "1.74": "20만원",
+        },
+        photoSalePrices: {
           "1.50": "15만원",
           "1.60": "15만원",
           "1.67": "15만원",
           "1.74": "15만원",
         },
-        premiumCoatingPrices: {
+
+        premiumCoatingRegularPrices: {
+          "1.50": "7만원",
+          "1.60": "7만원",
+          "1.67": "7만원",
+          "1.74": "7만원",
+        },
+        premiumCoatingSalePrices: {
           "1.50": "5만원",
           "1.60": "5만원",
           "1.67": "5만원",
@@ -250,9 +419,93 @@ function getCurrentVariantInfo(product, selectedVariant) {
 }
 
 function parseKoreanPriceToNumber(priceText) {
-  if (!priceText) return 0;
-  const num = Number(String(priceText).replace(/[^\d]/g, ""));
-  return num * 10000;
+  if (priceText === null || priceText === undefined) return 0;
+
+  const text = String(priceText).trim();
+
+  if (!text) return 0;
+
+  // "1.5만원", "15만원", "0.7만원" 대응
+  if (text.includes("만원")) {
+    const value = Number(
+      text
+        .replace(/만원/g, "")
+        .replace(/,/g, "")
+        .trim()
+    );
+
+    return Number.isNaN(value) ? 0 : Math.round(value * 10000);
+  }
+
+  // "15000원", "15,000원" 대응
+  if (text.includes("원")) {
+    const value = Number(
+      text
+        .replace(/원/g, "")
+        .replace(/,/g, "")
+        .trim()
+    );
+
+    return Number.isNaN(value) ? 0 : Math.round(value);
+  }
+
+  // 단위 없이 숫자만 들어온 경우
+  const value = Number(text.replace(/,/g, "").trim());
+  return Number.isNaN(value) ? 0 : Math.round(value);
+}
+
+function getPriceBreakdown(
+  variantInfo,
+  selectedIndex,
+  selectedLensMode,
+  selectedCoatingMode
+) {
+  if (!variantInfo) return null;
+
+  const baseRegularText = variantInfo?.regularPrices?.[selectedIndex] || null;
+  const baseSaleText = variantInfo?.salePrices?.[selectedIndex] || null;
+
+  if (!baseRegularText || !baseSaleText) return null;
+
+  let regular = parseKoreanPriceToNumber(baseRegularText);
+  let sale = parseKoreanPriceToNumber(baseSaleText);
+
+  if (selectedLensMode === "tint") {
+    const tintRegularText =
+      variantInfo?.tintRegularPrices?.[selectedIndex] || null;
+    const tintSaleText = variantInfo?.tintSalePrices?.[selectedIndex] || null;
+
+    if (!tintRegularText || !tintSaleText) return null;
+
+    regular += parseKoreanPriceToNumber(tintRegularText);
+    sale += parseKoreanPriceToNumber(tintSaleText);
+  }
+
+  if (selectedLensMode === "photo") {
+    const photoRegularText =
+      variantInfo?.photoRegularPrices?.[selectedIndex] || null;
+    const photoSaleText =
+      variantInfo?.photoSalePrices?.[selectedIndex] || null;
+
+    if (!photoRegularText || !photoSaleText) return null;
+
+    regular += parseKoreanPriceToNumber(photoRegularText);
+    sale += parseKoreanPriceToNumber(photoSaleText);
+  }
+
+  if (selectedCoatingMode === "premium") {
+    const premiumRegularText =
+      variantInfo?.premiumCoatingRegularPrices?.[selectedIndex] || null;
+    const premiumSaleText =
+      variantInfo?.premiumCoatingSalePrices?.[selectedIndex] || null;
+
+    if (!premiumRegularText || !premiumSaleText) return null;
+
+    regular += parseKoreanPriceToNumber(premiumRegularText);
+    sale += parseKoreanPriceToNumber(premiumSaleText);
+  }
+
+  return { regular, sale };
 }
 
 export default function Ina2Flow() {
@@ -267,7 +520,7 @@ export default function Ina2Flow() {
   const [selectedVariant, setSelectedVariant] = useState("기본");
   const [selectedIndex, setSelectedIndex] = useState("1.50");
 
-  // ⭐ 옵션 상태
+  // 옵션 상태
   const [selectedLensMode, setSelectedLensMode] = useState("clear"); // clear | tint | photo
   const [selectedCoatingMode, setSelectedCoatingMode] = useState("basic"); // basic | premium
 
@@ -335,38 +588,20 @@ export default function Ina2Flow() {
 
     const product = PRODUCT_INFO[leftProduct];
     const variantInfo = getCurrentVariantInfo(product, selectedVariant);
-    const basePriceText = variantInfo?.refractivePrices?.[selectedIndex];
 
-    if (!basePriceText) return null;
-
-    const baseSale = parseKoreanPriceToNumber(basePriceText);
-    const tintPriceText = variantInfo?.tintPrices?.[selectedIndex] || null;
-    const photoPriceText = variantInfo?.photoPrices?.[selectedIndex] || null;
-    const premiumCoatingPriceText =
-      variantInfo?.premiumCoatingPrices?.[selectedIndex] || null;
-
-    let optionSale = 0;
-
-    if (selectedLensMode === "tint" && tintPriceText) {
-      optionSale += parseKoreanPriceToNumber(tintPriceText);
-    }
-
-    if (selectedLensMode === "photo" && photoPriceText) {
-      optionSale += parseKoreanPriceToNumber(photoPriceText);
-    }
-
-    if (selectedCoatingMode === "premium" && premiumCoatingPriceText) {
-      optionSale += parseKoreanPriceToNumber(premiumCoatingPriceText);
-    }
-
-    const sale = baseSale + optionSale;
-
-    return {
-      sale,
-      // 🔧 정상가 연출값 수정 위치
-      regular: sale + 100000,
-    };
-  }, [leftProduct, selectedVariant, selectedIndex, selectedLensMode, selectedCoatingMode]);
+    return getPriceBreakdown(
+      variantInfo,
+      selectedIndex,
+      selectedLensMode,
+      selectedCoatingMode
+    );
+  }, [
+    leftProduct,
+    selectedVariant,
+    selectedIndex,
+    selectedLensMode,
+    selectedCoatingMode,
+  ]);
 
   const summaryText = useMemo(() => {
     if (!leftProduct) return "";
@@ -388,7 +623,9 @@ export default function Ina2Flow() {
     <div className="w-screen h-screen bg-slate-50 overflow-hidden">
       <div className="w-full h-full px-6 py-5">
         <div className="relative w-full h-full bg-white rounded-[32px] shadow-2xl border border-slate-200 overflow-hidden">
-          <div className={`w-full h-full flex ${step === "result" ? "pb-[92px]" : ""}`}>
+          <div
+            className={`w-full h-full flex ${step === "result" ? "pb-[92px]" : ""}`}
+          >
             <div className="relative w-[64%] h-full overflow-hidden border-r border-slate-200">
               {step === "result" && leftProduct ? (
                 <ProductPreviewPanel
@@ -670,26 +907,20 @@ function ProductPreviewPanel({
   const variantInfo =
     product?.variants?.[selectedVariant] || product?.variants?.[variantNames[0]];
 
-  const currentPrice = variantInfo?.refractivePrices?.[selectedIndex] || null;
-  const tintPrice = variantInfo?.tintPrices?.[selectedIndex] || null;
-  const photoPrice = variantInfo?.photoPrices?.[selectedIndex] || null;
-  const premiumCoatingPrice =
-    variantInfo?.premiumCoatingPrices?.[selectedIndex] || null;
+  const canPremiumCoating = Boolean(
+    variantInfo?.premiumCoatingRegularPrices?.[selectedIndex] &&
+      variantInfo?.premiumCoatingSalePrices?.[selectedIndex]
+  );
 
-  const canPremiumCoating = Boolean(premiumCoatingPrice);
+  const priceInfo = getPriceBreakdown(
+    variantInfo,
+    selectedIndex,
+    selectedLensMode,
+    selectedCoatingMode
+  );
 
-  let sale = parseKoreanPriceToNumber(currentPrice);
-  if (selectedLensMode === "tint" && tintPrice) {
-    sale += parseKoreanPriceToNumber(tintPrice);
-  }
-  if (selectedLensMode === "photo" && photoPrice) {
-    sale += parseKoreanPriceToNumber(photoPrice);
-  }
-  if (selectedCoatingMode === "premium" && premiumCoatingPrice) {
-    sale += parseKoreanPriceToNumber(premiumCoatingPrice);
-  }
-
-  const regular = currentPrice ? sale + 100000 : 0;
+  const regular = priceInfo?.regular || 0;
+  const sale = priceInfo?.sale || 0;
 
   const handleOpenUrl = () => {
     if (variantInfo?.url) {
@@ -764,10 +995,9 @@ function ProductPreviewPanel({
           </div>
         </div>
 
-        <div className="grid grid-cols-[1.1fr_0.9fr] gap-6 flex-1 min-h-0">
+<div className="grid grid-cols-[1.1fr_0.9fr] gap-6 items-start">
           <div className="flex flex-col gap-5 min-h-0">
             <div className="rounded-[28px] bg-white/90 backdrop-blur border border-slate-200 shadow-sm p-6">
-              {/* 가격안내 + 코팅버튼 같은 줄 */}
               <div className="flex items-center justify-between gap-4 mb-4">
                 <div className="text-[17px] font-bold text-slate-700">
                   가격 안내
@@ -789,7 +1019,6 @@ function ProductPreviewPanel({
                     onClick={() => {
                       if (!canPremiumCoating) return;
                       setSelectedCoatingMode("premium");
-                      // ⭐ 프리미엄코팅은 다른 옵션과 동시 불가
                       setSelectedLensMode("clear");
                     }}
                     disabled={!canPremiumCoating}
@@ -818,17 +1047,18 @@ function ProductPreviewPanel({
 
                 <div className="text-right">
                   <div className="text-[14px] text-slate-400 line-through mb-1">
-                    정상가 {currentPrice ? `${regular.toLocaleString()}원` : "생산불가"}
+                    정상가 {priceInfo ? `${regular.toLocaleString()}원` : "생산불가"}
                   </div>
                   <div className="text-[28px] font-extrabold text-blue-900">
-                    {currentPrice ? `${sale.toLocaleString()}원` : "생산불가"}
+                    {priceInfo ? `${sale.toLocaleString()}원` : "생산불가"}
                   </div>
                 </div>
               </div>
 
               <div className="grid grid-cols-4 gap-3">
                 {REFRACTIVE_OPTIONS.map((idx) => {
-                  const price = variantInfo?.refractivePrices?.[idx];
+                  const regularText = variantInfo?.regularPrices?.[idx];
+                  const saleText = variantInfo?.salePrices?.[idx];
 
                   return (
                     <div
@@ -846,9 +1076,21 @@ function ProductPreviewPanel({
                       >
                         {idx}
                       </div>
-                      <div className="mt-1 text-[13px] font-bold text-slate-500 break-keep">
-                        {price || "불가"}
-                      </div>
+
+                      {regularText && saleText ? (
+                        <div className="mt-1">
+                          <div className="text-[11px] text-slate-400 line-through">
+                            {regularText}
+                          </div>
+                          <div className="text-[13px] font-bold text-slate-600">
+                            {saleText}
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="mt-1 text-[13px] font-bold text-slate-400">
+                          불가
+                        </div>
+                      )}
                     </div>
                   );
                 })}
@@ -913,22 +1155,23 @@ function ProductPreviewPanel({
             </div>
           </div>
 
-          <div className="min-h-0">
-            <div className="w-full h-full rounded-[30px] border border-slate-200 bg-white shadow-sm overflow-hidden flex flex-col">
-              <div className="px-5 py-4 border-b border-slate-200 bg-slate-50">
+<div className="self-start">
+  <div className="w-full rounded-[30px] border border-slate-200 bg-white shadow-sm overflow-hidden">
+  <div className="px-5 py-4 border-b border-slate-200 bg-slate-50">
                 <div className="text-[17px] font-bold text-slate-700">
                   제품 이미지 / 시야 예시
                 </div>
               </div>
 
-              <div className="flex-1 p-5 flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 min-h-[280px]">
-                {variantInfo?.image ? (
-                  <img
-                    src={variantInfo.image}
-                    alt={`${productName} ${selectedVariant}`}
-                    className="max-w-full max-h-full object-contain"
-                  />
-                ) : (
+<div className="flex-1 bg-gradient-to-br from-slate-50 to-slate-100 overflow-hidden flex items-center justify-center">
+
+  {variantInfo?.image ? (
+    <img
+      src={variantInfo.image}
+      alt={`${productName} ${selectedVariant}`}
+      className="w-full h-full object-cover"
+    />
+  ) : (
                   <div className="w-full h-full rounded-[24px] border-2 border-dashed border-slate-300 flex items-center justify-center text-center px-8">
                     <div>
                       <div className="text-[24px] font-extrabold text-slate-700 mb-2 break-keep">
@@ -1000,16 +1243,23 @@ function ResultStep({
           const isSelected = selectedProduct === item;
 
           const variantNames = Object.keys(info?.variants || {});
-          const itemVariant =
-            isSelected
-              ? selectedVariant
-              : info?.variants?.KAN
-              ? "KAN"
-              : variantNames[0] || "기본";
+          const itemVariant = isSelected
+            ? selectedVariant
+            : info?.variants?.KAN
+            ? "KAN"
+            : variantNames[0] || "기본";
 
           const variantInfo = info?.variants?.[itemVariant];
-          const canTint = Boolean(variantInfo?.tintPrices?.[selectedIndex]);
-          const canPhoto = Boolean(variantInfo?.photoPrices?.[selectedIndex]);
+
+          const canTint = Boolean(
+            variantInfo?.tintRegularPrices?.[selectedIndex] &&
+              variantInfo?.tintSalePrices?.[selectedIndex]
+          );
+
+          const canPhoto = Boolean(
+            variantInfo?.photoRegularPrices?.[selectedIndex] &&
+              variantInfo?.photoSalePrices?.[selectedIndex]
+          );
 
           return (
             <div
