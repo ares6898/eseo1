@@ -123,49 +123,7 @@ const PRODUCT_INFO = {
     },
   },
 
-  E1: {
-    desc: "가볍게 사용하는 실속형",
-    grade: "실속형 선택",
-    badge: "서브 추천",
-    variants: {
-      기본: {
-        summary:
-          "누진다초점 적응이 수월하고 근거리도수가 높지 않은 고객님께 권하는 제품입니다.",
-        goodFor: ["가벼운 근거리 작업", "가격 부담이 큰 고객", "예비용 안경"],
-        points: ["실속형", "부담 적은 선택", "기본 기능 중심"],
-        image: "/images/E12.jpg",
-        url: null,
-
-        regularPrices: {
-          "1.50": "32만원",
-          "1.60": "38만원",
-        },
-        salePrices: {
-          "1.50": "18만원",
-          "1.60": "23.5만원",
-        },
-
-        tintRegularPrices: {
-          "1.50": "3만원",
-          "1.60": "3만원",
-        },
-        tintSalePrices: {
-          "1.50": "1.5만원",
-          "1.60": "1.5만원",
-        },
-
-        photoRegularPrices: {},
-        photoSalePrices: {},
-
-        premiumCoatingRegularPrices: {},
-        premiumCoatingSalePrices: {
-          "1.50": "0만원",
-          "1.60": "0만원",
-          "1.67": "0만원",
-        },
-      },
-    },
-  },
+  
 
   E2: {
     desc: "디지털 기기 특화 설계",
@@ -221,6 +179,44 @@ const PRODUCT_INFO = {
           "1.67": "3만원",
         },
       },
+	  
+
+      E1: {
+        summary:
+          "누진다초점 적응이 수월하고 근거리도수가 높지 않은 고객님께 권하는 제품입니다.",
+        goodFor: ["가벼운 근거리 작업", "가격 부담이 큰 고객", "예비용 안경"],
+        points: ["실속형", "부담 적은 선택", "기본 기능 중심"],
+        image: "/images/E12.jpg",
+        url: null,
+
+        regularPrices: {
+          "1.50": "32만원",
+          "1.60": "38만원",
+        },
+        salePrices: {
+          "1.50": "18만원",
+          "1.60": "23.5만원",
+        },
+
+        tintRegularPrices: {
+          "1.50": "3만원",
+          "1.60": "3만원",
+        },
+        tintSalePrices: {
+          "1.50": "1.5만원",
+          "1.60": "1.5만원",
+        },
+
+        photoRegularPrices: {},
+        photoSalePrices: {},
+
+        premiumCoatingRegularPrices: {},
+        premiumCoatingSalePrices: {
+          "1.50": "0만원",
+          "1.60": "0만원",
+          "1.67": "0만원",
+        },
+      },
     },
   },
 
@@ -243,8 +239,8 @@ const PRODUCT_INFO = {
           "1.67": "71만원",
         },
         salePrices: {
-          "1.50": "24만원",
-          "1.60": "31만원",
+          "1.50": "26만원",
+          "1.60": "33만원",
           "1.67": "38만원",
         },
 
@@ -930,49 +926,71 @@ export default function Ina2Flow() {
 
   const handleFinish = (level, use) => {
     let result = [];
+// =========================
+// ADD LOW
+// =========================
+if (level === "low") {
+  if (use === "heavy") {
+    // 🔥 핵심: LOW라도 사용량 많으면 중간 앵커 먼저
+    result = [
+      { name: "E3", variant: "기본" },
+      { name: "컴포트맥스", variant: "기본" },
+    ];
+  } else if (use === "normal") {
+    result = [
+      { name: "C6", variant: "기본" },
+      { name: "E2", variant: "E1" },
+    ];
+  } else {
+    result = [{ name: "C1", variant: "기본" }];
+  }
+}
 
-    if (level === "low") {
-      if (use === "light") {
-        result = [
-          { name: "C6", variant: "기본" },
-          { name: "E1", variant: "기본" },
-        ];
-      } else {
-        result = [
-          { name: "E3", variant: "기본" },
-          { name: "컴포트맥스", variant: "기본" },
-        ];
-      }
-    }
+// =========================
+// ADD MID (🔥 매출 핵심구간)
+// =========================
+if (level === "mid") {
+  if (use === "heavy") {
+    // 🔥 가장 잘 팔리는 흐름
+    result = [
+      { name: "컴포트맥스", variant: "KAN" },
+      { name: "피지오", variant: "Kan" },
+    ];
+  } else if (use === "normal") {
+    result = [
+      { name: "E3", variant: "기본" },
+      { name: "컴포트맥스", variant: "기본" },
+    ];
+  } else {
+    result = [
+      { name: "C6", variant: "기본" },
+      { name: "E2", variant: "기본" },
+    ];
+  }
+}
 
-    if (level === "mid") {
-      if (use === "heavy") {
-        result = [
-          { name: "컴포트맥스", variant: "KAN" },
-          { name: "피지오", variant: "Kan" },
-        ];
-      } else {
-        result = [
-          { name: "E3", variant: "기본" },
-          { name: "컴포트맥스", variant: "기본" },
-        ];
-      }
-    }
-
-    if (level === "high") {
-      if (use === "heavy") {
-        result = [
-          { name: "피지오", variant: "Kan" },
-          { name: "XR", variant: "기본" },
-        ];
-      } else {
-        result = [
-          { name: "컴포트맥스", variant: "KAN" },
-          { name: "피지오", variant: "기본" },
-        ];
-      }
-    }
-
+// =========================
+// ADD HIGH
+// =========================
+if (level === "high") {
+  if (use === "heavy") {
+    // 🔥 XR은 항상 비교용으로 뒤
+    result = [
+      { name: "피지오", variant: "Kan" },
+      { name: "XR", variant: "기본" },
+    ];
+  } else if (use === "normal") {
+    result = [
+      { name: "컴포트맥스", variant: "KAN" },
+      { name: "피지오", variant: "기본" },
+    ];
+  } else {
+    result = [
+      { name: "E4", variant: "기본" },
+      { name: "E3", variant: "기본" },
+    ];
+  }
+}
     const firstItem = result[0] || null;
     const firstProduct = firstItem?.name || null;
     const firstVariant = firstItem?.variant || null;
@@ -1027,7 +1045,7 @@ export default function Ina2Flow() {
         : "변색";
 
     const coatingLabel =
-      selectedCoatingMode === "premium" ? "프리미엄코팅" : "기본코팅";
+      selectedCoatingMode === "premium" ? "프리미엄" : "기본코팅";
 
     return `${leftProduct} / ${selectedVariant} / ${selectedIndex} / ${lensModeLabel} / ${coatingLabel}`;
   }, [
@@ -1123,10 +1141,10 @@ export default function Ina2Flow() {
                   <Chip
                     text={
                       usage === "light"
-                        ? "가볍게 사용"
+                        ? "가격중심"
                         : usage === "normal"
-                        ? "보통 사용"
-                        : "많이 사용"
+                        ? "균형분석"
+                        : "정밀분석"
                     }
                   />
                 )}
@@ -1819,7 +1837,7 @@ function ResultStep({
                             : "bg-slate-100 text-slate-700 border-slate-300"
                         }`}
                       >
-                        {isMain ? "완벽 추천" : "상대 추천"}
+                        {isMain ? "정밀 추천" : "상위 추천"}
                       </div>
                     </div>
 
