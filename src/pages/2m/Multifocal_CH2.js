@@ -16,7 +16,6 @@ const PRODUCT_INFO = {
         image: "/images/multifocal-c6.jpg",
         url: "https://example.com/c6",
 
-        // 기본렌즈 정가 / 할인가
         regularPrices: {
           "1.50": "33만원",
           "1.60": "38만원",
@@ -28,7 +27,6 @@ const PRODUCT_INFO = {
           "1.67": "33만원",
         },
 
-        // 착색 정가 / 할인가
         tintRegularPrices: {
           "1.50": "5만원",
           "1.60": "5만원",
@@ -40,11 +38,9 @@ const PRODUCT_INFO = {
           "1.67": "3만원",
         },
 
-        // 변색 정가 / 할인가
         photoRegularPrices: {},
         photoSalePrices: {},
 
-        // 프리미엄코팅 정가 / 할인가
         premiumCoatingRegularPrices: {
           "1.50": "7만원",
           "1.60": "7만원",
@@ -95,7 +91,7 @@ const PRODUCT_INFO = {
         },
 
         photoRegularPrices: {
-		  "1.50": "20만원",
+          "1.50": "20만원",
           "1.60": "20만원",
           "1.67": "20만원",
         },
@@ -106,12 +102,10 @@ const PRODUCT_INFO = {
         },
 
         premiumCoatingRegularPrices: {
-          
           "1.60": "5만원",
           "1.67": "5만원",
         },
         premiumCoatingSalePrices: {
-          
           "1.60": "2.5만원",
           "1.67": "2.5만원",
         },
@@ -422,10 +416,8 @@ function parseKoreanPriceToNumber(priceText) {
   if (priceText === null || priceText === undefined) return 0;
 
   const text = String(priceText).trim();
-
   if (!text) return 0;
 
-  // "1.5만원", "15만원", "0.7만원" 대응
   if (text.includes("만원")) {
     const value = Number(
       text
@@ -433,11 +425,9 @@ function parseKoreanPriceToNumber(priceText) {
         .replace(/,/g, "")
         .trim()
     );
-
     return Number.isNaN(value) ? 0 : Math.round(value * 10000);
   }
 
-  // "15000원", "15,000원" 대응
   if (text.includes("원")) {
     const value = Number(
       text
@@ -445,11 +435,9 @@ function parseKoreanPriceToNumber(priceText) {
         .replace(/,/g, "")
         .trim()
     );
-
     return Number.isNaN(value) ? 0 : Math.round(value);
   }
 
-  // 단위 없이 숫자만 들어온 경우
   const value = Number(text.replace(/,/g, "").trim());
   return Number.isNaN(value) ? 0 : Math.round(value);
 }
@@ -520,9 +508,8 @@ export default function Ina2Flow() {
   const [selectedVariant, setSelectedVariant] = useState("기본");
   const [selectedIndex, setSelectedIndex] = useState("1.50");
 
-  // 옵션 상태
-  const [selectedLensMode, setSelectedLensMode] = useState("clear"); // clear | tint | photo
-  const [selectedCoatingMode, setSelectedCoatingMode] = useState("basic"); // basic | premium
+  const [selectedLensMode, setSelectedLensMode] = useState("clear");
+  const [selectedCoatingMode, setSelectedCoatingMode] = useState("basic");
 
   const canNextDistance = refractiveType && astigmatismType;
   const mainRecommended = useMemo(() => recommended?.[0] || null, [recommended]);
@@ -825,7 +812,7 @@ export default function Ina2Flow() {
           </div>
 
           {step === "result" && leftProduct && (
-            <div className="absolute bottom-0 left-0 right-0 h-[92px] border-t border-slate-700 bg-slate-900 px-8 flex items-center justify-between">
+            <div className="absolute bottom-0 left-0 w-[64%] h-[92px] border-t border-slate-700 bg-slate-900 px-8 flex items-center justify-between">
               <div className="min-w-0 pr-6">
                 <div className="text-[13px] font-bold text-slate-400 mb-1">
                   현재 구성
@@ -954,35 +941,68 @@ function ProductPreviewPanel({
               {product?.grade}
             </div>
 
-            <div className="flex items-center gap-4 flex-wrap mb-3">
-              <h2 className="text-[46px] leading-none font-extrabold text-slate-900 break-keep">
-                {productName}
-              </h2>
+            <div className="flex items-center justify-between gap-4 flex-wrap mb-3">
+              <div className="flex items-center gap-4 flex-wrap min-w-0">
+                <h2 className="text-[46px] leading-none font-extrabold text-slate-900 break-keep">
+                  {productName}
+                </h2>
 
-              {variantNames.length > 1 && (
-                <div className="flex gap-2 flex-wrap">
-                  {variantNames.map((name) => {
-                    const active = selectedVariant === name;
-                    return (
-                      <button
-                        key={name}
-                        onClick={() => {
-                          setSelectedVariant(name);
-                          setSelectedLensMode("clear");
-                          setSelectedCoatingMode("basic");
-                        }}
-                        className={`h-[44px] px-4 rounded-2xl border-2 text-[15px] font-bold transition ${
-                          active
-                            ? "bg-blue-600 border-blue-600 text-white shadow-sm"
-                            : "bg-white border-slate-300 text-slate-800 hover:border-blue-300 hover:bg-blue-50"
-                        }`}
-                      >
-                        {name}
-                      </button>
-                    );
-                  })}
-                </div>
-              )}
+                {variantNames.length > 1 && (
+                  <div className="flex gap-2 flex-wrap">
+                    {variantNames.map((name) => {
+                      const active = selectedVariant === name;
+                      return (
+                        <button
+                          key={name}
+                          onClick={() => {
+                            setSelectedVariant(name);
+                            setSelectedLensMode("clear");
+                            setSelectedCoatingMode("basic");
+                          }}
+                          className={`h-[44px] px-4 rounded-2xl border-2 text-[15px] font-bold transition ${
+                            active
+                              ? "bg-blue-600 border-blue-600 text-white shadow-sm"
+                              : "bg-white border-slate-300 text-slate-800 hover:border-blue-300 hover:bg-blue-50"
+                          }`}
+                        >
+                          {name}
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+
+              <div className="flex gap-2 shrink-0">
+                <button
+                  onClick={() => setSelectedCoatingMode("basic")}
+                  className={`h-[40px] px-4 rounded-2xl border font-bold text-[14px] transition ${
+                    selectedCoatingMode === "basic"
+                      ? "bg-slate-800 text-white border-slate-800"
+                      : "bg-white text-slate-700 border-slate-300 hover:bg-slate-50"
+                  }`}
+                >
+                  기본코팅
+                </button>
+
+                <button
+                  onClick={() => {
+                    if (!canPremiumCoating) return;
+                    setSelectedCoatingMode("premium");
+                    setSelectedLensMode("clear");
+                  }}
+                  disabled={!canPremiumCoating}
+                  className={`h-[40px] px-4 rounded-2xl border font-bold text-[14px] transition ${
+                    !canPremiumCoating
+                      ? "bg-slate-200 text-slate-400 border-slate-200"
+                      : selectedCoatingMode === "premium"
+                      ? "bg-emerald-600 text-white border-emerald-600"
+                      : "bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100"
+                  }`}
+                >
+                  {!canPremiumCoating ? "생산불가" : "프리미엄코팅"}
+                </button>
+              </div>
             </div>
 
             <div className="text-[22px] font-semibold text-slate-600 break-keep leading-snug">
@@ -995,44 +1015,101 @@ function ProductPreviewPanel({
           </div>
         </div>
 
-<div className="grid grid-cols-[1.1fr_0.9fr] gap-6 items-start">
+        <div className="grid grid-cols-[1.1fr_0.9fr] gap-6 items-start">
           <div className="flex flex-col gap-5 min-h-0">
-            <div className="rounded-[28px] bg-white/90 backdrop-blur border border-slate-200 shadow-sm p-6">
-              <div className="flex items-center justify-between gap-4 mb-4">
+            <button
+              type="button"
+              onClick={handleOpenUrl}
+              className={`rounded-[28px] bg-white/90 backdrop-blur border border-slate-200 shadow-sm p-6 text-left transition ${
+                variantInfo?.url
+                  ? "hover:shadow-md hover:border-blue-300 cursor-pointer"
+                  : "cursor-default"
+              }`}
+            >
+              <div className="flex items-center justify-between gap-4 mb-3">
                 <div className="text-[17px] font-bold text-slate-700">
-                  가격 안내
+                  제품 포인트
                 </div>
 
-                <div className="flex gap-2">
-                  <button
-                    onClick={() => setSelectedCoatingMode("basic")}
-                    className={`h-[40px] px-4 rounded-2xl border font-bold text-[14px] transition ${
-                      selectedCoatingMode === "basic"
-                        ? "bg-slate-800 text-white border-slate-800"
-                        : "bg-white text-slate-700 border-slate-300 hover:bg-slate-50"
-                    }`}
-                  >
-                    기본코팅
-                  </button>
+                {variantInfo?.url && (
+                  <div className="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-[13px] font-bold border border-blue-200">
+                    홈페이지 보기
+                  </div>
+                )}
+              </div>
 
-                  <button
-                    onClick={() => {
-                      if (!canPremiumCoating) return;
-                      setSelectedCoatingMode("premium");
-                      setSelectedLensMode("clear");
-                    }}
-                    disabled={!canPremiumCoating}
-                    className={`h-[40px] px-4 rounded-2xl border font-bold text-[14px] transition ${
-                      !canPremiumCoating
-                        ? "bg-slate-200 text-slate-400 border-slate-200"
-                        : selectedCoatingMode === "premium"
-                        ? "bg-emerald-600 text-white border-emerald-600"
-                        : "bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100"
-                    }`}
+              <p className="text-[21px] leading-relaxed font-semibold text-slate-700 mb-5 break-keep">
+                {variantInfo?.summary}
+              </p>
+
+              <div className="flex flex-wrap gap-3">
+                {variantInfo?.points?.map((point) => (
+                  <span
+                    key={point}
+                    className="px-4 py-2 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-[16px] font-bold break-keep"
                   >
-                    {!canPremiumCoating ? "생산불가" : "프리미엄코팅"}
-                  </button>
+                    {point}
+                  </span>
+                ))}
+              </div>
+            </button>
+
+            <div className="rounded-[28px] bg-white/90 backdrop-blur border border-slate-200 shadow-sm p-6 flex-1">
+              <div className="text-[17px] font-bold text-slate-700 mb-4">
+                이런 고객님께 잘 맞습니다
+              </div>
+
+              <div className="grid grid-cols-1 gap-3">
+                {variantInfo?.goodFor?.map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-center gap-4 rounded-2xl bg-slate-50 border border-slate-200 px-5 py-4"
+                  >
+                    <div className="w-3 h-3 rounded-full bg-blue-600 shrink-0" />
+                    <div className="text-[19px] font-bold text-slate-800 break-keep leading-snug">
+                      {item}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="self-start flex flex-col gap-5">
+            <div className="w-full rounded-[30px] border border-slate-200 bg-white shadow-sm overflow-hidden">
+              <div className="px-5 py-4 border-b border-slate-200 bg-slate-50">
+                <div className="text-[17px] font-bold text-slate-700">
+                  제품 이미지 / 시야 예시
                 </div>
+              </div>
+
+              <div className="flex-1 bg-gradient-to-br from-slate-50 to-slate-100 overflow-hidden flex items-center justify-center">
+                {variantInfo?.image ? (
+                  <img
+                    src={variantInfo.image}
+                    alt={`${productName} ${selectedVariant}`}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-full rounded-[24px] border-2 border-dashed border-slate-300 flex items-center justify-center text-center px-8">
+                    <div>
+                      <div className="text-[24px] font-extrabold text-slate-700 mb-2 break-keep">
+                        {productName}
+                      </div>
+                      <div className="text-[16px] font-semibold text-slate-500 leading-relaxed break-keep">
+                        여기에 제품 이미지, 브랜드 카드,
+                        <br />
+                        시야 예시 이미지를 넣으면 좋습니다
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <div className="rounded-[28px] bg-white/90 backdrop-blur border border-slate-200 shadow-sm p-6">
+              <div className="text-[17px] font-bold text-slate-700 mb-4">
+                가격 안내
               </div>
 
               <div className="flex items-center justify-between rounded-2xl border px-5 py-5 bg-blue-50 border-blue-300 mb-4">
@@ -1094,97 +1171,6 @@ function ProductPreviewPanel({
                     </div>
                   );
                 })}
-              </div>
-            </div>
-
-            <button
-              type="button"
-              onClick={handleOpenUrl}
-              className={`rounded-[28px] bg-white/90 backdrop-blur border border-slate-200 shadow-sm p-6 text-left transition ${
-                variantInfo?.url
-                  ? "hover:shadow-md hover:border-blue-300 cursor-pointer"
-                  : "cursor-default"
-              }`}
-            >
-              <div className="flex items-center justify-between gap-4 mb-3">
-                <div className="text-[17px] font-bold text-slate-700">
-                  제품 포인트
-                </div>
-
-                {variantInfo?.url && (
-                  <div className="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-[13px] font-bold border border-blue-200">
-                    홈페이지 보기
-                  </div>
-                )}
-              </div>
-
-              <p className="text-[21px] leading-relaxed font-semibold text-slate-700 mb-5 break-keep">
-                {variantInfo?.summary}
-              </p>
-
-              <div className="flex flex-wrap gap-3">
-                {variantInfo?.points?.map((point) => (
-                  <span
-                    key={point}
-                    className="px-4 py-2 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-[16px] font-bold break-keep"
-                  >
-                    {point}
-                  </span>
-                ))}
-              </div>
-            </button>
-
-            <div className="rounded-[28px] bg-white/90 backdrop-blur border border-slate-200 shadow-sm p-6 flex-1">
-              <div className="text-[17px] font-bold text-slate-700 mb-4">
-                이런 고객님께 잘 맞습니다
-              </div>
-
-              <div className="grid grid-cols-1 gap-3">
-                {variantInfo?.goodFor?.map((item) => (
-                  <div
-                    key={item}
-                    className="flex items-center gap-4 rounded-2xl bg-slate-50 border border-slate-200 px-5 py-4"
-                  >
-                    <div className="w-3 h-3 rounded-full bg-blue-600 shrink-0" />
-                    <div className="text-[19px] font-bold text-slate-800 break-keep leading-snug">
-                      {item}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-<div className="self-start">
-  <div className="w-full rounded-[30px] border border-slate-200 bg-white shadow-sm overflow-hidden">
-  <div className="px-5 py-4 border-b border-slate-200 bg-slate-50">
-                <div className="text-[17px] font-bold text-slate-700">
-                  제품 이미지 / 시야 예시
-                </div>
-              </div>
-
-<div className="flex-1 bg-gradient-to-br from-slate-50 to-slate-100 overflow-hidden flex items-center justify-center">
-
-  {variantInfo?.image ? (
-    <img
-      src={variantInfo.image}
-      alt={`${productName} ${selectedVariant}`}
-      className="w-full h-full object-cover"
-    />
-  ) : (
-                  <div className="w-full h-full rounded-[24px] border-2 border-dashed border-slate-300 flex items-center justify-center text-center px-8">
-                    <div>
-                      <div className="text-[24px] font-extrabold text-slate-700 mb-2 break-keep">
-                        {productName}
-                      </div>
-                      <div className="text-[16px] font-semibold text-slate-500 leading-relaxed break-keep">
-                        여기에 제품 이미지, 브랜드 카드,
-                        <br />
-                        시야 예시 이미지를 넣으면 좋습니다
-                      </div>
-                    </div>
-                  </div>
-                )}
               </div>
             </div>
           </div>
