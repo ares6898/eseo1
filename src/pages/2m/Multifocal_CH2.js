@@ -412,6 +412,62 @@ function getCurrentVariantInfo(product, selectedVariant) {
   );
 }
 
+function canUsePremiumCoating(variantInfo, selectedIndex) {
+  return Boolean(
+    variantInfo?.premiumCoatingRegularPrices?.[selectedIndex] &&
+      variantInfo?.premiumCoatingSalePrices?.[selectedIndex]
+  );
+}
+
+function getPreferredVariant(productName, preferredVariant = null) {
+  const product = PRODUCT_INFO[productName];
+  if (!product?.variants) return "기본";
+
+  const variantNames = Object.keys(product.variants);
+
+  if (preferredVariant && product.variants[preferredVariant]) {
+    return preferredVariant;
+  }
+
+  if (product.variants.KAN) return "KAN";
+  if (product.variants.기본) return "기본";
+  return variantNames[0];
+}
+
+function getPreferredCoatingMode(variantInfo, selectedIndex, selectedLensMode = "clear") {
+  if (selectedLensMode !== "clear") return "basic";
+  return canUsePremiumCoating(variantInfo, selectedIndex) ? "premium" : "basic";
+}
+
+function getPreferredSelection(
+  productName,
+  selectedIndex,
+  preferredVariant = null,
+  selectedLensMode = "clear"
+) {
+  const product = PRODUCT_INFO[productName];
+
+  if (!product?.variants) {
+    return {
+      variant: "기본",
+      coatingMode: "basic",
+    };
+  }
+
+  const variant = getPreferredVariant(productName, preferredVariant);
+  const variantInfo = product.variants[variant];
+  const coatingMode = getPreferredCoatingMode(
+    variantInfo,
+    selectedIndex,
+    selectedLensMode
+  );
+
+  return {
+    variant,
+    coatingMode,
+  };
+}
+
 function parseKoreanPriceToNumber(priceText) {
   if (priceText === null || priceText === undefined) return 0;
 
@@ -501,7 +557,6 @@ export default function Ina2Flow() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [selectedVariant, setSelectedVariant] = useState("기본");
   const [selectedIndex, setSelectedIndex] = useState("1.50");
-
   const [selectedLensMode, setSelectedLensMode] = useState("clear");
   const [selectedCoatingMode, setSelectedCoatingMode] = useState("basic");
 
@@ -509,11 +564,55 @@ export default function Ina2Flow() {
   const mainRecommended = useMemo(() => recommended?.[0] || null, [recommended]);
   const leftProduct = selectedProduct || mainRecommended;
 
-  const handleSelectProduct = (productName) => {
+  const applyPreferredSelection = (
+    productName,
+    nextIndex,
+    lensMode = "clear",
+    preferredVariant = null
+  ) => {
+    const next = getPreferredSelection(
+      productName,
+      nextIndex,
+      preferredVariant,
+      lensMode
+    );
+
     setSelectedProduct(productName);
-    setSelectedVariant(getDefaultVariant(productName));
-    setSelectedLensMode("clear");
-    setSelectedCoatingMode("basic");
+    setSelectedVariant(next.variant);
+    setSelectedIndex(nextIndex);
+    setSelectedLensMode(lensMode);
+    setSelectedCoatingMode(next.coatingMode);
+  };
+
+  const handleSelectProduct = (productName) => {
+    applyPreferredSelection(productName, selectedIndex, "clear");
+  };
+
+  const handleSelectIndex = (idx) => {
+    if (!leftProduct) {
+      setSelectedIndex(idx);
+      return;
+    }
+
+    const nextPreferredVariant =
+      selectedVariant === "기본"
+        ? getPreferredVariant(leftProduct)
+        : getPreferredVariant(leftProduct, selectedVariant);
+
+    const next = getPreferredSelection(
+      leftProduct,
+      idx,
+      nextPreferredVariant,
+      selectedLensMode
+    );
+
+    setSelectedIndex(idx);
+    setSelectedVariant(next.variant);
+    setSelectedCoatingMode(next.coatingMode);
+  };
+
+  const handleSelectLensModeForProduct = (productName, lensMode) => {
+    applyPreferredSelection(productName, selectedIndex, lensMode);
   };
 
   const resetToHome = () => {
@@ -549,14 +648,18 @@ export default function Ina2Flow() {
     }
 
     const firstProduct = result[0] || null;
+    const defaultIndex = "1.50";
+    const next = firstProduct
+      ? getPreferredSelection(firstProduct, defaultIndex, null, "clear")
+      : { variant: "기본", coatingMode: "basic" };
 
     setUsage(use);
     setRecommended(result);
     setSelectedProduct(firstProduct);
-    setSelectedVariant(getDefaultVariant(firstProduct));
-    setSelectedIndex("1.50");
+    setSelectedVariant(next.variant);
+    setSelectedIndex(defaultIndex);
     setSelectedLensMode("clear");
-    setSelectedCoatingMode("basic");
+    setSelectedCoatingMode(next.coatingMode);
     setStep("analyzing");
 
     setTimeout(() => {
@@ -831,11 +934,12 @@ export default function Ina2Flow() {
                       selectedIndex={selectedIndex}
                       selectedLensMode={selectedLensMode}
                       onSelectProduct={handleSelectProduct}
+                      onSelectLensModeForProduct={handleSelectLensModeForProduct}
                       setSelectedVariant={setSelectedVariant}
                       setSelectedLensMode={setSelectedLensMode}
                       setSelectedCoatingMode={setSelectedCoatingMode}
                       onBack={() => setStep("usage")}
-                      setSelectedIndex={setSelectedIndex}
+                      setSelectedIndex={handleSelectIndex}
                     />
                   )}
                 </div>
@@ -896,10 +1000,8 @@ function ProductPreviewPanel({
   const variantInfo =
     product?.variants?.[selectedVariant] || product?.variants?.[variantNames[0]];
 
-  const canPremiumCoating = Boolean(
-    variantInfo?.premiumCoatingRegularPrices?.[selectedIndex] &&
-      variantInfo?.premiumCoatingSalePrices?.[selectedIndex]
-  );
+  const canPremiumCoating = canUsePremiumCoating(variantInfo, selectedIndex);
+  const premiumAllowedNow = selectedLensMode === "clear" && canPremiumCoating;
 
   const priceInfo = getPriceBreakdown(
     variantInfo,
@@ -915,6 +1017,20 @@ function ProductPreviewPanel({
     if (variantInfo?.url) {
       window.open(variantInfo.url, "_blank", "noopener,noreferrer");
     }
+  };
+
+  const handleVariantChange = (name) => {
+    setSelectedVariant(name);
+    setSelectedLensMode("clear");
+
+    const nextVariantInfo = product?.variants?.[name];
+    const nextCoatingMode = getPreferredCoatingMode(
+      nextVariantInfo,
+      selectedIndex,
+      "clear"
+    );
+
+    setSelectedCoatingMode(nextCoatingMode);
   };
 
   return (
@@ -956,11 +1072,7 @@ function ProductPreviewPanel({
                       return (
                         <button
                           key={name}
-                          onClick={() => {
-                            setSelectedVariant(name);
-                            setSelectedLensMode("clear");
-                            setSelectedCoatingMode("basic");
-                          }}
+                          onClick={() => handleVariantChange(name)}
                           className={`h-[40px] px-3 rounded-xl border-2 text-[14px] font-bold transition ${
                             active
                               ? "bg-blue-600 border-blue-600 text-white shadow-sm"
@@ -989,20 +1101,24 @@ function ProductPreviewPanel({
 
                 <button
                   onClick={() => {
-                    if (!canPremiumCoating) return;
-                    setSelectedCoatingMode("premium");
+                    if (!premiumAllowedNow) return;
                     setSelectedLensMode("clear");
+                    setSelectedCoatingMode("premium");
                   }}
-                  disabled={!canPremiumCoating}
+                  disabled={!premiumAllowedNow}
                   className={`h-[38px] px-3 rounded-xl border font-bold text-[13px] transition whitespace-nowrap ${
-                    !canPremiumCoating
+                    !premiumAllowedNow
                       ? "bg-slate-200 text-slate-400 border-slate-200"
                       : selectedCoatingMode === "premium"
                       ? "bg-emerald-600 text-white border-emerald-600"
                       : "bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100"
                   }`}
                 >
-                  {!canPremiumCoating ? "생산불가" : "프리미엄코팅"}
+                  {!premiumAllowedNow
+                    ? selectedLensMode !== "clear"
+                      ? "옵션중복불가"
+                      : "생산불가"
+                    : "프리미엄코팅"}
                 </button>
               </div>
             </div>
@@ -1189,9 +1305,7 @@ function ResultStep({
   selectedIndex,
   selectedLensMode,
   onSelectProduct,
-  setSelectedVariant,
-  setSelectedLensMode,
-  setSelectedCoatingMode,
+  onSelectLensModeForProduct,
   onBack,
   setSelectedIndex,
 }) {
@@ -1263,12 +1377,7 @@ function ResultStep({
               <div className="flex items-start gap-3">
                 <div className="w-3/5 min-w-0">
                   <button
-                    onClick={() => {
-                      onSelectProduct(item);
-                      if (info?.variants?.KAN) setSelectedVariant("KAN");
-                      setSelectedLensMode("clear");
-                      setSelectedCoatingMode("basic");
-                    }}
+                    onClick={() => onSelectProduct(item)}
                     className={`w-full text-left rounded-[18px] border px-4 py-3 transition ${
                       isSelected && selectedLensMode === "clear"
                         ? "bg-blue-700 text-white border-blue-700"
@@ -1314,10 +1423,8 @@ function ResultStep({
                 <div className="w-2/5 flex gap-2">
                   <button
                     onClick={() => {
-                      onSelectProduct(item);
-                      if (info?.variants?.KAN) setSelectedVariant("KAN");
-                      setSelectedCoatingMode("basic");
-                      if (canTint) setSelectedLensMode("tint");
+                      if (!canTint) return;
+                      onSelectLensModeForProduct(item, "tint");
                     }}
                     disabled={!canTint}
                     className={`flex-1 h-[78px] rounded-[18px] border font-bold text-[14px] transition ${
@@ -1333,10 +1440,8 @@ function ResultStep({
 
                   <button
                     onClick={() => {
-                      onSelectProduct(item);
-                      if (info?.variants?.KAN) setSelectedVariant("KAN");
-                      setSelectedCoatingMode("basic");
-                      if (canPhoto) setSelectedLensMode("photo");
+                      if (!canPhoto) return;
+                      onSelectLensModeForProduct(item, "photo");
                     }}
                     disabled={!canPhoto}
                     className={`flex-1 h-[78px] rounded-[18px] border font-bold text-[14px] transition ${
