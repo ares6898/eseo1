@@ -942,7 +942,7 @@ if (level === "low") {
       { name: "E2", variant: "E1" },
     ];
   } else {
-    result = [{ name: "C1", variant: "기본" }];
+    result = [{ name: "C6", variant: "C1" }];
   }
 }
 
@@ -2028,3 +2028,4 @@ const MainButton = ({ children, onClick }) => (
     {children}
   </button>
 );
+
