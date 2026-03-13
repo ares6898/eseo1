@@ -20,8 +20,9 @@ const CATEGORY_GROUPS = {
     { name: "E에센셜", variant: "E2" },
   ],
   실속형: [
+    { name: "E에센셜", variant: "E1" },
     { name: "C시리즈", variant: "C6" },
-	{ name: "E에센셜", variant: "E1" },
+	{ name: "C시리즈", variant: "C4" },
     { name: "C시리즈", variant: "C1" },
     
   ],
@@ -52,6 +53,62 @@ const PRODUCT_INFO = {
           "1.60": "20.9만원",
           "1.67": "27.9만원",
           "1.74": "39.9만원",
+        },
+
+        tintRegularPrices: {
+          "1.50": "3만원",
+          "1.60": "3만원",
+          "1.67": "3만원",
+          "1.74": "3만원",
+        },
+        tintSalePrices: {
+          "1.50": "1.5만원",
+          "1.60": "1.5만원",
+          "1.67": "1.5만원",
+          "1.74": "1.5만원",
+        },
+
+        photoRegularPrices: {
+          "1.60": "10만원",
+          "1.67": "10만원",
+        },
+        photoSalePrices: {
+          "1.60": "5만원",
+          "1.67": "5만원",
+        },
+
+        premiumCoatingRegularPrices: {
+          "1.50": "3만원",
+          "1.60": "3만원",
+          "1.67": "3만원",
+          "1.74": "3만원",
+        },
+        premiumCoatingSalePrices: {
+          "1.50": "1만원",
+          "1.60": "1만원",
+          "1.67": "1만원",
+          "1.74": "1만원",
+        },
+      },
+	  
+	  C4: {
+        summary: "부담 없는 실속노멀버전.",
+        goodFor: ["가벼운 근거리 작업", "가격 부담이 큰 고객", "입문형 누진다초점"],
+        points: ["실속형", "부담 적은 선택", "기본 기능 중심"],
+        image: "/images/C3.jpg",
+        url: null,
+
+        regularPrices: {
+          "1.50": "32.5만원",
+          "1.60": "38만원",
+          "1.67": "44.5만원",
+          "1.74": "59만원",
+        },
+        salePrices: {
+          "1.50": "13.9만원",
+          "1.60": "16.9만원",
+          "1.67": "20.9만원",
+          "1.74": "25.9만원",
         },
 
         tintRegularPrices: {
@@ -1010,7 +1067,7 @@ export default function Ina2Flow() {
           { name: "E에센셜", variant: "E2" },
         ];
       } else {
-        result = [{ name: "C시리즈", variant: "C1" },
+        result = [{ name: "C시리즈", variant: "C4" },
 		{ name: "E에센셜", variant: "E1" },
 		];
       }
