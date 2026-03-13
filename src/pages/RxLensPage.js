@@ -647,7 +647,7 @@ const PRODUCT_INFO = {
     variants: {
       기본: {
         summary: "세계판매 1위의 <바리락스>의 최첨단 성능의 누진다초점.",
-        goodFor: ["최상위 제품 선호", "적응과 시야 모두 중요", "프리미엄 가치 설명이 잘 먹히는 고객"],
+        goodFor: ["최상위 제품 선호", "적응과 시야 모두 중요", "프리미엄 가치를 정확히 이해하는 고객"],
         points: ["착용 첫날 적응", "빠르고 정확한 시야전환", "AI설계", "언제나 지속되는 선명함"],
         image: "/images/BX.jpg",
         url: "https://www.essilor.com/kr-ko/products/varilux/varilux-xr-series/",
