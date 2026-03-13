@@ -1183,7 +1183,7 @@ export default function Ina2Flow() {
   ]);
 
   return (
-    <div className="w-screen h-screen bg-slate-50 overflow-hidden">
+    <div className="w-screen h-[100dvh] bg-slate-50 overflow-hidden">
       <div className="w-full h-full px-6 py-5">
         <div className="relative w-full h-full bg-white rounded-[32px] shadow-2xl border border-slate-200 overflow-hidden">
           <div className="w-full h-full flex">
