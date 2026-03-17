@@ -1058,8 +1058,8 @@ export default function Ina2Flow() {
     if (level === "low") {
       if (use === "heavy") {
         result = [
-          { name: "E3", variant: "기본" },
-          { name: "컴포트맥스", variant: "기본" },
+          { name: "컴포트맥스", variant: "KAN" },
+          { name: "피지오", variant: "기본" },
         ];
       } else if (use === "normal") {
         result = [
@@ -1067,8 +1067,9 @@ export default function Ina2Flow() {
           { name: "E에센셜", variant: "E2" },
         ];
       } else {
-        result = [{ name: "C시리즈", variant: "C4" },
-		{ name: "E에센셜", variant: "E1" },
+        result = [
+			{ name: "C시리즈", variant: "C4" },
+		    { name: "E에센셜", variant: "E1" },
 		];
       }
     }
@@ -1079,13 +1080,13 @@ export default function Ina2Flow() {
     if (level === "mid") {
       if (use === "heavy") {
         result = [
-          { name: "컴포트맥스", variant: "KAN" },
           { name: "피지오", variant: "Kan" },
+          { name: "XR", variant: "기본" },
         ];
       } else if (use === "normal") {
         result = [
+          { name: "E에센셜", variant: "E2" },
           { name: "E3", variant: "기본" },
-          { name: "컴포트맥스", variant: "기본" },
         ];
       } else {
         result = [
@@ -1111,7 +1112,7 @@ export default function Ina2Flow() {
         ];
       } else {
         result = [
-          { name: "E4", variant: "기본" },
+          { name: "E에센셜", variant: "E2" },
           { name: "E3", variant: "기본" },
         ];
       }
