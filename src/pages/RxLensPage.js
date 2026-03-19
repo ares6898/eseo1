@@ -1,4 +1,18 @@
 import React, { useMemo, useState } from "react";
+import { PRODUCT_INFO } from "../data/productInfo";
+import { RECOMMENDATION_RULES } from "../data/recommendationRules";
+import {
+  getCurrentVariantInfo,
+  getSphereOptions,
+  getRecommendedIndexBySphere,
+  canUsePremiumCoating,
+  canUseTint,
+  canUsePhoto,
+  getPreferredVariant,
+  getPreferredCoatingMode,
+  getPreferredSelection,
+  getPriceBreakdown,
+} from "../utils/lensHelpers";
 
 const REFRACTIVE_OPTIONS = ["1.50", "1.60", "1.67", "1.74"];
 
@@ -14,6 +28,15 @@ const CATEGORY_GROUPS = {
     { name: "피지오", variant: "Kan" },
     { name: "컴포트맥스", variant: "KAN" },
   ],
+  
+  니콘: [
+    { name: "씨맥스Z", variant: "기본" },
+	{ name: "파워Z", variant: "기본" },
+    { name: "와이드Z", variant: "기본" },
+    { name: "로하스", variant: "기본" },
+	{ name: "어드밴스Z", variant: "기본" },
+  ],
+  
   밸런스형: [
     { name: "E4", variant: "기본" },
     { name: "E3", variant: "기본" },
@@ -22,873 +45,49 @@ const CATEGORY_GROUPS = {
   실속형: [
     { name: "E에센셜", variant: "E1" },
     { name: "C시리즈", variant: "C6" },
-	{ name: "C시리즈", variant: "C4" },
+    { name: "C시리즈", variant: "C4" },
     { name: "C시리즈", variant: "C1" },
-    
   ],
 };
 
-const PRODUCT_INFO = {
-  C시리즈: {
-    desc: "가볍게 사용하는 실속형",
-    grade: "합리적 선택",
-    badge: "입문 추천",
-    variants: {
-      C6: {
-        summary:
-          "누진다초점 적응이 수월하고 사용량이 많지 않은 고객에게 부담 없이 권하기 좋은 제품입니다.",
-        goodFor: ["가벼운 근거리 작업", "가격 부담이 큰 고객", "입문형 누진다초점"],
-        points: ["실속형", "부담 적은 선택", "기본 기능 중심"],
-        image: "/images/C6.jpg",
-        url: null,
-
-        regularPrices: {
-          "1.50": "36.5만원",
-          "1.60": "43.5만원",
-          "1.67": "51만원",
-          "1.74": "64만원",
-        },
-        salePrices: {
-          "1.50": "17.9만원",
-          "1.60": "20.9만원",
-          "1.67": "27.9만원",
-          "1.74": "39.9만원",
-        },
-
-        tintRegularPrices: {
-          "1.50": "3만원",
-          "1.60": "3만원",
-          "1.67": "3만원",
-          "1.74": "3만원",
-        },
-        tintSalePrices: {
-          "1.50": "1.5만원",
-          "1.60": "1.5만원",
-          "1.67": "1.5만원",
-          "1.74": "1.5만원",
-        },
-
-        photoRegularPrices: {
-          "1.60": "10만원",
-          "1.67": "10만원",
-        },
-        photoSalePrices: {
-          "1.60": "5만원",
-          "1.67": "5만원",
-        },
-
-        premiumCoatingRegularPrices: {
-          "1.50": "3만원",
-          "1.60": "3만원",
-          "1.67": "3만원",
-          "1.74": "3만원",
-        },
-        premiumCoatingSalePrices: {
-          "1.50": "1만원",
-          "1.60": "1만원",
-          "1.67": "1만원",
-          "1.74": "1만원",
-        },
-      },
-	  
-	  C4: {
-        summary: "부담 없는 실속노멀버전.",
-        goodFor: ["가벼운 근거리 작업", "가격 부담이 큰 고객", "입문형 누진다초점"],
-        points: ["실속형", "부담 적은 선택", "기본 기능 중심"],
-        image: "/images/C3.jpg",
-        url: null,
-
-        regularPrices: {
-          "1.50": "32.5만원",
-          "1.60": "38만원",
-          "1.67": "44.5만원",
-          "1.74": "59만원",
-        },
-        salePrices: {
-          "1.50": "13.9만원",
-          "1.60": "16.9만원",
-          "1.67": "20.9만원",
-          "1.74": "25.9만원",
-        },
-
-        tintRegularPrices: {
-          "1.50": "3만원",
-          "1.60": "3만원",
-          "1.67": "3만원",
-          "1.74": "3만원",
-        },
-        tintSalePrices: {
-          "1.50": "1.5만원",
-          "1.60": "1.5만원",
-          "1.67": "1.5만원",
-          "1.74": "1.5만원",
-        },
-
-        photoRegularPrices: {
-          "1.60": "10만원",
-          "1.67": "10만원",
-        },
-        photoSalePrices: {
-          "1.60": "5만원",
-          "1.67": "5만원",
-        },
-
-        premiumCoatingRegularPrices: {
-          "1.50": "3만원",
-          "1.60": "3만원",
-          "1.67": "3만원",
-          "1.74": "3만원",
-        },
-        premiumCoatingSalePrices: {
-          "1.50": "1만원",
-          "1.60": "1만원",
-          "1.67": "1만원",
-          "1.74": "1만원",
-        },
-      },
-
-      C1: {
-        summary: "부담 없는 실속형버전.",
-        goodFor: ["가벼운 근거리 작업", "가격 부담이 큰 고객", "입문형 누진다초점"],
-        points: ["실속형", "부담 적은 선택", "기본 기능 중심"],
-        image: "/images/C1.jpg",
-        url: null,
-
-        regularPrices: {
-          "1.50": "23.5만원",
-          "1.60": "29.5만원",
-          "1.67": "35.5만원",
-          "1.74": "49만원",
-        },
-        salePrices: {
-          "1.50": "9.9만원",
-          "1.60": "12.9만원",
-          "1.67": "15.9만원",
-          "1.74": "21.9만원",
-        },
-
-        tintRegularPrices: {
-          "1.50": "3만원",
-          "1.60": "3만원",
-          "1.67": "3만원",
-          "1.74": "3만원",
-        },
-        tintSalePrices: {
-          "1.50": "1.5만원",
-          "1.60": "1.5만원",
-          "1.67": "1.5만원",
-          "1.74": "1.5만원",
-        },
-
-        photoRegularPrices: {
-          "1.60": "10만원",
-          "1.67": "10만원",
-        },
-        photoSalePrices: {
-          "1.60": "2만원",
-          "1.67": "4만원",
-        },
-
-        premiumCoatingRegularPrices: {
-          "1.50": "3만원",
-          "1.60": "3만원",
-          "1.67": "3만원",
-          "1.74": "3만원",
-        },
-        premiumCoatingSalePrices: {
-          "1.50": "1만원",
-          "1.60": "1만원",
-          "1.67": "1만원",
-          "1.74": "1만원",
-        },
-      },
-    },
+/* =========================================================
+   [유지보수 포인트 2]
+   맞춤분석 시작 후 선택할 추천 DB 목록
+   - 첫 테스트용으로 "전체 추천", "실속 추천" 두 가지만 구성
+   - key 는 추천규칙 DB(RECOMMENDATION_RULES)와 반드시 일치해야 함
+   ========================================================= */
+const DATABASE_OPTIONS = [
+  {
+    key: "all",
+    title: "하드디자인DB",
+    desc: "근시, 근용중심, 하드디자인 경험자",
+    color:
+      "bg-blue-100 border-blue-300 text-blue-900 hover:bg-blue-200 hover:border-blue-400",
   },
-
-  E에센셜: {
-    desc: "디지털 기기 특화 설계",
-    grade: "스마트형",
-    badge: "실내중심",
-    variants: {
-      E2: {
-        summary: "기본형보다 디지털 디바이스 특화설계로 조금더 편안하게.",
-        goodFor: ["디지털기기 특화", "근거리 시야 무난", "가성비좋은 제품"],
-        points: ["실내 중심", "근용 특화", "합리적인 가격"],
-        image: "/images/E22.jpg",
-        url: null,
-
-        regularPrices: {
-          "1.50": "39만원",
-          "1.60": "47만원",
-          "1.67": "55만원",
-        },
-        salePrices: {
-          "1.50": "24만원",
-          "1.60": "28만원",
-          "1.67": "34만원",
-        },
-
-        tintRegularPrices: {
-          "1.50": "3만원",
-          "1.60": "3만원",
-          "1.67": "3만원",
-        },
-        tintSalePrices: {
-          "1.50": "1.5만원",
-          "1.60": "1.5만원",
-          "1.67": "1.5만원",
-        },
-
-        photoRegularPrices: {
-          "1.50": "20만원",
-          "1.60": "20만원",
-          "1.67": "20만원",
-        },
-        photoSalePrices: {
-          "1.50": "6만원",
-          "1.60": "7.8만원",
-          "1.67": "7.8만원",
-        },
-
-        premiumCoatingRegularPrices: {
-          "1.60": "5만원",
-          "1.67": "5만원",
-        },
-        premiumCoatingSalePrices: {
-          "1.60": "3만원",
-          "1.67": "3만원",
-        },
-      },
-
-      E1: {
-        summary:
-          "누진다초점 적응이 수월하고 근거리도수가 높지 않은 고객님께 권하는 제품입니다.",
-        goodFor: ["가벼운 근거리 작업", "가격 부담이 큰 고객", "예비용 안경"],
-        points: ["실속형", "부담 적은 선택", "기본 기능 중심"],
-        image: "/images/E12.jpg",
-        url: null,
-
-        regularPrices: {
-          "1.50": "32만원",
-          "1.60": "38만원",
-        },
-        salePrices: {
-          "1.50": "18만원",
-          "1.60": "24만원",
-        },
-
-        tintRegularPrices: {
-          "1.50": "3만원",
-          "1.60": "3만원",
-        },
-        tintSalePrices: {
-          "1.50": "1.5만원",
-          "1.60": "1.5만원",
-        },
-
-        photoRegularPrices: {},
-        photoSalePrices: {},
-
-        premiumCoatingRegularPrices: {},
-        premiumCoatingSalePrices: {
-          "1.50": "0만원",
-          "1.60": "0만원",
-          "1.67": "0만원",
-        },
-      },
-    },
+  {
+    key: "value",
+    title: "소프트디자인DB",
+    desc: "원시, 원중근중심, 소프트디자인 경험자",
+    color:
+      "bg-emerald-100 border-emerald-300 text-emerald-900 hover:bg-emerald-200 hover:border-emerald-400",
   },
+];
 
-  E3: {
-    desc: "무난하고 적응 쉬운 선택",
-    grade: "밸런스형",
-    badge: "적응 추천",
-    variants: {
-      기본: {
-        summary:
-          "너무 저가형보다는 편안함을 원하면서도 무난하게 적응하기 좋은 균형형 제품입니다.",
-        goodFor: ["원시, 난시고객", "무난한 적응감 선호", "가성비와 편안함 동시 고려"],
-        points: ["적응 무난", "균형 잡힌 선택", "합리적인 가성비"],
-        image: "/images/E32.jpg",
-        url: null,
 
-        regularPrices: {
-          "1.50": "48만원",
-          "1.60": "57만원",
-          "1.67": "71만원",
-        },
-        salePrices: {
-          "1.50": "28만원",
-          "1.60": "34만원",
-          "1.67": "42만원",
-        },
 
-        tintRegularPrices: {
-          "1.50": "3만원",
-          "1.60": "3만원",
-          "1.67": "3만원",
-        },
-        tintSalePrices: {
-          "1.50": "1.5만원",
-          "1.60": "1.5만원",
-          "1.67": "1.5만원",
-        },
 
-        photoRegularPrices: {
-          "1.50": "20만원",
-          "1.60": "20만원",
-          "1.67": "20만원",
-        },
-        photoSalePrices: {
-          "1.50": "10만원",
-          "1.60": "10만원",
-          "1.67": "10만원",
-        },
 
-        premiumCoatingRegularPrices: {
-          "1.60": "5만원",
-          "1.67": "5만원",
-        },
-        premiumCoatingSalePrices: {
-          "1.60": "2.5만원",
-          "1.67": "2.5만원",
-        },
-      },
-    },
-  },
 
-  E4: {
-    desc: "안정적인 시야의 다초점렌즈",
-    grade: "밸런스형",
-    badge: "적응 추천",
-    variants: {
-      기본: {
-        summary:
-          "양안시, 복잡한 도수에서도 안정적인 시야와 빠른 적응을 제공하는 제품",
-        goodFor: ["양안 도수차", "빠른 적응감", "합리적인 개인맞춤렌즈"],
-        points: ["빠른 적응", "안정적인 선택", "편안한 착용감"],
-        image: "/images/E44.jpg",
-        url: null,
 
-        regularPrices: {
-          "1.50": "62만원",
-          "1.60": "75만원",
-          "1.67": "86만원",
-        },
-        salePrices: {
-          "1.50": "31만원",
-          "1.60": "37.5만원",
-          "1.67": "43만원",
-        },
-
-        tintRegularPrices: {
-          "1.50": "3만원",
-          "1.60": "3만원",
-          "1.67": "3만원",
-        },
-        tintSalePrices: {
-          "1.50": "1.5만원",
-          "1.60": "1.5만원",
-          "1.67": "1.5만원",
-        },
-
-        photoRegularPrices: {
-          "1.50": "20만원",
-          "1.60": "20만원",
-          "1.67": "20만원",
-        },
-        photoSalePrices: {
-          "1.50": "10만원",
-          "1.60": "10만원",
-          "1.67": "10만원",
-        },
-
-        premiumCoatingRegularPrices: {
-          "1.60": "5만원",
-          "1.67": "5만원",
-        },
-        premiumCoatingSalePrices: {
-          "1.60": "2.5만원",
-          "1.67": "2.5만원",
-        },
-      },
-    },
-  },
-
-  컴포트맥스: {
-    desc: "하루 종일 지속되는 편안함",
-    grade: "프리미엄",
-    badge: "편안함 추천",
-    variants: {
-      기본: {
-        summary: "전세계 판매1위 브랜드. <바리락스>의 기술력을 확인하세요.",
-        goodFor: ["첫 누진으로 빠른적응", "편안한 일상을 원하는 고객", "기존 안경의 자세가 불편한고객"],
-        points: ["편안한 자세", "업무 활용도 우수", "프리미엄 입문"],
-        image: "/images/BC.jpg",
-        url: "https://www.essilor.com/kr-ko/products/varilux/varilux-comfort-max/",
-
-        regularPrices: {
-          "1.50": "38만원",
-          "1.60": "48만원",
-          "1.67": "58만원",
-        },
-        salePrices: {
-          "1.50": "30.4만원",
-          "1.60": "38.4만원",
-          "1.67": "46.4만원",
-        },
-
-        tintRegularPrices: {
-          "1.50": "3만원",
-          "1.60": "3만원",
-          "1.67": "3만원",
-        },
-        tintSalePrices: {
-          "1.50": "2만원",
-          "1.60": "2만원",
-          "1.67": "2만원",
-        },
-
-        photoRegularPrices: {
-          "1.50": "20만원",
-          "1.60": "20만원",
-          "1.67": "20만원",
-        },
-        photoSalePrices: {
-          "1.50": "14만원",
-          "1.60": "14만원",
-          "1.67": "14만원",
-        },
-
-        premiumCoatingRegularPrices: {
-          "1.60": "5만원",
-          "1.67": "5만원",
-        },
-        premiumCoatingSalePrices: {
-          "1.50": "3.5만원",
-          "1.60": "3.5만원",
-          "1.67": "3.5만원",
-        },
-      },
-
-      KAN: {
-        summary:
-          "전세계 판매1위 브랜드. <바리락스>의 기술력을 확인하세요. ((한국인 전용설계))",
-        goodFor: ["첫 누진으로 빠른적응", "편안한 일상을 원하는 고객", "기존 안경의 자세가 불편한고객"],
-        points: ["KAN 설계", "적응감 향상", "상위 업그레이드"],
-        image: "/images/BC.jpg",
-        url: "https://www.essilor.com/kr-ko/products/varilux/varilux-comfort-max/",
-
-        regularPrices: {
-          "1.50": "48만원",
-          "1.60": "58만원",
-          "1.67": "68만원",
-        },
-        salePrices: {
-          "1.50": "33.6만원",
-          "1.60": "40.6만원",
-          "1.67": "47.6만원",
-        },
-
-        tintRegularPrices: {
-          "1.50": "3만원",
-          "1.60": "3만원",
-          "1.67": "3만원",
-        },
-        tintSalePrices: {
-          "1.50": "2만원",
-          "1.60": "2만원",
-          "1.67": "2만원",
-        },
-
-        photoRegularPrices: {
-          "1.50": "20만원",
-          "1.60": "20만원",
-          "1.67": "20만원",
-        },
-        photoSalePrices: {
-          "1.50": "14만원",
-          "1.60": "14만원",
-          "1.67": "14만원",
-        },
-
-        premiumCoatingRegularPrices: {
-          "1.60": "5만원",
-          "1.67": "5만원",
-        },
-        premiumCoatingSalePrices: {
-          "1.60": "3.5만원",
-          "1.67": "3.5만원",
-        },
-      },
-    },
-  },
-
-  피지오: {
-    desc: "다양한 환경에서 깊이 있는 선명함",
-    grade: "상위 프리미엄",
-    badge: "상위 추천",
-    variants: {
-      기본: {
-        summary: "전세계 판매1위 브랜드. <바리락스>의 기술력을 확인하세요.",
-        goodFor: ["장시간 착용 고객", "활동적인 라이프스타일", "원근거리 초점이동이 늦는고객"],
-        points: ["실제 동공변화 정밀예측", "장시간 사용 대응", "뛰어난 시각 성능", "야간운전"],
-        image: "/images/BP.jpg",
-        url: "https://www.essilor.com/kr-ko/products/varilux/varilux-physio-extensee/",
-
-        regularPrices: {
-          "1.50": "55만원",
-          "1.60": "65만원",
-          "1.67": "75만원",
-          "1.74": "90만원",
-        },
-        salePrices: {
-          "1.50": "44만원",
-          "1.60": "56만원",
-          "1.67": "64만원",
-          "1.74": "72만원",
-        },
-
-        tintRegularPrices: {
-          "1.50": "3만원",
-          "1.60": "3만원",
-          "1.67": "3만원",
-        },
-        tintSalePrices: {
-          "1.50": "2만원",
-          "1.60": "2만원",
-          "1.67": "2만원",
-        },
-
-        photoRegularPrices: {
-          "1.50": "20만원",
-          "1.60": "20만원",
-          "1.67": "20만원",
-          "1.74": "20만원",
-        },
-        photoSalePrices: {
-          "1.50": "14만원",
-          "1.60": "14만원",
-          "1.67": "14만원",
-          "1.74": "14만원",
-        },
-
-        premiumCoatingRegularPrices: {
-          "1.60": "5만원",
-          "1.67": "5만원",
-        },
-        premiumCoatingSalePrices: {
-          "1.60": "3.5만원",
-          "1.67": "3.5만원",
-        },
-      },
-
-      Kan: {
-        summary:
-          "전세계 판매1위 브랜드. <바리락스>의 기술력을 확인하세요. ((한국인 전용설계))",
-        goodFor: ["장시간 착용 고객", "활동적인 라이프스타일", "원근거리 초점이동이 늦는고객"],
-        points: ["실제 동공변화 정밀예측", "장시간 사용 대응", "뛰어난 시각 성능", "야간운전"],
-        image: "/images/BP.jpg",
-        url: "https://www.essilor.com/kr-ko/products/varilux/varilux-physio-extensee/",
-
-        regularPrices: {
-          "1.50": "65만원",
-          "1.60": "75만원",
-          "1.67": "85만원",
-          "1.74": "100만원",
-        },
-        salePrices: {
-          "1.50": "52만원",
-          "1.60": "64만원",
-          "1.67": "72만원",
-          "1.74": "84만원",
-        },
-
-        tintRegularPrices: {
-          "1.50": "3만원",
-          "1.60": "3만원",
-          "1.67": "3만원",
-        },
-        tintSalePrices: {
-          "1.50": "2만원",
-          "1.60": "2만원",
-          "1.67": "2만원",
-        },
-
-        photoRegularPrices: {
-          "1.50": "20만원",
-          "1.60": "20만원",
-          "1.67": "20만원",
-          "1.74": "20만원",
-        },
-        photoSalePrices: {
-          "1.50": "14만원",
-          "1.60": "14만원",
-          "1.67": "14만원",
-          "1.74": "14만원",
-        },
-
-        premiumCoatingRegularPrices: {
-          "1.60": "5만원",
-          "1.67": "5만원",
-        },
-        premiumCoatingSalePrices: {
-          "1.60": "3.5만원",
-          "1.67": "3.5만원",
-        },
-      },
-    },
-  },
-
-  XR: {
-    desc: "세계최고 다초점렌즈",
-    grade: "AI설계 다초점렌즈",
-    badge: "모든상황에서 추천",
-    variants: {
-      기본: {
-        summary: "세계판매 1위의 <바리락스>의 최첨단 성능의 누진다초점.",
-        goodFor: ["최상위 제품 선호", "적응과 시야 모두 중요", "프리미엄 가치를 정확히 이해하는 고객"],
-        points: ["착용 첫날 적응", "빠르고 정확한 시야전환", "AI설계", "언제나 지속되는 선명함"],
-        image: "/images/BX.jpg",
-        url: "https://www.essilor.com/kr-ko/products/varilux/varilux-xr-series/",
-
-        regularPrices: {
-          "1.50": "90만원",
-          "1.60": "100만원",
-          "1.67": "110만원",
-          "1.74": "140만원",
-        },
-        salePrices: {
-          "1.50": "63만원",
-          "1.60": "73만원",
-          "1.67": "77만원",
-          "1.74": "98만원",
-        },
-
-        tintRegularPrices: {
-          "1.50": "3만원",
-          "1.60": "3만원",
-          "1.67": "3만원",
-        },
-        tintSalePrices: {
-          "1.50": "2만원",
-          "1.60": "2만원",
-          "1.67": "2만원",
-        },
-
-        photoRegularPrices: {
-          "1.50": "20만원",
-          "1.60": "20만원",
-          "1.67": "20만원",
-          "1.74": "20만원",
-        },
-        photoSalePrices: {
-          "1.50": "14만원",
-          "1.60": "14만원",
-          "1.67": "14만원",
-          "1.74": "14만원",
-        },
-
-        premiumCoatingRegularPrices: {
-          "1.60": "5만원",
-          "1.67": "5만원",
-        },
-        premiumCoatingSalePrices: {
-          "1.60": "3.5만원",
-          "1.67": "3.5만원",
-        },
-      },
-    },
-  },
-};
-
-function getCurrentVariantInfo(product, selectedVariant) {
-  const variantNames = Object.keys(product?.variants || {});
-  return (
-    product?.variants?.[selectedVariant] || product?.variants?.[variantNames[0]]
-  );
-}
-
-function getSphereOptions(refractiveType) {
-  if (refractiveType === "근시") {
-    return ["LOW", "-1.00", "-2.00", "-4.00", "-6.00", "HIGH"];
-  }
-  if (refractiveType === "원시") {
-    return ["LOW", "+1.00", "+2.00", "+4.00", "+6.00", "HIGH"];
-  }
-  return [];
-}
-
-function getRecommendedIndexBySphere(refractiveType, sphereLevel) {
-  if (!refractiveType || !sphereLevel) return "1.50";
-
-  const normalized = String(sphereLevel).toUpperCase();
-
-  if (normalized === "LOW") return "1.50";
-  if (normalized === "HIGH") return "1.74";
-
-  const numeric = Math.abs(
-    parseFloat(normalized.replace("+", "").replace("-", ""))
-  );
-
-  if (numeric <= 2.0) return "1.50";
-  if (numeric <= 4.0) return "1.60";
-  if (numeric <= 6.0) return "1.67";
-
-  return "1.74";
-}
-
-function canUsePremiumCoating(variantInfo, selectedIndex) {
-  return Boolean(
-    variantInfo?.premiumCoatingRegularPrices?.[selectedIndex] &&
-      variantInfo?.premiumCoatingSalePrices?.[selectedIndex]
-  );
-}
-
-function canUseTint(variantInfo, selectedIndex) {
-  return Boolean(
-    variantInfo?.tintRegularPrices?.[selectedIndex] &&
-      variantInfo?.tintSalePrices?.[selectedIndex]
-  );
-}
-
-function canUsePhoto(variantInfo, selectedIndex) {
-  return Boolean(
-    variantInfo?.photoRegularPrices?.[selectedIndex] &&
-      variantInfo?.photoSalePrices?.[selectedIndex]
-  );
-}
-
-function getPreferredVariant(productName, preferredVariant = null) {
-  const product = PRODUCT_INFO[productName];
-  if (!product?.variants) return "기본";
-
-  const variantNames = Object.keys(product.variants);
-
-  if (preferredVariant && product.variants[preferredVariant]) {
-    return preferredVariant;
-  }
-
-  if (product.variants.KAN) return "KAN";
-  if (product.variants.기본) return "기본";
-  return variantNames[0];
-}
-
-function getPreferredCoatingMode(
-  variantInfo,
-  selectedIndex,
-  selectedLensMode = "clear"
-) {
-  if (selectedLensMode !== "clear") return "basic";
-  return canUsePremiumCoating(variantInfo, selectedIndex) ? "premium" : "basic";
-}
-
-function getPreferredSelection(
-  productName,
-  selectedIndex,
-  preferredVariant = null,
-  selectedLensMode = "clear"
-) {
-  const product = PRODUCT_INFO[productName];
-
-  if (!product?.variants) {
-    return {
-      variant: "기본",
-      coatingMode: "basic",
-    };
-  }
-
-  const variant = getPreferredVariant(productName, preferredVariant);
-  const variantInfo = product.variants[variant];
-  const coatingMode = getPreferredCoatingMode(
-    variantInfo,
-    selectedIndex,
-    selectedLensMode
-  );
-
-  return {
-    variant,
-    coatingMode,
-  };
-}
-
-function parseKoreanPriceToNumber(priceText) {
-  if (priceText === null || priceText === undefined) return 0;
-
-  const text = String(priceText).trim();
-  if (!text) return 0;
-
-  if (text.includes("만원")) {
-    const value = Number(text.replace(/만원/g, "").replace(/,/g, "").trim());
-    return Number.isNaN(value) ? 0 : Math.round(value * 10000);
-  }
-
-  if (text.includes("원")) {
-    const value = Number(text.replace(/원/g, "").replace(/,/g, "").trim());
-    return Number.isNaN(value) ? 0 : Math.round(value);
-  }
-
-  const value = Number(text.replace(/,/g, "").trim());
-  return Number.isNaN(value) ? 0 : Math.round(value);
-}
-
-function getPriceBreakdown(
-  variantInfo,
-  selectedIndex,
-  selectedLensMode,
-  selectedCoatingMode
-) {
-  if (!variantInfo) return null;
-
-  const baseRegularText = variantInfo?.regularPrices?.[selectedIndex] || null;
-  const baseSaleText = variantInfo?.salePrices?.[selectedIndex] || null;
-
-  if (!baseRegularText || !baseSaleText) return null;
-
-  let regular = parseKoreanPriceToNumber(baseRegularText);
-  let sale = parseKoreanPriceToNumber(baseSaleText);
-
-  if (selectedLensMode === "tint") {
-    const tintRegularText =
-      variantInfo?.tintRegularPrices?.[selectedIndex] || null;
-    const tintSaleText = variantInfo?.tintSalePrices?.[selectedIndex] || null;
-
-    if (!tintRegularText || !tintSaleText) return null;
-
-    regular += parseKoreanPriceToNumber(tintRegularText);
-    sale += parseKoreanPriceToNumber(tintSaleText);
-  }
-
-  if (selectedLensMode === "photo") {
-    const photoRegularText =
-      variantInfo?.photoRegularPrices?.[selectedIndex] || null;
-    const photoSaleText =
-      variantInfo?.photoSalePrices?.[selectedIndex] || null;
-
-    if (!photoRegularText || !photoSaleText) return null;
-
-    regular += parseKoreanPriceToNumber(photoRegularText);
-    sale += parseKoreanPriceToNumber(photoSaleText);
-  }
-
-  if (selectedCoatingMode === "premium") {
-    const premiumRegularText =
-      variantInfo?.premiumCoatingRegularPrices?.[selectedIndex] || null;
-    const premiumSaleText =
-      variantInfo?.premiumCoatingSalePrices?.[selectedIndex] || null;
-
-    if (!premiumRegularText || !premiumSaleText) return null;
-
-    regular += parseKoreanPriceToNumber(premiumRegularText);
-    sale += parseKoreanPriceToNumber(premiumSaleText);
-  }
-
-  return { regular, sale };
+function getDatabaseLabel(dbKey) {
+  const found = DATABASE_OPTIONS.find((item) => item.key === dbKey);
+  return found?.title || "전체 추천";
 }
 
 export default function Ina2Flow() {
   const [step, setStep] = useState("intro");
 
+  const [selectedDatabase, setSelectedDatabase] = useState("all");
   const [refractiveType, setRefractiveType] = useState(null);
   const [sphereLevel, setSphereLevel] = useState(null);
   const [astigmatismType, setAstigmatismType] = useState(null);
@@ -902,10 +101,8 @@ export default function Ina2Flow() {
   const [selectedCoatingMode, setSelectedCoatingMode] = useState("basic");
 
   /* =========================================================
-     [유지보수 포인트 2]
+     [유지보수 포인트 4]
      카테고리 보기 전용 상태값
-     - selectedCategory : 어떤 그룹을 선택했는지
-     - isCategoryMode   : 현재 추천모드인지 / 카테고리모드인지 구분
      ========================================================= */
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [isCategoryMode, setIsCategoryMode] = useState(false);
@@ -1002,6 +199,7 @@ export default function Ina2Flow() {
 
   const resetToHome = () => {
     setStep("intro");
+    setSelectedDatabase("all");
     setRefractiveType(null);
     setSphereLevel(null);
     setAstigmatismType(null);
@@ -1017,12 +215,11 @@ export default function Ina2Flow() {
     setIsCategoryMode(false);
   };
 
-  /* =========================================================
-     [유지보수 포인트 3]
-     카테고리 보기 진입 함수
-     - CATEGORY_GROUPS의 첫번째 제품을 기본 선택
-     - 이후 ResultStep / 좌측 상세패널은 기존 로직 그대로 사용
-     ========================================================= */
+  const handleSelectDatabase = (dbKey) => {
+    setSelectedDatabase(dbKey);
+    setStep("distance");
+  };
+
   const handleSelectCategory = (categoryName) => {
     const items = CATEGORY_GROUPS[categoryName] || [];
     const firstItem = items[0] || null;
@@ -1046,77 +243,19 @@ export default function Ina2Flow() {
     setStep("categoryResult");
   };
 
+  /* =========================================================
+     [유지보수 포인트 5]
+     추천 결과 조회 함수
+     - 선택된 추천 DB(selectedDatabase) 기준으로 결과를 꺼냄
+     - all  : 현재와 동일 추천
+     - value: 테스트용 실속 추천
+     ========================================================= */
   const handleFinish = (level, use) => {
-    let result = [];
-
     setIsCategoryMode(false);
     setSelectedCategory(null);
 
-    // =========================
-    // ADD LOW
-    // =========================
-    if (level === "low") {
-      if (use === "heavy") {
-        result = [
-          { name: "컴포트맥스", variant: "KAN" },
-          { name: "피지오", variant: "기본" },
-        ];
-      } else if (use === "normal") {
-        result = [
-          { name: "C시리즈", variant: "C6" },
-          { name: "E에센셜", variant: "E2" },
-        ];
-      } else {
-        result = [
-			{ name: "C시리즈", variant: "C4" },
-		    { name: "E에센셜", variant: "E1" },
-		];
-      }
-    }
-
-    // =========================
-    // ADD MID
-    // =========================
-    if (level === "mid") {
-      if (use === "heavy") {
-        result = [
-          { name: "피지오", variant: "Kan" },
-          { name: "XR", variant: "기본" },
-        ];
-      } else if (use === "normal") {
-        result = [
-          { name: "E에센셜", variant: "E2" },
-          { name: "E3", variant: "기본" },
-        ];
-      } else {
-        result = [
-          { name: "C시리즈", variant: "C6" },
-          { name: "E에센셜", variant: "E2" },
-        ];
-      }
-    }
-
-    // =========================
-    // ADD HIGH
-    // =========================
-    if (level === "high") {
-      if (use === "heavy") {
-        result = [
-          { name: "피지오", variant: "Kan" },
-          { name: "XR", variant: "기본" },
-        ];
-      } else if (use === "normal") {
-        result = [
-          { name: "컴포트맥스", variant: "KAN" },
-          { name: "피지오", variant: "기본" },
-        ];
-      } else {
-        result = [
-          { name: "E에센셜", variant: "E2" },
-          { name: "E3", variant: "기본" },
-        ];
-      }
-    }
+    const result =
+      RECOMMENDATION_RULES?.[selectedDatabase]?.[level]?.[use] || [];
 
     const firstItem = result[0] || null;
     const firstProduct = firstItem?.name || null;
@@ -1251,6 +390,11 @@ export default function Ina2Flow() {
               </button>
 
               <div className="absolute top-5 left-5 right-24 flex flex-wrap gap-2 z-20">
+                {step !== "intro" &&
+                  step !== "brandCategory" &&
+                  step !== "categoryResult" && (
+                    <Chip text={`DB ${getDatabaseLabel(selectedDatabase)}`} />
+                  )}
                 {refractiveType && <Chip text={refractiveType} />}
                 {sphereLevel && <Chip text={`도수 ${sphereLevel}`} />}
                 {astigmatismType && <Chip text={astigmatismType} />}
@@ -1286,7 +430,7 @@ export default function Ina2Flow() {
                 <div className="w-full">
                   {step === "intro" && (
                     <Center>
-                      <MainButton onClick={() => setStep("distance")}>
+                      <MainButton onClick={() => setStep("database")}>
                         맞춤 분석 시작
                       </MainButton>
 
@@ -1296,6 +440,29 @@ export default function Ina2Flow() {
                       >
                         카테고리 보기
                       </button>
+                    </Center>
+                  )}
+
+                  {step === "database" && (
+                    <Center>
+                      <Title>추천 DB 선택</Title>
+
+                      {DATABASE_OPTIONS.map((db) => (
+                        <button
+                          key={db.key}
+                          onClick={() => handleSelectDatabase(db.key)}
+                          className={`w-full rounded-[26px] border-2 px-6 py-5 text-left transition ${db.color}`}
+                        >
+                          <div className="text-[25px] font-extrabold break-keep">
+                            {db.title}
+                          </div>
+                          <div className="mt-2 text-[15px] font-semibold opacity-80 break-keep">
+                            {db.desc}
+                          </div>
+                        </button>
+                      ))}
+
+                      <BackBtn onClick={() => setStep("intro")}>처음으로</BackBtn>
                     </Center>
                   )}
 
@@ -1368,10 +535,16 @@ export default function Ina2Flow() {
                         ))}
                       </Grid2>
 
-                      <NextBtn
-                        active={canNextDistance}
-                        onClick={() => canNextDistance && setStep("add")}
-                      />
+                      <div className="grid grid-cols-2 gap-4">
+                        <BackBtn onClick={() => setStep("database")}>
+                          추천 DB 다시선택
+                        </BackBtn>
+
+                        <NextBtn
+                          active={canNextDistance}
+                          onClick={() => canNextDistance && setStep("add")}
+                        />
+                      </div>
                     </Center>
                   )}
 
@@ -1404,7 +577,12 @@ export default function Ina2Flow() {
                       />
 
                       {addLevel && (
-                        <NextBtn active onClick={() => setStep("usage")} />
+                        <div className="grid grid-cols-2 gap-4">
+                          <BackBtn onClick={() => setStep("distance")}>
+                            이전 단계로
+                          </BackBtn>
+                          <NextBtn active onClick={() => setStep("usage")} />
+                        </div>
                       )}
                     </Center>
                   )}
@@ -1449,11 +627,6 @@ export default function Ina2Flow() {
                     </Center>
                   )}
 
-                  {/* =========================================================
-                      [유지보수 포인트 4]
-                      카테고리 선택 화면
-                      - CATEGORY_GROUPS 키값이 그대로 버튼명으로 출력됨
-                     ========================================================= */}
                   {step === "brandCategory" && (
                     <Center>
                       <Title>제조사 / 카테고리 선택</Title>
@@ -1486,7 +659,7 @@ export default function Ina2Flow() {
                         </div>
 
                         <div className="text-[16px] text-slate-500 font-semibold leading-relaxed mb-8 break-keep">
-                          도수와 사용환경을 반영하고 있습니다
+                          선택한 추천 DB와 도수, 사용환경을 반영하고 있습니다
                         </div>
 
                         <div className="flex items-center justify-center gap-3">
@@ -1511,6 +684,7 @@ export default function Ina2Flow() {
                       setSelectedIndex={handleSelectIndex}
                       mode="recommend"
                       categoryTitle=""
+                      databaseLabel={getDatabaseLabel(selectedDatabase)}
                     />
                   )}
 
@@ -1527,14 +701,15 @@ export default function Ina2Flow() {
                       setSelectedIndex={handleSelectIndex}
                       mode="category"
                       categoryTitle={selectedCategory}
+                      databaseLabel=""
                     />
                   )}
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div> 
+        </div> 
+      </div>
     </div>
   );
 }
@@ -1921,6 +1096,7 @@ function ResultStep({
   setSelectedIndex,
   mode = "recommend",
   categoryTitle = "",
+  databaseLabel = "",
 }) {
   return (
     <div className="w-full transition-all duration-300 ease-out animate-fade">
@@ -1928,7 +1104,7 @@ function ResultStep({
         <div className="text-[22px] font-extrabold text-slate-900 mb-2 break-keep leading-snug">
           {mode === "category"
             ? `${categoryTitle} 제품 목록`
-            : "상세내용은 전문안경사와 상담하세요."}
+            : `${databaseLabel} 기준 추천 결과`}
         </div>
         <div className="text-[15px] font-semibold text-slate-500 break-keep">
           {mode === "category"
