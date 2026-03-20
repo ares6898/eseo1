@@ -77,8 +77,8 @@ export default function PhotoLensPage() {
     {
       brand: "니콘 T클래식",
       value: {
-        "1.56": { regular: "15만원", discount: "7.5만원" },
-        "1.60": { regular: "22만원", discount: "11만원" },
+        "1.56": { regular: "15만원", discount: "10만원" },
+        "1.60": { regular: "22만원", discount: "16만원" },
         "1.67": { regular: "-", discount: "16만원" },
         "1.74": { regular: "-", discount: "24만원" }
       },
@@ -91,10 +91,10 @@ export default function PhotoLensPage() {
     {
       brand: "니콘 GenS(S)",
       value: {
-        "1.56": { regular: "25만원", discount: "13만원" },
-        "1.60": { regular: "35만원", discount: "19만원" },
-        "1.67": { regular: "75만원(10일)", discount: "37.5만원" },
-        "1.74": { regular: "95만원(10일)", discount: "47.5만원" }
+        "1.56": { regular: "25만원", discount: "15만원" },
+        "1.60": { regular: "35만원", discount: "25만원" },
+        "1.67": { regular: "75만원(10일)", discount: "39만원" },
+        "1.74": { regular: "95만원(10일)", discount: "49만원" }
       },
       label: "니콘GenS(S)",
       brandCode: "sensity",
@@ -105,10 +105,10 @@ export default function PhotoLensPage() {
     {
       brand: "니콘 GenS 스타일컬러",
       value: {
-        "1.56": { regular: "30만원(7일)", discount: "17만원" },
-        "1.60": { regular: "40만원(7일)", discount: "23만원" },
-        "1.67": { regular: "75만원(10일)", discount: "37.5만원" },
-        "1.74": { regular: "95만원(10일)", discount: "47.5만원" }
+        "1.56": { regular: "30만원(7일)", discount: "22만원" },
+        "1.60": { regular: "40만원(7일)", discount: "30만원" },
+        "1.67": { regular: "75만원(10일)", discount: "39만원" },
+        "1.74": { regular: "95만원(10일)", discount: "49만원" }
       },
       label: "니콘GenS (RX)",
       brandCode: "gens",
@@ -120,8 +120,8 @@ export default function PhotoLensPage() {
     {
       brand: "엑스트라엑티브",
       value: {
-        "1.56": { regular: "33만원(10일)", discount: "19만원" },
-        "1.60": { regular: "43만원(10일)", discount: "24만원" },
+        "1.56": { regular: "33만원(10일)", discount: "22만원" },
+        "1.60": { regular: "43만원(10일)", discount: "30만원" },
         "1.67": { regular: "-", discount: "6만원" },
         "1.74": { regular: "-", discount: "9만원" }
       },
