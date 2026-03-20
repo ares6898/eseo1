@@ -82,8 +82,8 @@ export default function RefractiveLensPage() {
       brand: "니콘 BLUV",
       value: {
         "1.56": { regular: "10만원", discount: "5.5만원" },
-        "1.60": { regular: "16.5만원", discount: "7만원" },
-        "1.67": { regular: "25만원", discount: "12만원" },
+        "1.60": { regular: "16.5만원", discount: "9만원" },
+        "1.67": { regular: "25만원", discount: "14만원" },
         "1.74": { regular: "---", discount: "0" } // 정가 대시 처리
       },
       label: "니콘 BLUV",
@@ -95,10 +95,10 @@ export default function RefractiveLensPage() {
     {
       brand: "니콘 씨맥스 INF",
       value: {
-        "1.56": { regular: "40만원", discount: "13.5만원" },
-        "1.60": { regular: "50만원", discount: "19만원" },
-        "1.67": { regular: "60만원", discount: "28만원" },
-        "1.74": { regular: "85만원", discount: "35만원" }
+        "1.56": { regular: "40만원", discount: "22만원" },
+        "1.60": { regular: "50만원", discount: "27만원" },
+        "1.67": { regular: "60만원", discount: "33만원" },
+        "1.74": { regular: "85만원", discount: "46만원" }
       },
       label: "니콘 씨맥스 INF",
       brandCode: "hoya",
