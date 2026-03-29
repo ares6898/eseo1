@@ -1008,7 +1008,7 @@ export const PRODUCT_INFO = {
   },
   
   
-  퍼스트 A: {
+  퍼스트A: {
     manufacturer: "펜탁스",
     desc: "디지털 라이프",
     grade: "밸런스형",
@@ -1078,7 +1078,7 @@ export const PRODUCT_INFO = {
   },
   
   
-  스마트 A: {
+  스마트A: {
     manufacturer: "펜탁스",
     desc: "편안 적응감",
     grade: "밸런스형",
@@ -1147,7 +1147,7 @@ export const PRODUCT_INFO = {
     },
   },
   
-   슈퍼 A: {
+   슈퍼A: {
     manufacturer: "펜탁스",
     desc: "양안시",
     grade: "밸런스형",
@@ -1216,7 +1216,7 @@ export const PRODUCT_INFO = {
     },
   },
   
-  마스터 E: {
+  마스터E: {
     manufacturer: "펜탁스",
     desc: "최고급",
     grade: "밸런스형",
