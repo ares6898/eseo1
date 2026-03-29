@@ -44,10 +44,10 @@ const CATEGORY_GROUPS = {
   ],
 
 	펜탁스: [
-    { name: "마스터 E", variant: "기본" },
-    { name: "슈퍼 A", variant: "기본" },
-    { name: "스마트 A", variant: "기본" },
-    { name: "퍼스트 A", variant: "기본" },
+    { name: "마스터E", variant: "기본" },
+    { name: "슈퍼A", variant: "기본" },
+    { name: "스마트A", variant: "기본" },
+    { name: "퍼스트A", variant: "기본" },
   ],
 
 	
