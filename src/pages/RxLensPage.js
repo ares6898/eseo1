@@ -42,6 +42,15 @@ const CATEGORY_GROUPS = {
     { name: "E3", variant: "기본" },
     { name: "E에센셜", variant: "E2" },
   ],
+
+	펜탁스: [
+    { name: "마스터 E", variant: "기본" },
+    { name: "슈퍼 A", variant: "기본" },
+    { name: "스마트 A", variant: "기본" },
+    { name: "퍼스트 A", variant: "기본" },
+  ],
+
+	
   실속형: [
     { name: "E에센셜", variant: "E1" },
     { name: "C시리즈", variant: "C6" },
