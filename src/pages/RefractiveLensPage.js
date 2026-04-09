@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import LensPopup from "../components/LensPopup";
 
-export default function RefractiveLensPage() {
+export default function PhotoLensPage() {
   const navigate = useNavigate();
   const [popupBrand, setPopupBrand] = useState(null);
   const [showRecommendation, setShowRecommendation] = useState(false);
@@ -49,62 +49,76 @@ export default function RefractiveLensPage() {
     );
   };
 
-  // 문자열 가격(만원 단위) → 숫자 원 단위, 추가할인 적용
+  // 할인 적용 함수
   const applyExtraDiscount = (price) => {
-    const numberOnly = parseFloat(String(price).replace(/[^\d.]/g, ""));
-    const value = isNaN(numberOnly) ? 0 : numberOnly * 10000;
+    const numberOnly = parseFloat(price.replace(/[^\d.]/g, ""));
+    const value = numberOnly * 10000;
     return extraDiscount ? Math.round(value * 0.9) : value;
   };
 
-  // 천단위 표시
-  const formatPrice = (value) => (isNaN(value) ? "-" : value.toLocaleString() + "원");
-
-  // "—" 처리( "-", "---", 공백 포함 )
-  const isDash = (v) =>
-    typeof v === "string" && v.replace(/\s/g, "").includes("-");
+  // 천 단위 표시 함수
+  const formatPrice = (value) => value.toLocaleString() + "원";
 
   const priceData = [
+    
     {
       brand: "케미 2세대",
       value: {
-        "1.56": { regular: "6만원", discount: "3만원" },
-        "1.60": { regular: "10만원", discount: "4.5만원" },
-        "1.67": { regular: "16만원", discount: "7만원" },
-        "1.74": { regular: "20만원", discount: "9.5만원" }
+        "1.56": { regular: "5만원", discount: "3만원" },
+        "1.60": { regular: "9만원", discount: "5만원" },
+        "1.67": { regular: "12만원", discount: "7만원" },
+        "1.74": { regular: "17만원", discount: "10만원" }
       },
       label: "케미 2세대",
       brandCode: "chemi2",
-      icon: "👍 가성비",
+      icon: "⭐국산 실속형",
+      color: "yellow",
+      tagline: "국산 블루라이트 차단"
+    },
+    {
+      brand: "케미 3세대",
+      value: {
+        "1.56": { regular: "9만원", discount: "5만원" },
+        "1.60": { regular: "12만원", discount: "8만원" },
+        "1.67": { regular: "17만원", discount: "11만원" },
+        "1.74": { regular: "21만원", discount: "15만원" }
+      },
+      label: "케미 3세대",
+      brandCode: "chemiir",
+      icon: "🌟국산 고급형",
       color: "green",
-      tagline: "가성비 최고, 자외선 차단"
+      tagline: "최신 코팅기술과 설계최적화"
     },
     {
       brand: "니콘 BLUV",
       value: {
-        "1.56": { regular: "10만원", discount: "5.5만원" },
-        "1.60": { regular: "16.5만원", discount: "9만원" },
-        "1.67": { regular: "25만원", discount: "14만원" },
-        "1.74": { regular: "---", discount: "0" } // 정가 대시 처리
+        "1.56": { regular: "10만원", discount: "6만원" },
+        "1.60": { regular: "16.5만원", discount: "11만원" },
+        "1.67": { regular: "25만원", discount: "16만원" },
+        "1.74": { regular: "-", discount: "47.5만원" }
       },
-      label: "니콘 BLUV",
+      label: "니콘 BLUV 비구면",
       brandCode: "chemi3",
-      icon: "⭐ 고기능",
+      icon: "🌟수입 고급형",
       color: "purple",
-      tagline: "유해한 블루라이트만 차단, 비구면으로 왜곡제거"
+      tagline: "일본 니콘의 뛰어난 품질"
     },
+    // 샘플 다섯 번째 상품
     {
-      brand: "니콘 씨맥스 INF",
+      brand: "아이젠",
       value: {
-        "1.56": { regular: "40만원", discount: "22만원" },
-        "1.60": { regular: "50만원", discount: "27만원" },
-        "1.67": { regular: "60만원", discount: "33만원" },
-        "1.74": { regular: "85만원", discount: "46만원" }
+        "1.56": { regular: "14만원", discount: "9만원" },
+        "1.60": { regular: "19만원", discount: "15만원" },
+        "1.67": { regular: "40만원(납기7일)", discount: "28만원" },
+        "1.74": { regular: "60만원(납기7일)", discount: "42만원" }
       },
-      label: "니콘 씨맥스 INF",
-      brandCode: "hoya",
-      icon: "🌟 베스트",
-      color: "yellow",
-      tagline: "세계최고의 개인맞춤 안경렌즈"
+      label: "에실로 아이젠",
+      brandCode: "eyezen",
+      icon: "🔥수입 최고급",
+	  
+      color: "orange",
+      tagline: "하루종일 편안한 시야. 강력한 내구성."
+	  
     }
   ];
 
@@ -126,9 +140,22 @@ export default function RefractiveLensPage() {
       text: "text-yellow-900",
       badgeBg: "bg-yellow-500",
       badgeText: "text-white"
+    },
+    blue: {
+      bg: (active) => (active ? "bg-blue-300" : "bg-blue-100"),
+      text: "text-blue-900",
+      badgeBg: "bg-blue-500",
+      badgeText: "text-white"
+    },
+    orange: {
+      bg: (active) => (active ? "bg-orange-300" : "bg-orange-100"),
+      text: "text-orange-900",
+      badgeBg: "bg-orange-500",
+      badgeText: "text-white"
     }
   };
 
+  // 할인 프로그램별 버튼 스타일
   const discountButtonStyles = [
     "bg-blue-500 hover:bg-blue-600 text-white",
     "bg-green-500 hover:bg-green-600 text-white",
@@ -148,7 +175,7 @@ export default function RefractiveLensPage() {
         />
       </div>
 
-      <h2 className="text-xl font-semibold text-center mb-2">Refractive lens</h2>
+      <h2 className="text-xl font-semibold text-center mb-2">시력교정 안경렌즈</h2>
 
       <div className="text-center text-sm text-blue-800 font-bold mb-4">
         어떤 렌즈가 좋을지 모르시겠다면 👉
@@ -181,9 +208,10 @@ export default function RefractiveLensPage() {
       </div>
 
       <div className="bg-blue-100 rounded-xl shadow p-4 mb-2">
-        <div className="grid grid-cols-[1fr_3fr] items-start gap-4">
-          <div className="font-bold text-gray-600 text-sm pt-2">굴절률∖제품명</div>
-          <div className="grid grid-cols-3 gap-2">
+        <div className="grid grid-cols-[80px_auto] items-start gap-4">
+          <div className="font-bold text-gray-600 text-sm pt-2">굴절률</div>
+          {/* 컬럼 수를 5로 변경 */}
+          <div className="grid grid-cols-4 gap-2">
             {priceData.map((item, idx) => {
               const isActive = activeBrandLabel === item.brandCode;
               const color = colorMap[item.color];
@@ -196,13 +224,15 @@ export default function RefractiveLensPage() {
                   }`}
                 >
                   <div
-                    className={`text-sm font-bold flex items-center justify-center gap-1 cursor-pointer rounded px-2 py-1 transition ${color.bg(
-                      isActive
-                    )} ${color.text} ${isActive ? "shadow-md scale-105 animate-pulse" : ""}`}
+                    className={`text-xs font-bold flex items-center justify-center gap-1 cursor-pointer rounded px-2 py-1 transition ${
+                      color.bg(isActive)
+                    } ${color.text} ${
+                      isActive ? "shadow-md scale-105 animate-pulse" : ""
+                    }`}
                     onClick={() => handleBrandClick(item.brandCode)}
                   >
                     <span
-                      className={`${color.badgeBg} ${color.badgeText} px-2 py-0.5 rounded-full text-xs font-semibold`}
+                      className={`${color.badgeBg} ${color.badgeText} px-2 py-0.5 rounded-full text-[10px] font-semibold`}
                     >
                       {item.icon}
                     </span>
@@ -219,14 +249,15 @@ export default function RefractiveLensPage() {
       <div className="grid gap-4">
         {["1.56", "1.60", "1.67", "1.74"].map((row) => (
           <div key={row} className="bg-white rounded-xl shadow p-4">
-            <div className="grid grid-cols-[1fr_3fr] items-center gap-4 mb-2">
+            <div className="grid grid-cols-[80px_auto] items-center gap-4 mb-2">
               <div
                 className="font-semibold text-blue-800 cursor-pointer text-left"
                 onClick={() => handleRowSelect(row)}
               >
                 {row}
               </div>
-              <div className="grid grid-cols-3 gap-2">
+              {/* 컬럼 수를 5로 변경 */}
+              <div className="grid grid-cols-4 gap-2">
                 {priceData.map((cell, idx) => (
                   <div
                     key={idx}
@@ -238,23 +269,25 @@ export default function RefractiveLensPage() {
                     onClick={() => handleBrandClick(cell.brandCode)}
                   >
                     <div className="flex flex-col items-center">
-                      {isDash(cell.value[row].regular) ? (
-                        // 정가가 대시(미공급/미제공)인 경우
+                      {cell.value[row].regular === "-" ? (
+                        // regular이 "-"인 경우, 대시만 표시
                         <div className="text-lg text-gray-400 font-medium">-</div>
                       ) : (
                         <>
                           <div className="text-sm text-gray-400 line-through mb-0.5">
                             {cell.value[row].regular}
+							
                           </div>
-
                           <div className="text-xl font-extrabold text-blue-900 flex items-center">
-                            {formatPrice(applyExtraDiscount(cell.value[row].discount))}
+                            {formatPrice(
+                              applyExtraDiscount(cell.value[row].discount)
+                            )}
                             {extraDiscount && (
                               <span className="ml-2 text-red-600 text-xs bg-red-100 px-2 py-0.5 rounded-full font-semibold animate-bounce">
                                 추가할인!
                               </span>
                             )}
-                            {cell.brandCode === "chemi3" && (
+                            {cell.brandCode === "hoya" && (
                               <span className="ml-2 text-red-600 text-xs bg-red-100 px-2 py-0.5 rounded-full font-semibold animate-bounce">
                                 전국최저가
                               </span>
