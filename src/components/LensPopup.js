@@ -45,6 +45,22 @@ const LensPopup = ({ brand, onClose }) => {
       recommendation: "안경 교체 주기가 짧거나, 하루 착용 시간이 짧은 고객님께 실속 있는 선택이 됩니다.",
       review: "“가성비 최고! 아이들안경, 그리고 예비용으로 딱 좋아요.”"
     },
+	
+	chemiir: {
+      name: "케미 3세대 - 국산 케미",
+      logo: "/images/chemi-logo.jpg",
+      image: "/images/IR.jpg",
+      description: [
+        { icon: <CheckCircle className="inline w-5 h-5 mr-1 text-green-500" />, text: "강력한 유해광선 차단코팅" },
+        { icon: <Gem className="inline w-5 h-5 mr-1 text-pink-500" />, text: "국내브랜드 1위 케미의 최신설계" },
+        { icon: <Sparkles className="inline w-5 h-5 mr-1 text-indigo-500" />, text: "다양한 굴절률 옵션 제공" }
+      ],
+      recommendation: "부담스럽지 않은 가격에 뛰어난 품질.",
+      review: "“기존 안경렌즈보다 더 선명한것 같네요.”"
+    },
+	
+	
+	
     chemi3: {
       name: "니콘 BLUV - 일본 니콘",
       logo: "/logos/nikon.jpg",
@@ -57,6 +73,22 @@ const LensPopup = ({ brand, onClose }) => {
       recommendation: "블루라이트 선별적차단 + 자외선차단 + 비구면설계로 수차제어.",
       review: "“눈 피로가 훨씬 줄었어요. 전보다 더 얇고 또렸해졌어요.”"
     },
+	
+	eyezen: {
+      name: "Eyezen - 에실로",
+      logo: "/logos/essilor.jpg",
+      image: ["/images/eyezen.png"],
+      description: [
+        { icon: <Star className="inline w-5 h-5 mr-1 text-yellow-500" />, text: "착용자 4명중 3명이 매일 편안한 시야를 경험함" },
+        { icon: <Shield className="inline w-5 h-5 mr-1 text-blue-500" />, text: "실제 착용 만족도 88% + 원,근거리 시야향상경험 90%" },
+        { icon: <Sparkles className="inline w-5 h-5 mr-1 text-indigo-500" />, text: "크리잘코팅으로 유해광선과 스크래치를 강력히 방어" }
+      ],
+      recommendation: "프리폼 비구면설계. 뛰어난 피로감소와 강력한 내구성",
+      review: "“하루종일 선명함이 유지되요.”"
+    },
+	
+	
+	
     chemi11: {
       name: "케미 원앤원 - 국산 케미",
       logo: "/images/chemi-logo.jpg",
