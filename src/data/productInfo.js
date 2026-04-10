@@ -2,9 +2,9 @@
 
 export const PRODUCT_INFO = {
 
-    C시리즈: {
+    국산기본형: {
     manufacturer: "케미",
-    desc: "가볍게 사용하는 실속형",
+    desc: "가볍게 사용하는 기본누진",
     grade: "합리적 선택",
     badge: "입문 추천",
     variants: {
@@ -43,10 +43,12 @@ export const PRODUCT_INFO = {
         },
 
         photoRegularPrices: {
+          "1.50": "15만원",			
           "1.60": "10만원",
           "1.67": "10만원",
         },
         photoSalePrices: {
+		  "1.50": "8만원",
           "1.60": "5만원",
           "1.67": "5만원",
         },
@@ -99,10 +101,12 @@ export const PRODUCT_INFO = {
         },
 
         photoRegularPrices: {
+          "1.50": "15만원",			
           "1.60": "10만원",
           "1.67": "10만원",
         },
         photoSalePrices: {
+		  "1.50": "8만원",
           "1.60": "5만원",
           "1.67": "5만원",
         },
@@ -121,11 +125,24 @@ export const PRODUCT_INFO = {
         },
       },
 
-      C1: {
+      
+    },
+  },
+
+
+국산실속형: {
+    manufacturer: "케미",
+    desc: "가볍게 사용하는 실속형",
+    grade: "합리적 선택",
+    badge: "입문 추천",
+    variants: {
+
+
+C0: {
         summary: "부담 없는 실속형버전.",
         goodFor: ["가벼운 근거리 작업", "가격 부담이 큰 고객", "입문형 누진다초점"],
         points: ["실속형", "부담 적은 선택", "기본 기능 중심"],
-        image: "/images/C1.jpg",
+        image: "/images/ASIO.jpg",
         url: null,
 
         regularPrices: {
@@ -135,10 +152,10 @@ export const PRODUCT_INFO = {
           "1.74": "49만원",
         },
         salePrices: {
-          "1.50": "9.9만원",
-          "1.60": "12.9만원",
-          "1.67": "15.9만원",
-          "1.74": "21.9만원",
+          "1.50": "5.9만원",
+          "1.60": "7.9만원",
+          "1.67": "10.9만원",
+          "1.74": "13.9만원",
         },
 
         tintRegularPrices: {
@@ -155,12 +172,14 @@ export const PRODUCT_INFO = {
         },
 
         photoRegularPrices: {
+          "1.50": "15만원",			
           "1.60": "10만원",
           "1.67": "10만원",
         },
         photoSalePrices: {
-          "1.60": "2만원",
-          "1.67": "4만원",
+		  "1.50": "7만원",
+          "1.60": "5만원",
+          "1.67": "5만원",
         },
 
         premiumCoatingRegularPrices: {
@@ -176,16 +195,124 @@ export const PRODUCT_INFO = {
           "1.74": "1만원",
         },
       },
+
+
+
+C1: {
+        summary: "부담 없는 실속형버전.",
+        goodFor: ["가벼운 근거리 작업", "가격 부담이 큰 고객", "입문형 누진다초점"],
+        points: ["실속형", "부담 적은 선택", "기본 기능 중심"],
+        image: "/images/C1.jpg",
+        url: null,
+
+        regularPrices: {
+          "1.50": "23.5만원",
+          "1.60": "29.5만원",
+          "1.67": "35.5만원",
+          "1.74": "49만원",
+        },
+        salePrices: {
+          "1.50": "8.9만원",
+          "1.60": "11.9만원",
+          "1.67": "14.9만원",
+          "1.74": "20.9만원",
+        },
+
+        tintRegularPrices: {
+          "1.50": "3만원",
+          "1.60": "3만원",
+          "1.67": "3만원",
+          "1.74": "3만원",
+        },
+        tintSalePrices: {
+          "1.50": "1.5만원",
+          "1.60": "1.5만원",
+          "1.67": "1.5만원",
+          "1.74": "1.5만원",
+        },
+
+        photoRegularPrices: {
+          "1.50": "15만원",			
+          "1.60": "10만원",
+          "1.67": "10만원",
+        },
+        photoSalePrices: {
+		  "1.50": "8만원",
+          "1.60": "5만원",
+          "1.67": "5만원",
+        },
+
+        premiumCoatingRegularPrices: {
+          "1.50": "3만원",
+          "1.60": "3만원",
+          "1.67": "3만원",
+          "1.74": "3만원",
+        },
+        premiumCoatingSalePrices: {
+          "1.50": "1만원",
+          "1.60": "1만원",
+          "1.67": "1만원",
+          "1.74": "1만원",
+        },
+      },
+	  },
+	  },
+
+
+ E1: {
+    manufacturer: "에실로",
+    desc: "합리적인 가격의 수입누진렌즈",
+    grade: "밸런스형",
+    badge: "실속 추천",
+    variants: {
+      기본: {
+        summary:
+          "누진다초점 적응이 수월하고 근거리도수가 높지 않은 고객님께 권하는 제품입니다.",
+        goodFor: ["가벼운 근거리 작업", "가격 부담이 큰 고객", "예비용 안경"],
+        points: ["실속형", "부담 적은 선택", "기본 기능 중심"],
+        image: "/images/E12.jpg",
+        url: null,
+
+        regularPrices: {
+          "1.50": "32만원",
+          "1.60": "38만원",
+        },
+        salePrices: {
+          "1.50": "18만원",
+          "1.60": "24만원",
+        },
+
+        tintRegularPrices: {
+          "1.50": "3만원",
+          "1.60": "3만원",
+        },
+        tintSalePrices: {
+          "1.50": "1.5만원",
+          "1.60": "1.5만원",
+        },
+
+        photoRegularPrices: {},
+        photoSalePrices: {},
+
+        premiumCoatingRegularPrices: {},
+        premiumCoatingSalePrices: {
+          "1.50": "0만원",
+          "1.60": "0만원",
+          "1.67": "0만원",
+        },
+      },
     },
   },
 
-  E에센셜: {
+
+
+  E2: {
     manufacturer: "에실로",
     desc: "디지털 기기 특화 설계",
     grade: "스마트형",
     badge: "실내중심",
     variants: {
-      E2: {
+      기본: {
         summary: "기본형보다 디지털 디바이스 특화설계로 조금더 편안하게.",
         goodFor: ["디지털기기 특화", "근거리 시야 무난", "가성비좋은 제품"],
         points: ["실내 중심", "근용 특화", "합리적인 가격"],
@@ -389,6 +516,59 @@ export const PRODUCT_INFO = {
           "1.67": "2.5만원",
         },
       },
+	  
+	  
+	  E3: {
+        summary:
+          "너무 저가형보다는 편안함을 원하면서도 무난하게 적응하기 좋은 균형형 제품입니다.",
+        goodFor: ["원시, 난시고객", "무난한 적응감 선호", "가성비와 편안함 동시 고려"],
+        points: ["적응 무난", "균형 잡힌 선택", "합리적인 가성비"],
+        image: "/images/E32.jpg",
+        url: null,
+
+        regularPrices: {
+          "1.50": "48만원",
+          "1.60": "57만원",
+          "1.67": "71만원",
+        },
+        salePrices: {
+          "1.50": "28만원",
+          "1.60": "34만원",
+          "1.67": "42만원",
+        },
+
+        tintRegularPrices: {
+          "1.50": "3만원",
+          "1.60": "3만원",
+          "1.67": "3만원",
+        },
+        tintSalePrices: {
+          "1.50": "1.5만원",
+          "1.60": "1.5만원",
+          "1.67": "1.5만원",
+        },
+
+        photoRegularPrices: {
+          "1.50": "20만원",
+          "1.60": "20만원",
+          "1.67": "20만원",
+        },
+        photoSalePrices: {
+          "1.50": "10만원",
+          "1.60": "10만원",
+          "1.67": "10만원",
+        },
+
+        premiumCoatingRegularPrices: {
+          "1.60": "5만원",
+          "1.67": "5만원",
+        },
+        premiumCoatingSalePrices: {
+          "1.60": "2.5만원",
+          "1.67": "2.5만원",
+        },
+      },
+	  
     },
   },
 
