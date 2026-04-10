@@ -11,10 +11,10 @@ export function getCurrentVariantInfo(product, selectedVariant) {
 
 export function getSphereOptions(refractiveType) {
   if (refractiveType === "근시") {
-    return ["LOW", "-1.00", "-2.00", "-4.00", "-6.00", "HIGH"];
+    return ["LOW","-4.00", "-6.00", "HIGH"];
   }
   if (refractiveType === "원시") {
-    return ["LOW", "+1.00", "+2.00", "+4.00", "+6.00", "HIGH"];
+    return ["LOW","+4.00", "+6.00", "HIGH"];
   }
   return [];
 }
