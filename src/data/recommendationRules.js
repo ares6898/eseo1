@@ -11,35 +11,37 @@ export const RECOMMENDATION_RULES = {
   all: {
     low: {
       heavy: [
-        { name: "E3", variant: "기본" },
-        { name: "컴포트맥스", variant: "기본" },
+        { name: "E4", variant: "기본" },
+        { name: "컴포트맥스", variant: "KAN" },
       ],
       normal: [
-        { name: "E에센셜", variant: "E1" },
-        { name: "E에센셜", variant: "E2" },
+        { name: "E2", variant: "기본" },
+        { name: "E3", variant: "기본" },
       ],
       light: [
-        { name: "C시리즈", variant: "C4" },
-        { name: "E에센셜", variant: "E1" },
+        { name: "국산실속형", variant: "C0" },
+        { name: "국산기본형", variant: "C4" },
+        { name: "E2", variant: "기본" },
       ],
     },
     mid: {
       heavy: [
         { name: "컴포트맥스", variant: "KAN" },
-        { name: "피지오", variant: "Kan" },
+        { name: "피지오", variant: "기본" },
       ],
       normal: [
-        { name: "E3", variant: "기본" },
-        { name: "컴포트맥스", variant: "기본" },
+        { name: "E2", variant: "기본" },
+        { name: "E4", variant: "기본" },
       ],
       light: [
-        { name: "C시리즈", variant: "C6" },
-        { name: "E에센셜", variant: "E2" },
+        { name: "국산실속형", variant: "C0" },
+        { name: "국산기본형", variant: "C4" },
+        { name: "E2", variant: "기본" },
       ],
     },
     high: {
       heavy: [
-        { name: "피지오", variant: "Kan" },
+        { name: "피지오", variant: "기본" },
         { name: "XR", variant: "기본" },
       ],
       normal: [
@@ -47,8 +49,63 @@ export const RECOMMENDATION_RULES = {
         { name: "피지오", variant: "기본" },
       ],
       light: [
-        { name: "E4", variant: "기본" },
+        { name: "국산실속형", variant: "C0" },
+        { name: "국산기본형", variant: "C4" },
+        { name: "E2", variant: "기본" },
+      ],
+    },
+  },
+
+ first: {
+    low: {
+      heavy: [
+        { name: "로하스", variant: "기본" },
+        { name: "와이드Z", variant: "기본" },
+		        { name: "XR", variant: "기본" },
+
+      ],
+      normal: [
+        { name: "E2", variant: "기본" },
         { name: "E3", variant: "기본" },
+      ],
+      light: [
+        { name: "국산실속형", variant: "C0" },
+        { name: "국산기본형", variant: "C4" },
+        { name: "E2", variant: "기본" },
+      ],
+    },
+    mid: {
+      heavy: [
+        { name: "로하스", variant: "기본" },
+        { name: "와이드Z", variant: "기본" },
+		        { name: "XR", variant: "기본" },
+
+      ],
+      normal: [
+        { name: "E2", variant: "기본" },
+        { name: "E3", variant: "기본" },
+      ],
+      light: [
+        { name: "국산실속형", variant: "C0" },
+        { name: "국산기본형", variant: "C4" },
+        { name: "E2", variant: "기본" },
+      ],
+    },
+    high: {
+      heavy: [
+        { name: "로하스", variant: "기본" },
+        { name: "와이드Z", variant: "기본" },
+		        { name: "XR", variant: "기본" },
+
+      ],
+      normal: [
+        { name: "E2", variant: "기본" },
+        { name: "E3", variant: "기본" },
+      ],
+      light: [
+        { name: "국산실속형", variant: "C0" },
+        { name: "국산기본형", variant: "C4" },
+        { name: "E2", variant: "기본" },
       ],
     },
   },
@@ -56,44 +113,48 @@ export const RECOMMENDATION_RULES = {
   value: {
     low: {
       heavy: [
-        { name: "로하스", variant: "기본" },
         { name: "와이드Z", variant: "기본" },
+        { name: "XR", variant: "기본" },
       ],
       normal: [
-        { name: "E에센셜", variant: "E1" },
-        { name: "E에센셜", variant: "E2" },
+        { name: "E2", variant: "기본" },
+        { name: "E3", variant: "기본" },
       ],
       light: [
-        { name: "C시리즈", variant: "C4" },
-        { name: "E에센셜", variant: "E1" },
+        { name: "국산실속형", variant: "C0" },
+        { name: "국산기본형", variant: "C4" },
+        { name: "E2", variant: "기본" },
       ],
     },
     mid: {
       heavy: [
         { name: "와이드Z", variant: "기본" },
-        { name: "파워Z", variant: "기본" },
+        { name: "XR", variant: "기본" },
       ],
       normal: [
-       { name: "E3", variant: "기본" },
+        { name: "E2", variant: "기본" },
         { name: "E4", variant: "기본" },
       ],
       light: [
-         { name: "C시리즈", variant: "C6" },
-        { name: "E에센셜", variant: "E2" },
+        { name: "국산실속형", variant: "C0" },
+        { name: "국산기본형", variant: "C4" },
+        { name: "E2", variant: "기본" },
       ],
     },
     high: {
       heavy: [
-        { name: "파워Z", variant: "기본" },
-        { name: "씨맥스Z", variant: "기본" },
-      ],
-      normal: [
-        { name: "E4", variant: "기본" },
         { name: "와이드Z", variant: "기본" },
+        { name: "XR", variant: "기본" },
+      ],
+      normal: [	  
+        { name: "E3", variant: "기본" },
+        { name: "E4", variant: "기본" },
       ],
       light: [
-        { name: "E3", variant: "기본" },
-        { name: "E에센셜", variant: "E2" },
+        { name: "국산실속형", variant: "C0" },
+        { name: "국산기본형", variant: "C4" },
+        { name: "E2", variant: "기본" },
+		
       ],
     },
   },
