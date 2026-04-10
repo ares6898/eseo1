@@ -25,7 +25,7 @@ const REFRACTIVE_OPTIONS = ["1.50", "1.60", "1.67", "1.74"];
 const CATEGORY_GROUPS = {
   바리락스: [
     { name: "XR", variant: "기본" },
-    { name: "피지오", variant: "Kan" },
+    { name: "피지오", variant: "기본" },
     { name: "컴포트맥스", variant: "KAN" },
   ],
   
@@ -40,22 +40,27 @@ const CATEGORY_GROUPS = {
   밸런스형: [
     { name: "E4", variant: "기본" },
     { name: "E3", variant: "기본" },
-    { name: "E에센셜", variant: "E2" },
+    { name: "E2", variant: "기본" },
+	{ name: "E1", variant: "기본" },
   ],
-
-	펜탁스: [
+  
+  펜탁스: [
     { name: "마스터E", variant: "기본" },
     { name: "슈퍼A", variant: "기본" },
     { name: "스마트A", variant: "기본" },
     { name: "퍼스트A", variant: "기본" },
   ],
-
-	
+  
+  
+  
+  
   실속형: [
-    { name: "E에센셜", variant: "E1" },
-    { name: "C시리즈", variant: "C6" },
-    { name: "C시리즈", variant: "C4" },
-    { name: "C시리즈", variant: "C1" },
+  
+    { name: "국산실속형", variant: "C0" },
+    { name: "국산실속형", variant: "C1" },
+    { name: "국산기본형", variant: "C4" },
+    { name: "국산기본형", variant: "C6" },
+    
   ],
 };
 
@@ -68,7 +73,7 @@ const CATEGORY_GROUPS = {
 const DATABASE_OPTIONS = [
   {
     key: "all",
-    title: "하드디자인DB",
+    title: "글로벌 데이터",
     desc: "myopia, 근용중심, 하드디자인 경험자",
     color:
       "bg-blue-100 border-blue-300 text-blue-900 hover:bg-blue-200 hover:border-blue-400",
@@ -79,6 +84,13 @@ const DATABASE_OPTIONS = [
     desc: "hyperopia, 소프트디자인 경험자",
     color:
       "bg-emerald-100 border-emerald-300 text-emerald-900 hover:bg-emerald-200 hover:border-emerald-400",
+  },
+  {
+    key: "first",
+    title: "첫 누진다초점 솔루션",
+    desc: "누진다초점 입문",
+    color:
+      "bg-yellow-100 border-yellow-300 text-yellow-900 hover:bg-yellow-200 hover:border-yellow-400",
   },
 ];
 
@@ -223,6 +235,10 @@ export default function Ina2Flow() {
     setSelectedCategory(null);
     setIsCategoryMode(false);
   };
+  
+  const goToRootPage = () => {
+  window.location.href = "https://inoti0901.netlify.app/";
+};
 
   const handleSelectDatabase = (dbKey) => {
     setSelectedDatabase(dbKey);
@@ -390,16 +406,39 @@ export default function Ina2Flow() {
               )}
             </div>
 
-            <div className="relative w-[36%] h-full bg-gradient-to-b from-slate-50 to-slate-100 px-8 py-6 overflow-y-auto">
-              <button
-                onClick={resetToHome}
-                className="absolute top-5 right-5 z-30 h-[48px] px-5 rounded-2xl bg-white border border-slate-300 text-slate-700 text-[16px] font-bold shadow-sm hover:bg-slate-50 transition"
-              >
-                홈
-              </button>
 
-              <div className="absolute top-5 left-5 right-24 flex flex-wrap gap-2 z-20">
-                {step !== "intro" &&
+
+
+<div className="relative w-[36%] h-full bg-gradient-to-b from-slate-50 to-slate-100 px-8 py-6 overflow-y-auto">
+<div className="absolute top-5 right-5 z-30 flex gap-2">
+  <button
+    onClick={goToRootPage}
+    className="h-[48px] px-5 rounded-2xl bg-blue-500 border border-blue-600 text-white text-[16px] font-bold shadow-sm hover:bg-blue-600 transition"
+  >
+    홈
+  </button>
+
+  <button
+    onClick={resetToHome}
+    className="h-[48px] px-5 rounded-2xl bg-white border border-slate-300 text-slate-700 text-[16px] font-bold shadow-sm hover:bg-slate-50 transition"
+  >
+   리셋
+  </button>
+  </div>
+
+              <div className="absolute top-5 left-5 right-[220px] flex flex-wrap gap-2 z-20">
+                
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				{step !== "intro" &&
                   step !== "brandCategory" &&
                   step !== "categoryResult" && (
                     <Chip text={`DB ${getDatabaseLabel(selectedDatabase)}`} />
@@ -417,6 +456,8 @@ export default function Ina2Flow() {
                         : "높음"
                     }`}
                   />
+				  
+				  
                 )}
                 {usage && (
                   <Chip
