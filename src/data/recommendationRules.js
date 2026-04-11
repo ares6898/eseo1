@@ -13,6 +13,7 @@ export const RECOMMENDATION_RULES = {
       heavy: [
         { name: "E4", variant: "기본" },
         { name: "컴포트맥스", variant: "KAN" },
+		  { name: "XR", variant: "기본" },
       ],
       normal: [
         { name: "E2", variant: "기본" },
@@ -28,6 +29,7 @@ export const RECOMMENDATION_RULES = {
       heavy: [
         { name: "컴포트맥스", variant: "KAN" },
         { name: "피지오", variant: "기본" },
+		  { name: "XR", variant: "기본" },
       ],
       normal: [
         { name: "E2", variant: "기본" },
@@ -45,8 +47,8 @@ export const RECOMMENDATION_RULES = {
         { name: "XR", variant: "기본" },
       ],
       normal: [
-        { name: "컴포트맥스", variant: "KAN" },
-        { name: "피지오", variant: "기본" },
+        { name: "E3", variant: "기본" },
+        { name: "E4", variant: "기본" },
       ],
       light: [
         { name: "국산실속형", variant: "C0" },
@@ -61,7 +63,7 @@ export const RECOMMENDATION_RULES = {
       heavy: [
         { name: "로하스", variant: "기본" },
         { name: "와이드Z", variant: "기본" },
-		        { name: "XR", variant: "기본" },
+		{ name: "XR", variant: "기본" },
 
       ],
       normal: [
