@@ -91,8 +91,8 @@ export default function PhotoLensPage() {
     {
       brand: "니콘 GenS(S)",
       value: {
-        "1.56": { regular: "25만원", discount: "15만원" },
-        "1.60": { regular: "35만원", discount: "25만원" },
+        "1.56": { regular: "25만원", discount: "20만원" },
+        "1.60": { regular: "35만원", discount: "28만원" },
         "1.67": { regular: "75만원(10일)", discount: "39만원" },
         "1.74": { regular: "95만원(10일)", discount: "49만원" }
       },
@@ -105,8 +105,8 @@ export default function PhotoLensPage() {
     {
       brand: "니콘 GenS 스타일컬러",
       value: {
-        "1.56": { regular: "여벌2일,RX7일", discount: "22만원" },
-        "1.60": { regular: "40만원(7일)", discount: "30만원" },
+        "1.56": { regular: "여벌2일,RX7일", discount: "24만원" },
+        "1.60": { regular: "40만원(7일)", discount: "32만원" },
         "1.67": { regular: "75만원(10일)", discount: "39만원" },
         "1.74": { regular: "95만원(10일)", discount: "49만원" }
       },
