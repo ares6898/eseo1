@@ -63,10 +63,10 @@ export default function PhotoLensPage() {
     {
       brand: "케미 원앤원",
       value: {
-        "1.56": { regular: "8만원", discount: "4만원" },
-        "1.60": { regular: "11만원", discount: "5만원" },
-        "1.67": { regular: "18만원", discount: "12만원" },
-        "1.74": { regular: "30만원", discount: "19만원" }
+        "1.56": { regular: "8만원", discount: "5.5만원" },
+        "1.60": { regular: "12만원", discount: "10만원" },
+        "1.67": { regular: "18만원", discount: "14만원" },
+        "1.74": { regular: "35만원", discount: "22만원" }
       },
       label: "케미 원앤원",
       brandCode: "chemi11",
