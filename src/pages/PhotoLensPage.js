@@ -120,8 +120,8 @@ export default function PhotoLensPage() {
     {
       brand: "엑스트라엑티브",
       value: {
-        "1.56": { regular: "33만원(10일)", discount: "22만원" },
-        "1.60": { regular: "43만원(10일)", discount: "30만원" },
+        "1.56": { regular: "33만원(10일)", discount: "27만원" },
+        "1.60": { regular: "43만원(10일)", discount: "33만원" },
         "1.67": { regular: "-", discount: "6만원" },
         "1.74": { regular: "-", discount: "9만원" }
       },
@@ -129,7 +129,7 @@ export default function PhotoLensPage() {
       brandCode: "ex",
       icon: "🔥최고급",
       color: "orange",
-      tagline: "차 안에서도 변색. 세계에서 가장 진한 변색"
+      tagline: "차 안에서도 변색. 강력한 흠집내구성"
     }
   ];
 
