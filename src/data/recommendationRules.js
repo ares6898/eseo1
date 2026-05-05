@@ -11,49 +11,56 @@ export const RECOMMENDATION_RULES = {
   all: {
     low: {
       heavy: [
-        { name: "E4", variant: "기본" },
         { name: "컴포트맥스", variant: "KAN" },
-		  { name: "XR", variant: "기본" },
+		{ name: "XR", variant: "기본" },
+		{ name: "피지오", variant: "기본" },
       ],
       normal: [
         { name: "E2", variant: "기본" },
         { name: "E3", variant: "기본" },
+		{ name: "E1", variant: "기본" },
       ],
       light: [
         { name: "국산실속형", variant: "C0" },
+		{ name: "국산실속형", variant: "C1" },
         { name: "국산기본형", variant: "C4" },
-        { name: "E2", variant: "기본" },
+        { name: "국산기본형", variant: "C6" },
       ],
     },
     mid: {
       heavy: [
         { name: "컴포트맥스", variant: "KAN" },
-        { name: "피지오", variant: "기본" },
-		  { name: "XR", variant: "기본" },
+        { name: "피지오", variant: "KAN" },
+		{ name: "XR", variant: "기본" },
       ],
       normal: [
         { name: "E2", variant: "기본" },
-        { name: "E4", variant: "기본" },
+        { name: "E3", variant: "기본" },
+		{ name: "E1", variant: "기본" },
       ],
       light: [
         { name: "국산실속형", variant: "C0" },
+		{ name: "국산실속형", variant: "C1" },
         { name: "국산기본형", variant: "C4" },
-        { name: "E2", variant: "기본" },
+        { name: "국산기본형", variant: "C6" },
       ],
     },
     high: {
       heavy: [
         { name: "피지오", variant: "기본" },
         { name: "XR", variant: "기본" },
+		{ name: "컴포트맥스", variant: "KAN" },
       ],
       normal: [
+        { name: "E2", variant: "기본" },
         { name: "E3", variant: "기본" },
-        { name: "E4", variant: "기본" },
+		{ name: "E1", variant: "기본" },
       ],
       light: [
         { name: "국산실속형", variant: "C0" },
+		{ name: "국산실속형", variant: "C1" },
         { name: "국산기본형", variant: "C4" },
-        { name: "E2", variant: "기본" },
+        { name: "국산기본형", variant: "C6" },
       ],
     },
   },
@@ -69,45 +76,51 @@ export const RECOMMENDATION_RULES = {
       normal: [
         { name: "E2", variant: "기본" },
         { name: "E3", variant: "기본" },
+		{ name: "E1", variant: "기본" },
       ],
       light: [
         { name: "국산실속형", variant: "C0" },
+		{ name: "국산실속형", variant: "C1" },
         { name: "국산기본형", variant: "C4" },
-        { name: "E2", variant: "기본" },
+        { name: "국산기본형", variant: "C6" },
       ],
     },
     mid: {
       heavy: [
         { name: "로하스", variant: "기본" },
         { name: "와이드Z", variant: "기본" },
-		        { name: "XR", variant: "기본" },
+		{ name: "XR", variant: "기본" },
 
       ],
       normal: [
         { name: "E2", variant: "기본" },
         { name: "E3", variant: "기본" },
+		{ name: "E1", variant: "기본" },
       ],
       light: [
         { name: "국산실속형", variant: "C0" },
+		{ name: "국산실속형", variant: "C1" },
         { name: "국산기본형", variant: "C4" },
-        { name: "E2", variant: "기본" },
+        { name: "국산기본형", variant: "C6" },
       ],
     },
     high: {
       heavy: [
         { name: "로하스", variant: "기본" },
         { name: "와이드Z", variant: "기본" },
-		        { name: "XR", variant: "기본" },
+		{ name: "XR", variant: "기본" },
 
       ],
       normal: [
         { name: "E2", variant: "기본" },
         { name: "E3", variant: "기본" },
+		{ name: "E1", variant: "기본" },
       ],
       light: [
         { name: "국산실속형", variant: "C0" },
+		{ name: "국산실속형", variant: "C1" },
         { name: "국산기본형", variant: "C4" },
-        { name: "E2", variant: "기본" },
+        { name: "국산기본형", variant: "C6" },
       ],
     },
   },
@@ -116,46 +129,55 @@ export const RECOMMENDATION_RULES = {
     low: {
       heavy: [
         { name: "와이드Z", variant: "기본" },
+		{ name: "씨맥스Z", variant: "기본" },
         { name: "XR", variant: "기본" },
       ],
       normal: [
         { name: "E2", variant: "기본" },
         { name: "E3", variant: "기본" },
+		{ name: "E1", variant: "기본" },
       ],
       light: [
         { name: "국산실속형", variant: "C0" },
+		{ name: "국산실속형", variant: "C1" },
         { name: "국산기본형", variant: "C4" },
-        { name: "E2", variant: "기본" },
+        { name: "국산기본형", variant: "C6" },
       ],
     },
     mid: {
       heavy: [
         { name: "와이드Z", variant: "기본" },
+		{ name: "씨맥스Z", variant: "기본" },
         { name: "XR", variant: "기본" },
       ],
       normal: [
         { name: "E2", variant: "기본" },
-        { name: "E4", variant: "기본" },
+        { name: "E3", variant: "기본" },
+		{ name: "E1", variant: "기본" },
       ],
       light: [
         { name: "국산실속형", variant: "C0" },
+		{ name: "국산실속형", variant: "C1" },
         { name: "국산기본형", variant: "C4" },
-        { name: "E2", variant: "기본" },
+        { name: "국산기본형", variant: "C6" },
       ],
     },
     high: {
       heavy: [
         { name: "와이드Z", variant: "기본" },
+		{ name: "씨맥스Z", variant: "기본" },
         { name: "XR", variant: "기본" },
       ],
-      normal: [	  
+      normal: [
+        { name: "E2", variant: "기본" },
         { name: "E3", variant: "기본" },
-        { name: "E4", variant: "기본" },
+		{ name: "E1", variant: "기본" },
       ],
       light: [
         { name: "국산실속형", variant: "C0" },
+		{ name: "국산실속형", variant: "C1" },
         { name: "국산기본형", variant: "C4" },
-        { name: "E2", variant: "기본" },
+        { name: "국산기본형", variant: "C6" },
 		
       ],
     },
