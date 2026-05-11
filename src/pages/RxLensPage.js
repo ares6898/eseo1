@@ -1255,8 +1255,8 @@ function ResultStep({
                         {mode === "category"
                           ? `${i + 1}번 제품`
                           : isMain
-                          ? "정밀 추천"
-                          : "상위 추천"}
+                          ? "추천"
+                          : "추천"}
                       </div>
                     </div>
 
