@@ -58,8 +58,8 @@ const CATEGORY_GROUPS = {
   
     { name: "국산실속형", variant: "C0" },
     { name: "국산실속형", variant: "C1" },
-    { name: "국산기본형", variant: "C4" },
-    { name: "국산기본형", variant: "C6" },
+    { name: "국산고급형", variant: "C4" },
+    { name: "국산고급형", variant: "C6" },
     
   ],
 };
