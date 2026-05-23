@@ -87,6 +87,45 @@ const LensPopup = ({ brand, onClose }) => {
       review: "“하루종일 선명함이 유지되요.”"
     },
 	
+	hodu: {
+      name: "듀얼세이프 - 호야",
+      logo: "/logos/hoya-logo.jpg",
+      image: ["/images/hodu.jpg"],
+      description: [
+        { icon: <Star className="inline w-5 h-5 mr-1 text-yellow-500" />, text: "블루라이트, 자외선차단" },
+        { icon: <Shield className="inline w-5 h-5 mr-1 text-blue-500" />, text: "강력한 내구성" },
+        { icon: <Sparkles className="inline w-5 h-5 mr-1 text-indigo-500" />, text: "합리적인 가격" }
+      ],
+      recommendation: "호야렌즈의 기본형렌즈",
+      review: "“안경테는 달라도 안경렌즈는 역시 호야”"
+    },
+	
+	honu: {
+      name: "뉴럭스FC - 호야",
+      logo: "/logos/hoya-logo.jpg",
+      image: ["/images/hoya-2.jpg"],
+      description: [
+        { icon: <Star className="inline w-5 h-5 mr-1 text-yellow-500" />, text: "블루라이트, 자외선차단" },
+        { icon: <Shield className="inline w-5 h-5 mr-1 text-blue-500" />, text: "강력한 내구성" },
+        { icon: <Sparkles className="inline w-5 h-5 mr-1 text-indigo-500" />, text: "오염물질 차단" }
+      ],
+      recommendation: "호야렌즈의 대표제품",
+      review: "“안경테는 달라도 안경렌즈는 역시 호야”"
+    },
+	
+	honurx: {
+      name: "뉴럭스RX - 호야",
+      logo: "/logos/hoya-logo.jpg",
+      image: ["/images/homc.png"],
+      description: [
+        { icon: <Star className="inline w-5 h-5 mr-1 text-yellow-500" />, text: "착용자 4명중 3명이 매일 편안한 시야를 경험함" },
+        { icon: <Shield className="inline w-5 h-5 mr-1 text-blue-500" />, text: "블루라이트 69% 감소" },
+        { icon: <Sparkles className="inline w-5 h-5 mr-1 text-indigo-500" />, text: "최상위 코팅과 비구면설계" }
+      ],
+      recommendation: "비구면설계. 뛰어난 피로감소와 강력한 내구성",
+      review: "“하루종일 선명함이 유지되요.”"
+    },
+	
 	
 	
     chemi11: {
