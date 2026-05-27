@@ -8,6 +8,74 @@
    - 구조: 추천DB -> addLevel -> usage -> 추천배열
    ========================================================= */
 export const RECOMMENDATION_RULES = {
+	
+ hoya: {
+    low: {
+      heavy: [
+        { name: "다이나믹프리미엄KR", variant: "인디비주얼" },
+        { name: "발란시스", variant: "기본" },
+		{ name: "발란시스KR", variant: "기본" },
+		
+      ],
+      normal: [
+        { name: "AM플러스", variant: "기본" },
+        { name: "다이나믹써미트KR", variant: "기본" },
+		{ name: "다이나믹프리미엄KR", variant: "기본" },
+		
+      ],
+      light: [
+        { name: "AM맥스", variant: "기본" },
+		{ name: "AM클래식", variant: "기본" },
+        { name: "국산고급형", variant: "C4" },
+        { name: "국산실속형", variant: "C1" },
+      ],
+    },
+    mid: {
+      heavy: [
+        { name: "다이나믹프리미엄KR", variant: "인디비주얼" },
+        { name: "발란시스", variant: "기본" },
+		{ name: "발란시스KR", variant: "기본" },
+      ],
+      normal: [
+        { name: "AM플러스", variant: "기본" },
+        { name: "다이나믹써미트KR", variant: "기본" },
+		{ name: "다이나믹프리미엄KR", variant: "기본" },
+		
+      ],
+      light: [
+        { name: "AM맥스", variant: "기본" },
+		{ name: "AM클래식", variant: "기본" },
+        { name: "국산고급형", variant: "C4" },
+        { name: "국산실속형", variant: "C1" },
+      ],
+    },
+    high: {
+      heavy: [
+        { name: "다이나믹프리미엄KR", variant: "인디비주얼" },
+        { name: "발란시스", variant: "기본" },
+		{ name: "발란시스KR", variant: "기본" },
+		
+      ],
+      normal: [
+        { name: "AM플러스", variant: "기본" },
+        { name: "다이나믹써미트KR", variant: "기본" },
+		{ name: "다이나믹프리미엄KR", variant: "기본" },
+		
+      ],
+      light: [
+        { name: "AM맥스", variant: "기본" },
+		{ name: "AM클래식", variant: "기본" },
+        { name: "국산고급형", variant: "C4" },
+        { name: "국산실속형", variant: "C1" },
+      ],
+    },
+  },
+	
+	
+	
+	
+	
+	
   all: {
     low: {
       heavy: [
