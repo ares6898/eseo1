@@ -37,6 +37,18 @@ const CATEGORY_GROUPS = {
 	{ name: "어드밴스Z", variant: "기본" },
   ],
   
+  호야: [
+    { name: "발란시스KR", variant: "기본" },
+	{ name: "발란시스", variant: "기본" },
+    { name: "다이나믹프리미엄KR", variant: "기본" },
+    { name: "다이나믹써미트KR", variant: "기본" },
+	{ name: "AM플러스", variant: "기본" },
+	{ name: "AM맥스", variant: "기본" },
+	{ name: "AM클래식", variant: "기본" },
+
+	
+  ],
+  
   밸런스형: [
     { name: "E4", variant: "기본" },
     { name: "E3", variant: "기본" },
@@ -71,6 +83,21 @@ const CATEGORY_GROUPS = {
    - key 는 추천규칙 DB(RECOMMENDATION_RULES)와 반드시 일치해야 함
    ========================================================= */
 const DATABASE_OPTIONS = [
+  
+  {
+    key: "hoya",
+    title: "이달의 프로모션",
+    desc: "할인데이터 기준 추천",
+    color:
+      "bg-red-100 border-red-300 text-red-900 hover:bg-red-200 hover:border-red-400",
+  },
+  {
+    key: "first",
+    title: "첫 누진다초점 솔루션",
+    desc: "누진다초점 입문",
+    color:
+      "bg-yellow-100 border-yellow-300 text-yellow-900 hover:bg-yellow-200 hover:border-yellow-400",
+  },
   {
     key: "all",
     title: "글로벌 데이터",
@@ -85,13 +112,10 @@ const DATABASE_OPTIONS = [
     color:
       "bg-emerald-100 border-emerald-300 text-emerald-900 hover:bg-emerald-200 hover:border-emerald-400",
   },
-  {
-    key: "first",
-    title: "첫 누진다초점 솔루션",
-    desc: "누진다초점 입문",
-    color:
-      "bg-yellow-100 border-yellow-300 text-yellow-900 hover:bg-yellow-200 hover:border-yellow-400",
-  },
+  
+  
+  
+  
 ];
 
 
