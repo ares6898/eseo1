@@ -63,10 +63,10 @@ export default function PhotoLensPage() {
     {
       brand: "케미 원앤원",
       value: {
-        "1.56": { regular: "8만원(모노머)", discount: "5.5만원" },
-        "1.60": { regular: "12만원(스핀)", discount: "10만원" },
-        "1.67": { regular: "18만원(스핀)", discount: "14만원" },
-        "1.74": { regular: "35만원(스핀)", discount: "22만원" }
+        "1.56": { regular: "8만원", discount: "4만원" },
+        "1.60": { regular: "11만원", discount: "5만원" },
+        "1.67": { regular: "18만원", discount: "12만원" },
+        "1.74": { regular: "30만원", discount: "19만원" }
       },
       label: "케미 원앤원",
       brandCode: "chemi11",
@@ -75,40 +75,40 @@ export default function PhotoLensPage() {
       tagline: "모노머 변색"
     },
     {
-      brand: "니콘 T클래식",
+      brand: "호야 센서티2(구면)",
       value: {
-        "1.56": { regular: "15만원", discount: "13만원" },
-        "1.60": { regular: "22만원", discount: "19만원" },
+        "1.56": { regular: "15만원", discount: "10만원" },
+        "1.60": { regular: "20만원", discount: "15만원" },
         "1.67": { regular: "-", discount: "16만원" },
         "1.74": { regular: "-", discount: "24만원" }
       },
-      label: "니콘 T클래식",
-      brandCode: "chemip",
+      label: "호야 센서티2",
+      brandCode: "shi",
       icon: "⭐ 고기능",
       color: "purple",
       tagline: "스핀코팅변색"
     },
     {
-      brand: "니콘 GenS(S)",
+      brand: "호야 센서티2 (비구면)",
       value: {
-        "1.56": { regular: "25만원", discount: "20만원" },
-        "1.60": { regular: "35만원", discount: "28만원" },
-        "1.67": { regular: "75만원(10일)", discount: "39만원" },
-        "1.74": { regular: "95만원(10일)", discount: "49만원" }
+        "1.56": { regular: "20만원", discount: "15만원" },
+        "1.60": { regular: "30만원", discount: "19만원" },
+        "1.67": { regular: "34만원", discount: "37.5만원" },
+        "1.74": { regular: "-", discount: "47.5만원" }
       },
-      label: "니콘GenS(S)",
-      brandCode: "sensity",
+      label: "호야 센서티2 (비구면)",
+      brandCode: "snu",
       icon: "🌟 베스트",
       color: "yellow",
-      tagline: "가장 빠른 변색"
+      tagline: "스핀코팅+비구면"
     },
     {
       brand: "니콘 GenS 스타일컬러",
       value: {
-        "1.56": { regular: "여벌2일,RX7일", discount: "24만원" },
-        "1.60": { regular: "40만원(7일)", discount: "32만원" },
-        "1.67": { regular: "75만원(10일)", discount: "39만원" },
-        "1.74": { regular: "95만원(10일)", discount: "49만원" }
+        "1.56": { regular: "30만원(7일)", discount: "21만원" },
+        "1.60": { regular: "40만원(7일)", discount: "28만원" },
+        "1.67": { regular: "75만원(10일)", discount: "45만원" },
+        "1.74": { regular: "95만원(10일)", discount: "57만원" }
       },
       label: "니콘GenS (RX)",
       brandCode: "gens",
@@ -120,8 +120,8 @@ export default function PhotoLensPage() {
     {
       brand: "엑스트라엑티브",
       value: {
-        "1.56": { regular: "33만원(10일)", discount: "27만원" },
-        "1.60": { regular: "43만원(10일)", discount: "33만원" },
+        "1.56": { regular: "33만원(10일)", discount: "23만원" },
+        "1.60": { regular: "43만원(10일)", discount: "30만원" },
         "1.67": { regular: "-", discount: "6만원" },
         "1.74": { regular: "-", discount: "9만원" }
       },
@@ -129,7 +129,7 @@ export default function PhotoLensPage() {
       brandCode: "ex",
       icon: "🔥최고급",
       color: "orange",
-      tagline: "차 안에서도 변색. 강력한 흠집내구성"
+      tagline: "차 안에서도 변색. 세계에서 가장 진한 변색"
     }
   ];
 
