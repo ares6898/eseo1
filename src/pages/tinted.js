@@ -75,33 +75,20 @@ export default function tinted() {
       tagline: "안질환 수술 후 보안경, 눈보호"
     },
     {
-      brand: "IR 기본커브85%",
-      value: {
-        "1.56": { regular: "9만원", discount: "5만원" },
-        "1.60": { regular: "12만원", discount: "6만원" },
-        "1.67": { regular: "17만원", discount: "8.5만원" },
-        "1.74": { regular: "30만원 그레이만가능", discount: "17만원" }
-      },
-      label: "IR 기본커브85%",
-      brandCode: "ir85",
-      icon: "⭐ 선글라스",
-      color: "purple",
-      tagline: "기본커브 선글라스"
-    },
-    {
-      brand: "IR 하이커브85%",
+      brand: "IR 선글라스85%",
       value: {
         "1.56": { regular: "11만원", discount: "5.5만원" },
         "1.60": { regular: "14만원", discount: "6.5만원" },
         "1.67": { regular: "19만원", discount: "9만원" },
-        "1.74": { regular: "-", discount: "만원" }
+        "1.74": { regular: "30만원 그레이만가능", discount: "17만원" }
       },
-      label: "IR 하이커브85%",
-      brandCode: "ir85h",
-      icon: "🌟 선글라스",
-      color: "yellow",
-      tagline: "커브가 강한 선글라스"
+      label: "IR 선글라스85%",
+      brandCode: "ir85",
+      icon: "⭐ 선글라스",
+      color: "purple",
+      tagline: "선글라스"
     },
+    
     {
       brand: "미러 하이커브",
       value: {
@@ -130,6 +117,21 @@ export default function tinted() {
       icon: "🔥주문제작",
       color: "orange",
       tagline: "하이커브,미러 1만원씩추가"
+    },
+	
+	{
+      brand: "호야 블루라이트",
+      value: {
+        "1.56": { regular: "20만원", discount: "11만원" },
+        "1.60": { regular: "25만원", discount: "15만원" },
+        "1.67": { regular: "-", discount: "9만원" },
+        "1.74": { regular: "-", discount: "만원" }
+      },
+      label: "호야 블루라이트",
+      brandCode: "ir85h",
+      icon: "🌟 수입렌즈",
+      color: "yellow",
+      tagline: "강력한 내구도+블루라이트차단"
     }
   ];
 
