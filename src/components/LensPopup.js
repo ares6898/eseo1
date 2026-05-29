@@ -105,9 +105,9 @@ const LensPopup = ({ brand, onClose }) => {
       logo: "/logos/hoya-logo.jpg",
       image: ["/images/hoya-2.jpg"],
       description: [
-        { icon: <Star className="inline w-5 h-5 mr-1 text-yellow-500" />, text: "블루라이트, 자외선차단" },
-        { icon: <Shield className="inline w-5 h-5 mr-1 text-blue-500" />, text: "강력한 내구성" },
-        { icon: <Sparkles className="inline w-5 h-5 mr-1 text-indigo-500" />, text: "오염물질 차단" }
+        { icon: <Star className="inline w-5 h-5 mr-1 text-yellow-500" />, text: "컴퓨터, 스마트폰 블루라이트 차단" },
+        { icon: <Shield className="inline w-5 h-5 mr-1 text-blue-500" />, text: "강력한 내구성 + 정전기방지" },
+        { icon: <Sparkles className="inline w-5 h-5 mr-1 text-indigo-500" />, text: "항균코팅 + 오염물질 차단" }
       ],
       recommendation: "호야렌즈의 대표제품",
       review: "“안경테는 달라도 안경렌즈는 역시 호야”"
@@ -152,6 +152,36 @@ const LensPopup = ({ brand, onClose }) => {
       recommendation: "합리적인 가격의 스핀코팅변색",
       review: "“가성비좋은 보안경으로 추천합니다.”"
     },
+	
+	
+	shi: {
+      name: "센서티2 구면 - 일본 호야",
+      logo: "/images/hoya-logo.jpg",
+      image: "/images/sensity2.png",
+      description: [
+        { icon: <Sparkles className="inline w-5 h-5 mr-1 text-blue-500" />, text: "변색속도 : ⭐⭐⭐ " },
+        { icon: <Sparkles className="inline w-5 h-5 mr-1 text-blue-500" />, text: "변색농도 : ⭐⭐⭐ " },
+        { icon: <Sparkles className="inline w-5 h-5 mr-1 text-blue-500" />, text: "색상 : 그레이🖤, 브라운🤎, 그린💚" }
+      ],
+      recommendation: "합리적인 가격의 스핀코팅변색",
+      review: "“가성비좋은 보안경으로 추천합니다.”"
+    },
+	
+	
+	snu: {
+      name: "센서티2 뉴럭스 - 일본 호야",
+      logo: "/images/hoya-logo.jpg",
+      image: "/images/sensity2.png",
+      description: [
+        { icon: <Sparkles className="inline w-5 h-5 mr-1 text-blue-500" />, text: "변색속도 : ⭐⭐⭐ " },
+        { icon: <Sparkles className="inline w-5 h-5 mr-1 text-blue-500" />, text: "변색농도 : ⭐⭐⭐ " },
+        { icon: <Sparkles className="inline w-5 h-5 mr-1 text-blue-500" />, text: "색상 : 그레이🖤, 브라운🤎, 그린💚" }
+      ],
+      recommendation: "뉴럭스의 비구면기술과 스핀코팅변색의 조화",
+      review: "“안건강을 위한 탁월한 성능.”"
+    },
+	
+	
     sensity: {
       name: "니콘 젠S - 일본 니콘",
       logo: "/logos/nikon.jpg",
