@@ -63,18 +63,26 @@ export default function RefractiveLensPage() {
     {
       brandCode: "chemi2",
       label: "케미 2세대",
-      value: { "1.56": { regular: "6만원", discount: "3만원" }, "1.60": { regular: "10만원", discount: "5만원" }, "1.67": { regular: "16만원", discount: "8만원" }, "1.74": { regular: "20만원", discount: "10만원" } },
-      icon: "👍가성비",
+      value: { "1.56": { regular: "5만원", discount: "3만원" }, 
+	  "1.60": { regular: "9만원", discount: "5만원" }, 
+	  "1.67": { regular: "12만원", discount: "8만원" }, 
+	  "1.74": { regular: "17만원", discount: "10만원" } },
+	  
+      icon: "👍국산",
       color: "green",
 	  tagline: "가성비 최고, 자외선 차단"
     },
     {
-      brandCode: "chemi3",
-      label: "니콘 BLUV",
-      value: { "1.56": { regular: "10만원", discount: "5.5만원" }, "1.60": { regular: "16.5만원", discount: "9만원" }, "1.67": { regular: "25만원", discount: "13만원" }, "1.74": { regular: "-", discount: "0만원" } },
-      icon: "⭐고기능",
+      brandCode: "hodu",
+      label: "호야 듀얼세이프",
+      value: { "1.56": { regular: "10만원", discount: "6만원" }, 
+	  "1.60": { regular: "10만원", discount: "6만원" }, 
+	  "1.67": { regular: "15만원", discount: "9만원" }, 
+	  "1.74": { regular: "-", discount: "0만원" } },
+	  
+      icon: "⭐수입",
       color: "purple",
-	  tagline: "자외선+블루라이트. 비구면설계"
+	  tagline: "강력한 내구도+블루라이트차단"
     }
   ];
 
