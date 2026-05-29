@@ -82,7 +82,7 @@ export default function PhotoLensPage() {
         "1.67": { regular: "-", discount: "16만원" },
         "1.74": { regular: "-", discount: "24만원" }
       },
-      label: "하이럭스",
+      label: "호야하이럭스",
       brandCode: "shi",
       icon: "⭐ 고기능",
       color: "purple",
@@ -96,7 +96,7 @@ export default function PhotoLensPage() {
         "1.67": { regular: "34만원", discount: "37.5만원" },
         "1.74": { regular: "-", discount: "47.5만원" }
       },
-      label: "뉴럭스",
+      label: "호야뉴럭스",
       brandCode: "snu",
       icon: "🌟 베스트",
       color: "yellow",
