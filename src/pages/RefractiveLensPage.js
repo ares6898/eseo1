@@ -66,7 +66,7 @@ export default function PhotoLensPage() {
       value: {
         "1.56": { regular: "5만원", discount: "3만원" },
         "1.60": { regular: "9만원", discount: "5만원" },
-        "1.67": { regular: "12만원", discount: "7만원" },
+        "1.67": { regular: "12만원", discount: "8만원" },
         "1.74": { regular: "17만원", discount: "10만원" }
       },
       label: "케미 2세대",
@@ -75,13 +75,14 @@ export default function PhotoLensPage() {
       color: "yellow",
       tagline: "국산 블루라이트 차단"
     },
-    {
+	
+	{
       brand: "케미 3세대",
       value: {
-        "1.56": { regular: "9만원", discount: "5만원" },
+        "1.56": { regular: "9만원", discount: "6만원" },
         "1.60": { regular: "12만원", discount: "8만원" },
         "1.67": { regular: "17만원", discount: "11만원" },
-        "1.74": { regular: "21만원", discount: "15만원" }
+        "1.74": { regular: "21만원", discount: "16만원" }
       },
       label: "케미 3세대",
       brandCode: "chemiir",
@@ -90,34 +91,49 @@ export default function PhotoLensPage() {
       tagline: "최신 코팅기술과 설계최적화"
     },
     {
-      brand: "니콘 BLUV",
+      brand: "호야 듀얼세이프",
       value: {
         "1.56": { regular: "10만원", discount: "6만원" },
+        "1.60": { regular: "10만원(구면)", discount: "6만원" },
+        "1.67": { regular: "15만원(비구면)", discount: "9만원" },
+        "1.74": { regular: "-", discount: "15만원" }
+      },
+      label: "호야 듀얼세이프",
+      brandCode: "hodu",
+      icon: "🌟수입 고급형",
+      color: "blue",
+      tagline: "강력한 내구성과 블루라이트차단"
+    },
+    
+	{
+      brand: "니콘 BLUV",
+      value: {
+        "1.56": { regular: "10만원", discount: "7만원" },
         "1.60": { regular: "16.5만원", discount: "11만원" },
         "1.67": { regular: "25만원", discount: "16만원" },
-        "1.74": { regular: "-", discount: "47.5만원" }
+        "1.74": { regular: "-", discount: "0" } // 정가 대시 처리
       },
-      label: "니콘 BLUV 비구면",
+      label: "니콘 BLUV",
       brandCode: "chemi3",
-      icon: "🌟수입 고급형",
+      icon: "⭐수입 고급형",
       color: "purple",
-      tagline: "일본 니콘의 뛰어난 품질"
+      tagline: "유해한 블루라이트만 차단, 비구면으로 왜곡제거"
     },
     // 샘플 다섯 번째 상품
     {
-      brand: "아이젠",
+      brand: "호야 뉴럭스",
       value: {
-        "1.56": { regular: "14만원", discount: "9만원" },
-        "1.60": { regular: "19만원", discount: "15만원" },
-        "1.67": { regular: "40만원(납기7일)", discount: "28만원" },
-        "1.74": { regular: "60만원(납기7일)", discount: "42만원" }
+        "1.56": { regular: "11만원", discount: "7만원" },
+        "1.60": { regular: "16만원", discount: "11만원" },
+        "1.67": { regular: "23만원", discount: "16만원" },
+        "1.74": { regular: "43만원", discount: "23만원" }
       },
-      label: "에실로 아이젠",
-      brandCode: "eyezen",
+      label: "호야 뉴럭스",
+      brandCode: "honu",
       icon: "🔥수입 최고급",
 	  
       color: "orange",
-      tagline: "하루종일 편안한 시야. 강력한 내구성."
+      tagline: "비구면설계+올인원코팅"
 	  
     }
   ];
@@ -211,7 +227,7 @@ export default function PhotoLensPage() {
         <div className="grid grid-cols-[80px_auto] items-start gap-4">
           <div className="font-bold text-gray-600 text-sm pt-2">굴절률</div>
           {/* 컬럼 수를 5로 변경 */}
-          <div className="grid grid-cols-4 gap-2">
+          <div className="grid grid-cols-5 gap-2">
             {priceData.map((item, idx) => {
               const isActive = activeBrandLabel === item.brandCode;
               const color = colorMap[item.color];
@@ -257,7 +273,7 @@ export default function PhotoLensPage() {
                 {row}
               </div>
               {/* 컬럼 수를 5로 변경 */}
-              <div className="grid grid-cols-4 gap-2">
+              <div className="grid grid-cols-5 gap-2">
                 {priceData.map((cell, idx) => (
                   <div
                     key={idx}
@@ -401,7 +417,7 @@ export default function PhotoLensPage() {
       {popupBrand && (
         <>
           <div className="fixed top-2 w-full z-50 text-center">
-            {["hoya", "chemi3"].includes(popupBrand) && (
+            {["hodu", "honu"].includes(popupBrand) && (
               <p className="text-2xl text-center text-yellow-400 font-semibold animate-pulse mt-2 mb-1">
                 🌟 고객 선택률 상위 렌즈
               </p>
