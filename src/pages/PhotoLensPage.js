@@ -75,28 +75,28 @@ export default function PhotoLensPage() {
       tagline: "모노머 변색"
     },
     {
-      brand: "호야 센서티2(구면)",
+      brand: "호야 센서티2",
       value: {
         "1.56": { regular: "15만원", discount: "10만원" },
         "1.60": { regular: "20만원", discount: "15만원" },
         "1.67": { regular: "-", discount: "16만원" },
         "1.74": { regular: "-", discount: "24만원" }
       },
-      label: "호야 센서티2",
+      label: "하이럭스",
       brandCode: "shi",
       icon: "⭐ 고기능",
       color: "purple",
       tagline: "스핀코팅변색"
     },
     {
-      brand: "센서티2 하이럭스",
+      brand: "호야 센서티2",
       value: {
         "1.56": { regular: "20만원", discount: "15만원" },
         "1.60": { regular: "30만원", discount: "19만원" },
         "1.67": { regular: "34만원", discount: "37.5만원" },
         "1.74": { regular: "-", discount: "47.5만원" }
       },
-      label: "센서티2 뉴럭스",
+      label: "뉴럭스",
       brandCode: "snu",
       icon: "🌟 베스트",
       color: "yellow",
