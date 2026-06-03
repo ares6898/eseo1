@@ -98,7 +98,7 @@ const LensPopup = ({ brand, onClose }) => {
 		
       ],
       recommendation: "호야렌즈의 기본형렌즈",
-      review: "1.60:S-6.00 C-2.00 / 1.67:S-8.00 C-2.00"
+      review: "1.60:[-6.00-2.00,+3.00+2.00]  1.67:[-8.00-2.00]"
     },
 	
 	honu: {
@@ -111,7 +111,7 @@ const LensPopup = ({ brand, onClose }) => {
         { icon: <Sparkles className="inline w-5 h-5 mr-1 text-indigo-500" />, text: "항균코팅 + 오염물질 차단" }
       ],
       recommendation: "호야렌즈의 대표제품",
-      review: "[1.55:+-3D-2D][1.60:-5D-3D,+4D-2D][1.67:-7D-3D(합-10D)][1.74:-10D-3D(합-12D)]"
+      review: "🟢1.55:[+-3.00-2.00] 🔵1.60:[-5.00-3.00,+4.00-2.00] 🟡1.67:[-7.00-3.00(합-10.00)]  🟣1.74:[-10.00-3.00(합-12.00)]"
     },
 	
 	honurx: {
