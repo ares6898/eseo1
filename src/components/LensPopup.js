@@ -43,7 +43,7 @@ const LensPopup = ({ brand, onClose }) => {
         { icon: <Sparkles className="inline w-5 h-5 mr-1 text-indigo-500" />, text: "다양한 굴절률 옵션 제공" }
       ],
       recommendation: "안경 교체 주기가 짧거나, 하루 착용 시간이 짧은 고객님께 실속 있는 선택이 됩니다.",
-      review: "“가성비 최고! 아이들안경, 그리고 예비용으로 딱 좋아요.”"
+      review: "기본 생산범위"
     },
 	
 	chemiir: {
@@ -56,7 +56,7 @@ const LensPopup = ({ brand, onClose }) => {
         { icon: <Sparkles className="inline w-5 h-5 mr-1 text-indigo-500" />, text: "다양한 굴절률 옵션 제공" }
       ],
       recommendation: "부담스럽지 않은 가격에 뛰어난 품질.",
-      review: "“기존 안경렌즈보다 더 선명한것 같네요.”"
+      review: "기본 생산범위”"
     },
 	
 	
@@ -71,7 +71,7 @@ const LensPopup = ({ brand, onClose }) => {
         { icon: <Sparkles className="inline w-5 h-5 mr-1 text-indigo-500" />, text: "최신 코팅 기술 적용" }
       ],
       recommendation: "블루라이트 선별적차단 + 자외선차단 + 비구면설계로 수차제어.",
-      review: "“눈 피로가 훨씬 줄었어요. 전보다 더 얇고 또렸해졌어요.”"
+      review: "🟢1.56:[+-4.00-2.00] 🔵1.60:[-8.00-3.00,+6.00-2.00] 🟡1.67:[S-3.00~S-10.00-2.00]"
     },
 	
 	eyezen: {
@@ -84,7 +84,7 @@ const LensPopup = ({ brand, onClose }) => {
         { icon: <Sparkles className="inline w-5 h-5 mr-1 text-indigo-500" />, text: "크리잘코팅으로 유해광선과 스크래치를 강력히 방어" }
       ],
       recommendation: "프리폼 비구면설계. 뛰어난 피로감소와 강력한 내구성",
-      review: "“하루종일 선명함이 유지되요.”"
+      review: "카달로그 확인"
     },
 	
 	hodu: {
@@ -98,7 +98,7 @@ const LensPopup = ({ brand, onClose }) => {
 		
       ],
       recommendation: "호야렌즈의 기본형렌즈",
-      review: "1.60:[-6.00-2.00,+3.00+2.00]  1.67:[-8.00-2.00]"
+      review: "🔵1.60:[-6.00-2.00,+3.00+2.00] 🟡1.67:[-8.00-2.00]"
     },
 	
 	honu: {
@@ -124,7 +124,7 @@ const LensPopup = ({ brand, onClose }) => {
         { icon: <Sparkles className="inline w-5 h-5 mr-1 text-indigo-500" />, text: "최상위 코팅과 비구면설계" }
       ],
       recommendation: "비구면설계. 뛰어난 피로감소와 강력한 내구성",
-      review: "“하루종일 선명함이 유지되요.”"
+      review: "🟢1.55:[+-6.00-4.00] 🔵1.60:[-12.00-6.00,+8.00-6.00] 🟡1.67:[-15.00-4.00, +10.00-4.00]  🟣1.74:[-15.00-5.00, +10.00-5.00]"
     },
 	
 	
@@ -165,7 +165,7 @@ const LensPopup = ({ brand, onClose }) => {
         { icon: <Sparkles className="inline w-5 h-5 mr-1 text-blue-500" />, text: "색상 : 그레이🖤, 브라운🤎, 그린💚" }
       ],
       recommendation: "합리적인 가격의 스핀코팅변색",
-      review: "“가성비좋은 보안경으로 추천합니다.”"
+      review: "🟢1.55:[-6.00-2.00, +4.00-2.00] 🔵1.60:[-6.00-2.00, +4.00-2.00]"
     },
 	
 	
@@ -179,7 +179,7 @@ const LensPopup = ({ brand, onClose }) => {
         { icon: <Sparkles className="inline w-5 h-5 mr-1 text-blue-500" />, text: "색상 : 그레이🖤, 브라운🤎, 그린💚" }
       ],
       recommendation: "뉴럭스의 비구면기술과 스핀코팅변색의 조화",
-      review: "“안건강을 위한 탁월한 성능.”"
+      review: "🟢1.55:[-5.00-2.00, +4.00-2.00] 🔵1.60:[-6.00-2.00, +4.00-2.00] 🟡1.67:[-7.00-2.00]"
     },
 	
 	
@@ -205,7 +205,7 @@ const LensPopup = ({ brand, onClose }) => {
         { icon: <Sparkles className="inline w-5 h-5 mr-1 text-blue-500" />, text: "색상 : 앰버,사파이어,루비 등 카달로그 확인👌 7~10일" }
       ],
       recommendation: "주문제작RX렌즈, 다양한 컬러",
-      review: "“색 빠지는 속도가 기존렌즈와는 차원이 다르네요. 정말빨라요”"
+      review: "여벌🟢1.55:[-5.00-2.00, +3.00-2.00] 🔵1.60:[-6.00-2.00, +3.00-2.00]"
     },
     ex: {
       name: "니콘 엑스트라액티브RX - 일본 니콘",
@@ -217,7 +217,7 @@ const LensPopup = ({ brand, onClose }) => {
         { icon: <Sparkles className="inline w-5 h-5 mr-1 text-blue-500" />, text: "색상 : 그레이🖤 브라운🤎 그린💚 7~10일" }
       ],
       recommendation: "차 안에서도 변색. 세계에서 가장 진한 변색렌즈",
-      review: "“다른 변색렌즈는 차안에서 변하지 않아요. 엑스트라액티브는 차안에서도 변색됩니다.”"
+      review: "🟢1.55:[-10.00-6.00, +8.00-6.00] 🔵1.60:[-12.00-6.00, +8.00-6.00]"
     }
 	
 	
