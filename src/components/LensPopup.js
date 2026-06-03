@@ -95,9 +95,10 @@ const LensPopup = ({ brand, onClose }) => {
         { icon: <Star className="inline w-5 h-5 mr-1 text-yellow-500" />, text: "블루라이트, 자외선차단" },
         { icon: <Shield className="inline w-5 h-5 mr-1 text-blue-500" />, text: "강력한 내구성" },
         { icon: <Sparkles className="inline w-5 h-5 mr-1 text-indigo-500" />, text: "합리적인 가격" }
+		
       ],
       recommendation: "호야렌즈의 기본형렌즈",
-      review: "“안경테는 달라도 안경렌즈는 역시 호야”"
+      review: "1.60:S-6.00 C-2.00 / 1.67:S-8.00 C-2.00"
     },
 	
 	honu: {
@@ -110,7 +111,7 @@ const LensPopup = ({ brand, onClose }) => {
         { icon: <Sparkles className="inline w-5 h-5 mr-1 text-indigo-500" />, text: "항균코팅 + 오염물질 차단" }
       ],
       recommendation: "호야렌즈의 대표제품",
-      review: "“안경테는 달라도 안경렌즈는 역시 호야”"
+      review: "[1.55:+-3D-2D][1.60:-5D-3D,+4D-2D][1.67:-7D-3D(합-10D)][1.74:-10D-3D(합-12D)]"
     },
 	
 	honurx: {
@@ -286,7 +287,7 @@ const LensPopup = ({ brand, onClose }) => {
   </ul>
 </div>
 <div className="text-center text-sm italic text-gray-500 mb-6 px-4 animate-fade-in-slow">
-  <div className="text-xs text-blue-600 font-semibold mb-1">💬 실제 고객 리뷰</div>
+  <div className="text-xs text-blue-600 font-semibold mb-1">💬 생산범위</div>
   {data.review}
 </div>
 <div className="text-center mt-8">
