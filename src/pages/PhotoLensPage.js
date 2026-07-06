@@ -78,7 +78,7 @@ export default function PhotoLensPage() {
       brand: "호야 센서티2",
       value: {
         "1.56": { regular: "15만원", discount: "10만원" },
-        "1.60": { regular: "20만원", discount: "15만원" },
+        "1.60": { regular: "20만원", discount: "12만원" },
         "1.67": { regular: "-", discount: "16만원" },
         "1.74": { regular: "-", discount: "24만원" }
       },
@@ -91,9 +91,9 @@ export default function PhotoLensPage() {
     {
       brand: "호야 센서티2",
       value: {
-        "1.56": { regular: "20만원", discount: "15만원" },
-        "1.60": { regular: "30만원", discount: "19만원" },
-        "1.67": { regular: "34만원", discount: "37.5만원" },
+        "1.56": { regular: "20만원", discount: "12만원" },
+        "1.60": { regular: "30만원", discount: "17만원" },
+        "1.67": { regular: "34만원", discount: "19만원" },
         "1.74": { regular: "-", discount: "47.5만원" }
       },
       label: "호야 뉴럭스",
@@ -105,10 +105,10 @@ export default function PhotoLensPage() {
     {
       brand: "니콘 GenS 스타일컬러",
       value: {
-        "1.56": { regular: "30만원(7일)", discount: "21만원" },
-        "1.60": { regular: "40만원(7일)", discount: "28만원" },
-        "1.67": { regular: "75만원(10일)", discount: "45만원" },
-        "1.74": { regular: "95만원(10일)", discount: "57만원" }
+        "1.56": { regular: "30만원(7일)", discount: "17만원" },
+        "1.60": { regular: "40만원(7일)", discount: "23만원" },
+        "1.67": { regular: "75만원(10일)", discount: "39만원" },
+        "1.74": { regular: "95만원(10일)", discount: "53만원" }
       },
       label: "니콘GenS (RX)",
       brandCode: "gens",
@@ -120,8 +120,8 @@ export default function PhotoLensPage() {
     {
       brand: "엑스트라엑티브",
       value: {
-        "1.56": { regular: "33만원(10일)", discount: "23만원" },
-        "1.60": { regular: "43만원(10일)", discount: "30만원" },
+        "1.56": { regular: "33만원(10일)", discount: "17만원" },
+        "1.60": { regular: "43만원(10일)", discount: "23만원" },
         "1.67": { regular: "-", discount: "6만원" },
         "1.74": { regular: "-", discount: "9만원" }
       },
