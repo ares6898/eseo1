@@ -9,63 +9,61 @@
    ========================================================= */
 export const RECOMMENDATION_RULES = {
 	
- hoya: {
+ VEP: {
     low: {
       heavy: [
-        { name: "다이나믹프리미엄KR", variant: "인디비주얼" },
-        { name: "발란시스", variant: "기본" },
-		{ name: "발란시스KR", variant: "기본" },
+        { name: "XR", variant: "기본" },
+        { name: "XRFit", variant: "기본" },
+		
 		
       ],
       normal: [
-        { name: "AM플러스", variant: "기본" },
-        { name: "다이나믹써미트KR", variant: "기본" },
-		{ name: "다이나믹프리미엄KR", variant: "기본" },
+        { name: "피지오", variant: "Kan" },
+        { name: "피지오", variant: "기본" },
+		
 		
       ],
       light: [
-        { name: "AM맥스", variant: "기본" },
-		{ name: "AM클래식", variant: "기본" },
-        { name: "국산고급형", variant: "C4" },
+        { name: "E4", variant: "기본" },
+		{ name: "E2", variant: "기본" },
         { name: "국산실속형", variant: "C1" },
       ],
     },
     mid: {
       heavy: [
-        { name: "다이나믹프리미엄KR", variant: "인디비주얼" },
-        { name: "발란시스", variant: "기본" },
-		{ name: "발란시스KR", variant: "기본" },
+        { name: "XR", variant: "기본" },
+        { name: "XRFit", variant: "기본" },
+		
+		
       ],
       normal: [
-        { name: "AM플러스", variant: "기본" },
-        { name: "다이나믹써미트KR", variant: "기본" },
-		{ name: "다이나믹프리미엄KR", variant: "기본" },
+        { name: "피지오", variant: "Kan" },
+        { name: "피지오", variant: "기본" },
+		
 		
       ],
       light: [
-        { name: "AM맥스", variant: "기본" },
-		{ name: "AM클래식", variant: "기본" },
-        { name: "국산고급형", variant: "C4" },
+        { name: "E4", variant: "기본" },
+		{ name: "E2", variant: "기본" },
         { name: "국산실속형", variant: "C1" },
       ],
     },
     high: {
       heavy: [
-        { name: "다이나믹프리미엄KR", variant: "인디비주얼" },
-        { name: "발란시스", variant: "기본" },
-		{ name: "발란시스KR", variant: "기본" },
+        { name: "XR", variant: "기본" },
+        { name: "XRFit", variant: "기본" },
+		
 		
       ],
       normal: [
-        { name: "AM플러스", variant: "기본" },
-        { name: "다이나믹써미트KR", variant: "기본" },
-		{ name: "다이나믹프리미엄KR", variant: "기본" },
+        { name: "피지오", variant: "Kan" },
+        { name: "피지오", variant: "기본" },
+		
 		
       ],
       light: [
-        { name: "AM맥스", variant: "기본" },
-		{ name: "AM클래식", variant: "기본" },
-        { name: "국산고급형", variant: "C4" },
+        { name: "E4", variant: "기본" },
+		{ name: "E2", variant: "기본" },
         { name: "국산실속형", variant: "C1" },
       ],
     },
@@ -76,64 +74,65 @@ export const RECOMMENDATION_RULES = {
 	
 	
 	
-  all: {
+  VN: {
     low: {
       heavy: [
-        { name: "컴포트맥스", variant: "KAN" },
-		{ name: "피지오", variant: "기본" },
-		{ name: "XR", variant: "기본" },
+        { name: "씨맥스Z", variant: "기본" },
+        { name: "씨맥스얼티밋", variant: "기본" },
+		
+		
       ],
       normal: [
-        { name: "컴포트맥스", variant: "기본" },
-        { name: "컴포트맥스", variant: "KAN" },
+        { name: "파워Z", variant: "기본" },
+        { name: "와이드Z", variant: "기본" },
+		
+		
       ],
       light: [
-        { name: "실속형PB국산", variant: "C0" },
-		{ name: "기본형PB국산", variant: "C1" },
-        { name: "고급형PB국산", variant: "C4" },
-        { name: "고급형PB수입", variant: "E2" },
+        { name: "어드밴스Z", variant: "기본" },
+		{ name: "E2", variant: "기본" },
+        { name: "국산실속형", variant: "C1" },
       ],
     },
     mid: {
       heavy: [
-	    { name: "피지오", variant: "기본" },
-        { name: "피지오", variant: "KAN" },
-		{ name: "XR", variant: "기본" },
+	    { name: "씨맥스Z", variant: "기본" },
+        { name: "씨맥스얼티밋", variant: "기본" },
+		
+		
       ],
       normal: [
-        { name: "컴포트맥스", variant: "기본" },
-        { name: "컴포트맥스", variant: "KAN" },
-	    { name: "피지오", variant: "기본" },
+        { name: "파워Z", variant: "기본" },
+        { name: "와이드Z", variant: "기본" },
+		
 		
       ],
       light: [
-        { name: "실속형PB국산", variant: "C0" },
-		{ name: "기본형PB국산", variant: "C1" },
-        { name: "고급형PB국산", variant: "C4" },
-        { name: "고급형PB수입", variant: "E2" },
+        { name: "어드밴스Z", variant: "기본" },
+		{ name: "E2", variant: "기본" },
+        { name: "국산실속형", variant: "C1" },
       ],
     },
     high: {
       heavy: [
-        { name: "피지오", variant: "KAN" },
-        { name: "XR", variant: "기본" },
+        { name: "씨맥스Z", variant: "기본" },
+        { name: "씨맥스얼티밋", variant: "기본" },
 		
       ],
       normal: [
-        { name: "컴포트맥스", variant: "KAN" },
-        { name: "피지오", variant: "기본" },
+        { name: "파워Z", variant: "기본" },
+        { name: "와이드Z", variant: "기본" },
 		
       ],
       light: [
-        { name: "실속형PB국산", variant: "C0" },
-		{ name: "기본형PB국산", variant: "C1" },
-        { name: "고급형PB국산", variant: "C4" },
-        { name: "고급형PB수입", variant: "E2" },
+        { name: "어드밴스Z", variant: "기본" },
+		{ name: "E2", variant: "기본" },
+        { name: "국산실속형", variant: "C1" },
       ],
     },
   },
 
- first: {
+ H: {
     low: {
       heavy: [
         { name: "피지오", variant: "기본" },
