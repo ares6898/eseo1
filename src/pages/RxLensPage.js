@@ -24,6 +24,7 @@ const REFRACTIVE_OPTIONS = ["1.50", "1.60", "1.67", "1.74"];
    ========================================================= */
 const CATEGORY_GROUPS = {
   바리락스: [
+    { name: "XRFit", variant: "기본" },
     { name: "XR", variant: "기본" },
     { name: "피지오", variant: "기본" },
     { name: "컴포트맥스", variant: "KAN" },
@@ -85,30 +86,30 @@ const CATEGORY_GROUPS = {
 const DATABASE_OPTIONS = [
   
   {
-    key: "hoya",
-    title: "이달의 프로모션",
-    desc: "할인데이터 기준 추천",
+    key: "VEP",
+    title: "Pro-V+EP only",
+    desc: "balance design",
     color:
       "bg-red-100 border-red-300 text-red-900 hover:bg-red-200 hover:border-red-400",
   },
   {
-    key: "first",
-    title: "첫 누진다초점 솔루션",
-    desc: "누진다초점 입문",
+    key: "VN",
+    title: "Pro-V+N only",
+    desc: "balance + soft design",
     color:
       "bg-yellow-100 border-yellow-300 text-yellow-900 hover:bg-yellow-200 hover:border-yellow-400",
   },
   {
-    key: "all",
-    title: "글로벌 데이터",
-    desc: "myopia, 근용중심, 하드디자인 경험자",
+    key: "H",
+    title: "Pro-HO only",
+    desc: "soft design",
     color:
       "bg-blue-100 border-blue-300 text-blue-900 hover:bg-blue-200 hover:border-blue-400",
   },
   {
-    key: "value",
-    title: "소프트디자인DB",
-    desc: "hyperopia, 소프트디자인 경험자",
+    key: "VH",
+    title: "Pro-HO+PB",
+    desc: "soft + hard design",
     color:
       "bg-emerald-100 border-emerald-300 text-emerald-900 hover:bg-emerald-200 hover:border-emerald-400",
   },
