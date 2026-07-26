@@ -24,9 +24,11 @@ export const RECOMMENDATION_RULES = {
 		
       ],
       light: [
-        { name: "E4", variant: "기본" },
-		{ name: "E2", variant: "기본" },
-        { name: "국산실속형", variant: "C1" },
+        { name: "PB마스터형", variant: "기본" },
+		{ name: "PB프리미엄", variant: "기본" },
+		{ name: "PB고급형", variant: "기본" },
+		{ name: "PB기본형", variant: "기본" },
+		{ name: "국산실속형", variant: "C1" },
       ],
     },
     mid: {
@@ -43,9 +45,11 @@ export const RECOMMENDATION_RULES = {
 		
       ],
       light: [
-        { name: "E4", variant: "기본" },
-		{ name: "E2", variant: "기본" },
-        { name: "국산실속형", variant: "C1" },
+        { name: "PB마스터형", variant: "기본" },
+		{ name: "PB프리미엄", variant: "기본" },
+		{ name: "PB고급형", variant: "기본" },
+		{ name: "PB기본형", variant: "기본" },
+		{ name: "국산실속형", variant: "C1" },
       ],
     },
     high: {
@@ -62,9 +66,11 @@ export const RECOMMENDATION_RULES = {
 		
       ],
       light: [
-        { name: "E4", variant: "기본" },
-		{ name: "E2", variant: "기본" },
-        { name: "국산실속형", variant: "C1" },
+        { name: "PB마스터형", variant: "기본" },
+		{ name: "PB프리미엄", variant: "기본" },
+		{ name: "PB고급형", variant: "기본" },
+		{ name: "PB기본형", variant: "기본" },
+		{ name: "국산실속형", variant: "C1" },
       ],
     },
   },
@@ -135,107 +141,110 @@ export const RECOMMENDATION_RULES = {
  H: {
     low: {
       heavy: [
-        { name: "피지오", variant: "기본" },
-		{ name: "XR", variant: "기본" },
+        { name: "발란시스KR", variant: "인디비주얼" },
+		{ name: "라이프스타일", variant: "기본" },
 
       ],
-      normal: [
-        { name: "로하스", variant: "기본" },
-        { name: "와이드Z", variant: "기본" },
+     normal: [
+        { name: "발란시스", variant: "기본" },
+        { name: "발란시스KR", variant: "기본" },
       ],
       light: [
-        { name: "실속형PB국산", variant: "C0" },
-		{ name: "기본형PB국산", variant: "C1" },
-        { name: "고급형PB국산", variant: "C4" },
-        { name: "고급형PB수입", variant: "E2" },
+        { name: "AM클래식", variant: "기본" },
+		{ name: "AM맥스", variant: "기본" },
+        { name: "AM플러스", variant: "기본" },
+        { name: "다이나믹써미트KR", variant: "기본" },
       ],
     },
     mid: {
       heavy: [
-        { name: "피지오", variant: "기본" },
-		{ name: "XR", variant: "기본" },
-
+        { name: "라이프스타일", variant: "기본" },
+		{ name: "MS프로파일", variant: "기본" },
+        
       ],
       normal: [
-        { name: "로하스", variant: "기본" },
-        { name: "와이드Z", variant: "기본" },
+        { name: "발란시스", variant: "기본" },
+        { name: "발란시스KR", variant: "기본" },
       ],
       light: [
-        { name: "실속형PB국산", variant: "C0" },
-		{ name: "기본형PB국산", variant: "C1" },
-        { name: "고급형PB국산", variant: "C4" },
-        { name: "고급형PB수입", variant: "E2" },
+        { name: "AM클래식", variant: "기본" },
+		{ name: "AM맥스", variant: "기본" },
+        { name: "AM플러스", variant: "기본" },
+        { name: "다이나믹써미트KR", variant: "기본" },
       ],
     },
     high: {
       heavy: [
-        { name: "피지오", variant: "기본" },
-		{ name: "XR", variant: "기본" },
-
+        { name: "라이프스타일", variant: "기본" },
+		{ name: "MS프로파일", variant: "기본" },
+        
       ],
       normal: [
-        { name: "로하스", variant: "기본" },
-        { name: "와이드Z", variant: "기본" },
+        { name: "발란시스KR", variant: "기본" },
+        { name: "발란시스", variant: "기본" },
       ],
       light: [
-        { name: "실속형PB국산", variant: "C0" },
-		{ name: "기본형PB국산", variant: "C1" },
-        { name: "고급형PB국산", variant: "C4" },
-        { name: "고급형PB수입", variant: "E2" },
+        { name: "AM클래식", variant: "기본" },
+		{ name: "AM맥스", variant: "기본" },
+        { name: "AM플러스", variant: "기본" },
+        { name: "다이나믹써미트KR", variant: "기본" },
       ],
     },
   },
 
-  value: {
+  VH: {
     low: {
       heavy: [
-        { name: "와이드Z", variant: "기본" },
-		{ name: "씨맥스Z", variant: "기본" },
-        { name: "XR", variant: "기본" },
+        { name: "발란시스KR", variant: "인디비주얼" },
+		{ name: "라이프스타일", variant: "기본" },
+        
       ],
       normal: [
-        { name: "로하스", variant: "기본" },
-        { name: "와이드Z", variant: "기본" },
+        { name: "발란시스", variant: "기본" },
+        { name: "발란시스KR", variant: "기본" },
       ],
       light: [
-        { name: "실속형PB국산", variant: "C0" },
-		{ name: "기본형PB국산", variant: "C1" },
-        { name: "고급형PB국산", variant: "C4" },
-        { name: "고급형PB수입", variant: "E2" },
+        { name: "PB마스터형", variant: "기본" },
+		{ name: "PB프리미엄", variant: "기본" },
+		{ name: "PB고급형", variant: "기본" },
+		{ name: "PB기본형", variant: "기본" },
+		{ name: "국산실속형", variant: "C1" },
       ],
     },
     mid: {
       heavy: [
-        { name: "와이드Z", variant: "기본" },
-		{ name: "씨맥스Z", variant: "기본" },
-        { name: "XR", variant: "기본" },
+        { name: "라이프스타일", variant: "기본" },
+		{ name: "MS프로파일", variant: "기본" },
+        
       ],
       normal: [
-        { name: "로하스", variant: "기본" },
-        { name: "와이드Z", variant: "기본" },
+        { name: "발란시스", variant: "기본" },
+        { name: "발란시스KR", variant: "기본" },
       ],
       light: [
-        { name: "실속형PB국산", variant: "C0" },
-		{ name: "기본형PB국산", variant: "C1" },
-        { name: "고급형PB국산", variant: "C4" },
-        { name: "고급형PB수입", variant: "E2" },
+        { name: "PB마스터형", variant: "기본" },
+		{ name: "PB프리미엄", variant: "기본" },
+		{ name: "PB고급형", variant: "기본" },
+		{ name: "PB기본형", variant: "기본" },
+		{ name: "국산실속형", variant: "C1" },
       ],
     },
     high: {
       heavy: [
-        { name: "와이드Z", variant: "기본" },
-		{ name: "씨맥스Z", variant: "기본" },
-        { name: "XR", variant: "기본" },
+        { name: "라이프스타일", variant: "기본" },
+		{ name: "MS프로파일", variant: "기본" },
+        
       ],
       normal: [
-        { name: "로하스", variant: "기본" },
-        { name: "와이드Z", variant: "기본" },
+        { name: "발란시스KR", variant: "기본" },
+        { name: "발란시스", variant: "기본" },
       ],
       light: [
-        { name: "실속형PB국산", variant: "C0" },
-		{ name: "기본형PB국산", variant: "C1" },
-        { name: "고급형PB국산", variant: "C4" },
-        { name: "고급형PB수입", variant: "E2" },
+        { name: "PB마스터형", variant: "기본" },
+		{ name: "PB프리미엄", variant: "기본" },
+		{ name: "PB고급형", variant: "기본" },
+		{ name: "PB기본형", variant: "기본" },
+		{ name: "국산실속형", variant: "C1" },
 		
       ],
     },
