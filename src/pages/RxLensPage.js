@@ -39,6 +39,8 @@ const CATEGORY_GROUPS = {
   ],
   
   호야: [
+    { name: "MS프로파일", variant: "기본" },
+    { name: "라이프스타일", variant: "기본" },
     { name: "발란시스KR", variant: "기본" },
 	{ name: "발란시스", variant: "기본" },
     { name: "다이나믹프리미엄KR", variant: "기본" },
@@ -57,11 +59,11 @@ const CATEGORY_GROUPS = {
 	{ name: "E1", variant: "기본" },
   ],
   
-  펜탁스: [
-    { name: "마스터E", variant: "기본" },
-    { name: "슈퍼A", variant: "기본" },
-    { name: "스마트A", variant: "기본" },
-    { name: "퍼스트A", variant: "기본" },
+  이노티PB: [
+    { name: "PB마스터형", variant: "기본" },
+    { name: "PB프리미엄", variant: "기본" },
+    { name: "PB고급형", variant: "기본" },
+    { name: "PB기본형", variant: "기본" },
   ],
   
   
@@ -74,6 +76,13 @@ const CATEGORY_GROUPS = {
     { name: "국산고급형", variant: "C4" },
     { name: "국산고급형", variant: "C6" },
     
+  ],
+  
+  펜탁스: [
+    { name: "마스터E", variant: "기본" },
+    { name: "슈퍼A", variant: "기본" },
+    { name: "스마트A", variant: "기본" },
+    { name: "퍼스트A", variant: "기본" },
   ],
 };
 
@@ -93,6 +102,13 @@ const DATABASE_OPTIONS = [
       "bg-red-100 border-red-300 text-red-900 hover:bg-red-200 hover:border-red-400",
   },
   {
+    key: "VH",
+    title: "Pro-HO+PB",
+    desc: "soft + hard design",
+    color:
+      "bg-emerald-100 border-emerald-300 text-emerald-900 hover:bg-emerald-200 hover:border-emerald-400",
+  },
+  {
     key: "VN",
     title: "Pro-V+N only",
     desc: "balance + soft design",
@@ -106,13 +122,7 @@ const DATABASE_OPTIONS = [
     color:
       "bg-blue-100 border-blue-300 text-blue-900 hover:bg-blue-200 hover:border-blue-400",
   },
-  {
-    key: "VH",
-    title: "Pro-HO+PB",
-    desc: "soft + hard design",
-    color:
-      "bg-emerald-100 border-emerald-300 text-emerald-900 hover:bg-emerald-200 hover:border-emerald-400",
-  },
+  
   
   
   
