@@ -45,8 +45,8 @@ const CATEGORY_GROUPS = {
 	{ name: "발란시스", variant: "기본" },
     { name: "다이나믹프리미엄KR", variant: "기본" },
     { name: "다이나믹써미트KR", variant: "기본" },
-	{ name: "AM플러스", variant: "기본" },
-	{ name: "AM맥스", variant: "기본" },
+	{ name: "AMM컨트롤", variant: "기본" },
+	{ name: "AMM메이리오", variant: "기본" },
 	{ name: "AM클래식", variant: "기본" },
 
 	
@@ -93,10 +93,18 @@ const CATEGORY_GROUPS = {
    - key 는 추천규칙 DB(RECOMMENDATION_RULES)와 반드시 일치해야 함
    ========================================================= */
 const DATABASE_OPTIONS = [
-  
+
+{
+    key: "H",
+    title: "Pro-HO only",
+    desc: "soft design + balance design",
+    color:
+      "bg-blue-100 border-blue-300 text-blue-900 hover:bg-blue-200 hover:border-blue-400",
+  },
+	
   {
     key: "VEP",
-    title: "Pro-V+EP only",
+    title: "Pro-V+PB",
     desc: "balance design",
     color:
       "bg-red-100 border-red-300 text-red-900 hover:bg-red-200 hover:border-red-400",
@@ -115,13 +123,7 @@ const DATABASE_OPTIONS = [
     color:
       "bg-yellow-100 border-yellow-300 text-yellow-900 hover:bg-yellow-200 hover:border-yellow-400",
   },
-  {
-    key: "H",
-    title: "Pro-HO only",
-    desc: "soft design",
-    color:
-      "bg-blue-100 border-blue-300 text-blue-900 hover:bg-blue-200 hover:border-blue-400",
-  },
+  
   
   
   
