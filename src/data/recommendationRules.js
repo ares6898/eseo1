@@ -146,14 +146,16 @@ export const RECOMMENDATION_RULES = {
 
       ],
      normal: [
-        { name: "발란시스", variant: "기본" },
-        { name: "발란시스KR", variant: "기본" },
+		 { name: "다이나믹써미트KR", variant: "기본" },
+		 { name: "발란시스", variant: "기본" },
+		 { name: "발란시스KR", variant: "기본" },		 
       ],
       light: [
+		  { name: "국산실속형", variant: "C1" },
         { name: "AM클래식", variant: "기본" },
 		{ name: "AMM메이리오", variant: "기본" },
         { name: "AMM컨트롤", variant: "기본" },
-        { name: "다이나믹써미트KR", variant: "기본" },
+        
       ],
     },
     mid: {
@@ -165,12 +167,14 @@ export const RECOMMENDATION_RULES = {
       normal: [
         { name: "발란시스", variant: "기본" },
         { name: "발란시스KR", variant: "기본" },
+		{ name: "다이나믹써미트KR", variant: "기본" }, 
       ],
       light: [
+		  { name: "국산실속형", variant: "C1" },
         { name: "AM클래식", variant: "기본" },
 		{ name: "AMM메이리오", variant: "기본" },
         { name: "AMM컨트롤", variant: "기본" },
-        { name: "다이나믹써미트KR", variant: "기본" },
+       
       ],
     },
     high: {
@@ -182,12 +186,14 @@ export const RECOMMENDATION_RULES = {
       normal: [
         { name: "발란시스KR", variant: "기본" },
         { name: "발란시스", variant: "기본" },
+		{ name: "다이나믹써미트KR", variant: "기본" },
       ],
       light: [
+		  { name: "국산실속형", variant: "C1" },
        { name: "AM클래식", variant: "기본" },
 		{ name: "AMM메이리오", variant: "기본" },
         { name: "AMM컨트롤", variant: "기본" },
-        { name: "다이나믹써미트KR", variant: "기본" },
+        
       ],
     },
   },
