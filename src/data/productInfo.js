@@ -885,12 +885,10 @@ C1: {
         },
 
         premiumCoatingRegularPrices: {
-          "1.60": "5만원",
-          "1.67": "5만원",
+         
         },
         premiumCoatingSalePrices: {
-          "1.60": "1만원",
-          "1.67": "1만원",
+          
         },
       },
 
@@ -946,12 +944,10 @@ C1: {
         },
 
         premiumCoatingRegularPrices: {
-          "1.60": "5만원",
-          "1.67": "5만원",
+         
         },
         premiumCoatingSalePrices: {
-          "1.60": "1만원",
-          "1.67": "1만원",
+          
         },
       },
     },
@@ -977,9 +973,9 @@ C1: {
           "1.67": "74만원",
         },
         salePrices: {
-          "1.50": "24만원",
-          "1.60": "29만원",
-          "1.67": "34만원",
+          "1.50": "26만원",
+          "1.60": "31만원",
+          "1.67": "36만원",
         },
 
         tintRegularPrices: {
@@ -1005,12 +1001,10 @@ C1: {
         },
 
         premiumCoatingRegularPrices: {
-          "1.60": "5만원",
-          "1.67": "5만원",
+          
         },
         premiumCoatingSalePrices: {
-          "1.60": "1만원",
-          "1.67": "1만원",
+          
         },
       },
 	  
