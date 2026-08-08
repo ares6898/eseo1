@@ -108,9 +108,9 @@ export default function PhotoLensPage() {
 	{
       brand: "니콘 BLUV",
       value: {
-        "1.56": { regular: "10만원", discount: "7만원" },
-        "1.60": { regular: "16.5만원", discount: "11만원" },
-        "1.67": { regular: "25만원", discount: "16만원" },
+        "1.56": { regular: "10만원", discount: "6만원" },
+        "1.60": { regular: "16.5만원", discount: "8만원" },
+        "1.67": { regular: "25만원", discount: "11만원" },
         "1.74": { regular: "-", discount: "0" } // 정가 대시 처리
       },
       label: "니콘 BLUV",
